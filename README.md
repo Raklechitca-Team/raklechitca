@@ -16,6 +16,7 @@ ____
 - [Vue VSCode Snippets](https://marketplace.visualstudio.com/items?itemName=sdras.vue-vscode-snippets) - плагин VUE.
 
 > __(*)__ - эти плюшки устанавливаются при установке NuxtJS через терминал.
+
 > Vue VSCode Snippets обязательно установить
 ____
 ## Build Setup
