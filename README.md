@@ -1,45 +1,55 @@
-# raklechitca
+# #РАКЛЕЧИТСЯ
 
-Проект Благотворительного Фонда Константина Хабенского и Leo Burnett Moscow.
+[Проект Благотворительного Фонда Константина Хабенского и Leo Burnett Moscow.](https://raklechitsa.ru/)
+
+![#РАКЛЕЧИТСЯ](https://sun9-58.userapi.com/c855232/v855232835/22a676/sYPS_oNEbhM.jpg)
 ____
-## В чем цель проекта
 
-Наша задача переписать сайт собранный в конструкторе, для реализации более сложной механики.
+## Цель Фонда
+
+Благотворительный Фонд Константина Хабенского с 2008 года помогает детям с онкологическими и другими тяжелыми заболеваниями головного мозга.
+____
+
+## Авторы проекта
+
+- Егор Шкиря
+- Полина Задорожная
+- Варя Лиханина
+- Мария Котлярова
+- Батыров Малик
+____
+## В чем заключается наша задача
+
+Переписать сайт собранный в конструкторе, для реализации более сложной механики.
 ____
 ## Что используется для разработки
 
 - [NodeJS](https://nodejs.org/en/download/) - это серверная платформа для работы с JavaScript через движок V8, используется version 12.
 - [NuxtJS](https://nuxtjs.org/) - фреймворк для универсальных приложений на Vue.js.
-- axios — чтобы в будущем получать данные по API.(*) 
-- prettier  — чтобы автоматически форматировать наш код.(*)
+- axios — чтобы в будущем получать данные по API.
+- prettier  — чтобы автоматически форматировать наш код.
 - [husky](https://www.npmjs.com/package/husky) - позволяет задействовать хуки Git.
-- [Vue VSCode Snippets](https://marketplace.visualstudio.com/items?itemName=sdras.vue-vscode-snippets) - плагин VUE.
-
-> __(*)__ - эти плюшки устанавливаются при установке NuxtJS через терминал.
-
-> Vue VSCode Snippets обязательно установить
 ____
-## Build Setup
+## Настройка сборки
 
 ```bash
-# install dependencies
+# Делаем клон репозитория
+$ git clone https://github.com/Raklechitca-Team/raklechitca.git
+
+# установка зависимостей
 $ npm install
 
-# serve with hot reload at localhost:3000
+# локальный сервер для препросмотра
 $ npm run dev
 
-# build for production and launch server
+# сборка для производства и запуска сервера
 $ npm run build 
 $ npm run start
 
-# generate static project
+# генерация веб-приложения
 $ npm run generate
 ```
+____
 
-For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
-____
-## Команда для устаноки репозитория
-```
-$ git clone https://github.com/Raklechitca-Team/raklechitca.git
-```
-____
+
+
