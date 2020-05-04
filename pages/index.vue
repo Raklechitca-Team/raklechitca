@@ -1,11 +1,18 @@
 <template>
   <div class="container">
     <h1>Hello</h1>
+    <app-footer />
   </div>
 </template>
 
 <script>
-export default {};
+import Footer from '@/components/Footer';
+export default {
+  name: 'index',
+  components: {
+    'app-footer': Footer,
+  },
+};
 </script>
 
 <style>
