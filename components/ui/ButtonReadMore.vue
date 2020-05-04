@@ -21,6 +21,8 @@ export default {
   font-size: 14px;
   line-height: 39px;
   padding: 0 30px;
+  cursor: pointer;
+  transition: 0.2s linear;
 }
 
 .button__read-more:hover,
@@ -29,7 +31,6 @@ export default {
   color: #000000;
   border-color: #000000;
   outline: none;
-  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out,
-    border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  transition: 0.2s linear;
 }
 </style>

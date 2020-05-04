@@ -8,14 +8,14 @@
 
 <script>
 import Header from '@/components/Header';
-import Button_readMoreVue from '../../components/ui/Button_read-more.vue';
-import Cover_size_sQuestionMarkVue from '../../components/Cover_size_s(question mark).vue';
+import ButtonReadMore from '../../components/ui/ButtonReadMore.vue';
+import CoverSizeSmall from '../../components/CoverSizeSmall.vue';
 export default {
   name: 'stories',
   components: {
     'app-header': Header,
-    'bt-read-more': Button_readMoreVue,
-    'cover-qm': Cover_size_sQuestionMarkVue,
+    'bt-read-more': ButtonReadMore,
+    'cover-qm': CoverSizeSmall,
   },
 };
 </script>
