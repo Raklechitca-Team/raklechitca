@@ -1,19 +1,15 @@
 <template>
   <div class="container">
     <app-header />
-
-    <app-footer />
   </div>
 </template>
 
 <script>
 import Header from '@/components/Header';
-import Footer from '@/components/Footer';
 export default {
   name: 'index',
   components: {
     'app-header': Header,
-    'app-footer': Footer,
   },
 };
 </script>

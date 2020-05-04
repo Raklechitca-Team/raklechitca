@@ -4,8 +4,13 @@
       <a href="/" class="header__link header__link_active">ГЛАВНАЯ</a>
       <a href="/about" class="header__link">О ПРОЕКТЕ</a>
       <a href="/stories" class="header__link">ИСТОРИИ</a>
-      <button href="" class=" button header__button">
+      <button href="" class="button header__button">
         Рассказать свою историю
+      </button>
+    </nav>
+    <nav class="burger-menu">
+      <button class="burger-menu__button">
+        <img class="burger-menu__icon" src="@/static/burger-menu.svg" />
       </button>
     </nav>
   </header>
@@ -21,7 +26,6 @@ export default {
 .header {
   max-width: 1440px;
   width: 100%;
-  height: 7vh;
   background-color: #ffffff;
   display: flex;
   position: fixed;
@@ -31,16 +35,54 @@ export default {
   padding: 0;
   border: 0;
   justify-content: flex-end;
-}
-
-@media screen and (max-width: 980px) {
-  .header {
-    display: none;
-  }
+  box-shadow: 0px 1px 5px -2px rgba(0, 0, 0, 0.45);
 }
 
 .menu {
   width: 697px;
+}
+
+@media screen and (max-width: 979px) {
+  .menu {
+    display: none;
+  }
+}
+
+.burger-menu {
+  position: absolute;
+  right: 20px;
+  top: 0;
+  align-content: center;
+  justify-content: center;
+}
+
+@media screen and (min-width: 980px) {
+  .burger-menu {
+    display: none;
+  }
+}
+
+.burger-menu__button {
+  border: none;
+  color: transparent;
+  cursor: pointer;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.burger-menu__button:focus {
+  outline: none !important;
+}
+
+.burger-menu__icon {
+  width: 22px;
+  height: 14px;
+
+  margin: auto;
+  align-self: center;
 }
 
 .header__link {
