@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <app-header />
-    <h1>Hello</h1>
+
     <app-footer />
   </div>
 </template>
@@ -21,12 +21,12 @@ export default {
 <style>
 .container {
   margin: 0 auto;
-  min-height: 100vh;
+  height: 100vh;
   display: flex;
+  position: relative;
   justify-content: center;
   align-items: center;
   text-align: center;
-  background-color: #582b71;
 }
 .title {
   font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,

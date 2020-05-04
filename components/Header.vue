@@ -21,10 +21,10 @@ export default {
 .header {
   max-width: 1440px;
   width: 100%;
-  height: 45px;
+  height: 7vh;
   background-color: #ffffff;
   display: flex;
-  position: absolute;
+  position: fixed;
   top: 0;
   align-items: center;
   margin: 0;
