@@ -49,7 +49,6 @@ export default {
 }
 
 .burger-menu {
-  position: absolute;
   right: 20px;
   top: 0;
   align-content: center;
