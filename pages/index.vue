@@ -1,15 +1,18 @@
 <template>
   <div class="container">
+    <app-header />
     <h1>Hello</h1>
     <app-footer />
   </div>
 </template>
 
 <script>
+import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 export default {
   name: 'index',
   components: {
+    'app-header': Header,
     'app-footer': Footer,
   },
 };
@@ -18,15 +21,16 @@ export default {
 <style>
 .container {
   margin: 0 auto;
-  min-height: 100vh;
+  height: 100vh;
   display: flex;
+  position: relative;
   justify-content: center;
   align-items: center;
   text-align: center;
 }
 .title {
   font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
-    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    'Segoe UI', 'Roboto', 'Helvetica Neue', 'Intro', 'Arial', sans-serif;
   display: block;
   font-weight: 300;
   font-size: 100px;
