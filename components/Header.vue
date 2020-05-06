@@ -29,6 +29,7 @@ export default {
   background-color: #ffffff;
   display: flex;
   position: fixed;
+  flex-wrap: nowrap;
   top: 0;
   align-items: center;
   margin: 0;
@@ -38,8 +39,10 @@ export default {
   box-shadow: 0px 1px 5px -2px rgba(0, 0, 0, 0.45);
 }
 
-.menu {
-  width: 697px;
+@media screen and (max-width: 979px) {
+  .header {
+    box-shadow: none;
+  }
 }
 
 @media screen and (max-width: 979px) {
@@ -53,6 +56,7 @@ export default {
   top: 0;
   align-content: center;
   justify-content: center;
+  box-shadow: none;
 }
 
 @media screen and (min-width: 980px) {
