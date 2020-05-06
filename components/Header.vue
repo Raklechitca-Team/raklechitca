@@ -1,12 +1,12 @@
 <template>
   <header class="header">
+    <p class="header__paragraph">
+      Проект Благотворительного Фонда Константина Хабенского
+    </p>
     <nav class="menu">
-      <a href="/" class="header__link header__link_active">ГЛАВНАЯ</a>
-      <a href="/about" class="header__link">О ПРОЕКТЕ</a>
-      <a href="/stories" class="header__link">ИСТОРИИ</a>
-      <button href="" class="button header__button">
-        Рассказать свою историю
-      </button>
+      <a href="/" class="header__link header__link_active">Главная</a>
+      <a href="/about" class="header__link">Истории</a>
+      <a href="/stories" class="header__link">Рассказать историю</a>
     </nav>
     <nav class="burger-menu">
       <button class="burger-menu__button">
@@ -26,29 +26,48 @@ export default {
 .header {
   max-width: 1440px;
   width: 100%;
+  height: 76px;
+  padding: 0 60px;
   background-color: #ffffff;
   display: flex;
   position: fixed;
-  flex-wrap: nowrap;
   top: 0;
   align-items: center;
   margin: 0;
-  padding: 0;
   border: 0;
-  justify-content: flex-end;
-  box-shadow: 0px 1px 5px -2px rgba(0, 0, 0, 0.45);
+  justify-content: space-between;
+  border-bottom: 1px solid #e8e8e8;
+}
+
+.menu {
+  min-width: 400px;
 }
 
 @media screen and (max-width: 979px) {
   .header {
-    box-shadow: none;
+    justify-content: flex-end;
   }
-}
 
-@media screen and (max-width: 979px) {
   .menu {
     display: none;
   }
+
+  .header__paragraph {
+    display: none;
+  }
+}
+
+.header__paragraph {
+  font-family: 'Inter', 'Arial', sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 20px;
+  color: #000000;
+  margin: 18px 0px;
+  text-align: left;
+  max-width: 340px;
+  left: 0;
 }
 
 .burger-menu {
@@ -66,8 +85,9 @@ export default {
 }
 
 .burger-menu__button {
+  background: none;
+  outline: none;
   border: none;
-  color: transparent;
   cursor: pointer;
   width: 48px;
   height: 48px;
@@ -83,69 +103,40 @@ export default {
 .burger-menu__icon {
   width: 22px;
   height: 14px;
-
   margin: auto;
   align-self: center;
 }
 
 .header__link {
-  font-family: 'Intro', 'Arial', sans-serif;
-  font-size: 14px;
-  font-weight: 400;
-  line-height: normal;
+  font-family: 'Inter', 'Arial', sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 24px;
   letter-spacing: normal;
   color: #000000;
   text-decoration: none;
-  margin: 0 25px 0;
+  margin: 0 40px 0 0;
   cursor: pointer;
+  color: #000000;
+}
+
+.header__link:last-child {
+  margin: 0;
 }
 
 .header__link_active {
   text-decoration: none;
-  color: #582b71;
-  opacity: 0.8;
-  border-bottom: 2px solid #582b71;
-  font-weight: 600;
+  border-bottom: 1px solid #000000;
 }
 
 .header__link:hover {
   text-decoration: none;
   color: #582b71;
   opacity: 0.8;
-  border-bottom: 2px solid #582b71;
+  border-bottom: 1px solid #582b71;
   transition: color 0.2s ease-in-out, opacity 0.2s ease-in-out,
     border-bottom 0.1s ease-in-out;
   transition-delay: 0s;
-}
-
-.header__button {
-  display: inline-block;
-  height: 40px;
-  width: 247px;
-  text-align: center;
-  font-family: 'Intro', 'Arial', sans-serif;
-  font-size: 14px;
-  font-weight: 400;
-  line-height: normal;
-  letter-spacing: normal;
-  color: white;
-  text-decoration: none;
-  margin: 3px 30px 3px 40px;
-  padding: 0 30px;
-  border: 3px solid white;
-  background-color: #582b71;
-  cursor: pointer;
-}
-
-.header__button:focus {
-  outline: none !important;
-}
-
-.header__button:hover {
-  background-color: white;
-  border: 3px solid #582b71;
-  color: #582b71;
-  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out,
-    border-color 0.2s ease-in-out;
 }
 </style>
