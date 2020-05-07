@@ -1,64 +1,42 @@
 <template>
   <footer class="footer">
+    <p class="footer__text">Спасибо всем, кто помог состояться этому проекту</p>
+
     <nav class="footer__menu">
-      <p class="footer__tag">#раклечится</p>
       <ul class="footer__links">
         <li class="footer__links-list">
-          <a href="" target="_blank" class="footer__link">
-            <img
-              src="@/static/social/fb.svg"
-              alt="Facebook"
-              class="footer__image footer__image_facebook"
-            />
-          </a>
+          <a href="/" target="_blank" class="footer__link">Главная</a>
         </li>
         <li class="footer__links-list">
-          <a href="" target="_blank" class="footer__link">
-            <img
-              src="@/static/social/vk.svg"
-              alt="VK"
-              class="footer__image footer__image_vk"
-            />
-          </a>
+          <a href="/stories" target="_blank" class="footer__link">Истории</a>
         </li>
-        <li class="footer__links-list">
-          <a href="" target="_blank" class="footer__link">
-            <img
-              src="@/static/social/ok.svg"
-              alt="OK"
-              class="footer__image footer__image_ok"
-            />
-          </a>
+      </ul>
+      <ul class="footer__social">
+        <li class="footer__social-list">
+          <p class="footer__social-list_text">
+            Мы в&nbsp;<a
+              href="https://www.instagram.com/raklechitsa"
+              target="_blank"
+              class="footer__link"
+              >Инстаграме</a
+            >&nbsp;и&nbsp;<a
+              href="https://www.youtube.com/results?search_query=%23%D1%8D%D1%82%D0%BE%D0%BD%D0%B5%D0%BB%D0%B5%D1%87%D0%B8%D1%82%D1%81%D1%8F"
+              target="_blank"
+              class="footer__link"
+              >Youtube</a
+            >
+          </p>
         </li>
-        <li class="footer__links-list">
-          <a href="" target="_blank" class="footer__link">
-            <img
-              src="@/static/social/twitter.svg"
-              alt="Twitter"
-              class="footer__image footer__image_twitter"
-            />
-          </a>
-        </li>
-        <li class="footer__links-list">
-          <a href="" target="_blank" class="footer__link">
-            <img
-              src="@/static/social/youtube.svg"
-              alt="Youtube"
-              class="footer__image footer__image_youtube"
-            />
-          </a>
-        </li>
-        <li class="footer__links-list">
-          <a href="" target="_blank" class="footer__link">
-            <img
-              src="@/static/social/instagram.svg"
-              alt="Instagram"
-              class="footer__image footer__image_instagram"
-            />
-          </a>
+        <li class="footer__social-list">
+          <a href="" target="_blank" class="footer__link">Поделитесь ↗</a>
         </li>
       </ul>
     </nav>
+
+    <div class="footer__content">
+      <p class="footer__content_info">Рак Лечится 2020</p>
+      <p class="footer__content_info">Сделано студентами Яндекс Практикум</p>
+    </div>
   </footer>
 </template>
 
@@ -72,82 +50,211 @@ export default {
 .footer {
   max-width: 1440px;
   width: 100%;
-  height: 123.64px;
-  background-color: #04314a;
-  display: flex;
+  min-height: 356px;
+  background-color: #fff;
   position: absolute;
   bottom: 0;
-  margin: 0 auto;
-  padding: 0 auto;
+  display: flex;
+  padding: 60px;
+  flex-wrap: wrap;
 }
 
-.footer__tag {
-  color: #ffffff;
-  font-size: 22px;
+.footer__text {
+  color: #000000;
+  font-size: 32px;
+  font-family: 'Inter', 'Arial', sans-serif;
+  font-style: normal;
   font-weight: 600;
-  font-family: 'Intro', 'Arial', sans-serif;
-  text-transform: uppercase;
+  line-height: 36px;
+  margin: 0 113px 0 0;
+  max-width: 340px;
+  text-align: left;
+  position: relative;
 }
 
 .footer__menu {
   display: flex;
-  position: relative;
-  width: 560px;
-  height: 34px;
-  align-items: center;
+  max-width: 867px;
+  width: 100%;
   justify-content: space-between;
-  vertical-align: middle;
-  box-sizing: content-box;
-  margin: 30px auto 0;
+}
+
+@media screen and (max-width: 1439px) {
+  .footer__menu {
+    max-width: 700px;
+  }
+}
+
+@media screen and (max-width: 1280px) {
+  .footer {
+    min-height: 316px;
+  }
+
+  .footer__menu {
+    max-width: 600px;
+  }
+
+  .footer__text {
+    font-size: 28px;
+    line-height: 32px;
+    margin: 0 113px 30px 0;
+  }
+
+  .footer__content_info {
+    font-size: 16px;
+    line-height: 18px;
+  }
+
+  .footer__link {
+    font-size: 16px;
+  }
+}
+
+@media screen and (max-width: 630px) {
+  .footer__menu {
+    flex-wrap: wrap;
+  }
+
+  .footer__text {
+    font-size: 24px;
+    line-height: 26px;
+    margin: 0 0 30px 0;
+  }
+
+  .footer__content {
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+
+  .footer__social-list_text {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .footer__content_info {
+    align-self: flex-start;
+    margin: 0 0 20px;
+    text-align: left;
+    font-size: 16px;
+    line-height: 18px;
+  }
+
+  .footer__link {
+    font-size: 16px;
+    margin: 0 0 20px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .footer__menu {
+    max-width: 200px;
+    flex-wrap: wrap;
+  }
+
+  .footer__text {
+    font-size: 20px;
+    line-height: 22px;
+    margin: 0;
+    margin: 0 0 30px;
+  }
+
+  .footer__link {
+    margin: 0 0 20px;
+  }
+
+  .footer__social-list_text {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .footer__content {
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+
+  .footer__content_info {
+    align-self: flex-start;
+    margin: 0 0 20px;
+    text-align: left;
+    font-size: 16px;
+    line-height: 18px;
+  }
+
+  .footer__link {
+    font-size: 16px;
+  }
 }
 
 .footer__links {
   display: flex;
-  list-style-type: none;
-  text-decoration: none;
   padding: 0;
   margin: 0;
+  max-width: 188px;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.footer__social {
+  display: flex;
+  padding: 0;
+  margin: 0;
+  flex-wrap: wrap;
+  list-style-type: none;
+  flex-direction: column;
+  width: auto;
+  width: 300px;
+}
+
+.footer__social-list {
+  padding: 0 0 44px 0;
+}
+
+.footer__social-list_text {
+  font-family: 'Inter', 'Arial', sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 24px;
+  display: flex;
+  text-decoration: none;
+  color: #000000;
+  text-align: left;
 }
 
 .footer__links-list {
   display: flex;
-  justify-content: center;
-  align-content: center;
-  align-items: center;
   margin: 0;
+  list-style-type: none;
 }
 
 .footer__link {
+  font-family: 'Inter', 'Arial', sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 24px;
   display: flex;
-  width: 28px;
-  height: 28px;
-  margin: 0 0 0 10px;
-  justify-content: center;
-  align-content: center;
-  align-items: center;
+  text-decoration: none;
+  color: #000000;
+  text-align: left;
 }
 
-.footer__image {
-  width: 20px;
-  height: 20px;
-  align-self: center;
+.footer__content {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
 }
 
-.footer__image_instagram {
-  width: 30px;
-  height: 30px;
-  margin: 0 0 0 15px;
-}
-
-.footer__image_youtube {
-  width: 30px;
-  height: 30px;
-  margin: 0 0 0 5px;
-}
-
-@media screen and (max-width: 1200px) {
-  .footer__menu {
-    max-width: 460px;
-  }
+.footer__content_info {
+  font-family: 'Inter', 'Arial', sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 18px;
+  color: #898989;
+  align-self: flex-end;
 }
 </style>
