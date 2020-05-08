@@ -72,7 +72,7 @@ export default {
     border: none;
     padding: 0;
     margin: 0;
-    background-color: transparent;
+    background-color: #fff;
   }
 
   .menu {

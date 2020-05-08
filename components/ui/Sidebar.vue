@@ -25,7 +25,7 @@ export default {
   position: fixed;
   align-content: flex-start;
   text-align: right;
-  /* display: none; */
+  display: none;
   z-index: 2;
 }
 

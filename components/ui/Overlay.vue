@@ -20,6 +20,7 @@ export default {
   width: 100vw;
   height: 100vh;
   position: fixed;
+  display: none;
 }
 
 @media screen and (min-width: 980px) {
