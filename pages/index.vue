@@ -21,7 +21,7 @@ export default {
 <style>
 .container {
   margin: 0 auto;
-  height: 1000px;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   position: relative;
