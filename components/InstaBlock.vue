@@ -10,7 +10,7 @@
       </p>
     </div>
     <div class="insta-story__images">
-      <div class="insta-story__image" v-for="el in 8"></div>
+      <div class="insta-story__image" v-for="el in 8" :key="el"></div>
     </div>
   </div>
 </template>
