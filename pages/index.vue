@@ -23,8 +23,8 @@ export default {
   margin: 0 auto;
   height: 100vh;
   display: flex;
+  flex-direction: column;
   position: relative;
-  justify-content: center;
   align-items: center;
   text-align: center;
 }
