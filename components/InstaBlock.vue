@@ -1,73 +1,71 @@
 <template>
-    <div class="insta-story">
-        <div class="insta-story__info">
-                <h2 class="insta-story__title">Инстаграм</h2>
-                <p class="insta-story__prolog">Два раза в неделю мы просматриваем все посты по хештегу #этонелечится. Все истории, где нет нецензурных выражений и запрещенного контента попадают сюда. Следите за правильным написанием хештега, чтобы мы не пропустили вашу историю.</p>
-            </div>
-            <div class="insta-story__images">
-                <div class="insta-story__image"></div>
-                <div class="insta-story__image"></div>
-                <div class="insta-story__image"></div>
-                <div class="insta-story__image"></div>
-                <div class="insta-story__image"></div>
-                <div class="insta-story__image"></div>
-                <div class="insta-story__image"></div>
-                <div class="insta-story__image"></div>
-            </div>
+  <div class="insta-story">
+    <div class="insta-story__info">
+      <h2 class="insta-story__title">Инстаграм</h2>
+      <p class="insta-story__prolog">
+        Два раза в неделю мы просматриваем все посты по хештегу #этонелечится.
+        Все истории, где нет нецензурных выражений и запрещенного контента
+        попадают сюда. Следите за правильным написанием хештега, чтобы мы не
+        пропустили вашу историю.
+      </p>
     </div>
+    <div class="insta-story__images">
+      <div class="insta-story__image" v-for="el in 8"></div>
+    </div>
+  </div>
 </template>
 
 <script>
-    export default {
-        
-    }
+export default {
+  name: 'InstaBlock',
+};
 </script>
 
-<style lang="scss" scoped>
+<style scoped>
 .insta-story {
-    margin: 0 auto;
-    display: flex;
-    max-width: 95%;
-    flex-direction: row;
-    justify-content: space-between;
+  margin: 0 auto;
+  display: flex;
+  max-width: 1440px;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 .insta-story__info {
-    max-width: 26%;
-    flex-direction: column;
+  max-width: 26%;
+  flex-direction: column;
 }
 
 .insta-story__title {
-    margin-top: 0;
-    margin-bottom: 0;
-    padding-bottom: 10px;
-    text-decoration: underline;
-    font-family: "Inter", Arial, sans-serif;
-    font-style: normal;
-    font-weight: 600;
-    font-size: 32px;
-    line-height: 36px;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-bottom: 10px;
+  text-decoration: underline;
+  font-family: 'Inter', Arial, sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 32px;
+  line-height: 36px;
 }
 
 .insta-story__prolog {
-    font-family: "Inter", Arial, sans-serif;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 18px;
-    line-height: 22px;
-    color: #666666;
+  font-family: 'Inter', Arial, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 22px;
+  color: #666666;
 }
 
 .insta-story__images {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-gap: 30px;
-    max-width: 74%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 30px;
+  max-width: 74%;
 }
 
 .insta-story__image {
-    background-color: #EDEDED;
-    height: 195px;
-    width: 195px;
+  background-color: #ededed;
+  height: 195px;
+  width: 195px;
 }
 </style>
