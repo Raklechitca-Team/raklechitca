@@ -13,13 +13,12 @@
 
 <script>
 export default {
-  props: ['url'],
   name: 'VideoIframe',
 };
 </script>
 
 <style scoped>
 .video-iframe {
-  border: 0;
+  border: none;
 }
 </style>
