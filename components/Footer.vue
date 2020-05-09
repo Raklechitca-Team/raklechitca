@@ -51,8 +51,7 @@ export default {
   max-width: 1440px;
   width: 100%;
   min-height: 356px;
-  background-color: #fff;
-  position: absolute;
+  background-color: #fbfbfb;
   bottom: 0;
   display: flex;
   padding: 60px;
