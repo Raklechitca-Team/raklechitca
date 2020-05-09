@@ -1,7 +1,6 @@
 <template>
   <div class="container">
     <app-header />
-    <h1>Hello</h1>
     <app-footer />
   </div>
 </template>

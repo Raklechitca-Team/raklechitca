@@ -1,22 +1,22 @@
 <template>
-    <div class="statistics__bar full-staus-bar">
-        <div class="statistics__bar-value full-staus-bar" :style="style"></div>
-    </div>
+  <div class="statistics__bar full-staus-bar">
+    <div class="statistics__bar-value full-staus-bar" :style="style"></div>
+  </div>
 </template>
 
 <script>
-    export default {
-        name: 'fullBar',
-        props: {
-            value: Number,
-            maxValue: Number
-        },
-        computed: {
-            style() {
-                return `width: ${this.value / this.maxValue * 100}%`
-            }
-        }
-    }
+export default {
+  name: 'fullBar',
+  props: {
+    value: Number,
+    maxValue: Number,
+  },
+  computed: {
+    style() {
+      return `width: ${(this.value / this.maxValue) * 100}%`;
+    },
+  },
+};
 </script>
 
 <style scoped>
