@@ -38,7 +38,7 @@ export default {
   padding: 0 60px;
   background-color: #ffffff;
   display: flex;
-  position: fixed;
+  position: sticky;
   top: 0;
   align-items: center;
   margin: 0;
@@ -67,7 +67,7 @@ export default {
     border: none;
     padding: 0;
     margin: 0;
-    background-color: transparent;
+    background-color: #fff;
   }
   .menu {
     display: none;
