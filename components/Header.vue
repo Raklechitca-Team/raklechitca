@@ -47,25 +47,20 @@ export default {
   border-bottom: 1px solid #e8e8e8;
   z-index: 1;
 }
-
 .menu {
   min-width: 400px;
 }
-
 @media screen and (max-width: 1280px) {
   .header {
     padding: 0 50px;
   }
-
   .header__paragraph {
     line-height: 18px;
   }
-
   .header__link {
     font-size: 16px;
   }
 }
-
 @media screen and (max-width: 979px) {
   .header {
     justify-content: flex-end;
@@ -74,16 +69,13 @@ export default {
     margin: 0;
     background-color: #fff;
   }
-
   .menu {
     display: none;
   }
-
   .header__paragraph {
     display: none;
   }
 }
-
 .header__paragraph {
   font-family: 'Inter', 'Arial', sans-serif;
   font-style: normal;
@@ -96,7 +88,6 @@ export default {
   max-width: 340px;
   left: 0;
 }
-
 .burger-menu__button {
   background: none;
   outline: none;
@@ -109,24 +100,20 @@ export default {
   box-shadow: none;
   margin-left: 50px;
 }
-
 @media screen and (min-width: 980px) {
   .burger-menu__button {
     display: none;
   }
 }
-
 .burger-menu__button:focus {
   outline: none !important;
 }
-
 .burger-menu__icon {
   width: 22px;
   height: 14px;
   margin: auto;
   align-self: center;
 }
-
 .header__link {
   font-family: 'Inter', 'Arial', sans-serif;
   font-style: normal;
@@ -140,16 +127,13 @@ export default {
   cursor: pointer;
   color: #000000;
 }
-
 .header__link:last-child {
   margin: 0;
 }
-
 .header__link_active {
   text-decoration: none;
   border-bottom: 1px solid #000000;
 }
-
 .header__link:hover {
   text-decoration: none;
   color: #582b71;
