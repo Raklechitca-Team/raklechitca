@@ -4,24 +4,29 @@
       Проект Благотворительного Фонда Константина Хабенского
     </p>
     <nav class="menu">
-      <a href="/" class="header__link header__link_active">Главная</a>
-      <a href="/stories/index" class="header__link">Истории</a>
-      <a href="/stories" class="header__link">Рассказать историю</a>
+      <nuxt-link to="/" class="header__link header__link_active"
+        >Главная</nuxt-link
+      >
+      <nuxt-link to="/stories/index" class="header__link">Истории</nuxt-link>
+      <nuxt-link to="/" class="header__link">Рассказать историю</nuxt-link>
     </nav>
     <button class="burger-menu__button">
       <img class="burger-menu__icon" src="@/static/burger-menu.svg" />
     </button>
-    <div class="header__popup">
-      <a href="/" class="header__popup_link">Главная</a>
-      <a href="/stories/index" class="header__popup_link">Истории</a>
-      <a href="/stories" class="header__popup_link">Рассказать историю</a>
-    </div>
+    <app-sidebar />
+    <app-overlay />
   </header>
 </template>
 
 <script>
+import Sidebar from '@/components/ui/Sidebar';
+import Overlay from '@/components/ui/Overlay';
 export default {
   name: 'Header',
+  components: {
+    'app-sidebar': Sidebar,
+    'app-overlay': Overlay,
+  },
 };
 </script>
 
@@ -33,13 +38,14 @@ export default {
   padding: 0 60px;
   background-color: #ffffff;
   display: flex;
-  position: fixed;
+  position: sticky;
   top: 0;
   align-items: center;
   margin: 0;
   border: 0;
   justify-content: space-between;
   border-bottom: 1px solid #e8e8e8;
+  z-index: 1;
 }
 
 .menu {
@@ -66,7 +72,7 @@ export default {
     border: none;
     padding: 0;
     margin: 0;
-    background-color: transparent;
+    background-color: #fff;
   }
 
   .menu {
@@ -76,44 +82,6 @@ export default {
   .header__paragraph {
     display: none;
   }
-}
-
-.header__popup {
-  display: flex;
-  position: absolute;
-  top: 0;
-  flex-direction: column;
-  background-color: #fff;
-  width: 100%;
-  max-width: 250px;
-  height: 100vh;
-  padding: 40px 40px;
-  align-content: flex-start;
-  text-align: right;
-  text-align: center;
-  display: none; /* появится при нажатии на burger-menu__button после реализации скриптов */
-}
-
-.header__popup_link {
-  align-self: flex-end;
-  font-family: 'Inter', 'Arial', sans-serif;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 18px;
-  line-height: 24px;
-  letter-spacing: normal;
-  color: #000000;
-  text-decoration: none;
-  margin: 0 0 20px;
-  cursor: pointer;
-  color: #000000;
-}
-
-.header__popup_link:hover {
-  text-decoration: none;
-  opacity: 0.8;
-  transition: opacity 0.2s ease-in-out;
-  transition-delay: 0s;
 }
 
 .header__paragraph {
@@ -144,10 +112,6 @@ export default {
 
 @media screen and (min-width: 980px) {
   .burger-menu__button {
-    display: none;
-  }
-
-  .header__popup {
     display: none;
   }
 }
