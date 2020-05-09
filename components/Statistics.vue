@@ -26,8 +26,8 @@
           На 28% выросла доля выявления заболеваний на ранней стадии за 10 лет.
         </p>
         <div class="statistics__info">
-          <app-doubleBarWhite :value="35" :maxValue="100"/>
-          <app-doubleBarViolet :value="15" :maxValue="100"/>
+          <app-doubleBarTypeTwo :value="35" :maxValue="100"/>
+          <app-doubleBarTypeFirst :value="15" :maxValue="100"/>
           <p class="statistics__total">&#8593;28%</p>
           <p class="statistics__who">МНИОИ Герцена 2018</p>
         </div>
@@ -38,8 +38,8 @@
           диагноза.
         </p>
         <div class="statistics__info">
-          <app-doubleBarWhite :value="15" :maxValue="100"/>
-          <app-doubleBarViolet :value="35" :maxValue="100"/>
+          <app-doubleBarTypeTwo :value="15" :maxValue="100"/>
+          <app-doubleBarTypeFirst :value="35" :maxValue="100"/>
           <p class="statistics__total">&#8595;25%</p>
           <p class="statistics__who">МНИОИ Герцена 2018</p>
         </div>
@@ -50,13 +50,13 @@
 
 <script>
 import statusBar from '@/components/ui/statusBar';
-import doubleBarWhite from '@/components/ui/doubleBarWhite';
-import doubleBarViolet from '@/components/ui/doubleBarViolet';
+import doubleBarTypeTwo from '@/components/ui/doubleBarTypeTwo';
+import doubleBarTypeFirst from '@/components/ui/doubleBarTypeFirst';
 export default {
     components: {
         'app-statusBar': statusBar,
-        'app-doubleBarWhite': doubleBarWhite,
-        'app-doubleBarViolet': doubleBarViolet,
+        'app-doubleBarTypeTwo': doubleBarTypeTwo,
+        'app-doubleBarTypeFirst': doubleBarTypeFirst,
     }
 };
 </script>
