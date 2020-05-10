@@ -31,4 +31,14 @@ export default {
   opacity: 0.9;
   transition: 0.2s linear;
 }
+
+@media screen and (max-width: 1280px) {
+  .button__fill-form {
+    width: 170px;
+    height: 16px;
+    font-size: 16px;
+    line-height: 19px;
+    padding: 15px 30px;
+  }
+}
 </style>
