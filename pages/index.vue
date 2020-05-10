@@ -1,6 +1,7 @@
 <template>
   <div class="container">
     <app-header />
+    <app-insta />
     <app-footer />
   </div>
 </template>
