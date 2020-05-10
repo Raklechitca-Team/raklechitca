@@ -1,25 +1,36 @@
 <template>
   <div class="container">
-    <h1>Hello</h1>
+    <app-header />
+    <app-insta />
+    <app-footer />
   </div>
 </template>
 
 <script>
-export default {};
+import Header from '@/components/Header';
+import Footer from '@/components/Footer';
+export default {
+  name: 'index',
+  components: {
+    'app-header': Header,
+    'app-footer': Footer,
+  },
+};
 </script>
 
 <style>
 .container {
   margin: 0 auto;
-  min-height: 100vh;
+  height: 100vh;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  position: relative;
   align-items: center;
   text-align: center;
 }
 .title {
   font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
-    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    'Segoe UI', 'Roboto', 'Helvetica Neue', 'Intro', 'Arial', sans-serif;
   display: block;
   font-weight: 300;
   font-size: 100px;
