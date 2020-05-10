@@ -13,7 +13,7 @@
 
 <script>
 export default {
-  props: ['name', 'text', 'url'],
+  props: ['url', 'name', 'text'],
 };
 </script>
 
@@ -25,6 +25,7 @@ export default {
   align-items: flex-start;
   justify-content: flex-start;
   cursor: pointer;
+  font-family: Arial;
   text-align: left;
   font-family: 'Inter', sans-serif;
 }
@@ -50,6 +51,20 @@ export default {
 .card__subtitle {
   font-weight: normal;
   font-size: 14px;
-  line-height: 18px;
+}
+@media screen and (max-width: 1380px) {
+  .card__image-wrapper {
+    height: 265px;
+  }
+}
+@media screen and (max-width: 1240px) {
+  .card__image-wrapper {
+    height: 208px;
+  }
+}
+@media screen and (max-width: 980px) {
+  .card__image-wrapper {
+    height: 216px;
+  }
 }
 </style>
