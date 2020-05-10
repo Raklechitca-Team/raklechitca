@@ -12,7 +12,6 @@
       />
     </button>
     <app-sidebar />
-    <app-overlay />
   </header>
 </template>
 
@@ -24,7 +23,7 @@ export default {
   name: 'Header',
   components: {
     'app-sidebar': Sidebar,
-    'app-overlay': Overlay,
+    overlay: Overlay,
     'app-menu': Menu,
   },
 };

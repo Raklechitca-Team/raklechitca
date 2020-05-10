@@ -14,13 +14,20 @@
       >Истории</nuxt-link
     >
     <nuxt-link to="/stories/index" v-else class="menu__link">Истории</nuxt-link>
-    <nuxt-link to="/" class="menu__link">Рассказать историю</nuxt-link>
+    <button class="menu__button" @click="popupHandler">
+      Рассказать историю
+    </button>
   </nav>
 </template>
 
 <script>
 export default {
   name: 'Menu',
+  methods: {
+    popupHandler() {
+      this.popupShown = !this.popupShown;
+    },
+  },
 };
 </script>
 
@@ -62,6 +69,16 @@ export default {
   transition: color 0.2s ease-in-out, opacity 0.2s ease-in-out,
     border-bottom 0.1s ease-in-out;
   transition-delay: 0s;
+}
+
+.menu__button {
+  font-family: 'Inter', 'Arial', sans-serif;
+  font-size: 18px;
+  line-height: 24px;
+  cursor: pointer;
+  border: 0;
+  margin: 0;
+  padding: 0;
 }
 
 @media screen and (max-width: 1280px) {
