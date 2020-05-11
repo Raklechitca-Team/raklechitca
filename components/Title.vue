@@ -1,6 +1,9 @@
 <template>
   <div class="cover-title">
     <h1 class="cover-title__title">#РАКЛЕЧИТСЯ</h1>
+    <a class="cover-title__svg-link"
+      ><img class="cover-title__svg-down" src="/arrow-down.svg"
+    /></a>
   </div>
 </template>
 
@@ -19,7 +22,7 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 47.9vw;
+  height: 40vw;
   margin: 0 auto;
   color: #fff;
   font-family: 'Inter', Arial, sans-serif;
@@ -28,6 +31,15 @@ export default {
   font-size: 92px;
   line-height: 111px;
 }
+
+.cover-title__svg-down {
+  padding-bottom: 1%;
+}
+
+.cover-title__svg-link:hover {
+  cursor: pointer;
+}
+
 @media screen and (max-width: 1280px) {
   .cover-title__title {
     font-size: calc((100vw - 320px) / (1184 - 320) * (78 - 36) + 36px);
