@@ -3,6 +3,7 @@
     <app-header />
     <app-title />
     <app-video />
+    <app-cover-in-site />
     <app-card />
     <app-insta />
     <app-tell-story />
@@ -16,11 +17,12 @@
 import Header from '@/components/Header';
 import Title from '@/components/Title';
 import Card from '@/components/Card';
+import CoverInSite from '@/components/CoverInSite';
 import Video from '@/components/Video';
 import TellStory from '@/components/TellStory';
 import InstaBlock from '@/components/InstaBlock';
 import Statistics from '@/components/Statistics';
-import Cover from '@/components/ui/Cover';
+import Cover from '@/components/Cover';
 import Footer from '@/components/Footer';
 export default {
   name: 'index',
@@ -28,6 +30,7 @@ export default {
     'app-header': Header,
     'app-title': Title,
     'app-card': Card,
+    'app-cover-in-site': CoverInSite,
     'app-video': Video,
     'app-tell-story': TellStory,
     'app-insta': InstaBlock,

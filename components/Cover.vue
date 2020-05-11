@@ -40,7 +40,6 @@ export default {
   display: flex;
   flex-wrap: wrap;
   width: 100%;
-  max-width: 1440px;
   background-color: #613a93;
 }
 
