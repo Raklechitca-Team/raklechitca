@@ -42,7 +42,6 @@ export default {
   width: 100%;
   max-width: 1440px;
   background-color: #613a93;
-  margin-bottom: 50px;
 }
 
 .cover__title {
@@ -78,7 +77,6 @@ export default {
   width: 92%;
   margin: 0 auto;
   display: flex;
-  flex-wrap: wrap;
   justify-content: space-between;
 }
 

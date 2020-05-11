@@ -23,15 +23,15 @@ export default {
 
 <style scoped>
 .insta-story {
-  margin: 0 auto;
+  margin: 0 auto 100px;
   display: flex;
-  max-width: 1440px;
+  max-width: 91.6%;
   flex-direction: row;
   justify-content: space-between;
 }
 
 .insta-story__info {
-  max-width: 26%;
+  max-width: 25%;
   flex-direction: column;
 }
 
@@ -40,6 +40,7 @@ export default {
   margin-bottom: 0;
   padding-bottom: 10px;
   text-decoration: underline;
+  text-align: left;
   font-family: 'Inter', Arial, sans-serif;
   font-style: normal;
   font-weight: 600;
@@ -48,6 +49,7 @@ export default {
 }
 
 .insta-story__prolog {
+  text-align: left;
   font-family: 'Inter', Arial, sans-serif;
   font-style: normal;
   font-weight: normal;

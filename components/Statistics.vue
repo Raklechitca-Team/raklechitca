@@ -50,13 +50,11 @@
 
 <script>
 import statusBar from '@/components/ui/statusBar';
-import doubleBarTypeTwo from '@/components/ui/doubleBarTypeTwo';
 import miniBar from '@/components/ui/miniBar';
 export default {
   name: 'Statistics',
   components: {
     'app-statusBar': statusBar,
-    'app-doubleBarTypeTwo': doubleBarTypeTwo,
     'app-miniBar': miniBar,
   },
 };
@@ -64,8 +62,8 @@ export default {
 
 <style scoped>
 .statistics {
-  margin: 0 auto;
-  max-width: 1440px;
+  margin: 100px auto 100px;
+  max-width: 91.6%;
   width: 95%;
   display: flex;
   flex-direction: column;

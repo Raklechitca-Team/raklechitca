@@ -1,18 +1,39 @@
 <template>
   <div class="container">
     <app-header />
+    <app-title />
+    <app-video />
+    <app-card />
     <app-insta />
+    <app-tell-story />
+    <app-statistics />
+    <app-cover />
     <app-footer />
   </div>
 </template>
 
 <script>
 import Header from '@/components/Header';
+import Title from '@/components/Title';
+import Card from '@/components/Card';
+import Video from '@/components/Video';
+import TellStory from '@/components/TellStory';
+import InstaBlock from '@/components/InstaBlock';
+import Statistics from '@/components/Statistics';
+import Cover from '@/components/ui/Cover';
 import Footer from '@/components/Footer';
 export default {
   name: 'index',
   components: {
     'app-header': Header,
+    'app-title': Title,
+    'app-card': Card,
+    'app-video': Video,
+    'app-tell-story': TellStory,
+    'app-insta': InstaBlock,
+    'app-tell-story': TellStory,
+    'app-statistics': Statistics,
+    'app-cover': Cover,
     'app-footer': Footer,
   },
 };
