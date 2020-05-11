@@ -25,7 +25,6 @@ export default {
   align-items: flex-start;
   justify-content: flex-start;
   cursor: pointer;
-  font-family: Arial;
   text-align: left;
   font-family: 'Inter', sans-serif;
 }

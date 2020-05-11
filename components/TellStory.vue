@@ -56,7 +56,8 @@ export default {
   },
   methods: {
     selectTab(selectedTab) {
-      (this.currentTab = selectedTab), (this.isActive = !this.isActive);
+      this.currentTab = selectedTab;
+      this.isActive = !this.isActive;
     },
   },
 };

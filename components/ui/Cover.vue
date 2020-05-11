@@ -5,17 +5,23 @@
     </h2>
     <p class="cover__subtitle">О проекте</p>
     <div class="cover__info">
-      <p class="cover__quote">Этот проект был создан благотворительным фондом Константина Хабенского.</p>
+      <p class="cover__quote">
+        Этот проект был создан благотворительным фондом Константина Хабенского.
+      </p>
       <div class="cover__text">
         <div class="cover__author">
           <p class="cover__projcet">Рак Лечится</p>
           <p class="cover__name-project">Фонд Хабенского</p>
         </div>
         <p class="cover__excerpt">
-          Есть вещи, которые не лечатся. Особенности характера, страстные увлечения, привычки, 
-          ставшие частью нашего «я», фобии, которые мы приобрели в детстве. Список можно продолжать до бесконечности, но одна болезнь в него точно не войдет. 
-          Эта болезнь — рак. Рак лечится, и лучшее доказательство — люди с их неизлечимыми особенностями, которые сумели победить рак.
-          Рак лечится — проект Благотворительного Фонда Константина Хабенского и Leo Burnett Moscow. С его помощью мы надеемся изменить отношение людей к раку и заставить каждого поверить: 
+          Есть вещи, которые не лечатся. Особенности характера, страстные
+          увлечения, привычки, ставшие частью нашего «я», фобии, которые мы
+          приобрели в детстве. Список можно продолжать до бесконечности, но одна
+          болезнь в него точно не войдет. Эта болезнь — рак. Рак лечится, и
+          лучшее доказательство — люди с их неизлечимыми особенностями, которые
+          сумели победить рак. Рак лечится — проект Благотворительного Фонда
+          Константина Хабенского и Leo Burnett Moscow. С его помощью мы надеемся
+          изменить отношение людей к раку и заставить каждого поверить:
           онкологическое заболевание — это не приговор.
         </p>
       </div>
@@ -35,7 +41,7 @@ export default {
   flex-wrap: wrap;
   width: 100%;
   max-width: 1440px;
-  background-color: #613A93;
+  background-color: #613a93;
   margin-bottom: 50px;
 }
 
@@ -74,7 +80,6 @@ export default {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-
 }
 
 .cover__quote {
@@ -84,7 +89,7 @@ export default {
   font-weight: normal;
   font-size: 18px;
   line-height: 22px;
-  color: #DEDEDE;
+  color: #dedede;
   font-family: 'Intro', Arial, sans-serif;
 }
 
@@ -101,7 +106,7 @@ export default {
 
 .cover__projcet {
   color: #fff;
-  font-family: "Inter", Arial, sans-serif;
+  font-family: 'Inter', Arial, sans-serif;
   font-style: normal;
   font-weight: 500;
   font-size: 18px;
@@ -109,20 +114,20 @@ export default {
 }
 
 .cover__name-project {
-  font-family: "Inter", Arial, sans-serif;
+  font-family: 'Inter', Arial, sans-serif;
   font-style: normal;
   font-weight: normal;
   font-size: 18px;
   line-height: 22px;
   text-align: right;
-  color: #C9C9C9;
+  color: #c9c9c9;
 }
 
 .cover__excerpt {
   text-align: left;
   max-width: 640px;
-  color: #DEDEDE;
-  font-family: "Inter", Arial, sans-serif;
+  color: #dedede;
+  font-family: 'Inter', Arial, sans-serif;
   font-style: normal;
   font-weight: normal;
   font-size: 18px;
