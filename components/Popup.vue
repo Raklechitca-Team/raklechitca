@@ -1,30 +1,39 @@
 <template>
-  <div class="popup">
-    <img class="close" src="@/static/x.svg" @click="$emit('closeClick')" />
-    <slot>Содержимое окна</slot>
+  <div class="modal-window">
+    <overlay class="modal-window__overlay" />
+    <div class="modal-window__popup">
+      <img class="modal-window__close" src="@/static/x.svg" @click="close" />
+      <slot></slot>
+    </div>
   </div>
 </template>
 
 <script>
+import Overlay from '@/components/ui/Overlay';
 export default {
   name: 'Popup',
+  components: {
+    overlay: Overlay,
+  },
+  props: {
+    close(e) {
+      this.$store.commit('modal/close');
+    },
+  },
 };
 </script>
 
 <style scoped>
-.popup {
+.modal-window__popup {
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 920px;
-  height: 600px;
-  min-height: 300px;
   padding: 40px;
   background-color: #fff;
   z-index: 2;
 }
-.close {
+.modal-window__close {
   position: absolute;
   top: 43px;
   right: 43px;
