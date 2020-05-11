@@ -25,6 +25,7 @@ export default {
 
 <style scoped>
 .modal-window__popup {
+  display: flex;
   position: fixed;
   top: 50%;
   left: 50%;

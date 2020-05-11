@@ -66,6 +66,9 @@ export default {
       this.currentQuestion = this.currentQuestion + 1;
     },
     prevQuestion() {
+      if (this.currentQuestion == 1) {
+        return;
+      }
       this.currentQuestion = this.currentQuestion - 1;
     },
   },
@@ -76,6 +79,8 @@ export default {
 .quiz {
   width: 840px;
   height: 520px;
+  display: flex;
+  flex-direction: column;
 }
 
 .quiz__title {
@@ -101,9 +106,12 @@ export default {
 
 .quiz__input {
   width: 100%;
-  margin: 134px 0 0;
+  max-width: 840px;
+  margin: 0;
   padding: 0 0 10px;
+  position: absolute;
   border: 0;
+  bottom: 292px;
   font-family: 'Inter', 'Arial', sans-serif;
   font-style: normal;
   font-weight: normal;
@@ -120,13 +128,17 @@ export default {
 .quiz__buttons {
   display: flex;
   align-self: flex-start;
-  margin: 200px 0 0;
+  justify-self: flex-end;
+  position: absolute;
+  bottom: 40px;
+  margin: 0;
   width: 334px;
 }
 
 .quiz /deep/ .quiz__button_back {
   margin: 16px 30px;
   color: #c0c0c0;
+  padding: 0;
 }
 
 .quiz /deep/ .quiz__button_back:focus {

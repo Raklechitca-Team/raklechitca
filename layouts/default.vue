@@ -3,7 +3,6 @@
     <app-header />
     <nuxt />
 
-    <!-- popup-->
     <popup v-if="popupShown">
       <quiz />
     </popup>
@@ -26,7 +25,7 @@ export default {
   },
   data() {
     return {
-      popupShown: true,
+      popupShown: false,
     };
   },
   methods: {
@@ -55,5 +54,12 @@ html {
 *:after {
   box-sizing: border-box;
   margin: 0;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  max-width: 1440px;
 }
 </style>
