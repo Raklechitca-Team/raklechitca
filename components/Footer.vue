@@ -56,7 +56,6 @@ export default {
 
 <style scoped>
 .footer {
-  max-width: 1440px;
   margin-right: -60px;
   margin-left: -60px;
   width: calc(100% + 120px);
@@ -64,6 +63,7 @@ export default {
   background-color: #fbfbfb;
   bottom: 0;
   display: flex;
+  position: relative;
   padding: 60px;
   flex-wrap: wrap;
 }

@@ -14,15 +14,19 @@
       >Истории</nuxt-link
     >
     <nuxt-link to="/stories/index" v-else class="menu__link">Истории</nuxt-link>
-    <button class="menu__button" @click="$emit('buttonClick')">
+    <main-button class="menu__button" @buttonClick="$emit('buttonClick')">
       Рассказать историю
-    </button>
+    </main-button>
   </nav>
 </template>
 
 <script>
+import MainButton from '@/components/ui/MainButton';
 export default {
   name: 'Menu',
+  components: {
+    'main-button': MainButton,
+  },
 };
 </script>
 
@@ -65,16 +69,20 @@ export default {
   transition-delay: 0s;
 }
 
-.menu__button {
+.menu /deep/ .main-button {
   font-family: 'Inter', 'Arial', sans-serif;
   font-size: 18px;
   line-height: 24px;
+  width: 182px;
+  height: 24px;
+  font-weight: normal;
   cursor: pointer;
   border: 0;
   margin: 0;
   padding: 0;
   color: #000000;
   border-bottom: 1px solid #fff;
+  background-color: transparent;
 }
 
 .menu__button:hover {

@@ -2,42 +2,42 @@
   <div class="footer-share">
     <section-title class="footer-share__title">Поделитесь</section-title>
     <div class="footer-share__icons">
-      <a href="" class="footer-share__link">
+      <a href="" target="_blank" class="footer-share__link">
         <img
           src="@/static/share/facebook.svg"
           class="footer-share__icon"
           alt="facebook"
         />
       </a>
-      <a href="" class="footer-share__link">
+      <a href="" target="_blank" class="footer-share__link">
         <img
           src="@/static/share/twitter.svg"
           class="footer-share__icon"
           alt="facebook"
         />
       </a>
-      <a href="" class="footer-share__link">
+      <a href="" target="_blank" class="footer-share__link">
         <img
           src="@/static/share/vkontakte.svg"
           class="footer-share__icon"
           alt="facebook"
         />
       </a>
-      <a href="" class="footer-share__link">
+      <a href="" target="_blank" class="footer-share__link">
         <img
           src="@/static/share/odnoklassniki.svg"
           class="footer-share__icon"
           alt="facebook"
         />
       </a>
-      <a href="" class="footer-share__link">
+      <a href="" target="_blank" class="footer-share__link">
         <img
           src="@/static/share/instagram.svg"
           class="footer-share__icon"
           alt="facebook"
         />
       </a>
-      <a href="" class="footer-share__link">
+      <a href="" target="_blank" class="footer-share__link">
         <img
           src="@/static/share/youtube.svg"
           class="footer-share__icon"

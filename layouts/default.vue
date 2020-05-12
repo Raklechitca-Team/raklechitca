@@ -1,9 +1,6 @@
 <template>
   <div class="container">
     <app-header @buttonClick="popupHandler" />
-    <nuxt />
-
-    <app-video />
 
     <popup
       v-if="popupShown"
@@ -32,6 +29,7 @@ import Popup from '@/components/Popup';
 import Quiz from '@/components/Quiz';
 import FooterShare from '@/components/FooterShare';
 import Video from '@/components/Video';
+import MainButton from '@/components/ui/MainButton';
 export default {
   components: {
     'app-header': Header,
@@ -40,6 +38,7 @@ export default {
     quiz: Quiz,
     'footer-share': FooterShare,
     'app-video': Video,
+    'main-button': MainButton,
   },
   data() {
     return {
@@ -81,7 +80,6 @@ html {
   display: flex;
   flex-direction: column;
   position: relative;
-  max-width: 1440px;
-  margin: 0 60px;
+  padding: 0 60px;
 }
 </style>

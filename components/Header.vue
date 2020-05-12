@@ -31,7 +31,6 @@ export default {
 
 <style scoped>
 .header {
-  max-width: 1440px;
   margin-right: -60px;
   margin-left: -60px;
   width: calc(100% + 120px);
