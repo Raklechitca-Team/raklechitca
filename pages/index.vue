@@ -10,9 +10,6 @@
     <app-statistics />
     <app-cover />
     <app-footer />
-    <app-cover-mini :text="'Kek'" />
-    <app-insta />
-    <app-footer />
   </div>
 </template>
 
