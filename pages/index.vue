@@ -3,8 +3,8 @@
     <app-header />
     <app-title />
     <app-video />
-    <app-cover-in-site />
-    <app-card />
+    <app-cover-in-site :text="`И В ОТЛИЧИЕ ОТ РАКА,`" />
+    <app-card-list />
     <app-insta />
     <app-tell-story />
     <app-statistics />
@@ -16,7 +16,7 @@
 <script>
 import Header from '@/components/Header';
 import Title from '@/components/Title';
-import Card from '@/components/Card';
+import CardList from '@/components/CardList';
 import CoverInSite from '@/components/CoverInSite';
 import Video from '@/components/Video';
 import TellStory from '@/components/TellStory';
@@ -29,7 +29,7 @@ export default {
   components: {
     'app-header': Header,
     'app-title': Title,
-    'app-card': Card,
+    'app-card-list': CardList,
     'app-cover-in-site': CoverInSite,
     'app-video': Video,
     'app-tell-story': TellStory,
@@ -44,6 +44,7 @@ export default {
 
 <style>
 .container {
+  font-family: 'Inter', 'Arial', sans-serif;
   margin: 0 auto;
   height: 100vh;
   display: flex;
@@ -53,8 +54,6 @@ export default {
   text-align: center;
 }
 .title {
-  font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
-    'Segoe UI', 'Roboto', 'Helvetica Neue', 'Intro', 'Arial', sans-serif;
   display: block;
   font-weight: 300;
   font-size: 100px;
