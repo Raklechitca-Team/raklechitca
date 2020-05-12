@@ -2,7 +2,7 @@
   <div class="container">
     <app-title />
     <app-video />
-    <app-cover-mini :text="'Kek'" />
+    <app-cover-in-site :text="'И В ОТЛИЧИЕ ОТ РАКА,'" />
     <app-card-list />
     <app-cover-in-site :text="`РАССКАЗЫВАЙТЕ ВАШИ ИСТОРИИ В ИНСТАГРАМ`" />
     <app-insta />
