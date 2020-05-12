@@ -1,16 +1,18 @@
 <template>
   <header class="header">
-    <p class="header__paragraph">
-      Проект Благотворительного Фонда Константина Хабенского
-    </p>
-    <app-menu class="header__menu" @buttonClick="$emit('buttonClick')" />
-    <button class="burger-menu__button">
-      <img
-        class="burger-menu__icon"
-        alt="burger-menu"
-        src="@/static/burger-menu.svg"
-      />
-    </button>
+    <div class="header__container">
+      <p class="header__paragraph">
+        Проект Благотворительного Фонда Константина Хабенского
+      </p>
+      <app-menu class="header__menu" @buttonClick="$emit('buttonClick')" />
+      <button class="burger-menu__button">
+        <img
+          class="burger-menu__icon"
+          alt="burger-menu"
+          src="@/static/burger-menu.svg"
+        />
+      </button>
+    </div>
     <app-sidebar />
   </header>
 </template>
@@ -31,21 +33,19 @@ export default {
 
 <style scoped>
 .header {
-  margin-right: -60px;
-  margin-left: -60px;
-  width: calc(100% + 120px);
-  height: 76px;
-  padding: 0 60px;
   background-color: #ffffff;
+}
+.header__container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 60px;
   display: flex;
-  position: sticky;
-  top: 0;
   align-items: center;
-  border: 0;
   justify-content: space-between;
   border-bottom: 1px solid #e8e8e8;
   z-index: 1;
 }
+
 @media screen and (max-width: 1280px) {
   .header {
     padding: 0 50px;

@@ -1,46 +1,48 @@
 <template>
   <div class="tell-story">
-    <h3 class="tell-story__title">Расскажите свою историю</h3>
-    <div class="tell-story__text-wrapper">
-      <p class="tell-story__subtitle">
-        Мы публикуем новые истории на сайте раз в неделю. Есть 2 варианта
-        поделиться своей историей неизлечимых привычек, навязчивых идей и
-        болезненных привязанностей.
-      </p>
-      <ul class="tell-story__options">
-        <li
-          @click="selectTab(1)"
-          class="tell-story__option"
-          :class="[
-            isActive
-              ? 'tell-story__option_active'
-              : 'tell-story__option_disabled',
-          ]"
-        >
-          1-й вариант
-        </li>
-        <li
-          @click="selectTab(2)"
-          class="tell-story__option"
-          :class="[
-            isActive
-              ? 'tell-story__option_disabled'
-              : 'tell-story__option_active',
-          ]"
-        >
-          2-й вариант
-        </li>
-      </ul>
-      <div>
-        <p v-if="currentTab == 1" class="tell-story__option-description">
-          Заполнить подробную форму прямо на сайте и мы опубликуем вашу историю
-          после проверки. Пожалуйста, заполняйте все пункты корректно, если вы
-          испытаете какие-то сложности, воспользуйтесь 2-м вариантом.
+    <div class="tell-story__container">
+      <h3 class="tell-story__title">Расскажите свою историю</h3>
+      <div class="tell-story__text-wrapper">
+        <p class="tell-story__subtitle">
+          Мы публикуем новые истории на сайте раз в неделю. Есть 2 варианта
+          поделиться своей историей неизлечимых привычек, навязчивых идей и
+          болезненных привязанностей.
         </p>
-        <p v-if="currentTab == 2" class="tell-story__option-description">
-          Оставить контакт (почту или номер телефона) и мы свяжемся с вами,
-          зададим вопросы, уточним детали вашей истории.
-        </p>
+        <ul class="tell-story__options">
+          <li
+            @click="selectTab(1)"
+            class="tell-story__option"
+            :class="[
+              isActive
+                ? 'tell-story__option_active'
+                : 'tell-story__option_disabled',
+            ]"
+          >
+            1-й вариант
+          </li>
+          <li
+            @click="selectTab(2)"
+            class="tell-story__option"
+            :class="[
+              isActive
+                ? 'tell-story__option_disabled'
+                : 'tell-story__option_active',
+            ]"
+          >
+            2-й вариант
+          </li>
+        </ul>
+        <div>
+          <p v-if="currentTab == 1" class="tell-story__option-description">
+            Заполнить подробную форму прямо на сайте и мы опубликуем вашу
+            историю после проверки. Пожалуйста, заполняйте все пункты корректно,
+            если вы испытаете какие-то сложности, воспользуйтесь 2-м вариантом.
+          </p>
+          <p v-if="currentTab == 2" class="tell-story__option-description">
+            Оставить контакт (почту или номер телефона) и мы свяжемся с вами,
+            зададим вопросы, уточним детали вашей истории.
+          </p>
+        </div>
       </div>
     </div>
   </div>
@@ -68,6 +70,10 @@ export default {
   width: 100%;
   font-family: 'Inter', sans-serif;
   background-color: #f7f7f7;
+}
+.tell-story__container {
+  max-width: 1440px;
+  margin: 0 auto;
   padding: 100px 60px;
 }
 .tell-story__title {

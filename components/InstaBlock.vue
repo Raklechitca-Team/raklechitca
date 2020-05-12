@@ -23,11 +23,12 @@ export default {
 
 <style scoped>
 .insta-story {
-  margin: 100px auto 100px;
+  padding: 100px 60px;
   display: flex;
-  max-width: 91.6%;
   flex-direction: row;
   justify-content: space-between;
+  max-width: 1440px;
+  margin: 0 auto;
 }
 
 .insta-story__info {

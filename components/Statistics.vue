@@ -62,11 +62,12 @@ export default {
 
 <style scoped>
 .statistics {
-  margin: 100px auto 100px;
-  max-width: 91.6%;
+  padding: 100px 60px;
+  max-width: 1440px;
   width: 95%;
   display: flex;
   flex-direction: column;
+  margin: 0 auto;
 }
 .statistics__title {
   text-align: left;

@@ -1,24 +1,22 @@
 <template>
   <div class="container">
-    <app-header />
     <app-cardlist :cards="cards" />
-    <pagination
-      :storiesInTotal="cards.length"
-      :storiesPerPage="storiesPerPage"
-      :cards="cards"
-    />
-    <app-footer />
+    <!--    <pagination-->
+    <!--      :storiesInTotal="cards.length"-->
+    <!--      :storiesPerPage="storiesPerPage"-->
+    <!--      :cards="cards"-->
+    <!--    />-->
   </div>
 </template>
 
 <script>
-import CardList from '@/components/CardList';
+import CardList from '@/components/Cardlist/CardList';
 //import Pagination from '@/components/Pagination';
 export default {
   name: 'stories',
   components: {
     'app-cardlist': CardList,
-    pagination: Pagination,
+    // pagination: Pagination,
   },
   data() {
     return {
@@ -88,6 +86,11 @@ export default {
         },
       ],
     };
+  },
+  computed: {
+    // stories() {
+    //   return this.$store.getters.stories.stories;
+    // },
   },
 };
 </script>

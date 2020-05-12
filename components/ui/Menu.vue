@@ -8,12 +8,12 @@
     >
     <nuxt-link to="/" v-else class="menu__link">Главная</nuxt-link>
     <nuxt-link
-      to="/stories/index"
-      v-if="$route.path == '/stories/index'"
+      to="/stories"
+      v-if="$route.path == '/stories'"
       class="menu__link menu__link_active"
       >Истории</nuxt-link
     >
-    <nuxt-link to="/stories/index" v-else class="menu__link">Истории</nuxt-link>
+    <nuxt-link to="/stories" v-else class="menu__link">Истории</nuxt-link>
     <main-button class="menu__button" @buttonClick="$emit('buttonClick')">
       Рассказать историю
     </main-button>
