@@ -12,6 +12,7 @@
     <app-footer />
     <app-cover-mini :text="'Kek'" />
     <app-insta />
+    <app-footer />
   </div>
 </template>
 
@@ -40,12 +41,7 @@ export default {
     'app-cover': Cover,
     'app-footer': Footer,
   },
-  name: 'index',
-    'app-cover-mini': CoverInSite,
-    'app-card-list': CardList,
-    'app-insta': instaBlock,
-    'app-footer': Footer,
-};
+}
 </script>
 
 <style scoped>
