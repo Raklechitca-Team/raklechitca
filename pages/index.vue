@@ -1,53 +1,34 @@
 <template>
   <div class="container">
-    <<<<<<< HEAD
-    <app-header />
     <app-title />
-    <app-video />
-    <app-cover-in-site :text="`И В ОТЛИЧИЕ ОТ РАКА,`" />
+    <!--<app-video />-->
+    <div>SOME BLOCK</div>
+    <app-cover-mini :text="'Kek'" />
     <app-card-list />
+    <app-cover-mini :text="'Kek'" />
     <app-insta />
-    <app-tell-story />
-    <app-statistics />
-    <app-cover />
-    <app-footer />
-    =======
-    <app-insta />
-    >>>>>>> develop
   </div>
 </template>
 
 <script>
-<<<<<<< HEAD
 import Header from '@/components/Header';
 import Title from '@/components/Title';
-import CardList from '@/components/CardList';
-import CoverInSite from '@/components/CoverInSite';
 import Video from '@/components/Video';
-import TellStory from '@/components/TellStory';
-import InstaBlock from '@/components/InstaBlock';
-import Statistics from '@/components/Statistics';
-import Cover from '@/components/Cover';
+import CoverInSite from '@/components/CoverInSite';
+import CardList from '@/components/CardList';
+import instaBlock from '@/components/InstaBlock';
 import Footer from '@/components/Footer';
 export default {
   name: 'index',
   components: {
     'app-header': Header,
     'app-title': Title,
-    'app-card-list': CardList,
-    'app-cover-in-site': CoverInSite,
     'app-video': Video,
-    'app-tell-story': TellStory,
-    'app-insta': InstaBlock,
-    'app-tell-story': TellStory,
-    'app-statistics': Statistics,
-    'app-cover': Cover,
+    'app-cover-mini': CoverInSite,
+    'app-card-list': CardList,
+    'app-insta': instaBlock,
     'app-footer': Footer,
   },
-=======
-export default {
-  name: 'index',
->>>>>>> develop
 };
 </script>
 

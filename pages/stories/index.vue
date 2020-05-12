@@ -13,7 +13,7 @@
 
 <script>
 import CardList from '@/components/CardList';
-import Pagination from '@/components/Pagination';
+//import Pagination from '@/components/Pagination';
 export default {
   name: 'stories',
   components: {
