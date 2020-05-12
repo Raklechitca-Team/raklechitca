@@ -14,19 +14,18 @@
       >Истории</nuxt-link
     >
     <nuxt-link to="/stories/index" v-else class="menu__link">Истории</nuxt-link>
-    <button class="menu__button" @click="popupHandler">
+    <main-button class="menu__button" @buttonClick="$emit('buttonClick')">
       Рассказать историю
-    </button>
+    </main-button>
   </nav>
 </template>
 
 <script>
+import MainButton from '@/components/ui/MainButton';
 export default {
   name: 'Menu',
-  methods: {
-    popupHandler() {
-      this.popupShown = !this.popupShown;
-    },
+  components: {
+    'main-button': MainButton,
   },
 };
 </script>
@@ -49,7 +48,6 @@ export default {
   text-decoration: none;
   margin: 0;
   cursor: pointer;
-  color: #000000;
   border-bottom: 1px solid #fff;
 }
 
@@ -71,14 +69,33 @@ export default {
   transition-delay: 0s;
 }
 
-.menu__button {
+.menu /deep/ .main-button {
   font-family: 'Inter', 'Arial', sans-serif;
   font-size: 18px;
   line-height: 24px;
+  width: 182px;
+  height: 24px;
+  font-weight: normal;
   cursor: pointer;
   border: 0;
   margin: 0;
   padding: 0;
+  color: #000000;
+  border-bottom: 1px solid #fff;
+  background-color: transparent;
+}
+
+.menu__button:hover {
+  text-decoration: none;
+  opacity: 0.8;
+  border-bottom: 1px solid #000000;
+  transition: color 0.2s ease-in-out, opacity 0.2s ease-in-out,
+    border-bottom 0.1s ease-in-out;
+  transition-delay: 0s;
+}
+
+.menu__button:focus {
+  outline: none !important;
 }
 
 @media screen and (max-width: 1280px) {
@@ -98,6 +115,10 @@ export default {
     align-self: flex-end;
     line-height: 24px;
     letter-spacing: normal;
+  }
+
+  .menu__button {
+    text-align: right;
   }
 }
 </style>

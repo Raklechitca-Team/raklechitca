@@ -21,9 +21,4 @@ export default {
   height: 100vh;
   position: fixed;
 }
-
-@media screen and (min-width: 980px) {
-  .overlay {
-  }
-}
 </style>

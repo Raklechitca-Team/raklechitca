@@ -3,7 +3,7 @@
     <p class="header__paragraph">
       Проект Благотворительного Фонда Константина Хабенского
     </p>
-    <app-menu class="header__menu" />
+    <app-menu class="header__menu" @buttonClick="$emit('buttonClick')" />
     <button class="burger-menu__button">
       <img
         class="burger-menu__icon"
@@ -31,8 +31,9 @@ export default {
 
 <style scoped>
 .header {
-  max-width: 1440px;
-  width: 100%;
+  margin-right: -60px;
+  margin-left: -60px;
+  width: calc(100% + 120px);
   height: 76px;
   padding: 0 60px;
   background-color: #ffffff;
@@ -40,7 +41,6 @@ export default {
   position: sticky;
   top: 0;
   align-items: center;
-  margin: 0;
   border: 0;
   justify-content: space-between;
   border-bottom: 1px solid #e8e8e8;
