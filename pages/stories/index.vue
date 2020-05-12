@@ -2,7 +2,11 @@
   <div class="container">
     <app-header />
     <app-cardlist :cards="cards" />
-    <page-numbers />
+    <pagination
+      :storiesInTotal="cards.length"
+      :storiesPerPage="storiesPerPage"
+      :cards="cards"
+    />
     <app-footer />
   </div>
 </template>
@@ -11,7 +15,6 @@
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import CardList from '@/components/CardList';
-import PageNumber from '@/components/ui/PageNumber';
 import Pagination from '@/components/Pagination';
 export default {
   name: 'stories',
@@ -19,11 +22,11 @@ export default {
     'app-header': Header,
     'app-footer': Footer,
     'app-cardlist': CardList,
-    'page-numbers': PageNumber,
     pagination: Pagination,
   },
   data() {
     return {
+      storiesPerPage: 4,
       cards: [
         {
           id: 1,
