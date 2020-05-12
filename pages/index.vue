@@ -1,24 +1,16 @@
 <template>
   <div class="container">
-    <app-header />
     <app-insta />
-    <app-footer />
   </div>
 </template>
 
 <script>
-import Header from '@/components/Header';
-import Footer from '@/components/Footer';
 export default {
   name: 'index',
-  components: {
-    'app-header': Header,
-    'app-footer': Footer,
-  },
 };
 </script>
 
-<style>
+<style scoped>
 .container {
   margin: 0 auto;
   height: 100vh;

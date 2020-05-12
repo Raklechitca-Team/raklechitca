@@ -19,6 +19,6 @@ export default {
 
 <style scoped>
 .video-iframe {
-  border: none;
+  border: 0;
 }
 </style>
