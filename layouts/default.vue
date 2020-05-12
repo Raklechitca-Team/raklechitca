@@ -19,6 +19,7 @@
     </popup>
 
     <app-footer @buttonClick="popupShareHandler" />
+
   </div>
 </template>
 
