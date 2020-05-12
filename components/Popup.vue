@@ -1,8 +1,16 @@
 <template>
   <div class="modal-window">
-    <overlay class="modal-window__overlay" />
+    <overlay
+      class="modal-window__overlay"
+      @overlayClick="$emit('overlayClick')"
+    ></overlay>
     <div class="modal-window__popup">
-      <img class="modal-window__close" src="@/static/x.svg" @click="close" />
+      <img
+        class="modal-window__close"
+        src="@/static/x.svg"
+        alt="close"
+        @click="$emit('closeClick')"
+      />
       <slot></slot>
     </div>
   </div>
