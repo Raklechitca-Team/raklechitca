@@ -6,6 +6,7 @@
       :url="card.url"
       :name="card.name"
       :text="card.text"
+      :card="card.id"
     />
   </div>
 </template>
