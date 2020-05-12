@@ -95,14 +95,4 @@ export default {
 };
 </script>
 
-<style scoped>
-.container {
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  justify-content: flex-start;
-  align-items: center;
-  text-align: center;
-}
-</style>
+<style scoped></style>
