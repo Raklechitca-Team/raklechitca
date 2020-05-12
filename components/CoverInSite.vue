@@ -18,11 +18,11 @@ export default {
   font-family: 'Inter', 'Arial', sans-serif;
   width: 100%;
   background-color: #613a93;
-  margin: 0 60px;
   color: #ffffff;
 }
 
 .cover__title {
+  max-width: 750px;
   font-family: 'Inter', Arial, sans-serif;
   font-weight: normal;
   font-style: normal;

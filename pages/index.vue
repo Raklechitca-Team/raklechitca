@@ -1,53 +1,42 @@
 <template>
   <div class="container">
-    <<<<<<< HEAD
-    <app-header />
     <app-title />
     <app-video />
     <app-cover-in-site :text="`И В ОТЛИЧИЕ ОТ РАКА,`" />
     <app-card-list />
+    <app-cover-in-site :text="`РАССКАЗЫВАЙТЕ ВАШИ ИСТОРИИ В ИНСТАГРАМ`" />
     <app-insta />
     <app-tell-story />
     <app-statistics />
     <app-cover />
     <app-footer />
-    =======
-    <app-insta />
-    >>>>>>> develop
   </div>
 </template>
 
 <script>
-<<<<<<< HEAD
-import Header from '@/components/Header';
 import Title from '@/components/Title';
 import CardList from '@/components/CardList';
 import CoverInSite from '@/components/CoverInSite';
 import Video from '@/components/Video';
-import TellStory from '@/components/TellStory';
 import InstaBlock from '@/components/InstaBlock';
+import TellStory from '@/components/TellStory';
 import Statistics from '@/components/Statistics';
 import Cover from '@/components/Cover';
 import Footer from '@/components/Footer';
 export default {
   name: 'index',
   components: {
-    'app-header': Header,
     'app-title': Title,
-    'app-card-list': CardList,
-    'app-cover-in-site': CoverInSite,
     'app-video': Video,
-    'app-tell-story': TellStory,
+    'app-cover-in-site': CoverInSite,
+    'app-card-list': CardList,
     'app-insta': InstaBlock,
     'app-tell-story': TellStory,
     'app-statistics': Statistics,
     'app-cover': Cover,
     'app-footer': Footer,
   },
-=======
-export default {
   name: 'index',
->>>>>>> develop
 };
 </script>
 

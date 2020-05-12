@@ -23,7 +23,7 @@ export default {
 
 <style scoped>
 .insta-story {
-  margin: 0 auto 100px;
+  margin: 100px auto 100px;
   display: flex;
   max-width: 91.6%;
   flex-direction: row;
