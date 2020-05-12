@@ -7,8 +7,6 @@
     <popup v-if="popupShown">
       <quiz />
     </popup>
-
-    <app-footer />
   </div>
 </template>
 
