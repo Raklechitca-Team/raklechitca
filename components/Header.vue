@@ -3,29 +3,28 @@
     <p class="header__paragraph">
       Проект Благотворительного Фонда Константина Хабенского
     </p>
-    <nav class="menu">
-      <nuxt-link to="/" class="header__link header__link_active"
-        >Главная</nuxt-link
-      >
-      <nuxt-link to="/stories/index" class="header__link">Истории</nuxt-link>
-      <nuxt-link to="/" class="header__link">Рассказать историю</nuxt-link>
-    </nav>
+    <app-menu class="header__menu" />
     <button class="burger-menu__button">
-      <img class="burger-menu__icon" src="@/static/burger-menu.svg" />
+      <img
+        class="burger-menu__icon"
+        alt="burger-menu"
+        src="@/static/burger-menu.svg"
+      />
     </button>
     <app-sidebar />
-    <app-overlay />
   </header>
 </template>
 
-<script>
+<script scoped>
 import Sidebar from '@/components/ui/Sidebar';
 import Overlay from '@/components/ui/Overlay';
+import Menu from '@/components/ui/Menu';
 export default {
   name: 'Header',
   components: {
     'app-sidebar': Sidebar,
-    'app-overlay': Overlay,
+    overlay: Overlay,
+    'app-menu': Menu,
   },
 };
 </script>
@@ -47,9 +46,6 @@ export default {
   border-bottom: 1px solid #e8e8e8;
   z-index: 1;
 }
-.menu {
-  min-width: 400px;
-}
 @media screen and (max-width: 1280px) {
   .header {
     padding: 0 50px;
@@ -57,11 +53,8 @@ export default {
   .header__paragraph {
     line-height: 18px;
   }
-  .header__link {
-    font-size: 16px;
-  }
 }
-@media screen and (max-width: 979px) {
+@media screen and (max-width: 980px) {
   .header {
     justify-content: flex-end;
     border: none;
@@ -69,7 +62,7 @@ export default {
     margin: 0;
     background-color: #fff;
   }
-  .menu {
+  .header__menu {
     display: none;
   }
   .header__paragraph {
@@ -100,7 +93,7 @@ export default {
   box-shadow: none;
   margin-left: 50px;
 }
-@media screen and (min-width: 980px) {
+@media screen and (min-width: 981px) {
   .burger-menu__button {
     display: none;
   }
@@ -113,34 +106,5 @@ export default {
   height: 14px;
   margin: auto;
   align-self: center;
-}
-.header__link {
-  font-family: 'Inter', 'Arial', sans-serif;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 18px;
-  line-height: 24px;
-  letter-spacing: normal;
-  color: #000000;
-  text-decoration: none;
-  margin: 0 40px 0 0;
-  cursor: pointer;
-  color: #000000;
-}
-.header__link:last-child {
-  margin: 0;
-}
-.header__link_active {
-  text-decoration: none;
-  border-bottom: 1px solid #000000;
-}
-.header__link:hover {
-  text-decoration: none;
-  color: #582b71;
-  opacity: 0.8;
-  border-bottom: 1px solid #582b71;
-  transition: color 0.2s ease-in-out, opacity 0.2s ease-in-out,
-    border-bottom 0.1s ease-in-out;
-  transition-delay: 0s;
 }
 </style>

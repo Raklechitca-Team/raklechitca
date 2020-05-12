@@ -5,10 +5,10 @@
     <nav class="footer__menu">
       <ul class="footer__links">
         <li class="footer__links-list">
-          <a href="/" target="_blank" class="footer__link">Главная</a>
+          <nuxt-link to="/" class="footer__link">Главная</nuxt-link>
         </li>
         <li class="footer__links-list">
-          <a href="/stories" target="_blank" class="footer__link">Истории</a>
+          <nuxt-link to="/stories" class="footer__link">Истории</nuxt-link>
         </li>
       </ul>
       <ul class="footer__social">
