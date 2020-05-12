@@ -1,5 +1,6 @@
 <template>
   <div class="container">
+    <<<<<<< HEAD
     <app-header />
     <app-title />
     <app-video />
@@ -10,10 +11,14 @@
     <app-statistics />
     <app-cover />
     <app-footer />
+    =======
+    <app-insta />
+    >>>>>>> develop
   </div>
 </template>
 
 <script>
+<<<<<<< HEAD
 import Header from '@/components/Header';
 import Title from '@/components/Title';
 import CardList from '@/components/CardList';
@@ -39,10 +44,14 @@ export default {
     'app-cover': Cover,
     'app-footer': Footer,
   },
+=======
+export default {
+  name: 'index',
+>>>>>>> develop
 };
 </script>
 
-<style>
+<style scoped>
 .container {
   font-family: 'Inter', 'Arial', sans-serif;
   margin: 0 auto;

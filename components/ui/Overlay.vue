@@ -1,5 +1,7 @@
 <template>
-  <div class="overlay"></div>
+  <div class="overlay" @click="$emit('overlayClick')">
+    <slot></slot>
+  </div>
 </template>
 
 <script>
@@ -13,19 +15,15 @@ export default {
   display: flex;
   top: 0;
   left: 0;
-  position: absolute;
-  background: #000000;
-  opacity: 0.5;
+  background-color: rgba(0, 0, 0, 0.5);
   z-index: 1;
   width: 100vw;
   height: 100vh;
   position: fixed;
-  display: none;
 }
 
 @media screen and (min-width: 980px) {
   .overlay {
-    display: none;
   }
 }
 </style>
