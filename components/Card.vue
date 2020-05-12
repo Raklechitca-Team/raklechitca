@@ -1,64 +1,76 @@
 <template>
-  <a class="card">
+  <a href="#" @click.prevent="openStory(card)" class="card">
     <div class="card__image-wrapper">
-      <div class="card__image"></div>
+      <div
+        :style="{ backgroundImage: `url('${url}')` }"
+        class="card__image"
+      ></div>
     </div>
-    <h3 class="card__title">Татьяна Полетаева</h3>
-    <p class="card__subtitle">
-      Я всегда стремлюсь получать новые знания, и это не лечится,
-    </p>
-    <p class="card__subtitle">в отличие от рака</p>
-    <date class="card__date">17.04.2020</date>
-    <p class="card__learn-more">Читать всю историю &rarr;</p>
+    <h3 class="card__title">{{ name }}</h3>
+    <p class="card__subtitle">{{ text }}</p>
   </a>
 </template>
 
-<script></script>
+<script>
+export default {
+  props: ['url', 'name', 'text', 'card'],
+  methods: {
+    openStory(card) {
+      this.$router.push('/stories/' + card);
+    },
+  },
+};
+</script>
 
 <style scoped>
 .card {
-  max-width: 260px;
+  max-width: 300px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  justify-content: center;
+  justify-content: flex-start;
   cursor: pointer;
-  font-family: Arial;
-  /* вообще Intro, но не стала подключать, может поменяется в макете */
   text-align: left;
+  text-decoration: none;
+  color: #000;
+  font-family: 'Inter', sans-serif;
 }
 .card__image-wrapper {
   width: 100%;
-  height: 260px;
+  height: 300px;
   margin-bottom: 20px;
 }
 .card__image {
+  width: 100%;
   height: 100%;
-  background-image: url('../images/IMG-20200414-WA0010.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
 }
 .card__title {
+  font-style: normal;
+  font-weight: 600;
   font-size: 22px;
-  font-weight: 500;
-  line-height: 1.35;
+  line-height: 22px;
+  margin-bottom: 14px;
 }
 .card__subtitle {
+  font-weight: normal;
   font-size: 14px;
-  font-weight: 400;
-  margin-top: 8px;
-  line-height: 1.55;
 }
-.card__date {
-  margin-top: 15px;
-  font-size: 10px;
-  letter-spacing: 1px;
-  color: rgba(0, 0, 0, 0.5);
+@media screen and (max-width: 1380px) {
+  .card__image-wrapper {
+    height: 265px;
+  }
 }
-.card__learn-more {
-  margin-top: 15px;
-  font-size: 14px;
-  font-weight: 400;
+@media screen and (max-width: 1240px) {
+  .card__image-wrapper {
+    height: 208px;
+  }
+}
+@media screen and (max-width: 980px) {
+  .card__image-wrapper {
+    height: 216px;
+  }
 }
 </style>

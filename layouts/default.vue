@@ -1,13 +1,65 @@
 <template>
-  <div>
-    <nuxt />
+  <div class="container">
+    <app-header @buttonClick="popupHandler" />
+
+    <popup
+      v-if="popupShown"
+      @closeClick="popupHandler"
+      @overlayClick="popupHandler"
+    >
+      <quiz />
+    </popup>
+
+    <popup
+      v-if="popupShareShown"
+      @closeClick="popupShareHandler"
+      @overlayClick="popupShareHandler"
+    >
+      <footer-share />
+    </popup>
+
+    <app-footer @buttonClick="popupShareHandler" />
   </div>
 </template>
 
+<script>
+import Header from '@/components/Header';
+import Footer from '@/components/Footer';
+import Popup from '@/components/Popup';
+import Quiz from '@/components/Quiz';
+import FooterShare from '@/components/FooterShare';
+import Video from '@/components/Video';
+import MainButton from '@/components/ui/MainButton';
+export default {
+  components: {
+    'app-header': Header,
+    'app-footer': Footer,
+    popup: Popup,
+    quiz: Quiz,
+    'footer-share': FooterShare,
+    'app-video': Video,
+    'main-button': MainButton,
+  },
+  data() {
+    return {
+      popupShown: false,
+      popupShareShown: false,
+    };
+  },
+  methods: {
+    popupHandler() {
+      this.popupShown = !this.popupShown;
+    },
+    popupShareHandler() {
+      this.popupShareShown = !this.popupShareShown;
+    },
+  },
+};
+</script>
+
 <style>
 html {
-  font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI',
-    Roboto, 'Helvetica Neue', Arial, sans-serif;
+  font-family: 'Inter', Arial, sans-serif;
   font-size: 16px;
   word-spacing: 1px;
   -ms-text-size-adjust: 100%;
@@ -24,32 +76,10 @@ html {
   margin: 0;
 }
 
-.button--green {
-  display: inline-block;
-  border-radius: 4px;
-  border: 1px solid #3b8070;
-  color: #3b8070;
-  text-decoration: none;
-  padding: 10px 30px;
-}
-
-.button--green:hover {
-  color: #fff;
-  background-color: #3b8070;
-}
-
-.button--grey {
-  display: inline-block;
-  border-radius: 4px;
-  border: 1px solid #35495e;
-  color: #35495e;
-  text-decoration: none;
-  padding: 10px 30px;
-  margin-left: 15px;
-}
-
-.button--grey:hover {
-  color: #fff;
-  background-color: #35495e;
+.container {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  padding: 0 60px;
 }
 </style>

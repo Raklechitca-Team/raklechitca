@@ -1,14 +1,16 @@
 <template>
   <footer class="footer">
-    <p class="footer__text">Спасибо всем, кто помог состояться этому проекту</p>
+    <section-title class="footer__text"
+      >Спасибо всем, кто помог состояться этому проекту</section-title
+    >
 
     <nav class="footer__menu">
       <ul class="footer__links">
         <li class="footer__links-list">
-          <a href="/" target="_blank" class="footer__link">Главная</a>
+          <nuxt-link to="/" class="footer__link">Главная</nuxt-link>
         </li>
         <li class="footer__links-list">
-          <a href="/stories" target="_blank" class="footer__link">Истории</a>
+          <nuxt-link to="/stories" class="footer__link">Истории</nuxt-link>
         </li>
       </ul>
       <ul class="footer__social">
@@ -28,7 +30,9 @@
           </p>
         </li>
         <li class="footer__social-list">
-          <a href="" target="_blank" class="footer__link">Поделитесь ↗</a>
+          <button class="footer__button" @click="$emit('buttonClick')">
+            Поделитесь &#8599;
+          </button>
         </li>
       </ul>
     </nav>
@@ -41,19 +45,25 @@
 </template>
 
 <script>
+import SectionTitle from '@/components/ui/SectionTitle';
 export default {
   name: 'Footer',
+  components: {
+    'section-title': SectionTitle,
+  },
 };
 </script>
 
 <style scoped>
 .footer {
-  max-width: 1440px;
-  width: 100%;
+  margin-right: -60px;
+  margin-left: -60px;
+  width: calc(100% + 120px);
   min-height: 356px;
   background-color: #fbfbfb;
   bottom: 0;
   display: flex;
+  position: relative;
   padding: 60px;
   flex-wrap: wrap;
 }
@@ -238,6 +248,39 @@ export default {
   text-decoration: none;
   color: #000000;
   text-align: left;
+}
+
+.footer__link:hover {
+  opacity: 0.8;
+  transition: opacity 0.2s ease-in-out;
+  transition-delay: 0s;
+}
+
+.footer__button {
+  font-family: 'Inter', 'Arial', sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 24px;
+  display: flex;
+  text-decoration: none;
+  color: #000000;
+  text-align: left;
+  border: 0;
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+  background-color: #fbfbfb;
+}
+
+.footer__button:focus {
+  outline: none !important;
+}
+
+.footer__button:hover {
+  opacity: 0.8;
+  transition: opacity 0.2s ease-in-out;
+  transition-delay: 0s;
 }
 
 .footer__content {

@@ -1,9 +1,9 @@
 <template>
   <div class="video">
     <div class="video__text-container">
-      <h3 class="video__title">
+      <section-title class="video__title">
         Истории людей, победивших рак, но не свои привычки
-      </h3>
+      </section-title>
       <p class="video__subtitle">
         Есть вещи, которые не лечатся. Вещи ставшие частью нашего «я», фобии,
         страхи. Но это точно не рак. Рак лечится. Лучшее доказательство — люди с
@@ -38,11 +38,13 @@
 </template>
 
 <script>
+import SectionTitle from '@/components/ui/SectionTitle';
 import VideoIframe from '@/components/ui/VideoIframe';
 export default {
   name: 'Video',
   components: {
     'app-video-iframe': VideoIframe,
+    'section-title': SectionTitle,
   },
 };
 </script>
@@ -50,7 +52,7 @@ export default {
 <style scoped>
 .video {
   display: flex;
-  padding: 100px 60px 74px;
+  padding: 100px 0 74px;
   justify-content: space-between;
 }
 
