@@ -6,7 +6,7 @@
       </div>
       <div class="story__text-wrapper">
         <h1 class="story__title">
-          <span class="story__title_bold">Имя: </span> текст истории
+          <span class="story__title_bold">Имя: </span> здесь будет текст истории
         </h1>
         <div class="story-text-wrapper_bottom">
           <a href="#" class="story__share">Поделитесь &#8599;</a>
@@ -69,6 +69,7 @@ export default {
 .container {
   font-family: 'Inter', sans-serif;
   display: flex;
+  flex-direction: column;
   margin-top: 100px;
   max-width: 1440px;
 }
