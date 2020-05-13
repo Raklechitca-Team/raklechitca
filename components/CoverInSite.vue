@@ -17,7 +17,7 @@ export default {
 .cover__background {
   font-family: 'Inter', 'Arial', sans-serif;
   margin: 0 auto;
-  width: 100%;
+  width: 91%;
   max-width: 1320px;
   background-color: #613a93;
   color: #ffffff;
@@ -37,5 +37,11 @@ export default {
 
 .cover__span {
   font-weight: bold;
+}
+
+@media screen and (max-width: 1280px) {
+  .cover__title {
+    font-size: calc((100vw - 320px) / (1280 - 320) * (28 - 16) + 16px);
+  }
 }
 </style>
