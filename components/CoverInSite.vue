@@ -16,7 +16,9 @@ export default {
 <style scoped>
 .cover__background {
   font-family: 'Inter', 'Arial', sans-serif;
+  margin: 0 auto;
   width: 100%;
+  max-width: 1320px;
   background-color: #613a93;
   color: #ffffff;
 }

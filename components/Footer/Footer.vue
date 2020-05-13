@@ -1,45 +1,47 @@
 <template>
   <footer class="footer">
-    <section-title class="footer__text"
-      >Спасибо всем, кто помог состояться этому проекту</section-title
-    >
+    <div class="footer__container">
+      <section-title class="footer__text"
+        >Спасибо всем, кто помог состояться этому проекту</section-title
+      >
 
-    <nav class="footer__menu">
-      <ul class="footer__links">
-        <li class="footer__links-list">
-          <nuxt-link to="/" class="footer__link">Главная</nuxt-link>
-        </li>
-        <li class="footer__links-list">
-          <nuxt-link to="/stories" class="footer__link">Истории</nuxt-link>
-        </li>
-      </ul>
-      <ul class="footer__social">
-        <li class="footer__social-list">
-          <p class="footer__social-list_text">
-            Мы в&nbsp;<a
-              href="https://www.instagram.com/raklechitsa"
-              target="_blank"
-              class="footer__link"
-              >Инстаграме</a
-            >&nbsp;и&nbsp;<a
-              href="https://www.youtube.com/results?search_query=%23%D1%8D%D1%82%D0%BE%D0%BD%D0%B5%D0%BB%D0%B5%D1%87%D0%B8%D1%82%D1%81%D1%8F"
-              target="_blank"
-              class="footer__link"
-              >Youtube</a
-            >
-          </p>
-        </li>
-        <li class="footer__social-list">
-          <button class="footer__button" @click="$emit('buttonClick')">
-            Поделитесь &#8599;
-          </button>
-        </li>
-      </ul>
-    </nav>
+      <nav class="footer__menu">
+        <ul class="footer__links">
+          <li class="footer__links-list">
+            <nuxt-link to="/" class="footer__link">Главная</nuxt-link>
+          </li>
+          <li class="footer__links-list">
+            <nuxt-link to="/stories" class="footer__link">Истории</nuxt-link>
+          </li>
+        </ul>
+        <ul class="footer__social">
+          <li class="footer__social-list">
+            <p class="footer__social-list_text">
+              Мы в&nbsp;<a
+                href="https://www.instagram.com/raklechitsa"
+                target="_blank"
+                class="footer__link"
+                >Инстаграме</a
+              >&nbsp;и&nbsp;<a
+                href="https://www.youtube.com/results?search_query=%23%D1%8D%D1%82%D0%BE%D0%BD%D0%B5%D0%BB%D0%B5%D1%87%D0%B8%D1%82%D1%81%D1%8F"
+                target="_blank"
+                class="footer__link"
+                >Youtube</a
+              >
+            </p>
+          </li>
+          <li class="footer__social-list">
+            <button class="footer__button" @click="$emit('buttonClick')">
+              Поделитесь &#8599;
+            </button>
+          </li>
+        </ul>
+      </nav>
 
-    <div class="footer__content">
-      <p class="footer__content_info">Рак Лечится 2020</p>
-      <p class="footer__content_info">Сделано студентами Яндекс Практикум</p>
+      <div class="footer__content">
+        <p class="footer__content_info">Рак Лечится 2020</p>
+        <p class="footer__content_info">Сделано студентами Яндекс Практикум</p>
+      </div>
     </div>
   </footer>
 </template>
@@ -56,16 +58,17 @@ export default {
 
 <style scoped>
 .footer {
-  margin-right: -60px;
-  margin-left: -60px;
-  width: calc(100% + 120px);
-  min-height: 356px;
   background-color: #fbfbfb;
-  bottom: 0;
+}
+.footer__container {
   display: flex;
-  position: relative;
   padding: 60px;
   flex-wrap: wrap;
+  max-width: 1440px;
+  /* TODO: очень много лишних свойств было и скорее всего еще есть, мин-хейт я бы подумал, как тоже убрать.
+      position: relative - прям из фигмы брала? большинство св-в, которые там даются лишние. */
+  min-height: 356px;
+  margin: 0 auto;
 }
 
 .footer__text {
@@ -164,7 +167,6 @@ export default {
   .footer__text {
     font-size: 20px;
     line-height: 22px;
-    margin: 0;
     margin: 0 0 30px;
   }
 
@@ -212,7 +214,6 @@ export default {
   flex-wrap: wrap;
   list-style-type: none;
   flex-direction: column;
-  width: auto;
   width: 300px;
 }
 

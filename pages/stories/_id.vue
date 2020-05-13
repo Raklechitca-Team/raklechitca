@@ -1,6 +1,5 @@
 <template>
   <div class="container">
-    <app-header />
     <div class="story__banner">
       <div class="story__image-wrapper">
         <div class="story__image"></div>
@@ -57,18 +56,12 @@
         лечится».
       </p>
     </div>
-    <app-footer />
   </div>
 </template>
 
 <script>
 export default {
-  components: {
-    'app-header': Header,
-    'app-footer': Footer,
-  },
   name: '_id',
-  components: {},
 };
 </script>
 

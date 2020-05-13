@@ -39,7 +39,7 @@
 
 <script>
 import SectionTitle from '@/components/ui/SectionTitle';
-import VideoIframe from '@/components/ui/VideoIframe';
+import VideoIframe from '@/components/Video/VideoIframe';
 export default {
   name: 'Video',
   components: {
@@ -52,8 +52,10 @@ export default {
 <style scoped>
 .video {
   display: flex;
-  padding: 100px 0 74px;
+  padding: 100px 60px 74px;
   justify-content: space-between;
+  max-width: 1440px;
+  margin: 0 auto;
 }
 
 .video__text-container {

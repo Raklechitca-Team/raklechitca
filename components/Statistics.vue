@@ -1,6 +1,8 @@
 <template>
   <div class="statistics">
-    <h2 class="statistics__title">Статистика по онкозаболеваниям</h2>
+    <section-title class="statistics__title"
+      >Статистика по онкозаболеваниям</section-title
+    >
     <div class="statistics__blocks">
       <div class="statistics__block">
         <p class="statistics__quote">
@@ -51,22 +53,25 @@
 <script>
 import statusBar from '@/components/ui/statusBar';
 import miniBar from '@/components/ui/miniBar';
+import SectionTitle from '@/components/ui/SectionTitle';
 export default {
   name: 'Statistics',
   components: {
     'app-statusBar': statusBar,
     'app-miniBar': miniBar,
+    'section-title': SectionTitle,
   },
 };
 </script>
 
 <style scoped>
 .statistics {
-  margin: 100px auto 100px;
-  max-width: 91.6%;
+  padding: 100px 60px;
+  max-width: 1440px;
   width: 95%;
   display: flex;
   flex-direction: column;
+  margin: 0 auto;
 }
 .statistics__title {
   text-align: left;

@@ -1,46 +1,58 @@
 <template>
   <div class="cover">
-    <h2 class="cover__title">
-      #РАКЛЕЧИТСЯ
-    </h2>
-    <p class="cover__subtitle">О проекте</p>
-    <div class="cover__info">
-      <p class="cover__quote">
-        Этот проект был создан благотворительным фондом Константина Хабенского.
-      </p>
-      <div class="cover__text">
-        <div class="cover__author">
-          <p class="cover__projcet">Рак Лечится</p>
-          <p class="cover__name-project">Фонд Хабенского</p>
-        </div>
-        <p class="cover__excerpt">
-          Есть вещи, которые не лечатся. Особенности характера, страстные
-          увлечения, привычки, ставшие частью нашего «я», фобии, которые мы
-          приобрели в детстве. Список можно продолжать до бесконечности, но одна
-          болезнь в него точно не войдет. Эта болезнь — рак. Рак лечится, и
-          лучшее доказательство — люди с их неизлечимыми особенностями, которые
-          сумели победить рак. Рак лечится — проект Благотворительного Фонда
-          Константина Хабенского и Leo Burnett Moscow. С его помощью мы надеемся
-          изменить отношение людей к раку и заставить каждого поверить:
-          онкологическое заболевание — это не приговор.
+    <div class="cover__container">
+      <h2 class="cover__title">
+        #РАКЛЕЧИТСЯ
+      </h2>
+      <section-title class="cover__subtitle">О проекте</section-title>
+      <div class="cover__info">
+        <p class="cover__quote">
+          Этот проект был создан благотворительным фондом Константина
+          Хабенского.
         </p>
+        <div class="cover__text">
+          <div class="cover__author">
+            <p class="cover__projcet">Рак Лечится</p>
+            <p class="cover__name-project">Фонд Хабенского</p>
+          </div>
+          <p class="cover__excerpt">
+            Есть вещи, которые не лечатся. Особенности характера, страстные
+            увлечения, привычки, ставшие частью нашего «я», фобии, которые мы
+            приобрели в детстве. Список можно продолжать до бесконечности, но
+            одна болезнь в него точно не войдет. Эта болезнь — рак. Рак лечится,
+            и лучшее доказательство — люди с их неизлечимыми особенностями,
+            которые сумели победить рак. Рак лечится — проект Благотворительного
+            Фонда Константина Хабенского и Leo Burnett Moscow. С его помощью мы
+            надеемся изменить отношение людей к раку и заставить каждого
+            поверить: онкологическое заболевание — это не приговор.
+          </p>
+        </div>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import SectionTitle from '@/components/ui/SectionTitle';
 export default {
   name: 'Cover',
+  components: {
+    'section-title': SectionTitle,
+  },
 };
 </script>
 
 <style scoped>
 .cover {
-  display: flex;
-  flex-wrap: wrap;
   width: 100%;
   background-color: #613a93;
+}
+
+.cover__container {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 1440px;
+  margin: 0 auto;
 }
 
 .cover__title {

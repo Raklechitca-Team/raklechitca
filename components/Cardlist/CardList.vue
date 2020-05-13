@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import Card from '@/components/Card';
+import Card from '@/components/Cardlist/Card';
 export default {
   components: {
     'app-card': Card,
@@ -23,6 +23,7 @@ export default {
 
 <style scoped>
 .cardList {
+  padding: 0 60px;
   max-width: 1440px;
   margin: 70px auto 140px;
   display: grid;
