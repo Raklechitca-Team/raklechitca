@@ -19,6 +19,8 @@ export default {};
 <style scoped>
 .page__numbers {
   display: flex;
+  width: 100%;
+  justify-content: center;
   margin-bottom: 100px;
 }
 .page__number {

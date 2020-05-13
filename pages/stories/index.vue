@@ -1,22 +1,19 @@
 <template>
   <div class="container">
+    <h2 class="stories__title">Истории неизлечимых привычек</h2>
     <app-cardlist :cards="stories" />
-    <!--    <pagination-->
-    <!--      :storiesInTotal="cards.length"-->
-    <!--      :storiesPerPage="storiesPerPage"-->
-    <!--      :cards="cards"-->
-    <!--    />-->
+    <page-numbers />
   </div>
 </template>
 
 <script>
 import CardList from '@/components/Cardlist/CardList';
-//import Pagination from '@/components/Pagination';
+import PageNumber from '@/components/ui/PageNumber';
 export default {
   name: 'stories',
   components: {
     'app-cardlist': CardList,
-    // pagination: Pagination,
+    'page-numbers': PageNumber,
   },
   data() {
     return {
@@ -31,4 +28,57 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+.container {
+  max-width: 1440px;
+  margin: 0 auto;
+}
+.stories__title {
+  max-width: 413px;
+  font-weight: 600;
+  font-size: 32px;
+  line-height: 36px;
+  color: #000;
+  text-align: left;
+  margin: 100px auto 0 60px;
+}
+@media screen and (max-width: 1379px) {
+  .stories__title {
+    max-width: 367px;
+    font-size: 28px;
+    line-height: 32px;
+  }
+}
+@media screen and (max-width: 1239px) {
+  .stories__title {
+    max-width: 288px;
+    font-size: 24px;
+    line-height: 28px;
+  }
+}
+@media screen and (max-width: 979px) {
+  .stories__title {
+    max-width: 380px;
+    font-size: 24px;
+    line-height: 28px;
+    text-align: center;
+  }
+}
+@media screen and (max-width: 767px) {
+  .stories__title {
+    max-width: 380px;
+    font-size: 24px;
+    line-height: 28px;
+    text-align: center;
+  }
+}
+@media screen and (max-width: 500px) {
+  .stories__title {
+    max-width: 265px;
+    margin: 98px auto 50px;
+    font-size: 18px;
+    line-height: 21px;
+    text-align: center;
+  }
+}
+</style>
