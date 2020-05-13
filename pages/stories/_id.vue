@@ -56,6 +56,9 @@
         лечится».
       </p>
     </div>
+    <a href="#" class="story__share story__share_social"
+      >Поделитесь этой статьей в своих социальных сетях &#8599;</a
+    >
   </div>
 </template>
 
@@ -70,7 +73,7 @@ export default {
   font-family: 'Inter', sans-serif;
   display: flex;
   flex-direction: column;
-  margin-top: 100px;
+  margin: 100px auto 0;
   max-width: 1440px;
 }
 .story__banner {
@@ -147,5 +150,16 @@ export default {
 }
 .story__paragraph_bold {
   font-weight: bold;
+}
+.story__share_social {
+  border-top: 1px solid #efefef;
+  border-bottom: 1px solid #efefef;
+  padding: 30px;
+  max-width: 780px;
+  margin: 70px auto 160px;
+}
+.story__more-stories {
+  display: flex;
+  justify-content: center;
 }
 </style>
