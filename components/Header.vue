@@ -43,6 +43,7 @@ export default {
   justify-content: space-between;
   border-bottom: 1px solid #e8e8e8;
   z-index: 1;
+  max-width: 1440px;
 }
 
 @media screen and (max-width: 1280px) {
