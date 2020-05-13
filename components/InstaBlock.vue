@@ -1,7 +1,7 @@
 <template>
   <div class="insta-story">
     <div class="insta-story__info">
-      <h2 class="insta-story__title">Инстаграм</h2>
+      <section-title class="insta-story__title">Инстаграм</section-title>
       <p class="insta-story__prolog">
         Два раза в неделю мы просматриваем все посты по хештегу #этонелечится.
         Все истории, где нет нецензурных выражений и запрещенного контента
@@ -16,8 +16,12 @@
 </template>
 
 <script>
+import SectionTitle from '@/components/ui/SectionTitle';
 export default {
   name: 'InstaBlock',
+  components: {
+    'section-title': SectionTitle,
+  },
 };
 </script>
 
@@ -37,10 +41,10 @@ export default {
 }
 
 .insta-story__title {
+  max-width: 175px;
   margin-top: 0;
   margin-bottom: 0;
-  padding-bottom: 10px;
-  text-decoration: underline;
+  border-bottom: 2px solid #000;
   text-align: left;
   font-family: 'Inter', Arial, sans-serif;
   font-style: normal;
@@ -56,6 +60,7 @@ export default {
   font-weight: normal;
   font-size: 18px;
   line-height: 22px;
+  margin: 32px 0 0;
   color: #666666;
 }
 

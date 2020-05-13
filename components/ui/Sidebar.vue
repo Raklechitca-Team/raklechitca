@@ -22,7 +22,7 @@ export default {
   height: 100vh;
   padding: 40px 40px;
   position: fixed;
-  /* display: none; */
+  display: none;
   z-index: 2;
 }
 

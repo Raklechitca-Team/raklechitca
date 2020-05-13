@@ -23,6 +23,7 @@ export default {
 
 <style scoped>
 .cardList {
+  padding: 0 60px;
   max-width: 1440px;
   margin: 70px auto 140px;
   display: grid;

@@ -16,24 +16,21 @@ export default {
 <style scoped>
 .cover-title {
   width: 100%;
+  height: 689px;
   background: #613a93;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 }
 .cover-title__title {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 40vw;
-  margin: 0 auto;
+  margin: 290px auto 237px;
   color: #fff;
   font-family: 'Inter', Arial, sans-serif;
   font-style: normal;
   font-weight: 800;
   font-size: 92px;
   line-height: 111px;
-}
-
-.cover-title__svg-down {
-  padding-bottom: 1%;
 }
 
 .cover-title__svg-link:hover {

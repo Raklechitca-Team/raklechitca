@@ -36,7 +36,6 @@ export default {
   background-color: #ffffff;
 }
 .header__container {
-  max-width: 1440px;
   margin: 0 auto;
   padding: 0 60px;
   display: flex;

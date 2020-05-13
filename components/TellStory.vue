@@ -1,7 +1,9 @@
 <template>
   <div class="tell-story">
     <div class="tell-story__container">
-      <h3 class="tell-story__title">Расскажите свою историю</h3>
+      <section-title class="tell-story__title"
+        >Расскажите свою историю</section-title
+      >
       <div class="tell-story__text-wrapper">
         <p class="tell-story__subtitle">
           Мы публикуем новые истории на сайте раз в неделю. Есть 2 варианта
@@ -49,7 +51,11 @@
 </template>
 
 <script>
+import SectionTitle from '@/components/ui/SectionTitle';
 export default {
+  components: {
+    'section-title': SectionTitle,
+  },
   data: function() {
     return {
       currentTab: 1,

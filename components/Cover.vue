@@ -4,7 +4,7 @@
       <h2 class="cover__title">
         #РАКЛЕЧИТСЯ
       </h2>
-      <p class="cover__subtitle">О проекте</p>
+      <section-title class="cover__subtitle">О проекте</section-title>
       <div class="cover__info">
         <p class="cover__quote">
           Этот проект был создан благотворительным фондом Константина
@@ -33,8 +33,12 @@
 </template>
 
 <script>
+import SectionTitle from '@/components/ui/SectionTitle';
 export default {
   name: 'Cover',
+  components: {
+    'section-title': SectionTitle,
+  },
 };
 </script>
 
