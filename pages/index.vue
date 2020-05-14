@@ -6,7 +6,14 @@
     <app-cardlist :cards="stories" />
     <app-cover-in-site :text="`РАССКАЗЫВАЙТЕ ВАШИ ИСТОРИИ В ИНСТАГРАМ`" />
     <app-insta />
-    <app-tell-story />
+    <app-tell-story @buttonClick="popupHandler" />
+    <app-popup
+      v-if="popupShown"
+      @closeClick="popupHandler"
+      @overlayClick="popupHandler"
+    >
+      <app-quiz />
+    </app-popup>
     <app-statistics />
     <app-cover />
   </div>
@@ -21,6 +28,8 @@ import Statistics from '@/components/Statistics';
 import Cover from '@/components/Cover';
 import CoverInSite from '@/components/CoverInSite';
 import CardList from '@/components/Cardlist/CardList';
+import Popup from '@/components/Popup';
+import Quiz from '@/components/Quiz';
 export default {
   name: 'index',
   components: {
@@ -32,13 +41,22 @@ export default {
     'app-tell-story': TellStory,
     'app-statistics': Statistics,
     'app-cover': Cover,
+    'app-popup': Popup,
+    'app-quiz': Quiz,
   },
   data() {
-    return {};
+    return {
+      popupShown: false,
+    };
   },
   computed: {
     stories() {
       return this.$store.getters['stories/stories'];
+    },
+  },
+  methods: {
+    popupHandler() {
+      this.popupShown = !this.popupShown;
     },
   },
 };
