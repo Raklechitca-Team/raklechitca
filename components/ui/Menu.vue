@@ -33,8 +33,6 @@ export default {
 <style scoped>
 .menu {
   display: flex;
-  justify-content: space-between;
-  min-width: 410px;
 }
 
 .menu__link {
@@ -46,13 +44,9 @@ export default {
   letter-spacing: normal;
   color: #000000;
   text-decoration: none;
-  margin: 0;
+  margin: 0 40px 0 0;
   cursor: pointer;
   border-bottom: 1px solid #fff;
-}
-
-.menu__link:last-child {
-  margin: 0;
 }
 
 .menu__link_active {
@@ -73,7 +67,7 @@ export default {
   font-family: 'Inter', 'Arial', sans-serif;
   font-size: 18px;
   line-height: 24px;
-  width: 182px;
+  max-width: 182px;
   height: 24px;
   font-weight: normal;
   cursor: pointer;
@@ -102,23 +96,67 @@ export default {
   .menu__link {
     font-size: 16px;
   }
+
+  .menu /deep/ .main-button {
+    font-size: 16px;
+    max-width: 162px;
+  }
 }
 
-@media screen and (max-width: 980px) {
+@media screen and (max-width: 1024px) {
+  .menu__link {
+    margin: 0 30px 0 0;
+  }
+}
+
+@media screen and (max-width: 768px) {
   .menu {
-    flex-direction: column;
-    min-width: 170px;
+    margin: 0;
+    padding: 0;
+    align-items: center;
   }
 
   .menu__link {
-    margin: 0 0 20px;
-    align-self: flex-end;
-    line-height: 24px;
-    letter-spacing: normal;
+    margin: 0 30px 0 0;
+  }
+}
+
+@media screen and (max-width: 452px) {
+  .menu {
+    flex-direction: column;
+    align-items: flex-start;
+    align-content: space-between;
   }
 
-  .menu__button {
-    text-align: right;
+  .menu__link {
+    margin: 0 0 10px;
+    font-size: 15px;
+    line-height: 16px;
+  }
+
+  .menu /deep/ .main-button {
+    max-width: 151px;
+    font-size: 15px;
+  }
+}
+
+@media screen and (max-width: 340px) {
+  .menu {
+    flex-direction: column;
+    align-items: flex-start;
+    align-content: space-between;
+  }
+
+  .menu__link {
+    margin: 0 0 18px;
+    font-size: 13px;
+    line-height: 16px;
+  }
+
+  .menu /deep/ .main-button {
+    font-size: 13px;
+    line-height: 16px;
+    max-width: 131px;
   }
 }
 </style>

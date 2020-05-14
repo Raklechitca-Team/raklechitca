@@ -1,6 +1,6 @@
 <template>
   <div class="sidebar">
-    <app-menu class="sidebar__menu" />
+    <app-menu class="sidebar__menu" @buttonClick="$emit('buttonClick')" />
   </div>
 </template>
 
@@ -16,23 +16,17 @@ export default {
 
 <style scoped>
 .sidebar {
-  top: 0;
   background-color: #fff;
-  max-width: 250px;
-  height: 100vh;
-  padding: 40px 40px;
-  position: fixed;
-  display: none;
-  z-index: 2;
+  border-bottom: 1px solid #efefef;
 }
 
 .sidebar__menu {
-  width: 170px;
+  align-items: center;
 }
 
-@media screen and (min-width: 981px) {
-  .sidebar {
-    display: none;
+@media screen and (max-width: 452px) {
+  .sidebar__menu {
+    align-items: flex-start;
   }
 }
 </style>
