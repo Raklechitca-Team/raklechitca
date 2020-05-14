@@ -2,18 +2,25 @@
   <div class="container">
     <h2 class="stories__title">Истории неизлечимых привычек</h2>
     <app-cardlist :cards="stories" />
-    <page-numbers />
+    <!-- <page-numbers /> -->
+    <pagination
+      :storiesInTotal="stories.length"
+      :storiesPerPage="storiesPerPage"
+      :stories="stories"
+    />
   </div>
 </template>
 
 <script>
 import CardList from '@/components/Cardlist/CardList';
-import PageNumber from '@/components/ui/PageNumber';
+// import PageNumber from '@/components/ui/PageNumber';
+import Pagination from '@/components/Pagination';
 export default {
   name: 'stories',
   components: {
     'app-cardlist': CardList,
-    'page-numbers': PageNumber,
+    // 'page-numbers': PageNumber,
+    pagination: Pagination,
   },
   data() {
     return {
