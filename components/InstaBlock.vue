@@ -27,6 +27,7 @@ export default {
 
 <style scoped>
 .insta-story {
+  overflow: hidden;
   padding: 100px 60px;
   display: flex;
   flex-direction: row;
@@ -45,12 +46,12 @@ export default {
   margin-top: 0;
   margin-bottom: 0;
   border-bottom: 2px solid #000;
+  font-size: 32px;
+  line-height: 36px;
   text-align: left;
   font-family: 'Inter', Arial, sans-serif;
   font-style: normal;
   font-weight: 600;
-  font-size: 32px;
-  line-height: 36px;
 }
 
 .insta-story__prolog {
@@ -66,14 +67,93 @@ export default {
 
 .insta-story__images {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: repeat(4, 1fr);
   grid-gap: 30px;
-  max-width: 74%;
 }
 
 .insta-story__image {
   background-color: #ededed;
   height: 195px;
   width: 195px;
+}
+
+@media screen and (max-width: 1280px) {
+  .insta-story__title {
+    font-size: 28px;
+    line-height: 32px;
+  }
+  .insta-story__image {
+    height: 171px;
+    width: 171px;
+  }
+  .insta-story__prolog {
+    font-size: 16px;
+    line-height: 20px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .insta-story__title {
+    font-size: 24px;
+    line-height: 28px;
+  }
+  .insta-story__image {
+    height: 136px;
+    width: 136px;
+  }
+  .insta-story__prolog {
+    font-size: 13px;
+    line-height: 16px;
+  }
+}
+
+@media screen and (max-width: 960px) {
+  .insta-story {
+    flex-direction: column;
+  }
+  .insta-story__info {
+    margin: 0 auto;
+    max-width: 380px;
+    padding-bottom: 60px;
+  }
+  .insta-story__title {
+    text-align: center;
+    margin: 0 auto;
+  }
+  .insta-story__images {
+    max-width: 750px;
+    grid-gap: 10px;
+  }
+  .insta-story__image {
+    height: 157px;
+    width: 157px;
+  }
+}
+@media screen and (max-width: 750px) {
+  .insta-story {
+    margin: 60px 0;
+    padding: 0;
+  }
+  .insta-story__info {
+    max-width: 380px;
+    padding-bottom: 40px;
+    padding-left: 10px;
+  }
+  .insta-story__title {
+    font-size: 18px;
+    line-height: 21px;
+    text-align: left;
+    margin: 0;
+  }
+  .insta-story__images {
+    margin: 0 auto;
+    max-width: 320px;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 10px;
+  }
+  .insta-story__image {
+    height: 140px;
+    width: 140px;
+  }
 }
 </style>
