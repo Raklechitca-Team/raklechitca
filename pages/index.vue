@@ -1,42 +1,51 @@
 <template>
   <div class="container">
-    <h1>Hello</h1>
+    <app-title />
+    <app-video />
+    <app-cover-in-site :text="'И В ОТЛИЧИЕ ОТ РАКА,'" />
+    <app-cardlist :cards="stories" />
+    <app-cover-in-site :text="`РАССКАЗЫВАЙТЕ ВАШИ ИСТОРИИ В ИНСТАГРАМ`" />
+    <app-insta />
+    <app-tell-story />
+    <app-statistics />
+    <app-cover />
   </div>
 </template>
 
 <script>
-export default {};
+import Title from '@/components/Title';
+import Video from '@/components/Video/Video';
+import InstaBlock from '@/components/InstaBlock';
+import TellStory from '@/components/TellStory';
+import Statistics from '@/components/Statistics';
+import Cover from '@/components/Cover';
+import CoverInSite from '@/components/CoverInSite';
+import CardList from '@/components/Cardlist/CardList';
+export default {
+  name: 'index',
+  components: {
+    'app-title': Title,
+    'app-video': Video,
+    'app-cover-in-site': CoverInSite,
+    'app-cardlist': CardList,
+    'app-insta': InstaBlock,
+    'app-tell-story': TellStory,
+    'app-statistics': Statistics,
+    'app-cover': Cover,
+  },
+  data() {
+    return {};
+  },
+  computed: {
+    stories() {
+      return this.$store.getters['stories/stories'];
+    },
+  },
+};
 </script>
 
-<style>
+<style scoped>
 .container {
-  margin: 0 auto;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
-.title {
-  font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
-    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  display: block;
-  font-weight: 300;
-  font-size: 100px;
-  color: #35495e;
-  letter-spacing: 1px;
-}
-
-.subtitle {
-  font-weight: 300;
-  font-size: 42px;
-  color: #526488;
-  word-spacing: 5px;
-  padding-bottom: 15px;
-}
-
-.links {
-  padding-top: 15px;
+  font-family: 'Inter', 'Arial', sans-serif;
 }
 </style>
