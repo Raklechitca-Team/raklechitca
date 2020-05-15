@@ -16,7 +16,7 @@ export default {
     ],
     link: [
       { rel: 'icon', type: 'image/png', href: '/icon.png' },
-      { rel: 'stylesheet', href: '/fonts/inter/inter.css' },
+      { rel: 'stylesheet', href: 'assets/fonts/inter/inter.css' },
     ],
   },
   /*

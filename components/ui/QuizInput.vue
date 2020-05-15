@@ -6,6 +6,8 @@
     maxlength="20"
     required
   />
+  <!-- не стала здесь minlength, maxlength и required делать пропсами
+нужно решить, откуда будем получать (из стора?) и по возможности добавить -->
 </template>
 
 <script>
