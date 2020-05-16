@@ -2,7 +2,7 @@
   <div class="container">
     <h2 class="stories__title">Истории неизлечимых привычек</h2>
     <app-cardlist :cards="page" />
-    <pagination
+    <app-pagination
       :storiesInTotal="stories.length"
       :storiesPerPage="storiesPerPage"
       :stories="stories"
@@ -18,7 +18,7 @@ export default {
   name: 'stories',
   components: {
     'app-cardlist': CardList,
-    pagination: Pagination,
+    'app-pagination': Pagination,
   },
   data() {
     return {

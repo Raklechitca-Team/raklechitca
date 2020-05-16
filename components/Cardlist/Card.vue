@@ -13,7 +13,12 @@
 
 <script>
 export default {
-  props: ['url', 'name', 'text', 'card'],
+  props: {
+    url: String,
+    name: String,
+    text: String,
+    card: Object,
+  },
   methods: {
     openStory(card) {
       this.$router.push('/stories/' + card);
