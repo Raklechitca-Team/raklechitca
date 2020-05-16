@@ -1,11 +1,11 @@
 <template>
-  <div class="cover__background">
-    <container>
+  <app-container>
+    <div class="cover__background">
       <h2 class="cover__title">
         {{ text }}<span class="cover__title_bold"> #ЭТОНЕЛЕЧИТСЯ</span>
       </h2>
-    </container>
-  </div>
+    </div>
+  </app-container>
 </template>
 
 <script>
@@ -14,7 +14,7 @@ export default {
   name: 'Cover_in_site',
   props: ['text'],
   components: {
-    container: Container,
+    'app-container': Container,
   },
 };
 </script>
