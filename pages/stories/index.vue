@@ -1,31 +1,56 @@
 <template>
   <div class="container">
     <h2 class="stories__title">Истории неизлечимых привычек</h2>
-    <app-cardlist :cards="stories" />
-    <!-- <page-numbers /> -->
+    <app-cardlist :cards="page" />
     <pagination
       :storiesInTotal="stories.length"
       :storiesPerPage="storiesPerPage"
       :stories="stories"
+      @pageClick="paginate"
     />
   </div>
 </template>
 
 <script>
 import CardList from '@/components/Cardlist/CardList';
-// import PageNumber from '@/components/ui/PageNumber';
 import Pagination from '@/components/Pagination';
 export default {
   name: 'stories',
   components: {
     'app-cardlist': CardList,
-    // 'page-numbers': PageNumber,
     pagination: Pagination,
   },
   data() {
     return {
-      storiesPerPage: 4,
+      storiesPerPage: 16,
+      currentPage: 1,
+      page: 1,
     };
+  },
+  created() {
+    if (process.browser) {
+      let widthForNine = window.matchMedia('(max-width: 1023px)');
+      let widthForEight = window.matchMedia('(max-width: 767px)');
+      let widthForOne = window.matchMedia('(max-width: 500px)');
+      if (widthForNine.matches || widthForOne.matches) {
+        this.storiesPerPage = 9;
+        this.paginate(this.currentPage);
+      }
+      if (widthForEight.matches) {
+        this.storiesPerPage = 8;
+        this.paginate(this.currentPage);
+      }
+    }
+    this.paginate(this.currentPage);
+  },
+  methods: {
+    paginate(currentPage) {
+      let storiesPerPage = this.storiesPerPage;
+      let from = currentPage * storiesPerPage - storiesPerPage;
+      let to = currentPage * storiesPerPage;
+      let paginatedStories = this.stories.slice(from, to);
+      this.page = paginatedStories;
+    },
   },
   computed: {
     stories() {

@@ -1,10 +1,9 @@
 <template>
   <div>
-    <div class="page__numbers">
-      <app-cardlist :cards="stories" />
+    <div :page="page" class="page__numbers">
       <div
-        v-for="page in this.setPages()"
-        @click="paginate(page)"
+        v-for="page in setPages"
+        @click="$emit('pageClick', page)"
         class="page__number"
       >
         {{ page }}
@@ -14,23 +13,15 @@
 </template>
 
 <script>
+import CardList from '@/components/Cardlist/CardList';
 export default {
-  data() {
-    return {
-      currentPage: 1,
-    };
+  components: {
+    'app-cardlist': CardList,
   },
   props: ['storiesInTotal', 'storiesPerPage', 'stories'],
-  methods: {
+  computed: {
     setPages() {
       return Math.ceil(this.storiesInTotal / this.storiesPerPage);
-    },
-    paginate(currentPage) {
-      let storiesPerPage = this.storiesPerPage;
-      let from = currentPage * storiesPerPage - storiesPerPage;
-      let to = currentPage * storiesPerPage;
-      let paginatedStories = this.stories.slice(from, to);
-      console.log(paginatedStories);
     },
   },
 };
