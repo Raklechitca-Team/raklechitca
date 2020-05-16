@@ -5,7 +5,7 @@
     <app-cover-in-site :text="'И В ОТЛИЧИЕ ОТ РАКА,'" />
     <app-cardlist :cards="stories" />
     <app-cover-in-site :text="`РАССКАЗЫВАЙТЕ ВАШИ ИСТОРИИ В ИНСТАГРАМ`" />
-    <app-insta />
+    <app-insta :images="instaImage" />
     <app-tell-story />
     <app-statistics />
     <app-cover />
@@ -15,7 +15,7 @@
 <script>
 import Title from '@/components/Title';
 import Video from '@/components/Video/Video';
-import InstaBlock from '@/components/InstaBlock';
+import InstaBlock from '@/components/instaBlock/InstaBlock';
 import TellStory from '@/components/TellStory';
 import Statistics from '@/components/Statistics';
 import Cover from '@/components/Cover';
@@ -39,6 +39,9 @@ export default {
   computed: {
     stories() {
       return this.$store.getters['stories/stories'];
+    },
+    instaImage() {
+      return this.$store.getters['instagramImage/instaImage'];
     },
   },
 };

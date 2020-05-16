@@ -1,7 +1,9 @@
 <template>
   <div class="insta-story">
     <div class="insta-story__info">
-      <section-title class="insta-story__title">Инстаграм</section-title>
+      <app-section-title class="insta-story__title"
+        >Инстаграм</app-section-title
+      >
       <p class="insta-story__prolog">
         Два раза в неделю мы просматриваем все посты по хештегу #этонелечится.
         Все истории, где нет нецензурных выражений и запрещенного контента
@@ -10,18 +12,22 @@
       </p>
     </div>
     <div class="insta-story__images">
-      <div class="insta-story__image" v-for="el in 8" :key="el"></div>
+      <app-insta-image v-for="image in images" :url="image.url">
+      </app-insta-image>
     </div>
   </div>
 </template>
 
 <script>
 import SectionTitle from '@/components/ui/SectionTitle';
+import InstaImage from '@/components/instaBlock/instaImage';
 export default {
   name: 'InstaBlock',
   components: {
-    'section-title': SectionTitle,
+    'app-section-title': SectionTitle,
+    'app-insta-image': InstaImage,
   },
+  props: ['images'],
 };
 </script>
 
@@ -77,24 +83,10 @@ export default {
   */
 }
 
-.insta-story__image {
-  background-color: #ededed;
-  height: 195px;
-  width: 195px;
-}
-
-.insta-story__image {
-  cursor: pointer;
-}
-
 @media screen and (max-width: 1280px) {
   .insta-story__title {
     font-size: 28px;
     line-height: 32px;
-  }
-  .insta-story__image {
-    height: 171px;
-    width: 171px;
   }
   .insta-story__prolog {
     font-size: 16px;
@@ -106,10 +98,6 @@ export default {
   .insta-story__title {
     font-size: 24px;
     line-height: 28px;
-  }
-  .insta-story__image {
-    height: 136px;
-    width: 136px;
   }
   .insta-story__prolog {
     font-size: 13px;
@@ -134,12 +122,6 @@ export default {
     max-width: 750px;
     grid-gap: 10px;
   }
-  .insta-story__image {
-    height: 157px;
-    width: 157px;
-  }
-}
-@media screen and (max-width: 750px) {
   .insta-story {
     margin: 60px 0;
     padding: 0;
@@ -160,10 +142,6 @@ export default {
     max-width: 320px;
     grid-template-columns: 1fr 1fr;
     grid-gap: 10px;
-  }
-  .insta-story__image {
-    height: 140px;
-    width: 140px;
   }
 }
 </style>
