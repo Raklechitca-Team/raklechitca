@@ -2,7 +2,7 @@
   <app-container>
     <div class="cover__background">
       <h2 class="cover__title">
-        {{ text }}<span class="cover__title_bold"> #ЭТОНЕЛЕЧИТСЯ</span>
+        {{ text }}<span class="cover__title-bold"> #ЭТОНЕЛЕЧИТСЯ</span>
       </h2>
     </div>
   </app-container>
@@ -12,7 +12,9 @@
 import Container from '@/components/Container';
 export default {
   name: 'Cover_in_site',
-  props: ['text'],
+  props: {
+    text: String,
+  },
   components: {
     'app-container': Container,
   },
@@ -24,7 +26,7 @@ export default {
   font-family: 'Inter', 'Arial', sans-serif;
   width: 100%;
   background-color: #613a93;
-  color: #ffffff;
+  color: #fff;
 }
 
 .cover__title {
@@ -39,7 +41,7 @@ export default {
   padding: 20px 0;
 }
 
-.cover__title_bold {
+.cover__title-bold {
   font-weight: bold;
 }
 

@@ -4,11 +4,7 @@
   </div>
 </template>
 <script>
-export default {
-  props: {
-    className: String,
-  },
-};
+export default {};
 </script>
 <style scoped>
 .container {
