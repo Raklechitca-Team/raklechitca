@@ -1,27 +1,63 @@
 <template>
   <div class="container">
-    <h2 class="stories__title">Истории неизлечимых привычек</h2>
-    <search />
-    <app-cardlist :cards="stories" />
-    <page-numbers />
+    <app-section-title class="stories__title"
+      >Истории неизлечимых привычек</app-section-title
+    >
+    <app-search />
+    <app-cardlist :cards="page" />
+    <app-pagination
+      :storiesInTotal="stories.length"
+      :storiesPerPage="storiesPerPage"
+      :stories="stories"
+      @pageClick="paginate"
+    />
   </div>
 </template>
 
 <script>
+import SectionTitle from '@/components/ui/SectionTitle';
 import CardList from '@/components/Cardlist/CardList';
-import PageNumber from '@/components/ui/PageNumber';
+import Pagination from '@/components/Pagination';
 import Search from '@/components/Search';
 export default {
   name: 'stories',
   components: {
+    'app-section-title': SectionTitle,
     'app-cardlist': CardList,
-    'page-numbers': PageNumber,
-    search: Search,
+    'app-pagination': Pagination,
+    'app-search': Search,
   },
   data() {
     return {
-      storiesPerPage: 4,
+      storiesPerPage: 16,
+      currentPage: 1,
+      page: 1,
     };
+  },
+  created() {
+    if (process.browser) {
+      let widthForNine = window.matchMedia('(max-width: 1023px)');
+      let widthForEight = window.matchMedia('(max-width: 767px)');
+      let widthForOne = window.matchMedia('(max-width: 500px)');
+      if (widthForNine.matches || widthForOne.matches) {
+        this.storiesPerPage = 9;
+        this.paginate(this.currentPage);
+      }
+      if (widthForEight.matches) {
+        this.storiesPerPage = 8;
+        this.paginate(this.currentPage);
+      }
+    }
+    this.paginate(this.currentPage);
+  },
+  methods: {
+    paginate(currentPage) {
+      let storiesPerPage = this.storiesPerPage;
+      let from = currentPage * storiesPerPage - storiesPerPage;
+      let to = currentPage * storiesPerPage;
+      let paginatedStories = this.stories.slice(from, to);
+      this.page = paginatedStories;
+    },
   },
   computed: {
     stories() {
@@ -35,6 +71,7 @@ export default {
 .container {
   max-width: 1440px;
   margin: 0 auto;
+  padding-top: 100px;
 }
 .stories__title {
   max-width: 413px;
@@ -43,7 +80,7 @@ export default {
   line-height: 36px;
   color: #000;
   text-align: left;
-  margin: 100px auto 0 60px;
+  margin-left: 60px;
 }
 @media screen and (max-width: 1379px) {
   .stories__title {
