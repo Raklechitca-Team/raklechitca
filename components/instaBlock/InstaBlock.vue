@@ -27,7 +27,9 @@ export default {
     'app-section-title': SectionTitle,
     'app-insta-image': InstaImage,
   },
-  props: ['images'],
+  props: {
+    images: Object,
+  },
 };
 </script>
 
@@ -75,12 +77,6 @@ export default {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-gap: 30px;
-  /* коммент от Хаза:
-  тут тоже значение ничем не обосновано как мне кажется)) постарайтесь от таких штук избавиться. 
-  это не критическое замечание, но глаз прямо цепляется
-  Варя: не стала исправлять, нужно в целом доработать здесь верстку 
-  Полина: ширину можно спокойно убирать, делалось для теста, не обратила внимания что осталось 
-  */
 }
 
 @media screen and (max-width: 1280px) {
