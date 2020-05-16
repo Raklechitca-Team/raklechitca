@@ -1,6 +1,7 @@
 <template>
   <div class="container">
     <h2 class="stories__title">Истории неизлечимых привычек</h2>
+    <search />
     <app-cardlist :cards="stories" />
     <page-numbers />
   </div>
@@ -9,11 +10,13 @@
 <script>
 import CardList from '@/components/Cardlist/CardList';
 import PageNumber from '@/components/ui/PageNumber';
+import Search from '@/components/Search';
 export default {
   name: 'stories',
   components: {
     'app-cardlist': CardList,
     'page-numbers': PageNumber,
+    search: Search,
   },
   data() {
     return {

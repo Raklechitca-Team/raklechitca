@@ -14,6 +14,9 @@
       <quiz-button class="quiz__button_next" @click="nextQuestion"
         >Далее</quiz-button
       >
+      <!-- Варя: тут нужно убрать стили кнопок вообще все в QuizButton, но давайте лучше проверит тот, кто делал
+      а вот кнопки quiz-button они используются где-то еще кроме этого места? 
+      судя по сему нет, тогда наверное есть смысл унести стили этих кнопок внутрь этих элементов прямо -->
     </div>
   </form>
 </template>
@@ -117,13 +120,17 @@ export default {
   font-weight: normal;
   font-size: 18px;
   line-height: 24px;
-  color: #666666;
+  color: #666;
   border-bottom: 1px solid #e7e7e7;
 }
 
 .quiz__input:focus {
-  outline: none !important;
+  outline: none;
 }
+
+/* блин, тут тоже important) 
+постарайтесь не использовать. лучше поиграть со связкой нескольких классов рядом друг с другом 
+Варя: я просто убрала импортант всюду, если вдруг исчезли какие-то стили, добавьте плиз*/
 
 .quiz__buttons {
   display: flex;
@@ -142,7 +149,7 @@ export default {
 }
 
 .quiz /deep/ .quiz__button_back:focus {
-  outline: none !important;
+  outline: none;
 }
 
 .quiz /deep/ .quiz__button_next {
@@ -156,6 +163,6 @@ export default {
 }
 
 .quiz /deep/ .quiz__button_next:focus {
-  outline: none !important;
+  outline: none;
 }
 </style>

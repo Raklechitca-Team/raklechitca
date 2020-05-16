@@ -49,14 +49,14 @@ export default {
   font-size: 32px;
   line-height: 36px;
   text-align: left;
-  font-family: 'Inter', Arial, sans-serif;
+  font-family: 'Inter', 'Arial', sans-serif;
   font-style: normal;
   font-weight: 600;
 }
 
 .insta-story__prolog {
   text-align: left;
-  font-family: 'Inter', Arial, sans-serif;
+  font-family: 'Inter', 'Arial', sans-serif;
   font-style: normal;
   font-weight: normal;
   font-size: 18px;
@@ -69,6 +69,11 @@ export default {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-gap: 30px;
+  max-width: 74%;
+  /* коммент от Хаза:
+  тут тоже значение ничем не обосновано как мне кажется)) постарайтесь от таких штук избавиться. 
+  это не критическое замечание, но глаз прямо цепляется
+  Варя: не стала исправлять, нужно в целом доработать здесь верстку */
 }
 
 .insta-story__image {

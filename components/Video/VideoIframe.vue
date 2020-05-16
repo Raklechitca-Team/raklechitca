@@ -1,8 +1,7 @@
 <template>
-  <div class="video-iframe">
+  <div class="video-iframe__container">
     <iframe
-      width="867"
-      height="450"
+      class="video-iframe"
       src="https://www.youtube.com/embed/coOppM34GtI"
       allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
       allowfullscreen
@@ -18,7 +17,11 @@ export default {
 </script>
 
 <style scoped>
-.video-iframe {
+.video-iframe__container {
   border: 0;
+}
+.video-iframe {
+  width: 867px;
+  height: 450px;
 }
 </style>

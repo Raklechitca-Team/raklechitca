@@ -35,4 +35,37 @@ export default {
   border: 0;
   margin: 0;
 }
+.quiz__buttons {
+  display: flex;
+  align-self: flex-start;
+  justify-self: flex-end;
+  position: absolute;
+  bottom: 40px;
+  margin: 0;
+  width: 334px;
+}
+
+.quiz /deep/ .quiz__button_back {
+  margin: 16px 30px;
+  color: #c0c0c0;
+  padding: 0;
+}
+
+.quiz /deep/ .quiz__button_back:focus {
+  outline: none !important;
+}
+
+.quiz /deep/ .quiz__button_next {
+  width: 226px;
+  height: 52px;
+  background-color: #613a93;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.quiz /deep/ .quiz__button_next:focus {
+  outline: none !important;
+}
 </style>

@@ -1,8 +1,8 @@
 <template>
-  <div :cards="cards" class="cardList">
+  <div :cards="cards" class="card-list">
     <app-card
-      v-for="(card, i) in cards"
-      :key="i"
+      v-for="card in cards"
+      :key="card.id"
       :url="card.url"
       :name="card.name"
       :text="card.text"
@@ -22,7 +22,7 @@ export default {
 </script>
 
 <style scoped>
-.cardList {
+.card-list {
   padding: 0 60px;
   margin: 70px auto 140px;
   display: grid;
@@ -31,35 +31,35 @@ export default {
   grid-gap: 70px 40px;
 }
 @media screen and (max-width: 1379px) {
-  .cardList {
+  .card-list {
     margin: 60px auto 130px;
     grid-gap: 60px 40px;
     grid-template-columns: 265px 265px 265px 265px;
   }
 }
 @media screen and (max-width: 1239px) {
-  .cardList {
+  .card-list {
     margin: 46px auto 110px;
     grid-gap: 46px 30px;
     grid-template-columns: 208px 208px 208px 208px;
   }
 }
 @media screen and (max-width: 1023px) {
-  .cardList {
+  .card-list {
     margin: 60px auto 130px;
     grid-gap: 40px 20px;
     grid-template-columns: 216px 216px 216px;
   }
 }
 @media screen and (max-width: 767px) {
-  .cardList {
+  .card-list {
     margin: 60px auto 130px;
     grid-gap: 40px 20px;
     grid-template-columns: 216px 216px;
   }
 }
 @media screen and (max-width: 500px) {
-  .cardList {
+  .card-list {
     padding: 0;
     margin: 30px auto 50px;
     display: flex;
