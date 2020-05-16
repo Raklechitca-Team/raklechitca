@@ -83,6 +83,10 @@ export default {
   width: 195px;
 }
 
+.insta-story__image {
+  cursor: pointer;
+}
+
 @media screen and (max-width: 1280px) {
   .insta-story__title {
     font-size: 28px;
