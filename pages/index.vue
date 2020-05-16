@@ -5,7 +5,7 @@
     <app-cover-in-site :text="'И В ОТЛИЧИЕ ОТ РАКА,'" />
     <app-cardlist :cards="stories" />
     <app-cover-in-site :text="`РАССКАЗЫВАЙТЕ ВАШИ ИСТОРИИ В ИНСТАГРАМ`" />
-    <app-insta :images="instaImage" />
+    <app-insta :images="instagram" />
     <app-tell-story />
     <app-statistics />
     <app-cover />
@@ -40,8 +40,8 @@ export default {
     stories() {
       return this.$store.getters['stories/stories'];
     },
-    instaImage() {
-      return this.$store.getters['instagramImage/instaImage'];
+    instagram() {
+      return this.$store.getters['instagram/instagram'];
     },
   },
 };

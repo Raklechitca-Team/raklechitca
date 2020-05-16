@@ -1,5 +1,5 @@
 const state = () => ({
-  instaImage: [
+  instagram: [
     {
       id: 1,
       name: 'Татьяна Полетаева',
@@ -94,7 +94,7 @@ const actions = {
 };
 
 const getters = {
-  instaImage: i => i.instaImage,
+  instagram: obj => obj.instagram,
 };
 
 export default {
