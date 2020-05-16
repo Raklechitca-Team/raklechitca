@@ -4,47 +4,50 @@
     <div class="footer-share__icons">
       <a href="" target="_blank" class="footer-share__link">
         <img
-          src="@/static/share/facebook.svg"
+          src="../../static/share/facebook.svg"
           class="footer-share__icon"
           alt="facebook"
         />
       </a>
       <a href="" target="_blank" class="footer-share__link">
         <img
-          src="@/static/share/twitter.svg"
+          src="../../static/share/twitter.svg"
           class="footer-share__icon"
           alt="facebook"
         />
       </a>
       <a href="" target="_blank" class="footer-share__link">
         <img
-          src="@/static/share/vkontakte.svg"
+          src="../../static/share/vkontakte.svg"
           class="footer-share__icon"
           alt="facebook"
         />
       </a>
       <a href="" target="_blank" class="footer-share__link">
         <img
-          src="@/static/share/odnoklassniki.svg"
+          src="../../static/share/odnoklassniki.svg"
           class="footer-share__icon"
           alt="facebook"
         />
       </a>
       <a href="" target="_blank" class="footer-share__link">
         <img
-          src="@/static/share/instagram.svg"
+          src="../../static/share/instagram.svg"
           class="footer-share__icon"
           alt="facebook"
         />
       </a>
       <a href="" target="_blank" class="footer-share__link">
         <img
-          src="@/static/share/youtube.svg"
+          src="../../static/share/youtube.svg"
           class="footer-share__icon"
           alt="facebook"
         />
       </a>
     </div>
+    <!-- коммент от Хаза:
+    в перспективе лучше конечно это реализовать через цикл,
+    так будет проще добавлять и удалять соцсети в случае необходмости -->
   </div>
 </template>
 
