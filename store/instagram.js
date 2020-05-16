@@ -94,7 +94,7 @@ const actions = {
 };
 
 const getters = {
-  instagram: obj => obj.instagram,
+  instagram: s => s.instagram,
 };
 
 export default {

@@ -7,7 +7,9 @@
 
 <script>
 export default {
-  props: ['url'],
+  props: {
+    url: String,
+  },
 };
 </script>
 
