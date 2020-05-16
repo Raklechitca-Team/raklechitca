@@ -7,6 +7,8 @@
       >Главная</nuxt-link
     >
     <nuxt-link to="/" v-else class="menu__link">Главная</nuxt-link>
+    <!-- коммент от Хаза: тут точно можно облегчить, используя условия внутри :style (единственное отличие тут класс) 
+    не поняла, как исправить здесь-->
     <nuxt-link
       to="/stories"
       v-if="$route.path == '/stories'"
@@ -48,7 +50,7 @@ export default {
   text-decoration: none;
   margin: 0;
   cursor: pointer;
-  border-bottom: 1px solid #fff;
+  border-bottom: 1px solid transparent;
 }
 
 .menu__link:last-child {

@@ -46,7 +46,7 @@ export default {
   margin-bottom: 0;
   border-bottom: 2px solid #000;
   text-align: left;
-  font-family: 'Inter', Arial, sans-serif;
+  font-family: 'Inter', 'Arial', sans-serif;
   font-style: normal;
   font-weight: 600;
   font-size: 32px;
@@ -55,7 +55,7 @@ export default {
 
 .insta-story__prolog {
   text-align: left;
-  font-family: 'Inter', Arial, sans-serif;
+  font-family: 'Inter', 'Arial', sans-serif;
   font-style: normal;
   font-weight: normal;
   font-size: 18px;
@@ -69,6 +69,10 @@ export default {
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-gap: 30px;
   max-width: 74%;
+  /* коммент от Хаза:
+  тут тоже значение ничем не обосновано как мне кажется)) постарайтесь от таких штук избавиться. 
+  это не критическое замечание, но глаз прямо цепляется
+  Варя: не стала исправлять, нужно в целом доработать здесь верстку */
 }
 
 .insta-story__image {

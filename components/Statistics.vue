@@ -1,62 +1,69 @@
 <template>
   <div class="statistics">
-    <section-title class="statistics__title"
-      >Статистика по онкозаболеваниям</section-title
-    >
-    <div class="statistics__blocks">
-      <div class="statistics__block">
-        <p class="statistics__quote">
-          Каждый 3-й в стране уверен, что рак неизлечим. А это примерно 48 918
-          000 человек.
-        </p>
-        <div class="statistics__info">
-          <app-statusBar :value="1" :maxValue="3" />
-          <p class="statistics__total">1 из 3</p>
-          <p class="statistics__who">Левада-Центр 2018</p>
+    <container>
+      <section-title class="statistics__title"
+        >Статистика по онкозаболеваниям</section-title
+      >
+      <div class="statistics__blocks">
+        <div class="statistics__block">
+          <p class="statistics__quote">
+            Каждый 3-й в стране уверен, что рак неизлечим. А это примерно 48 918
+            000 человек.
+          </p>
+          <div class="statistics__info">
+            <app-statusBar :value="1" :maxValue="3" />
+            <p class="statistics__total">1 из 3</p>
+            <p class="statistics__who">Левада-Центр 2018</p>
+          </div>
+        </div>
+        <div class="statistics__block">
+          <p class="statistics__quote">2,6% Россиян имеют онкозаболевания.</p>
+          <div class="statistics__info">
+            <app-statusBar :value="3" :maxValue="100" />
+            <p class="statistics__total">3 700 000</p>
+            <p class="statistics__who">Росстат 2018</p>
+          </div>
+        </div>
+        <div class="statistics__block">
+          <p class="statistics__quote">
+            На 28% выросла доля выявления заболеваний на ранней стадии за 10
+            лет.
+          </p>
+          <div class="statistics__info">
+            <app-miniBar :color="`#e4e1e1`" :value="15" :maxValue="100" />
+            <app-miniBar :color="`#613a93`" :value="15" :maxValue="100" />
+            <!-- коммент от Хаза: можно убрать шаблонные строки внутри кавычек: :color="#e4e1e1"
+          я попробовала убрать, не работает) оставляю так -->
+            <p class="statistics__total">&#8593;28%</p>
+            <p class="statistics__who">МНИОИ Герцена 2018</p>
+          </div>
+        </div>
+        <div class="statistics__block">
+          <p class="statistics__quote">
+            На 25% снизилась смертность в течение первого года после постановки
+            диагноза.
+          </p>
+          <div class="statistics__info">
+            <app-miniBar :color="`#e4e1e1`" :value="15" :maxValue="100" />
+            <app-miniBar :color="`#613a93`" :value="15" :maxValue="100" />
+            <p class="statistics__total">&#8595;25%</p>
+            <p class="statistics__who">МНИОИ Герцена 2018</p>
+          </div>
         </div>
       </div>
-      <div class="statistics__block">
-        <p class="statistics__quote">2,6% Россиян имеют онкозаболевания.</p>
-        <div class="statistics__info">
-          <app-statusBar :value="3" :maxValue="100" />
-          <p class="statistics__total">3 700 000</p>
-          <p class="statistics__who">Росстат 2018</p>
-        </div>
-      </div>
-      <div class="statistics__block">
-        <p class="statistics__quote">
-          На 28% выросла доля выявления заболеваний на ранней стадии за 10 лет.
-        </p>
-        <div class="statistics__info">
-          <app-miniBar :color="`#e4e1e1`" :value="15" :maxValue="100" />
-          <app-miniBar :color="`#613a93`" :value="15" :maxValue="100" />
-          <p class="statistics__total">&#8593;28%</p>
-          <p class="statistics__who">МНИОИ Герцена 2018</p>
-        </div>
-      </div>
-      <div class="statistics__block">
-        <p class="statistics__quote">
-          На 25% снизилась смертность в течение первого года после постановки
-          диагноза.
-        </p>
-        <div class="statistics__info">
-          <app-miniBar :color="`#e4e1e1`" :value="15" :maxValue="100" />
-          <app-miniBar :color="`#613a93`" :value="15" :maxValue="100" />
-          <p class="statistics__total">&#8595;25%</p>
-          <p class="statistics__who">МНИОИ Герцена 2018</p>
-        </div>
-      </div>
-    </div>
+    </container>
   </div>
 </template>
 
 <script>
+import Container from '@/components/Container';
 import statusBar from '@/components/ui/statusBar';
 import miniBar from '@/components/ui/miniBar';
 import SectionTitle from '@/components/ui/SectionTitle';
 export default {
   name: 'Statistics',
   components: {
+    container: Container,
     'app-statusBar': statusBar,
     'app-miniBar': miniBar,
     'section-title': SectionTitle,
@@ -66,18 +73,16 @@ export default {
 
 <style scoped>
 .statistics {
+  width: 100%;
   padding: 100px 60px;
-  max-width: 1440px;
-  width: 95%;
   display: flex;
   flex-direction: column;
-  margin: 0 auto;
 }
 .statistics__title {
   text-align: left;
   max-width: 415px;
   padding-bottom: 38px;
-  font-family: 'Inter', Arial, sans-serif;
+  font-family: 'Inter', 'Arial', sans-serif;
   font-style: normal;
   font-weight: 600;
   font-size: 32px;
@@ -94,16 +99,20 @@ export default {
   box-sizing: border-box;
   width: 300px;
   height: 300px;
+  margin-right: 40px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+}
+.statistics__block:last-of-type {
+  margin-right: 0;
 }
 .statistics__quote {
   text-align: left;
   padding-top: 7px;
   padding-left: 20px;
   max-width: 260px;
-  font-family: 'Inter', Arial, sans-serif;
+  font-family: 'Inter', 'Arial', sans-serif;
   font-style: normal;
   font-weight: normal;
   font-size: 12px;
@@ -119,7 +128,7 @@ export default {
 .statistics__total {
   margin: 0;
   padding-top: 20px;
-  font-family: 'Inter', Arial, sans-serif;
+  font-family: 'Inter', 'Arial', sans-serif;
   font-style: normal;
   font-weight: 600;
   font-size: 38px;
@@ -128,7 +137,7 @@ export default {
 }
 .statistics__who {
   padding-top: 15px;
-  font-family: 'Inter', Arial, sans-serif;
+  font-family: 'Inter', 'Arial', sans-serif;
   font-style: normal;
   font-weight: normal;
   font-size: 12px;
