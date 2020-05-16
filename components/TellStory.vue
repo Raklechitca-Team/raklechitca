@@ -1,8 +1,8 @@
 <template>
   <div class="tell-story">
     <container>
-      <section-title class="tell-story__title"
-        >Расскажите свою историю</section-title
+      <app-section-title class="tell-story__title"
+        >Расскажите свою историю</app-section-title
       >
       <div class="tell-story__text-wrapper">
         <p class="tell-story__subtitle">
@@ -46,7 +46,7 @@
             Оставить контакт (почту или номер телефона) и мы свяжемся с вами,
             зададим вопросы, уточним детали вашей истории.
           </p>
-          <main-button class="tell-story__button" />
+          <app-main-button class="tell-story__button" />
         </div>
       </div>
     </container>
@@ -59,8 +59,8 @@ import MainButton from '@/components/ui/MainButton';
 import Container from '@/components/Container';
 export default {
   components: {
-    'section-title': SectionTitle,
-    'main-button': MainButton,
+    'app-section-title': SectionTitle,
+    'app-main-button': MainButton,
     container: Container,
   },
   data() {

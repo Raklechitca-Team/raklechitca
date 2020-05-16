@@ -31,7 +31,7 @@ export default {
 
 .cover__title {
   max-width: 750px;
-  font-family: 'Inter', Arial, sans-serif;
+  font-family: 'Inter', 'Arial', sans-serif;
   font-weight: normal;
   font-style: normal;
   font-size: 30px;
