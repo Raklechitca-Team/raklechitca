@@ -17,7 +17,7 @@ import Title from '@/components/Title';
 import Video from '@/components/Video/Video';
 import InstaBlock from '@/components/instaBlock/InstaBlock';
 import TellStory from '@/components/TellStory';
-import Statistics from '@/components/Statistics';
+import Statistics from '@/components/Statistics/Statistics';
 import Cover from '@/components/Cover';
 import CoverInSite from '@/components/CoverInSite';
 import CardList from '@/components/Cardlist/CardList';
