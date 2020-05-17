@@ -17,7 +17,7 @@ export default {
     url: String,
     name: String,
     text: String,
-    card: Object,
+    card: Number,
   },
   methods: {
     openStory(card) {
@@ -62,6 +62,8 @@ export default {
 .card__subtitle {
   font-weight: normal;
   font-size: 14px;
+  height: 36px;
+  overflow: hidden;
 }
 @media screen and (max-width: 1379px) {
   .card__image-wrapper {
