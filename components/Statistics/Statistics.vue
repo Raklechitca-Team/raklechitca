@@ -102,8 +102,6 @@ export default {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  overflow: hidden;
-  overflow-x: scroll;
   flex-wrap: nowrap;
 }
 @media screen and (max-width: 900px) {
@@ -112,7 +110,7 @@ export default {
     margin-right: 0;
   }
   .statistics__adapt {
-    height: 250px;
+    height: 220px;
     position: relative;
     overflow-x: scroll;
   }
