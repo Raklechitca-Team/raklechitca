@@ -5,7 +5,7 @@
       class="header__sidebar"
       @buttonClick="$emit('buttonClick')"
     />
-    <container>
+    <app-container>
       <div class="header__container">
         <p class="header__logo">
           Проект Благотворительного Фонда Константина Хабенского
@@ -16,7 +16,7 @@
           <div class="burger-menu__close" alt="close" v-if="sidebarShown"></div>
         </button>
       </div>
-    </container>
+    </app-container>
   </header>
 </template>
 
@@ -28,7 +28,7 @@ import Menu from '@/components/ui/Menu';
 export default {
   name: 'Header',
   components: {
-    container: Container,
+    'app-container': Container,
     'app-sidebar': Sidebar,
     overlay: Overlay,
     'app-menu': Menu,
