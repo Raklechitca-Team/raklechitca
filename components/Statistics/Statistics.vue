@@ -4,53 +4,55 @@
       <app-section-title class="statistics__title"
         >Статистика по онкозаболеваниям</app-section-title
       >
-      <div class="statistics__blocks">
-        <app-CardStatistics
-          :quoteTitle="
-            'Каждый 3-й в стране уверен, что рак неизлечим. А это примерно 48 918 000 человек.'
-          "
-          :total="'1 из 3'"
-          :who="'Левада-Центр 2018'"
-          :typeBarValue="1"
-          :minValue="1"
-          :maxValue="3"
-        />
-        <app-CardStatistics
-          :quoteTitle="'2,6% Россиян имеют онкозаболевания.'"
-          :total="'3 700 000'"
-          :who="'Росстат 2018'"
-          :typeBarValue="1"
-          :minValue="3"
-          :maxValue="100"
-        />
-        <app-CardStatistics
-          :quoteTitle="
-            'На 28% выросла доля выявления заболеваний на ранней стадии за 10 лет.'
-          "
-          :total="'↑28%'"
-          :who="'МНИОИ Герцена 2018'"
-          :typeBarValue="2"
-          :minValue="30"
-          :maxValue="100"
-          :minValueTwo="60"
-          :maxValueTwo="100"
-          :color="'#e4e1e1'"
-          :colorTwo="'#613a93'"
-        />
-        <app-CardStatistics
-          :quoteTitle="
-            'На 25% снизилась смертность в течение первого года после постановки диагноза.'
-          "
-          :total="'↓25%'"
-          :who="'МНИОИ Герцена 2018'"
-          :typeBarValue="2"
-          :minValue="10"
-          :maxValue="100"
-          :minValueTwo="20"
-          :maxValueTwo="100"
-          :color="'#e4e1e1'"
-          :colorTwo="'#613a93'"
-        />
+      <div class="statistics__adapt">
+        <div class="statistics__blocks">
+          <app-CardStatistics
+            :quoteTitle="
+              'Каждый 3-й в стране уверен, что рак неизлечим. А это примерно 48 918 000 человек.'
+            "
+            :total="'1 из 3'"
+            :who="'Левада-Центр 2018'"
+            :typeBarValue="1"
+            :minValue="1"
+            :maxValue="3"
+          />
+          <app-CardStatistics
+            :quoteTitle="'2,6% Россиян имеют онкозаболевания.'"
+            :total="'3 700 000'"
+            :who="'Росстат 2018'"
+            :typeBarValue="1"
+            :minValue="3"
+            :maxValue="100"
+          />
+          <app-CardStatistics
+            :quoteTitle="
+              'На 28% выросла доля выявления заболеваний на ранней стадии за 10 лет.'
+            "
+            :total="'↑28%'"
+            :who="'МНИОИ Герцена 2018'"
+            :typeBarValue="2"
+            :minValue="30"
+            :maxValue="100"
+            :minValueTwo="60"
+            :maxValueTwo="100"
+            :color="'#e4e1e1'"
+            :colorTwo="'#613a93'"
+          />
+          <app-CardStatistics
+            :quoteTitle="
+              'На 25% снизилась смертность в течение первого года после постановки диагноза.'
+            "
+            :total="'↓25%'"
+            :who="'МНИОИ Герцена 2018'"
+            :typeBarValue="2"
+            :minValue="10"
+            :maxValue="100"
+            :minValueTwo="20"
+            :maxValueTwo="100"
+            :color="'#e4e1e1'"
+            :colorTwo="'#613a93'"
+          />
+        </div>
       </div>
     </app-container>
   </div>
@@ -71,6 +73,9 @@ export default {
     'app-section-title': SectionTitle,
     'app-CardStatistics': CardStatistics,
   },
+  props: {
+    statisticsData: Object,
+  },
 };
 </script>
 
@@ -80,6 +85,7 @@ export default {
   padding: 100px 0;
   display: flex;
   flex-direction: column;
+  overflow: hidden;
 }
 .statistics__title {
   text-align: left;
@@ -93,9 +99,25 @@ export default {
 }
 .statistics__blocks {
   margin: 0 auto;
-  width: 100%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  overflow: hidden;
+  overflow-x: scroll;
+  flex-wrap: nowrap;
+}
+@media screen and (max-width: 900px) {
+  .container /deep/ {
+    padding-right: 0;
+    margin-right: 0;
+  }
+  .statistics__adapt {
+    height: 250px;
+    position: relative;
+    overflow-x: scroll;
+  }
+  .statistics__blocks {
+    position: absolute;
+  }
 }
 </style>

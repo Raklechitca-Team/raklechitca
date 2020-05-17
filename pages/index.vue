@@ -7,7 +7,7 @@
     <app-cover-in-site :text="`РАССКАЗЫВАЙТЕ ВАШИ ИСТОРИИ В ИНСТАГРАМ`" />
     <app-insta :images="instagram" />
     <app-tell-story />
-    <app-statistics />
+    <app-statistics :statisticsData="statistics" />
     <app-cover />
   </div>
 </template>
@@ -42,6 +42,9 @@ export default {
     },
     instagram() {
       return this.$store.getters['instagram/instagram'];
+    },
+    statistics() {
+      return this.$store.getters['statistics/statisctics'];
     },
   },
 };

@@ -115,11 +115,24 @@ export default {
     width: 208px;
     height: 208px;
   }
+  .statistics__quote {
+    font-size: 10px;
+    line-height: 14px;
+  }
+  .statistics__total {
+    font-size: 26px;
+    line-height: 30px;
+  }
+  .statistics__who {
+    font-size: 10px;
+    line-height: 14px;
+  }
 }
 @media screen and (max-width: 930px) {
   .statistics__block {
     width: 216px;
     height: 216px;
+    margin-right: 20px;
   }
 }
 </style>

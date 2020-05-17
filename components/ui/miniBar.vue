@@ -29,4 +29,16 @@ export default {
 .half-staus-bar {
   height: 20px;
 }
+
+@media screen and (max-width: 1300px) {
+  .half-staus-bar {
+    height: 18px;
+  }
+}
+
+@media screen and (max-width: 1050px) {
+  .half-staus-bar {
+    height: 14px;
+  }
+}
 </style>
