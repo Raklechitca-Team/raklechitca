@@ -66,11 +66,18 @@
 </template>
 
 <script>
+import Container from '@/components/Container';
 import SectionTitle from '@/components/ui/SectionTitle';
 export default {
   name: 'Footer',
   components: {
+    container: Container,
     'section-title': SectionTitle,
+  },
+  methods: {
+    year() {
+      return new Date().getFullYear();
+    },
   },
 };
 </script>
@@ -425,5 +432,8 @@ export default {
   .footer__content_info:last-child {
     padding: 0;
   }
+}
+.footer__content_link {
+  text-decoration: none;
 }
 </style>

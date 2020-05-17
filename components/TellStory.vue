@@ -1,8 +1,8 @@
 <template>
   <div class="tell-story">
-    <div class="tell-story__container">
-      <section-title class="tell-story__title"
-        >Расскажите свою историю</section-title
+    <container>
+      <app-section-title class="tell-story__title"
+        >Расскажите свою историю</app-section-title
       >
       <div class="tell-story__text-wrapper">
         <p class="tell-story__subtitle">
@@ -13,22 +13,24 @@
         <ul class="tell-story__options">
           <li
             @click="selectTab(1)"
-            class="tell-story__option"
             :class="[
-              isActive
-                ? 'tell-story__option_active'
-                : 'tell-story__option_disabled',
+              'tell-story__option',
+              {
+                'tell-story__option_active': isActive,
+                'tell-story__option_disabled': !isActive,
+              },
             ]"
           >
             1-й вариант
           </li>
           <li
             @click="selectTab(2)"
-            class="tell-story__option"
             :class="[
-              isActive
-                ? 'tell-story__option_disabled'
-                : 'tell-story__option_active',
+              'tell-story__option',
+              {
+                'tell-story__option_disabled': isActive,
+                'tell-story__option_active': !isActive,
+              },
             ]"
           >
             2-й вариант
@@ -44,22 +46,24 @@
             Оставить контакт (почту или номер телефона) и мы свяжемся с вами,
             зададим вопросы, уточним детали вашей истории.
           </p>
-          <main-button class="tell-story__button" />
+          <app-main-button class="tell-story__button" />
         </div>
       </div>
-    </div>
+    </container>
   </div>
 </template>
 
 <script>
 import SectionTitle from '@/components/ui/SectionTitle';
 import MainButton from '@/components/ui/MainButton';
+import Container from '@/components/Container';
 export default {
   components: {
-    'section-title': SectionTitle,
-    'main-button': MainButton,
+    'app-section-title': SectionTitle,
+    'app-main-button': MainButton,
+    container: Container,
   },
-  data: function() {
+  data() {
     return {
       currentTab: 1,
       isActive: true,
@@ -77,12 +81,9 @@ export default {
 <style scoped>
 .tell-story {
   width: 100%;
-  font-family: 'Inter', sans-serif;
+  font-family: 'Inter', 'Arial', sans-serif;
   background-color: #f7f7f7;
-}
-.tell-story__container {
-  max-width: 1440px;
-  margin: 0 auto;
+  min-height: 522px;
   padding: 100px 60px;
 }
 .tell-story__title {
@@ -137,7 +138,7 @@ export default {
   color: #666;
   margin-left: 40px;
   text-align: left;
-  min-height: 76px;
+  min-height: 88px;
 }
 .tell-story__button {
   margin-left: 40px;
@@ -203,7 +204,6 @@ export default {
     width: 380px;
     margin: 0 auto 30px;
     display: flex;
-
     justify-content: flex-start;
     flex-direction: row;
     padding: 0;
@@ -213,6 +213,7 @@ export default {
   }
   .tell-story__option {
     margin-right: 30px;
+    border-bottom: 2px solid transparent;
   }
   .tell-story__option:hover {
     border-bottom: 2px solid #613a93;
@@ -223,6 +224,7 @@ export default {
   .tell-story__option-description {
     max-width: 380px;
     margin: 0 auto;
+    min-height: 95px;
   }
   .tell-story__text-n-button-wrapper {
     max-width: 380px;

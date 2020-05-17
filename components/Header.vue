@@ -1,29 +1,29 @@
 <template>
   <header class="header">
-    <div class="header__container">
-      <p class="header__paragraph">
-        Проект Благотворительного Фонда Константина Хабенского
-      </p>
-      <app-menu class="header__menu" @buttonClick="$emit('buttonClick')" />
-      <button class="burger-menu__button">
-        <img
-          class="burger-menu__icon"
-          alt="burger-menu"
-          src="@/static/burger-menu.svg"
-        />
-      </button>
-    </div>
+    <container>
+      <div class="header__container">
+        <p class="header__paragraph">
+          Проект Благотворительного Фонда Константина Хабенского
+        </p>
+        <app-menu class="header__menu" @buttonClick="$emit('buttonClick')" />
+        <button class="burger-menu__button">
+          <div class="burger-menu__icon" />
+        </button>
+      </div>
+    </container>
     <app-sidebar />
   </header>
 </template>
 
 <script scoped>
+import Container from '@/components/Container';
 import Sidebar from '@/components/ui/Sidebar';
 import Overlay from '@/components/ui/Overlay';
 import Menu from '@/components/ui/Menu';
 export default {
   name: 'Header',
   components: {
+    container: Container,
     'app-sidebar': Sidebar,
     overlay: Overlay,
     'app-menu': Menu,
@@ -33,17 +33,15 @@ export default {
 
 <style scoped>
 .header {
-  background-color: #ffffff;
+  background-color: #fff;
 }
 .header__container {
-  margin: 0 auto;
   padding: 0 60px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   border-bottom: 1px solid #e8e8e8;
   z-index: 1;
-  max-width: 1440px;
 }
 
 @media screen and (max-width: 1280px) {
@@ -99,9 +97,13 @@ export default {
   }
 }
 .burger-menu__button:focus {
-  outline: none !important;
+  outline: none;
 }
 .burger-menu__icon {
+  background-image: url('../static/burger-menu.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
   width: 22px;
   height: 14px;
   margin: auto;

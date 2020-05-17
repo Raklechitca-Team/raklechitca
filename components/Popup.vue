@@ -7,7 +7,7 @@
     <div class="modal-window__popup">
       <img
         class="modal-window__close"
-        src="@/static/x.svg"
+        src="../static/x.svg"
         alt="close"
         @click="$emit('closeClick')"
       />

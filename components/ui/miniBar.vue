@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="statistics__bar-value half-staus-bar" :style="style"></div>
+    <div class="bar-value half-staus-bar" :style="style"></div>
   </div>
 </template>
 
@@ -23,7 +23,7 @@ export default {
 </script>
 
 <style scoped>
-.statistics__bar-value {
+.bar-value {
   background: #613a93;
 }
 .half-staus-bar {
