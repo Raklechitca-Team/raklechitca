@@ -69,10 +69,26 @@ export default {
   .card__image-wrapper {
     height: 265px;
   }
+  .card__title {
+    font-size: 22px;
+    line-height: 22px;
+  }
+  .card__subtitle {
+    font-size: 14px;
+    line-height: 18px;
+  }
 }
 @media screen and (max-width: 1239px) {
   .card__image-wrapper {
     height: 208px;
+  }
+  .card__title {
+    font-size: 18px;
+    line-height: 22px;
+  }
+  .card__subtitle {
+    font-size: 13px;
+    line-height: 16px;
   }
 }
 @media screen and (max-width: 767px) {
