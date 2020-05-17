@@ -1,6 +1,6 @@
 <template>
   <div class="cover">
-    <div class="cover__container">
+    <container>
       <h2 class="cover__title">
         #РАКЛЕЧИТСЯ
       </h2>
@@ -28,15 +28,17 @@
           </p>
         </div>
       </div>
-    </div>
+    </container>
   </div>
 </template>
 
 <script>
+import Container from '@/components/Container';
 import SectionTitle from '@/components/ui/SectionTitle';
 export default {
   name: 'Cover',
   components: {
+    container: Container,
     'section-title': SectionTitle,
   },
 };
@@ -48,12 +50,13 @@ export default {
   background-color: #613a93;
 }
 
-.cover__container {
+/* .cover__container {
   display: flex;
   flex-wrap: wrap;
   max-width: 1440px;
   margin: 0 auto;
-}
+} удалила этот контейнер и заменила его компонентом Container
+не стала добавлять ему этот класс, думаю, нужно доработать здесь верстку в любом случае*/
 
 .cover__title {
   text-transform: uppercase;
@@ -66,26 +69,26 @@ export default {
   text-align: center;
   width: 100%;
   color: #fff;
-  font-family: 'Intro', Arial, sans-serif;
+  font-family: 'Inter', 'Arial', sans-serif;
 }
 
 .cover__subtitle {
-  width: 92%;
+  /* width: 92%; тоже не переделываю */
   padding-top: 50px;
   margin: 0 auto;
   text-align: left;
-  font-family: 'Inter', Arial, sans-serif;
+  font-family: 'Inter', 'Arial', sans-serif;
   font-style: normal;
   font-weight: 600;
   font-size: 32px;
   line-height: 36px;
-  color: #ffffff;
+  color: #fff;
 }
 
 .cover__info {
   padding-top: 30px;
   padding-bottom: 100px;
-  width: 92%;
+  /* width: 92%; тоже не переделываю */
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
@@ -99,7 +102,7 @@ export default {
   font-size: 18px;
   line-height: 22px;
   color: #dedede;
-  font-family: 'Intro', Arial, sans-serif;
+  font-family: 'Inter', Arial, sans-serif;
 }
 
 .cover__text {

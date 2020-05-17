@@ -1,30 +1,29 @@
 <template>
+  <!-- Варя: поправила здесь верстку и убрала отсюда заголовок
+нужно допроверить, нет ли конфликтов в стилях main-button и стилей в history__search-button
+я исправила кое-что, но нужно еще взглянуть тому, кто делал -->
   <section class="history">
-    <h1 class="history__title">Истории неизлечимых привычек</h1>
     <div class="history__search">
       <input type="text" class="history__search-input" />
-      <button class="history__search-button">Поиск</button>
+      <main-button class="history__search-button">Поиск</main-button>
     </div>
   </section>
 </template>
 
 <script>
+import MainButton from '@/components/ui/MainButton';
 export default {
   name: 'app-search',
+  components: {
+    'main-button': MainButton,
+  },
 };
 </script>
 
 <style scoped>
 .history {
   max-width: 1320px;
-  margin: 100px auto 0;
-}
-
-.history__title {
-  max-width: 400px;
-  font-weight: 600;
-  font-size: 32px;
-  line-height: 36px;
+  margin: 0 auto;
 }
 
 .history__search {
@@ -43,12 +42,12 @@ export default {
 }
 
 .history__search-button {
-  font-family: 'Inter', Arial, sans-serif;
+  font-family: 'Inter', 'Arial', sans-serif;
   width: 226px;
   border: none;
   cursor: pointer;
   background-color: #613a93;
-  padding: 16px 80px;
+  padding: 0;
   font-weight: 500;
   font-size: 16px;
   line-height: 19px;

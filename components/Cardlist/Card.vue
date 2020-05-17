@@ -1,5 +1,5 @@
 <template>
-  <a href="#" @click.prevent="openStory(card)" class="card">
+  <a href="#" @click="openStory(card)" class="card">
     <div class="card__image-wrapper">
       <div
         :style="{ backgroundImage: `url('${url}')` }"
@@ -13,7 +13,12 @@
 
 <script>
 export default {
-  props: ['url', 'name', 'text', 'card'],
+  props: {
+    url: String,
+    name: String,
+    text: String,
+    card: Object,
+  },
   methods: {
     openStory(card) {
       this.$router.push('/stories/' + card);
@@ -33,7 +38,7 @@ export default {
   text-align: left;
   text-decoration: none;
   color: #000;
-  font-family: 'Inter', sans-serif;
+  font-family: 'Inter', 'Arial', sans-serif;
 }
 .card__image-wrapper {
   width: 100%;

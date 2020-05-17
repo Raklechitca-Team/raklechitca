@@ -5,36 +5,30 @@
       class="header__sidebar"
       @buttonClick="$emit('buttonClick')"
     />
-    <div class="header__container">
-      <p class="header__logo">
-        Проект Благотворительного Фонда Константина Хабенского
-      </p>
-      <app-menu class="header__menu" @buttonClick="$emit('buttonClick')" />
-      <button class="burger-menu__button" @click="sidebarHandler">
-        <img
-          class="burger-menu__icon"
-          alt="burger-menu"
-          src="@/static/burger-menu.svg"
-          v-if="!sidebarShown"
-        />
-        <img
-          class="burger-menu__close"
-          alt="burger-menu_close"
-          src="@/static/x.svg"
-          v-if="sidebarShown"
-        />
-      </button>
-    </div>
+    <container>
+      <div class="header__container">
+        <p class="header__logo">
+          Проект Благотворительного Фонда Константина Хабенского
+        </p>
+        <app-menu class="header__menu" />
+        <button class="burger-menu__button" @click="sidebarHandler">
+          <div class="burger-menu__icon" alt="menu" v-if="!sidebarShown"></div>
+          <div class="burger-menu__close" alt="close" v-if="sidebarShown"></div>
+        </button>
+      </div>
+    </container>
   </header>
 </template>
 
 <script scoped>
+import Container from '@/components/Container';
 import Sidebar from '@/components/ui/Sidebar';
 import Overlay from '@/components/ui/Overlay';
 import Menu from '@/components/ui/Menu';
 export default {
   name: 'Header',
   components: {
+    container: Container,
     'app-sidebar': Sidebar,
     overlay: Overlay,
     'app-menu': Menu,
@@ -54,25 +48,15 @@ export default {
 
 <style scoped>
 .header {
-  background-color: #ffffff;
-  padding: 0;
-  border-bottom: 1px solid #efefef;
-}
-
-.header__sidebar {
-  margin: 0;
-  padding: 18px 50px;
-  height: 60px;
+  background-color: #fff;
 }
 
 .header__container {
-  margin: 0 auto;
-  padding: 0 60px;
+  padding: 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
   z-index: 1;
-  max-width: 1440px;
 }
 
 .header__logo {
@@ -81,7 +65,7 @@ export default {
   font-weight: 600;
   font-size: 16px;
   line-height: 20px;
-  color: #000000;
+  color: #000;
   margin: 18px 0px;
   text-align: left;
   max-width: 340px;
@@ -104,28 +88,37 @@ export default {
 }
 
 .burger-menu__button:focus {
-  outline: none !important;
+  outline: none;
 }
 
 .burger-menu__icon {
+  background-image: url('../static/burger-menu.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
   width: 32px;
   height: 24px;
-  align-self: center;
+  margin: auto;
 }
 
 .burger-menu__close {
+  background-image: url('../static/x.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
   width: 25px;
   height: 25px;
-  align-self: center;
+  margin: auto;
 }
 
 @media screen and (max-width: 1280px) {
-  .header {
-    border-bottom: 0;
+  .header__sidebar {
+    height: 60px;
+    padding: 18px 40px;
   }
 
-  .header__container {
-    padding: 0 50px;
+  .header {
+    border-bottom: 0;
   }
 
   .header__logo {
@@ -140,6 +133,11 @@ export default {
 }
 
 @media screen and (max-width: 768px) {
+  .header__sidebar {
+    height: 60px;
+    padding: 18px 40px;
+  }
+
   .header__container {
     justify-content: space-between;
   }
@@ -152,6 +150,7 @@ export default {
 @media screen and (max-width: 452px) {
   .header__sidebar {
     height: 120px;
+    padding: 18px 40px;
   }
 
   .header__logo {
@@ -176,21 +175,13 @@ export default {
 }
 
 @media screen and (max-width: 418px) {
-  .header__container {
-    padding: 0 20px;
-  }
-
   .header__sidebar {
     height: 120px;
-    padding: 18px 20px;
+    padding: 18px 40px;
   }
 }
 
 @media screen and (max-width: 340px) {
-  .header__container {
-    padding: 0 15px;
-  }
-
   .header__logo {
     font-size: 12px;
     line-height: 14px;

@@ -5,15 +5,8 @@
     <app-cover-in-site :text="'И В ОТЛИЧИЕ ОТ РАКА,'" />
     <app-cardlist :cards="stories" />
     <app-cover-in-site :text="`РАССКАЗЫВАЙТЕ ВАШИ ИСТОРИИ В ИНСТАГРАМ`" />
-    <app-insta />
-    <app-tell-story @buttonClick="popupHandler" />
-    <app-popup
-      v-if="popupShown"
-      @closeClick="popupHandler"
-      @overlayClick="popupHandler"
-    >
-      <app-quiz />
-    </app-popup>
+    <app-insta :images="instagram" />
+    <app-tell-story />
     <app-statistics />
     <app-cover />
   </div>
@@ -22,7 +15,7 @@
 <script>
 import Title from '@/components/Title';
 import Video from '@/components/Video/Video';
-import InstaBlock from '@/components/InstaBlock';
+import InstaBlock from '@/components/instaBlock/InstaBlock';
 import TellStory from '@/components/TellStory';
 import Statistics from '@/components/Statistics';
 import Cover from '@/components/Cover';
@@ -52,6 +45,9 @@ export default {
   computed: {
     stories() {
       return this.$store.getters['stories/stories'];
+    },
+    instagram() {
+      return this.$store.getters['instagram/instagram'];
     },
   },
   methods: {

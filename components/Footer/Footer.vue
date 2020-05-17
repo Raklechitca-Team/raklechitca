@@ -1,57 +1,74 @@
 <template>
   <footer class="footer">
-    <div class="footer__container">
-      <section-title class="footer__text"
-        >Спасибо всем, кто помог состояться этому проекту</section-title
-      >
+    <container>
+      <div class="footer__container">
+        <section-title class="footer__text"
+          >Спасибо всем, кто помог состояться этому проекту</section-title
+        >
 
-      <nav class="footer__menu">
-        <ul class="footer__links">
-          <li class="footer__links-list">
-            <nuxt-link to="/" class="footer__link">Главная</nuxt-link>
-          </li>
-          <li class="footer__links-list">
-            <nuxt-link to="/stories" class="footer__link">Истории</nuxt-link>
-          </li>
-        </ul>
-        <ul class="footer__social">
-          <li class="footer__social-list">
-            <p class="footer__social-list_text">
-              Мы в&nbsp;<a
-                href="https://www.instagram.com/raklechitsa"
-                target="_blank"
-                class="footer__link"
-                >Инстаграме</a
-              >&nbsp;и&nbsp;<a
-                href="https://www.youtube.com/results?search_query=%23%D1%8D%D1%82%D0%BE%D0%BD%D0%B5%D0%BB%D0%B5%D1%87%D0%B8%D1%82%D1%81%D1%8F"
-                target="_blank"
-                class="footer__link"
-                >Youtube</a
-              >
-            </p>
-          </li>
-          <li class="footer__social-list">
-            <button class="footer__button" @click="$emit('buttonClick')">
-              Поделитесь &#8599;
-            </button>
-          </li>
-        </ul>
-      </nav>
+        <nav class="footer__menu">
+          <ul class="footer__links">
+            <li class="footer__links-list">
+              <nuxt-link to="/" class="footer__link">Главная</nuxt-link>
+            </li>
+            <li class="footer__links-list">
+              <nuxt-link to="/stories" class="footer__link">Истории</nuxt-link>
+            </li>
+            <!-- коммент от Хаза про footer__links-list: 
+          было бы прикольно если выделить сможете это меню в отдельный компонент и переиспользовать в шапке и подвале
+          плюс меню должно быть еще в nav теге 
+          Варя: нужно взять Menu из ui, который ты используешь в футере, и стилизовать здесь -->
+          </ul>
+          <ul class="footer__social">
+            <li class="footer__social-list">
+              <p class="footer__social-list_text">
+                Мы в&nbsp;<a
+                  href="https://www.instagram.com/raklechitsa"
+                  target="_blank"
+                  class="footer__link"
+                  >Инстаграме</a
+                >&nbsp;и&nbsp;<a
+                  href="https://www.youtube.com/results?search_query=%23%D1%8D%D1%82%D0%BE%D0%BD%D0%B5%D0%BB%D0%B5%D1%87%D0%B8%D1%82%D1%81%D1%8F"
+                  target="_blank"
+                  class="footer__link"
+                  >Youtube</a
+                >
+              </p>
+            </li>
+            <li class="footer__social-list">
+              <button class="footer__button" @click="$emit('buttonClick')">
+                Поделитесь &#8599;
+              </button>
+            </li>
+          </ul>
+        </nav>
 
-      <div class="footer__content">
-        <p class="footer__content_info">Рак Лечится 2020</p>
-        <p class="footer__content_info">Сделано студентами Яндекс Практикум</p>
+        <div class="footer__content">
+          <p class="footer__content_info">Рак Лечится {{ year() }}</p>
+          <a
+            href="http://praktikum.yandex.ru"
+            class="footer__content_info footer__content_link"
+            >Сделано студентами Яндекс Практикум</a
+          >
+        </div>
       </div>
-    </div>
+    </container>
   </footer>
 </template>
 
 <script>
+import Container from '@/components/Container';
 import SectionTitle from '@/components/ui/SectionTitle';
 export default {
   name: 'Footer',
   components: {
+    container: Container,
     'section-title': SectionTitle,
+  },
+  methods: {
+    year() {
+      return new Date().getFullYear();
+    },
   },
 };
 </script>
@@ -62,13 +79,12 @@ export default {
 }
 .footer__container {
   display: flex;
-  padding: 60px;
+  padding: 60px 0;
   flex-wrap: wrap;
-  max-width: 1440px;
   /* TODO: очень много лишних свойств было и скорее всего еще есть, мин-хейт я бы подумал, как тоже убрать.
       position: relative - прям из фигмы брала? большинство св-в, которые там даются лишние. */
   min-height: 356px;
-  margin: 0 auto;
+  /* Варя: min-height нужно убрать и заменить его padding у нужных элементов. не меняю */
 }
 
 .footer__text {
@@ -299,5 +315,8 @@ export default {
   line-height: 18px;
   color: #898989;
   align-self: flex-end;
+}
+.footer__content_link {
+  text-decoration: none;
 }
 </style>

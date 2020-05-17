@@ -11,24 +11,24 @@
       </p>
       <div class="video__arrows">
         <button class="video__arrow">
-          <img class="video__arrow_image" src="@/static/arrow-left.svg" />
+          <img class="video__arrow-image" src="@/static/arrow-left.svg" />
         </button>
         <button class="video__arrow">
-          <img class="video__arrow_image" src="@/static/arrow-right.svg" />
+          <img class="video__arrow-image" src="@/static/arrow-right.svg" />
         </button>
       </div>
     </div>
 
     <div class="video__container">
       <div class="video__cap">
-        <img class="video__cap_ellipse" src="@/static/ellipse.svg" />
+        <img class="video__cap-image" src="@/static/ellipse.svg" />
       </div>
       <app-video-iframe class="video__clip" />
       <p class="video__paragraph">
         Все видео вы можете найте на нашем
         <a
           href="https://www.youtube.com/results?search_query=%23%D1%8D%D1%82%D0%BE%D0%BD%D0%B5%D0%BB%D0%B5%D1%87%D0%B8%D1%82%D1%81%D1%8F"
-          class="video__paragraph_link"
+          class="video__paragraph-link"
           target="_blank"
           >YouTube канале</a
         >.
@@ -119,7 +119,7 @@ export default {
   align-items: center;
 }
 
-.video__cap_ellipse {
+.video__cap-image {
   width: 90px;
   height: 90px;
   position: absolute;
@@ -131,8 +131,8 @@ export default {
   cursor: pointer;
 }
 
-.video__cap_ellipse:hover {
-  transform: scale(1.2, 1.2);
+.video__cap-image:hover {
+  transform: scale(1.2);
 }
 
 .video__clip {
@@ -152,7 +152,7 @@ export default {
   margin: 10px 0 0;
 }
 
-.video__paragraph_link {
+.video__paragraph-link {
   color: #666666;
 }
 

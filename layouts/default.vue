@@ -4,8 +4,8 @@
 
     <app-popup
       v-if="popupShown"
-      @closeClick="popupHandler"
-      @overlayClick="popupHandler"
+      @closeClick="showPopup"
+      @overlayClick="showPopup"
     >
       <app-quiz />
     </app-popup>
@@ -39,18 +39,14 @@ export default {
     'app-footer-share': FooterShare,
     'app-main-button': MainButton,
   },
-  data() {
-    return {
-      popupShown: false,
-      popupShareShown: false,
-    };
+  computed: {
+    popupShown() {
+      return this.$store.getters['popup/getPopupShown'];
+    },
   },
   methods: {
-    popupHandler() {
-      this.popupShown = !this.popupShown;
-    },
-    popupShareHandler() {
-      this.popupShareShown = !this.popupShareShown;
+    showPopup() {
+      this.$store.commit('popup/togglePopup');
     },
   },
 };

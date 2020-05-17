@@ -7,6 +7,8 @@
       >Главная</nuxt-link
     >
     <nuxt-link to="/" v-else class="menu__link">Главная</nuxt-link>
+    <!-- коммент от Хаза: тут точно можно облегчить, используя условия внутри :style (единственное отличие тут класс) 
+    не поняла, как исправить здесь-->
     <nuxt-link
       to="/stories"
       v-if="$route.path == '/stories'"
@@ -14,7 +16,7 @@
       >Истории</nuxt-link
     >
     <nuxt-link to="/stories" v-else class="menu__link">Истории</nuxt-link>
-    <main-button class="menu__button" @buttonClick="$emit('buttonClick')">
+    <main-button class="menu__button" @buttonClick="showPopup">
       Рассказать историю
     </main-button>
   </nav>
@@ -26,6 +28,11 @@ export default {
   name: 'Menu',
   components: {
     'main-button': MainButton,
+  },
+  methods: {
+    showPopup() {
+      this.$store.commit('popup/togglePopup');
+    },
   },
 };
 </script>
@@ -42,22 +49,22 @@ export default {
   font-size: 18px;
   line-height: 24px;
   letter-spacing: normal;
-  color: #000000;
+  color: #000;
   text-decoration: none;
   margin: 0 40px 0 0;
   cursor: pointer;
-  border-bottom: 1px solid #fff;
+  border-bottom: 1px solid transparent;
 }
 
 .menu__link_active {
   text-decoration: none;
-  border-bottom: 1px solid #000000;
+  border-bottom: 1px solid #000;
 }
 
 .menu__link:hover {
   text-decoration: none;
   opacity: 0.8;
-  border-bottom: 1px solid #000000;
+  border-bottom: 1px solid #000;
   transition: color 0.2s ease-in-out, opacity 0.2s ease-in-out,
     border-bottom 0.1s ease-in-out;
   transition-delay: 0s;
@@ -67,14 +74,14 @@ export default {
   font-family: 'Inter', 'Arial', sans-serif;
   font-size: 18px;
   line-height: 24px;
-  max-width: 182px;
+  width: 170px;
   height: 24px;
   font-weight: normal;
   cursor: pointer;
   border: 0;
   margin: 0;
   padding: 0;
-  color: #000000;
+  color: #000;
   border-bottom: 1px solid #fff;
   background-color: transparent;
 }
@@ -82,14 +89,14 @@ export default {
 .menu__button:hover {
   text-decoration: none;
   opacity: 0.8;
-  border-bottom: 1px solid #000000;
+  border-bottom: 1px solid #000;
   transition: color 0.2s ease-in-out, opacity 0.2s ease-in-out,
     border-bottom 0.1s ease-in-out;
   transition-delay: 0s;
 }
 
 .menu__button:focus {
-  outline: none !important;
+  outline: none;
 }
 
 @media screen and (max-width: 1280px) {
@@ -106,6 +113,10 @@ export default {
 @media screen and (max-width: 1024px) {
   .menu__link {
     margin: 0 30px 0 0;
+  }
+
+  .menu /deep/ .main-button {
+    max-width: 150px;
   }
 }
 
@@ -135,7 +146,7 @@ export default {
   }
 
   .menu /deep/ .main-button {
-    max-width: 151px;
+    max-width: 142px;
     font-size: 15px;
   }
 }
@@ -156,7 +167,7 @@ export default {
   .menu /deep/ .main-button {
     font-size: 13px;
     line-height: 16px;
-    max-width: 131px;
+    max-width: 122px;
   }
 }
 </style>

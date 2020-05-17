@@ -7,9 +7,9 @@
     <div class="modal-window__popup">
       <img
         class="modal-window__close"
-        src="@/static/x.svg"
+        src="../static/x.svg"
         alt="close"
-        @click="$emit('closeClick')"
+        @click="showPopup"
       />
       <slot></slot>
     </div>
@@ -23,9 +23,9 @@ export default {
   components: {
     overlay: Overlay,
   },
-  props: {
-    close(e) {
-      this.$store.commit('modal/close');
+  methods: {
+    showPopup() {
+      this.$store.commit('popup/togglePopup');
     },
   },
 };
