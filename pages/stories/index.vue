@@ -8,7 +8,6 @@
     <app-pagination
       :storiesInTotal="stories.length"
       :storiesPerPage="storiesPerPage"
-      :stories="stories"
       @pageClick="paginate"
     />
   </div>
@@ -55,8 +54,7 @@ export default {
       let storiesPerPage = this.storiesPerPage;
       let from = currentPage * storiesPerPage - storiesPerPage;
       let to = currentPage * storiesPerPage;
-      let paginatedStories = this.stories.slice(from, to);
-      this.page = paginatedStories;
+      this.page = this.stories.slice(from, to);
     },
   },
   computed: {

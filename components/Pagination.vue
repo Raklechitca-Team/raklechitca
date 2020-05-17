@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div :page="page" class="page__numbers">
+    <div class="page__numbers">
       <div
         v-for="page in setPages"
         @click="$emit('pageClick', page)"
@@ -13,12 +13,10 @@
 </template>
 
 <script>
-import CardList from '@/components/Cardlist/CardList';
 export default {
   props: {
     storiesInTotal: Number,
     storiesPerPage: Number,
-    stories: Object,
   },
   computed: {
     setPages() {
