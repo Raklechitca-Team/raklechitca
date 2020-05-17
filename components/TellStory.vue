@@ -1,8 +1,8 @@
 <template>
   <div class="tell-story">
     <container>
-      <app-section-title class="tell-story__title"
-        >Расскажите свою историю</app-section-title
+      <section-title class="tell-story__title"
+        >Расскажите свою историю</section-title
       >
       <div class="tell-story__text-wrapper">
         <p class="tell-story__subtitle">
@@ -46,7 +46,15 @@
             Оставить контакт (почту или номер телефона) и мы свяжемся с вами,
             зададим вопросы, уточним детали вашей истории.
           </p>
-          <app-main-button class="tell-story__button" />
+          <main-button
+            v-if="currentTab == 1"
+            class="tell-story__button"
+            @buttonClick="showPopup"
+            >Заполнить форму</main-button
+          >
+          <main-button v-if="currentTab == 2" class="tell-story__button"
+            >Оставить контакт</main-button
+          >
         </div>
       </div>
     </container>
@@ -59,8 +67,8 @@ import MainButton from '@/components/ui/MainButton';
 import Container from '@/components/Container';
 export default {
   components: {
-    'app-section-title': SectionTitle,
-    'app-main-button': MainButton,
+    'section-title': SectionTitle,
+    'main-button': MainButton,
     container: Container,
   },
   data() {
@@ -73,6 +81,9 @@ export default {
     selectTab(selectedTab) {
       this.currentTab = selectedTab;
       this.isActive = !this.isActive;
+    },
+    showPopup() {
+      this.$store.commit('popup/togglePopup');
     },
   },
 };

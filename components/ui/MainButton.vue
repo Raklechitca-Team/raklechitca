@@ -12,7 +12,7 @@ export default {
 
 <style scoped>
 .main-button {
-  color: #ffffff;
+  color: #fff;
   width: 280px;
   height: 52px;
   background-color: #613a93;

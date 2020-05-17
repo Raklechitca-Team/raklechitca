@@ -214,7 +214,7 @@ export default {
 }
 
 .footer__button:focus {
-  outline: none !important;
+  outline: none;
 }
 
 .footer__button:hover {
