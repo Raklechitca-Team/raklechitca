@@ -2,7 +2,7 @@
   <div class="container">
     <app-container>
       <div class="story">
-        <div class="story__banner">
+        <div class="story__banner story__banner_row">
           <div class="story__image-wrapper">
             <div
               :style="{
@@ -26,6 +26,30 @@
             </div>
           </div>
         </div>
+
+        <div class="story__banner story__banner_column">
+          <h1 class="story__title">
+            <span class="story__title story__title_bold"
+              >{{ stories[$route.params.id - 1].name }}:
+            </span>
+            {{ stories[$route.params.id - 1].text }}
+          </h1>
+          <div class="story__image-wrapper">
+            <div
+              :style="{
+                backgroundImage: `url('${stories[$route.params.id - 1].url}')`,
+              }"
+              class="story__image"
+            ></div>
+          </div>
+          <div class="story-text__bottom-wrapper">
+            <a href="#" class="story__share">Поделитесь &#8599;</a>
+            <date class="story__date">{{
+              stories[$route.params.id - 1].date
+            }}</date>
+          </div>
+        </div>
+
         <div class="story__itself">
           <p class="story__paragraph">
             {{ stories[$route.params.id - 1].paragraph1 }}
@@ -59,6 +83,12 @@
           class="three-cards"
           :cards="
             stories.slice($route.params.id, parseInt($route.params.id) + 3)
+          "
+        />
+        <app-cardlist
+          class="two-cards"
+          :cards="
+            stories.slice($route.params.id, parseInt($route.params.id) + 2)
           "
         />
         <a href="#" class="story__more-articles">Больше статей</a>
@@ -95,9 +125,14 @@ export default {
   padding: 100px auto 0;
 }
 .story__banner {
-  display: flex;
   padding: 100px 0 130px;
   justify-content: center;
+}
+.story__banner_row {
+  display: flex;
+}
+.story__banner_column {
+  display: none;
 }
 .story__image-wrapper {
   width: 580px;
@@ -120,6 +155,7 @@ export default {
   border-bottom: 1px solid #efefef;
 }
 .story-text__bottom-wrapper {
+  width: 100%;
   display: flex;
   justify-content: space-between;
   padding-bottom: 30px;
@@ -207,15 +243,20 @@ export default {
 }
 .three-cards {
   display: none;
-  margin: 0 auto;
 }
-@media screen and (max-width: 1279px) {
+.two-cards {
+  display: none;
+}
+@media screen and (max-width: 1280px) {
+  .story__banner {
+    padding: 100px 0 120px;
+  }
   .story__image-wrapper {
     width: 518px;
     height: 518px;
   }
   .story__text-wrapper {
-    max-width: 407px;
+    max-width: 602px;
   }
   .story__title {
     font-size: 34px;
@@ -227,9 +268,16 @@ export default {
   }
   .story__more-articles {
     margin: 60px auto 90px;
+    padding: 29px;
+  }
+  .four-cards {
+    display: none;
+  }
+  .three-cards {
+    display: grid;
   }
 }
-@media screen and (max-width: 1023px) {
+@media screen and (max-width: 1024px) {
   .story__banner {
     padding: 100px 0 90px;
   }
@@ -239,7 +287,6 @@ export default {
   }
   .story__text-wrapper {
     max-width: 477px;
-    margin-left: 40px;
   }
   .story__title {
     font-size: 30px;
@@ -262,35 +309,110 @@ export default {
   .story__more-articles {
     font-size: 13px;
     line-height: 20px;
-  }
-  .four-cards {
-    display: none;
-  }
-  .three-cards {
-    display: grid;
+    padding: 17px;
   }
   .story__more-articles {
     margin: 46px 0 80px;
   }
 }
-@media screen and (max-width: 1279px) {
+@media screen and (max-width: 768px) {
+  .story__banner {
+    margin: 80px 0 100px;
+    padding: 0;
+  }
+  .story__banner_row {
+    display: none;
+  }
+  .story__banner_column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .story__banner {
+    border-top: 1px solid #efefef;
+    border-bottom: 1px solid #efefef;
+  }
   .story__image-wrapper {
-    width: 518px;
-    height: 518px;
+    width: 420px;
+    height: 420px;
+    margin-bottom: 60px;
   }
   .story__text-wrapper {
-    max-width: 407px;
+    max-width: 100%;
+  }
+  .story__bottom-wrapper {
+    max-width: 100%;
+    justify-content: space-between;
+    padding-bottom: 20px;
   }
   .story__title {
-    font-size: 34px;
-    line-height: 44px;
+    font-size: 30px;
+    line-height: 38px;
+    text-align: center;
+    margin-bottom: 60px;
+  }
+  .story__itself {
+    max-width: 100%;
   }
   .story__paragraph {
-    font-size: 20px;
-    line-height: 28px;
+    font-size: 18px;
+    line-height: 27px;
+  }
+  .story__share_social {
+    padding: 24px;
+    font-size: 16px;
+    line-height: 22px;
+    max-width: 100%;
+    margin: 80px auto 120px;
   }
   .story__more-articles {
-    margin: 60px auto 90px;
+    font-size: 13px;
+    line-height: 16px;
+    width: 100%;
+    margin: 40px auto 80px;
+  }
+  .three-cards {
+    display: none;
+  }
+  .two-cards {
+    display: grid;
+  }
+}
+@media screen and (max-width: 500px) {
+  .two-cards {
+    display: flex;
+  }
+}
+@media screen and (max-width: 320px) {
+  .story__banner {
+    margin: 50px 0 40px;
+  }
+  .story__title {
+    font-size: 18px;
+    line-height: 21px;
+    margin: 20px 0 30px;
+    padding: 0;
+  }
+  .story__image-wrapper {
+    width: 290px;
+    height: 290px;
+    margin-bottom: 30px;
+  }
+  .story-text__bottom-wrapper {
+    padding-bottom: 20px;
+  }
+  .story__paragraph {
+    font-size: 13px;
+    line-height: 16px;
+  }
+  .story__share_social {
+    padding: 20px;
+    font-size: 13px;
+    line-height: 16px;
+    margin: 60px auto 100px;
+  }
+  .story__more-articles {
+    margin: 40px auto 50px;
   }
 }
 </style>
