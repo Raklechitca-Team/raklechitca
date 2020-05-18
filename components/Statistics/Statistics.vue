@@ -6,7 +6,7 @@
       >
       <div class="statistics__adapt">
         <div class="statistics__blocks">
-          <div v-for="el in statisticsData" :key="el">
+          <div v-for="el in statisticsData" :key="el.value">
             <app-CardStatistics
               :quoteTitle="el.description"
               :total="el.title"
@@ -47,7 +47,7 @@ export default {
     'app-CardStatistics': CardStatistics,
   },
   props: {
-    statisticsData: Object,
+    statisticsData: Array,
   },
 };
 </script>
@@ -86,6 +86,7 @@ export default {
     height: 220px;
     position: relative;
     overflow-x: scroll;
+    overflow-y: hidden;
   }
   .statistics__blocks {
     position: absolute;

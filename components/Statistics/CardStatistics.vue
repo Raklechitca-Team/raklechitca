@@ -36,9 +36,6 @@ export default {
   flex-direction: column;
   justify-content: space-between;
 }
-.statistics__block:last-of-type {
-  margin-right: 0;
-}
 .statistics__quote {
   text-align: left;
   padding-top: 7px;
@@ -85,7 +82,7 @@ export default {
   }
 }
 
-@media screen and (max-width: 1100px) {
+@media screen and (max-width: 1200px) {
   .statistics__block {
     width: 208px;
     height: 208px;
@@ -107,7 +104,7 @@ export default {
   .statistics__block {
     width: 216px;
     height: 216px;
-    margin-right: 20px;
+    margin-right: 10px;
   }
 }
 </style>
