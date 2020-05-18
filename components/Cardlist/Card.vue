@@ -62,6 +62,7 @@ export default {
 .card__subtitle {
   font-weight: normal;
   font-size: 14px;
+  line-height: 18px;
   height: 36px;
   overflow: hidden;
 }
@@ -72,10 +73,6 @@ export default {
   .card__title {
     font-size: 22px;
     line-height: 22px;
-  }
-  .card__subtitle {
-    font-size: 14px;
-    line-height: 18px;
   }
 }
 @media screen and (max-width: 1239px) {
@@ -89,6 +86,7 @@ export default {
   .card__subtitle {
     font-size: 13px;
     line-height: 16px;
+    height: 32px;
   }
 }
 @media screen and (max-width: 767px) {

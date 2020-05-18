@@ -29,10 +29,10 @@
 
         <div class="story__banner story__banner_column">
           <h1 class="story__title">
-              <span class="story__title story__title_bold"
-                >{{ stories[$route.params.id - 1].name }}:
-              </span>
-              {{ stories[$route.params.id - 1].text }}
+            <span class="story__title story__title_bold"
+              >{{ stories[$route.params.id - 1].name }}:
+            </span>
+            {{ stories[$route.params.id - 1].text }}
           </h1>
           <div class="story__image-wrapper">
             <div
@@ -42,14 +42,14 @@
               class="story__image"
             ></div>
           </div>
-            <div class="story-text__bottom-wrapper">
-              <a href="#" class="story__share">Поделитесь &#8599;</a>
-              <date class="story__date">{{
-                stories[$route.params.id - 1].date
-              }}</date>
-            </div>
+          <div class="story-text__bottom-wrapper">
+            <a href="#" class="story__share">Поделитесь &#8599;</a>
+            <date class="story__date">{{
+              stories[$route.params.id - 1].date
+            }}</date>
+          </div>
         </div>
-        
+
         <div class="story__itself">
           <p class="story__paragraph">
             {{ stories[$route.params.id - 1].paragraph1 }}
@@ -322,7 +322,7 @@ export default {
   }
   .story__banner_row {
     display: none;
-  } 
+  }
   .story__banner_column {
     display: flex;
     flex-direction: column;
