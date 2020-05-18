@@ -1,110 +1,195 @@
 <template>
   <header class="header">
-    <p class="header__paragraph">
-      Проект Благотворительного Фонда Константина Хабенского
-    </p>
-    <app-menu class="header__menu" @buttonClick="$emit('buttonClick')" />
-    <button class="burger-menu__button">
-      <img
-        class="burger-menu__icon"
-        alt="burger-menu"
-        src="@/static/burger-menu.svg"
-      />
-    </button>
-    <app-sidebar />
+    <app-sidebar
+      v-if="sidebarShown"
+      class="header__sidebar"
+      @buttonClick="$emit('buttonClick')"
+    />
+    <app-container>
+      <div class="header__container">
+        <p class="header__logo">
+          Проект Благотворительного Фонда Константина Хабенского
+        </p>
+        <app-menu class="header__menu" />
+        <button class="burger-menu__button" @click="sidebarHandler">
+          <div class="burger-menu__icon" alt="menu" v-if="!sidebarShown"></div>
+          <div class="burger-menu__close" alt="close" v-if="sidebarShown"></div>
+        </button>
+      </div>
+    </app-container>
   </header>
 </template>
 
 <script scoped>
+import Container from '@/components/Container';
 import Sidebar from '@/components/ui/Sidebar';
 import Overlay from '@/components/ui/Overlay';
 import Menu from '@/components/ui/Menu';
 export default {
   name: 'Header',
   components: {
+    'app-container': Container,
     'app-sidebar': Sidebar,
     overlay: Overlay,
     'app-menu': Menu,
+  },
+  data() {
+    return {
+      sidebarShown: false,
+    };
+  },
+  methods: {
+    sidebarHandler() {
+      this.sidebarShown = !this.sidebarShown;
+    },
   },
 };
 </script>
 
 <style scoped>
 .header {
-  margin-right: -60px;
-  margin-left: -60px;
-  width: calc(100% + 120px);
-  height: 76px;
-  padding: 0 60px;
-  background-color: #ffffff;
+  background-color: #fff;
+}
+
+.header__container {
+  padding: 0;
   display: flex;
-  position: sticky;
-  top: 0;
   align-items: center;
-  border: 0;
   justify-content: space-between;
-  border-bottom: 1px solid #e8e8e8;
   z-index: 1;
 }
-@media screen and (max-width: 1280px) {
-  .header {
-    padding: 0 50px;
-  }
-  .header__paragraph {
-    line-height: 18px;
-  }
-}
-@media screen and (max-width: 980px) {
-  .header {
-    justify-content: flex-end;
-    border: none;
-    padding: 0;
-    margin: 0;
-    background-color: #fff;
-  }
-  .header__menu {
-    display: none;
-  }
-  .header__paragraph {
-    display: none;
-  }
-}
-.header__paragraph {
+
+.header__logo {
   font-family: 'Inter', 'Arial', sans-serif;
   font-style: normal;
   font-weight: 600;
   font-size: 16px;
   line-height: 20px;
-  color: #000000;
+  color: #000;
   margin: 18px 0px;
   text-align: left;
   max-width: 340px;
   left: 0;
 }
+
 .burger-menu__button {
   background: none;
   outline: none;
   border: none;
   cursor: pointer;
-  width: 48px;
-  height: 48px;
   justify-content: center;
   align-content: center;
+  align-items: center;
   box-shadow: none;
-  margin-left: 50px;
+  width: 32px;
+  height: 32px;
+  margin: 0;
+  padding: 0;
 }
-@media screen and (min-width: 981px) {
+
+.burger-menu__button:focus {
+  outline: none;
+}
+
+.burger-menu__icon {
+  background-image: url('../static/burger-menu.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 32px;
+  height: 24px;
+  margin: auto;
+}
+
+.burger-menu__close {
+  background-image: url('../static/x.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 25px;
+  height: 25px;
+  margin: auto;
+}
+
+@media screen and (max-width: 1280px) {
+  .header__sidebar {
+    height: 60px;
+    padding: 18px 40px;
+  }
+
+  .header {
+    border-bottom: 0;
+  }
+
+  .header__logo {
+    line-height: 18px;
+  }
+}
+
+@media screen and (min-width: 769px) {
   .burger-menu__button {
     display: none;
   }
 }
-.burger-menu__button:focus {
-  outline: none !important;
+
+@media screen and (max-width: 768px) {
+  .header__sidebar {
+    height: 60px;
+    padding: 18px 40px;
+  }
+
+  .header__container {
+    justify-content: space-between;
+  }
+
+  .header__menu {
+    display: none;
+  }
 }
-.burger-menu__icon {
-  width: 22px;
-  height: 14px;
-  margin: auto;
-  align-self: center;
+
+@media screen and (max-width: 452px) {
+  .header__sidebar {
+    height: 120px;
+    padding: 18px 40px;
+  }
+
+  .header__logo {
+    font-size: 14px;
+    line-height: 16px;
+  }
+
+  .burger-menu__button {
+    width: 26px;
+    height: 20px;
+  }
+
+  .burger-menu__icon {
+    width: 26px;
+    height: 20px;
+  }
+
+  .burger-menu__close {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+@media screen and (max-width: 418px) {
+  .header__sidebar {
+    height: 120px;
+    padding: 18px 40px;
+  }
+}
+
+@media screen and (max-width: 340px) {
+  .header__logo {
+    font-size: 12px;
+    line-height: 14px;
+  }
+
+  .header__sidebar {
+    height: 120px;
+    padding: 18px 15px;
+  }
 }
 </style>

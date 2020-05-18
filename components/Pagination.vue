@@ -1,25 +1,34 @@
 <template>
   <div>
     <div class="page__numbers">
-      <div class="page__number">1</div>
-      <div class="page__number">2</div>
-      <div class="page__number">3</div>
-      <div class="page__number">4</div>
-      <div class="page__number">5</div>
-      <div class="page__number">6</div>
-      <div class="page__number">7</div>
+      <div
+        v-for="page in setPages"
+        @click="$emit('pageClick', page)"
+        class="page__number"
+      >
+        {{ page }}
+      </div>
     </div>
   </div>
 </template>
 
 <script>
-export default {};
+export default {
+  props: {
+    storiesInTotal: Number,
+    storiesPerPage: Number,
+  },
+  computed: {
+    setPages() {
+      return Math.ceil(this.storiesInTotal / this.storiesPerPage);
+    },
+  },
+};
 </script>
 
 <style scoped>
 .page__numbers {
   display: flex;
-  width: 100%;
   justify-content: center;
   margin-bottom: 100px;
 }

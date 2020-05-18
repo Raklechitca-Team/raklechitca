@@ -1,105 +1,122 @@
 <template>
   <div class="container">
-    <app-header />
-    <app-cardlist :cards="cards" />
-    <pagination
-      :storiesInTotal="cards.length"
+    <app-section-title class="stories__title"
+      >Истории неизлечимых привычек</app-section-title
+    >
+    <app-search />
+    <app-cardlist :cards="page" />
+    <app-pagination
+      :storiesInTotal="stories.length"
       :storiesPerPage="storiesPerPage"
-      :cards="cards"
+      @pageClick="paginate"
     />
-    <app-footer />
   </div>
 </template>
 
 <script>
-import CardList from '@/components/CardList';
-//import Pagination from '@/components/Pagination';
+import SectionTitle from '@/components/ui/SectionTitle';
+import CardList from '@/components/Cardlist/CardList';
+import Pagination from '@/components/Pagination';
+import Search from '@/components/Search';
 export default {
   name: 'stories',
   components: {
+    'app-section-title': SectionTitle,
     'app-cardlist': CardList,
-    pagination: Pagination,
+    'app-pagination': Pagination,
+    'app-search': Search,
   },
   data() {
     return {
-      storiesPerPage: 4,
-      cards: [
-        {
-          id: 1,
-          name: 'Татьяна Полетаева',
-          text:
-            'Я всегда стремлюсь получать новые знания, и это не лечится, в отличие от рака',
-          url:
-            'https://static.tildacdn.com/tild6532-6663-4137-a630-353162653263/IMG-20200414-WA0010.jpg',
-        },
-        {
-          id: 2,
-          name: 'Марина Казнина',
-          text:
-            'Моя любовь к пилону и сложным трюкам не лечится, в отличие от рака',
-          url:
-            'https://static.tildacdn.com/tild6663-3963-4232-b733-373664333231/WhatsApp_Image_2020-.jpeg',
-        },
-        {
-          id: 3,
-          name: 'Анастасия Жохова',
-          text:
-            'Я всегда буду ходить на концерты любимых исполнителей, и это не лечится, в отличие от рака',
-          url:
-            'https://static.tildacdn.com/tild3564-6165-4264-b432-313661386234/image-31-03-20-01-12.jpeg',
-        },
-        {
-          id: 4,
-          name: 'Владимир Тен',
-          text:
-            'Моя любовь к чтению книг с конца не лечится, в отличие от рака',
-          url:
-            'https://static.tildacdn.com/tild6236-3462-4634-a362-653061313562/IMG_20191024_184116.jpg',
-        },
-        {
-          id: 5,
-          name: 'Тамила',
-          text:
-            'Я никогда не перестану шутить, и это не лечится, в отличие от рака',
-          url:
-            'https://static.tildacdn.com/tild3239-6631-4836-a634-363933353261/WhatsApp_Image_2020-.jpeg',
-        },
-        {
-          id: 6,
-          name: 'Наталья Карика',
-          text: 'Моя любовь к жажде деятельности не лечится, в отличие от рака',
-          url:
-            'https://static.tildacdn.com/tild6439-3131-4637-b163-323366393135/CqAusB2YT2E.jpg',
-        },
-        {
-          id: 7,
-          name: 'Мария Кочеткова',
-          text:
-            'Моя страсть к кислым мармеладным червячкам не лечится, в отличие от рака',
-          url:
-            'https://static.tildacdn.com/tild3630-6132-4661-b362-656435346530/Es9z9PUrsjI.jpg',
-        },
-        {
-          id: 8,
-          name: 'Александр Тарханов',
-          text: 'Я не могу победить свою пунктуальность, в отличие от рака',
-          url:
-            'https://static.tildacdn.com/tild6166-3733-4364-b838-393832636136/WhatsApp_Image_2019-.jpeg',
-        },
-      ],
+      storiesPerPage: 16,
+      currentPage: 1,
+      page: 1,
     };
+  },
+  created() {
+    if (process.browser) {
+      let widthForNine = window.matchMedia('(max-width: 1023px)');
+      let widthForEight = window.matchMedia('(max-width: 767px)');
+      let widthForOne = window.matchMedia('(max-width: 500px)');
+      if (widthForNine.matches || widthForOne.matches) {
+        this.storiesPerPage = 9;
+        this.paginate(this.currentPage);
+      }
+      if (widthForEight.matches) {
+        this.storiesPerPage = 8;
+        this.paginate(this.currentPage);
+      }
+    }
+    this.paginate(this.currentPage);
+  },
+  methods: {
+    paginate(currentPage) {
+      let storiesPerPage = this.storiesPerPage;
+      let from = currentPage * storiesPerPage - storiesPerPage;
+      let to = currentPage * storiesPerPage;
+      this.page = this.stories.slice(from, to);
+    },
+  },
+  computed: {
+    stories() {
+      return this.$store.getters['stories/stories'];
+    },
   },
 };
 </script>
 
 <style scoped>
 .container {
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  justify-content: flex-start;
-  align-items: center;
-  text-align: center;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding-top: 100px;
+}
+.stories__title {
+  max-width: 413px;
+  font-weight: 600;
+  font-size: 32px;
+  line-height: 36px;
+  color: #000;
+  text-align: left;
+  margin-left: 60px;
+}
+@media screen and (max-width: 1379px) {
+  .stories__title {
+    max-width: 367px;
+    font-size: 28px;
+    line-height: 32px;
+  }
+}
+@media screen and (max-width: 1239px) {
+  .stories__title {
+    max-width: 288px;
+    font-size: 24px;
+    line-height: 28px;
+  }
+}
+@media screen and (max-width: 979px) {
+  .stories__title {
+    max-width: 380px;
+    font-size: 24px;
+    line-height: 28px;
+    text-align: center;
+  }
+}
+@media screen and (max-width: 767px) {
+  .stories__title {
+    max-width: 380px;
+    font-size: 24px;
+    line-height: 28px;
+    text-align: center;
+  }
+}
+@media screen and (max-width: 500px) {
+  .stories__title {
+    max-width: 265px;
+    margin: 98px auto 50px;
+    font-size: 18px;
+    line-height: 21px;
+    text-align: center;
+  }
 }
 </style>

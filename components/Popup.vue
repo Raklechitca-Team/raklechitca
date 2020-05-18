@@ -7,9 +7,9 @@
     <div class="modal-window__popup">
       <img
         class="modal-window__close"
-        src="@/static/x.svg"
+        src="../static/x.svg"
         alt="close"
-        @click="$emit('closeClick')"
+        @click="showPopup"
       />
       <slot></slot>
     </div>
@@ -23,9 +23,9 @@ export default {
   components: {
     overlay: Overlay,
   },
-  props: {
-    close(e) {
-      this.$store.commit('modal/close');
+  methods: {
+    showPopup() {
+      this.$store.commit('popup/togglePopup');
     },
   },
 };
@@ -47,12 +47,23 @@ export default {
   top: 43px;
   right: 43px;
   width: 20px;
-  height: 20px;
   background-size: contain;
   background-repeat: no-repeat;
   background: center;
   cursor: pointer;
   color: black;
   z-index: 3;
+}
+
+@media screen and (max-width: 320px) {
+  .modal-window__popup {
+    padding: 15px;
+  }
+
+  .modal-window__close {
+    width: 17px;
+    top: 19px;
+    right: 19px;
+  }
 }
 </style>

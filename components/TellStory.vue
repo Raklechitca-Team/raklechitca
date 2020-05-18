@@ -1,54 +1,77 @@
 <template>
   <div class="tell-story">
-    <h3 class="tell-story__title">Расскажите свою историю</h3>
-    <div class="tell-story__text-wrapper">
-      <p class="tell-story__subtitle">
-        Мы публикуем новые истории на сайте раз в неделю. Есть 2 варианта
-        поделиться своей историей неизлечимых привычек, навязчивых идей и
-        болезненных привязанностей.
-      </p>
-      <ul class="tell-story__options">
-        <li
-          @click="selectTab(1)"
-          class="tell-story__option"
-          :class="[
-            isActive
-              ? 'tell-story__option_active'
-              : 'tell-story__option_disabled',
-          ]"
-        >
-          1-й вариант
-        </li>
-        <li
-          @click="selectTab(2)"
-          class="tell-story__option"
-          :class="[
-            isActive
-              ? 'tell-story__option_disabled'
-              : 'tell-story__option_active',
-          ]"
-        >
-          2-й вариант
-        </li>
-      </ul>
-      <div>
-        <p v-if="currentTab == 1" class="tell-story__option-description">
-          Заполнить подробную форму прямо на сайте и мы опубликуем вашу историю
-          после проверки. Пожалуйста, заполняйте все пункты корректно, если вы
-          испытаете какие-то сложности, воспользуйтесь 2-м вариантом.
+    <container>
+      <section-title class="tell-story__title"
+        >Расскажите свою историю</section-title
+      >
+      <div class="tell-story__text-wrapper">
+        <p class="tell-story__subtitle">
+          Мы публикуем новые истории на сайте раз в неделю. Есть 2 варианта
+          поделиться своей историей неизлечимых привычек, навязчивых идей и
+          болезненных привязанностей.
         </p>
-        <p v-if="currentTab == 2" class="tell-story__option-description">
-          Оставить контакт (почту или номер телефона) и мы свяжемся с вами,
-          зададим вопросы, уточним детали вашей истории.
-        </p>
+        <ul class="tell-story__options">
+          <li
+            @click="selectTab(1)"
+            :class="[
+              'tell-story__option',
+              {
+                'tell-story__option_active': isActive,
+                'tell-story__option_disabled': !isActive,
+              },
+            ]"
+          >
+            1-й вариант
+          </li>
+          <li
+            @click="selectTab(2)"
+            :class="[
+              'tell-story__option',
+              {
+                'tell-story__option_disabled': isActive,
+                'tell-story__option_active': !isActive,
+              },
+            ]"
+          >
+            2-й вариант
+          </li>
+        </ul>
+        <div class="tell-story__text-n-button-wrapper">
+          <p v-if="currentTab == 1" class="tell-story__option-description">
+            Заполнить подробную форму прямо на сайте и мы опубликуем вашу
+            историю после проверки. Пожалуйста, заполняйте все пункты корректно,
+            если вы испытаете какие-то сложности, воспользуйтесь 2-м вариантом.
+          </p>
+          <p v-if="currentTab == 2" class="tell-story__option-description">
+            Оставить контакт (почту или номер телефона) и мы свяжемся с вами,
+            зададим вопросы, уточним детали вашей истории.
+          </p>
+          <main-button
+            v-if="currentTab == 1"
+            class="tell-story__button"
+            @buttonClick="showPopup"
+            >Заполнить форму</main-button
+          >
+          <main-button v-if="currentTab == 2" class="tell-story__button"
+            >Оставить контакт</main-button
+          >
+        </div>
       </div>
-    </div>
+    </container>
   </div>
 </template>
 
 <script>
+import SectionTitle from '@/components/ui/SectionTitle';
+import MainButton from '@/components/ui/MainButton';
+import Container from '@/components/Container';
 export default {
-  data: function() {
+  components: {
+    'section-title': SectionTitle,
+    'main-button': MainButton,
+    container: Container,
+  },
+  data() {
     return {
       currentTab: 1,
       isActive: true,
@@ -59,6 +82,9 @@ export default {
       this.currentTab = selectedTab;
       this.isActive = !this.isActive;
     },
+    showPopup() {
+      this.$store.commit('popup/togglePopup');
+    },
   },
 };
 </script>
@@ -66,8 +92,9 @@ export default {
 <style scoped>
 .tell-story {
   width: 100%;
-  font-family: 'Inter', sans-serif;
+  font-family: 'Inter', 'Arial', sans-serif;
   background-color: #f7f7f7;
+  min-height: 522px;
   padding: 100px 60px;
 }
 .tell-story__title {
@@ -122,6 +149,11 @@ export default {
   color: #666;
   margin-left: 40px;
   text-align: left;
+  min-height: 88px;
+}
+.tell-story__button {
+  margin-left: 40px;
+  margin-top: 78px;
 }
 @media screen and (max-width: 1360px) {
   .tell-story__title {
@@ -160,6 +192,9 @@ export default {
     line-height: 19px;
     max-width: 447px;
   }
+  .tell-story__button {
+    max-width: 230px;
+  }
 }
 @media screen and (max-width: 1000px) {
   .tell-story {
@@ -189,6 +224,7 @@ export default {
   }
   .tell-story__option {
     margin-right: 30px;
+    border-bottom: 2px solid transparent;
   }
   .tell-story__option:hover {
     border-bottom: 2px solid #613a93;
@@ -199,6 +235,17 @@ export default {
   .tell-story__option-description {
     max-width: 380px;
     margin: 0 auto;
+    min-height: 95px;
+  }
+  .tell-story__text-n-button-wrapper {
+    max-width: 380px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .tell-story__button {
+    margin: 50px 0 0;
   }
 }
 </style>
