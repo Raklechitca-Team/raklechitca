@@ -44,7 +44,7 @@ export default {
       return this.$store.getters['instagram/instagram'];
     },
     statistics() {
-      return this.$store.getters['statistics/statisctics'];
+      return this.$store.getters['statistics/statistics'];
     },
   },
 };

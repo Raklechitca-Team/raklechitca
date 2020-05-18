@@ -29,47 +29,49 @@ const state = () => ({
       source: 'МНИОИ Герцена 2018',
       description:
         'На 25% снизилась смертность в течение первого года после постановки диагноза.',
-      oldValue: 40,
+      oldValue: 60,
       maxValue: 100,
-      newValue: 28,
+      newValue: 10,
     },
   ],
+  currentStory: {},
 });
+
+const mutations = {
+  setState(state, { name, value }) {
+    return (state[name] = value);
+  },
+};
+
+const actions = {
+  // примеры запросов
+  // fetchLessons(state) {
+  //   return axios.get('https://api-test.pa7lux.ru/streams').then(response => {
+  //     return state.commit('setState', {
+  //       name: 'stories',
+  //       value: response.data,
+  //     });
+  //   });
+  // },
+  // fetchLessonWithId(state, payload) {
+  //   return axios
+  //     .get(`https://api-test.pa7lux.ru/streams/${payload.id}`)
+  //     .then(response => {
+  //       return state.commit('setState', {
+  //         name: 'currentStory',
+  //         value: response.data,
+  //       });
+  //     });
+  // },
+};
 
 const getters = {
   statistics: s => s.statistics,
 };
 
-/* Адапитровать под формирования запроса для статитики*/
-// const mutations = {
-//     setState(state, { name, value }) {
-//       return (state[name] = value);
-//     },
-//   };
-
-//   const actions = {
-//     примеры запросов
-//     fetchLessons(state) {
-//       return axios.get('https://api-test.pa7lux.ru/streams').then(response => {
-//         return state.commit('setState', {
-//           name: 'stories',
-//           value: response.data,
-//         });
-//       });
-//     },
-//     fetchLessonWithId(state, payload) {
-//       return axios
-//         .get(`https://api-test.pa7lux.ru/streams/${payload.id}`)
-//         .then(response => {
-//           return state.commit('setState', {
-//             name: 'currentStory',
-//             value: response.data,
-//           });
-//         });
-//     },
-//   };
-
 export default {
   state,
+  mutations,
+  actions,
   getters,
 };

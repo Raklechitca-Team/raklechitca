@@ -4,23 +4,7 @@
       {{ quoteTitle }}
     </p>
     <div class="statistics__info">
-      <app-statusBar
-        v-if="typeBarValue === 1"
-        :value="minValue"
-        :maxValue="maxValue"
-      />
-      <app-miniBar
-        v-if="typeBarValue === 2"
-        :value="minValue"
-        :maxValue="maxValue"
-        :color="color"
-      />
-      <app-miniBar
-        v-if="typeBarValue === 2"
-        :value="minValueTwo"
-        :maxValue="maxValueTwo"
-        :color="colorTwo"
-      />
+      <slot></slot>
       <p class="statistics__total">{{ total }}</p>
       <p class="statistics__who">{{ who }}</p>
     </div>
@@ -28,24 +12,15 @@
 </template>
 
 <script>
-import statusBar from '@/components/ui/statusBar';
-import miniBar from '@/components/ui/miniBar';
 export default {
-  components: {
-    'app-statusBar': statusBar,
-    'app-miniBar': miniBar,
-  },
   props: {
     quoteTitle: String,
     total: String,
     who: String,
-    typeBarValue: Number,
     minValue: Number,
     maxValue: Number,
     minValueTwo: Number,
     maxValueTwo: Number,
-    color: String,
-    colorTwo: String,
   },
   methods: {},
 };

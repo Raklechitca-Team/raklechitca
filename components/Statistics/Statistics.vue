@@ -6,52 +6,25 @@
       >
       <div class="statistics__adapt">
         <div class="statistics__blocks">
-          <app-CardStatistics
-            :quoteTitle="
-              'Каждый 3-й в стране уверен, что рак неизлечим. А это примерно 48 918 000 человек.'
-            "
-            :total="'1 из 3'"
-            :who="'Левада-Центр 2018'"
-            :typeBarValue="1"
-            :minValue="1"
-            :maxValue="3"
-          />
-          <app-CardStatistics
-            :quoteTitle="'2,6% Россиян имеют онкозаболевания.'"
-            :total="'3 700 000'"
-            :who="'Росстат 2018'"
-            :typeBarValue="1"
-            :minValue="3"
-            :maxValue="100"
-          />
-          <app-CardStatistics
-            :quoteTitle="
-              'На 28% выросла доля выявления заболеваний на ранней стадии за 10 лет.'
-            "
-            :total="'↑28%'"
-            :who="'МНИОИ Герцена 2018'"
-            :typeBarValue="2"
-            :minValue="30"
-            :maxValue="100"
-            :minValueTwo="60"
-            :maxValueTwo="100"
-            :color="'#e4e1e1'"
-            :colorTwo="'#613a93'"
-          />
-          <app-CardStatistics
-            :quoteTitle="
-              'На 25% снизилась смертность в течение первого года после постановки диагноза.'
-            "
-            :total="'↓25%'"
-            :who="'МНИОИ Герцена 2018'"
-            :typeBarValue="2"
-            :minValue="10"
-            :maxValue="100"
-            :minValueTwo="20"
-            :maxValueTwo="100"
-            :color="'#e4e1e1'"
-            :colorTwo="'#613a93'"
-          />
+          <div v-for="el in statisticsData" :key="el">
+            <app-CardStatistics
+              :quoteTitle="el.description"
+              :total="el.title"
+              :who="el.source"
+            >
+              <app-status-bar
+                v-if="el.value"
+                :maxValue="el.maxValue"
+                :value="el.value"
+              />
+              <app-double-bar
+                v-else-if="el.newValue"
+                :newValue="el.newValue"
+                :maxValue="el.maxValue"
+                :oldValue="el.oldValue"
+              />
+            </app-CardStatistics>
+          </div>
         </div>
       </div>
     </app-container>
@@ -61,15 +34,15 @@
 <script>
 import Container from '@/components/Container';
 import statusBar from '@/components/ui/statusBar';
-import miniBar from '@/components/ui/miniBar';
+import DoubleBar from '@/components/ui/DoubleBar';
 import SectionTitle from '@/components/ui/SectionTitle';
 import CardStatistics from '@/components/Statistics/CardStatistics';
 export default {
   name: 'Statistics',
   components: {
     'app-container': Container,
-    'app-statusBar': statusBar,
-    'app-miniBar': miniBar,
+    'app-status-bar': statusBar,
+    'app-double-bar': DoubleBar,
     'app-section-title': SectionTitle,
     'app-CardStatistics': CardStatistics,
   },
