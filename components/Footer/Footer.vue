@@ -8,24 +8,10 @@
       <nav class="footer__menu">
         <ul class="footer__links">
           <li class="footer__links-list">
-            <nuxt-link
-              to="/"
-              v-if="$route.path == '/'"
-              class="footer__link footer__link_active"
-              >Главная</nuxt-link
-            >
-            <nuxt-link to="/" v-else class="footer__link">Главная</nuxt-link>
+            <nuxt-link to="/" class="footer__link">Главная</nuxt-link>
           </li>
           <li class="footer__links-list">
-            <nuxt-link
-              to="/stories"
-              v-if="$route.path == '/stories'"
-              class="footer__link footer__link_active"
-              >Истории</nuxt-link
-            >
-            <nuxt-link to="/stories" v-else class="footer__link"
-              >Истории</nuxt-link
-            >
+            <nuxt-link to="/stories" class="footer__link">Истории</nuxt-link>
           </li>
         </ul>
         <ul class="footer__social">
@@ -45,7 +31,7 @@
             </p>
           </li>
           <li class="footer__social-list">
-            <button class="footer__button" @click="$emit('buttonClick')">
+            <button class="footer__button" @click="showSharePopup">
               Поделитесь &#8599;
             </button>
           </li>
@@ -77,6 +63,9 @@ export default {
   methods: {
     year() {
       return new Date().getFullYear();
+    },
+    showSharePopup() {
+      this.$store.commit('popup/toggleSharePopup');
     },
   },
 };
@@ -165,18 +154,18 @@ export default {
   text-align: left;
 }
 
+.footer__link.nuxt-link-exact-active {
+  border-bottom: 1px solid #000;
+}
+
 .footer__links-list:last-child {
   padding: 0;
 }
 
 .footer__link:hover {
   opacity: 0.8;
-  transition: opacity 0.2s ease-in-out;
+  transition: opacity 0.3s ease-in-out;
   transition-delay: 0s;
-}
-
-.footer__link_active {
-  border-bottom: 1px solid #000;
 }
 
 .footer__social-link {
@@ -192,7 +181,7 @@ export default {
 
 .footer__social-link:hover {
   opacity: 0.8;
-  transition: opacity 0.2s ease-in-out;
+  transition: opacity 0.3s ease-in-out;
   transition-delay: 0s;
 }
 
@@ -219,7 +208,7 @@ export default {
 
 .footer__button:hover {
   opacity: 0.8;
-  transition: opacity 0.2s ease-in-out;
+  transition: opacity 0.3s ease-in-out;
   transition-delay: 0s;
 }
 
@@ -385,7 +374,7 @@ export default {
   .footer__link {
     font-size: 13px;
     line-height: 15px;
-    padding: 0 0 18px;
+    margin: 0 0 18px;
   }
 
   .footer__links-list {
@@ -407,7 +396,6 @@ export default {
   .footer__button {
     font-size: 13px;
     line-height: 15px;
-    padding: 0 0 50px;
   }
 
   .footer__social-link {
@@ -432,8 +420,9 @@ export default {
   .footer__content_info:last-child {
     padding: 0;
   }
-}
-.footer__content_link {
-  text-decoration: none;
+
+  .footer__content_link {
+    text-decoration: none;
+  }
 }
 </style>

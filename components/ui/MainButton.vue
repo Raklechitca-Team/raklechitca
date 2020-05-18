@@ -30,11 +30,11 @@ export default {
 
 .main-button:hover {
   opacity: 0.9;
-  transition: 0.2s linear;
+  transition: 0.3s linear;
 }
 
 .main-button:focus {
-  outline: none !important;
+  outline: none;
 }
 
 @media screen and (max-width: 1280px) {

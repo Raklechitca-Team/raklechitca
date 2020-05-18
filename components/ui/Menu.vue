@@ -1,21 +1,7 @@
 <template>
   <nav class="menu">
-    <nuxt-link
-      to="/"
-      v-if="$route.path == '/'"
-      class="menu__link menu__link_active"
-      >Главная</nuxt-link
-    >
-    <nuxt-link to="/" v-else class="menu__link">Главная</nuxt-link>
-    <!-- коммент от Хаза: тут точно можно облегчить, используя условия внутри :style (единственное отличие тут класс) 
-    не поняла, как исправить здесь-->
-    <nuxt-link
-      to="/stories"
-      v-if="$route.path == '/stories'"
-      class="menu__link menu__link_active"
-      >Истории</nuxt-link
-    >
-    <nuxt-link to="/stories" v-else class="menu__link">Истории</nuxt-link>
+    <nuxt-link to="/" class="menu__link">Главная</nuxt-link>
+    <nuxt-link to="/stories" class="menu__link">Истории</nuxt-link>
     <main-button class="menu__button" @buttonClick="showPopup">
       Рассказать историю
     </main-button>
@@ -56,8 +42,7 @@ export default {
   border-bottom: 1px solid transparent;
 }
 
-.menu__link_active {
-  text-decoration: none;
+.menu__link.nuxt-link-exact-active {
   border-bottom: 1px solid #000;
 }
 
@@ -65,7 +50,7 @@ export default {
   text-decoration: none;
   opacity: 0.8;
   border-bottom: 1px solid #000;
-  transition: color 0.2s ease-in-out, opacity 0.2s ease-in-out,
+  transition: color 0.3s ease-in-out, opacity 0.2s ease-in-out,
     border-bottom 0.1s ease-in-out;
   transition-delay: 0s;
 }
@@ -82,7 +67,7 @@ export default {
   margin: 0;
   padding: 0;
   color: #000;
-  border-bottom: 1px solid #fff;
+  border-bottom: 1px solid transparent;
   background-color: transparent;
 }
 
@@ -90,7 +75,7 @@ export default {
   text-decoration: none;
   opacity: 0.8;
   border-bottom: 1px solid #000;
-  transition: color 0.2s ease-in-out, opacity 0.2s ease-in-out,
+  transition: color 0.3s ease-in-out, opacity 0.2s ease-in-out,
     border-bottom 0.1s ease-in-out;
   transition-delay: 0s;
 }

@@ -1,22 +1,34 @@
 <template>
   <form class="quiz">
-    <h3 class="quiz__title">{{ data[currentQuestion].title }}</h3>
-    <p class="quiz__question">{{ data[currentQuestion].question }}</p>
+    <h3 class="quiz__title">{{ currentQuestion.title }}</h3>
+    <p class="quiz__question">
+      <span class="quiz__question-main">{{ currentQuestion.question }}</span>
+      <span
+        v-if="currentQuestion.questionAdditional"
+        class="quiz__question-additional"
+        >{{ currentQuestion.questionAdditional }}</span
+      >
+    </p>
     <quiz-input
-      class="quiz__input"
+      v-if="this.$store.state.quiz.currentQuestion !== 13"
+      className="quiz__input"
       placeholder="Напишите тут"
       :bottomBordered="true"
+      v-model="answer"
     ></quiz-input>
     <div class="quiz__buttons">
-      <quiz-button class="quiz__button_back" @click="prevQuestion"
+      <quiz-button
+        :disabled="this.$store.state.quiz.currentQuestion === 1"
+        class="quiz__button_back"
+        @click="prevQuestion"
         >Назад</quiz-button
       >
-      <quiz-button class="quiz__button_next" @click="nextQuestion"
+      <quiz-button
+        :disabled="this.$store.state.quiz.currentQuestion === 13"
+        class="quiz__button_next"
+        @click="nextQuestion"
         >Далее</quiz-button
       >
-      <!-- Варя: тут нужно убрать стили кнопок вообще все в QuizButton, но давайте лучше проверит тот, кто делал
-      а вот кнопки quiz-button они используются где-то еще кроме этого места? 
-      судя по сему нет, тогда наверное есть смысл унести стили этих кнопок внутрь этих элементов прямо -->
     </div>
   </form>
 </template>
@@ -30,49 +42,38 @@ export default {
     'quiz-input': QuizInput,
     'quiz-button': QuizButton,
   },
-  props: {
-    title: {
-      required: true,
-      default: 'Шаг 0 из 12',
-      type: String,
-    },
-    question: {
-      required: true,
-      type: String,
-    },
-    nextQuestion: Function,
-    prevQuestion: Function,
-  },
   data() {
     return {
-      currentQuestion: 1,
-      data: {
-        1: {
-          title: 'Шаг 1 из 12',
-          question: 'Как вас зовут?',
-        },
-        2: {
-          title: 'Шаг 2 из 12',
-          question:
-            'Было ли у вас онкологическое заболевание? Если да – расскажите, пожалуйста, кратко, какой диагноз и текущий статус. Если нет — приглашаем Вас поделиться своей историей неизлечимых привычек в Инстаграм с хештегами #раклечится и #этонелечится.',
-        },
-        3: {
-          title: 'Шаг 3 из 12',
-          question:
-            'Какие занятия приносят Вам наибольшее удовольствие? Расскажите о ваших неизлечимых привычках, чего Вы боитесь или без чего не можете жить.',
-        },
-      },
+      answer: '',
     };
   },
-  methods: {
-    nextQuestion() {
-      this.currentQuestion = this.currentQuestion + 1;
+  computed: {
+    currentQuestion() {
+      const { quiz } = this.$store.state;
+      const { currentQuestion, questions } = quiz;
+      return questions[currentQuestion];
     },
-    prevQuestion() {
-      if (this.currentQuestion == 1) {
-        return;
-      }
-      this.currentQuestion = this.currentQuestion - 1;
+    prevButtonDisabled() {
+      const { quiz } = this.$store.state;
+      const { currentQuestion } = quiz;
+      return currentQuestion === 1;
+    },
+    initialAnswer() {
+      const { quiz } = this.$store.state;
+      const { currentQuestion, answers } = quiz;
+      return answers[currentQuestion];
+    },
+  },
+  methods: {
+    async nextQuestion() {
+      await this.$store.dispatch('quiz/NEXT_QUESTION', {
+        answer: this.answer,
+      });
+      this.answer = this.initialAnswer || '';
+    },
+    async prevQuestion() {
+      await this.$store.dispatch('quiz/PREV_QUESTION');
+      this.answer = this.initialAnswer || '';
     },
   },
 };
@@ -93,18 +94,32 @@ export default {
   font-size: 32px;
   line-height: 36px;
   display: flex;
-  color: #000000;
+  color: #000;
+}
+
+.quiz__title_last {
+  margin: 40px auto;
+  align-self: center;
+  justify-content: center;
 }
 
 .quiz__question {
+  display: inline;
   font-family: 'Inter', 'Arial', sans-serif;
   font-style: normal;
   font-weight: 500;
   font-size: 18px;
   line-height: 24px;
-  display: flex;
-  color: #000000;
   margin: 40px 0 0;
+}
+
+.quiz__question-main {
+  color: #000;
+}
+
+.quiz__question-additional {
+  color: #666;
+  font-weight: normal;
 }
 
 .quiz__input {
@@ -128,10 +143,6 @@ export default {
   outline: none;
 }
 
-/* блин, тут тоже important) 
-постарайтесь не использовать. лучше поиграть со связкой нескольких классов рядом друг с другом 
-Варя: я просто убрала импортант всюду, если вдруг исчезли какие-то стили, добавьте плиз*/
-
 .quiz__buttons {
   display: flex;
   align-self: flex-start;
@@ -139,30 +150,12 @@ export default {
   position: absolute;
   bottom: 40px;
   margin: 0;
-  width: 334px;
 }
 
 .quiz /deep/ .quiz__button_back {
-  margin: 16px 30px;
+  margin: 0;
   color: #c0c0c0;
-  padding: 0;
-}
-
-.quiz /deep/ .quiz__button_back:focus {
-  outline: none;
-}
-
-.quiz /deep/ .quiz__button_next {
-  width: 226px;
-  height: 52px;
-  background-color: #613a93;
-  color: #fff;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.quiz /deep/ .quiz__button_next:focus {
-  outline: none;
+  padding: 18px 30px;
+  background: transparent;
 }
 </style>

@@ -9,7 +9,7 @@
         class="modal-window__close"
         src="../static/x.svg"
         alt="close"
-        @click="showPopup"
+        @click="$emit('closeClick')"
       />
       <slot></slot>
     </div>
@@ -22,11 +22,6 @@ export default {
   name: 'Popup',
   components: {
     overlay: Overlay,
-  },
-  methods: {
-    showPopup() {
-      this.$store.commit('popup/togglePopup');
-    },
   },
 };
 </script>
