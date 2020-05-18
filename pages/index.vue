@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <app-title />
-    <app-video />
+    <app-video :cellArray="allLessons" />
     <app-cover-in-site :text="'И В ОТЛИЧИЕ ОТ РАКА,'" />
     <app-cardlist :cards="stories" />
     <app-cover-in-site :text="`РАССКАЗЫВАЙТЕ ВАШИ ИСТОРИИ В ИНСТАГРАМ`" />
@@ -40,6 +40,20 @@ export default {
   data() {
     return {
       popupShown: false,
+      allLessons: [
+        {
+          id: 2,
+          name: 'Марина Казнина',
+          text:
+            'Моя любовь к пилону и сложным трюкам не лечится, в отличие от рака',
+        },
+        {
+          id: 3,
+          name: 'Анастасия Жохова',
+          text:
+            'Я всегда буду ходить на концерты любимых исполнителей, и это не лечится, в отличие от рака',
+        },
+      ],
     };
   },
   computed: {

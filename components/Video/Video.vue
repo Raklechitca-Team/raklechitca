@@ -10,29 +10,44 @@
         их историями.
       </p>
       <div class="video__arrows">
-        <button class="video__arrow">
-          <img class="video__arrow-image" src="@/static/arrow-left.svg" />
-        </button>
-        <button class="video__arrow">
-          <img class="video__arrow-image" src="@/static/arrow-right.svg" />
-        </button>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+        <!--        <button class="video__arrow">-->
+        <!--          <img class="video__arrow-image swiper-button-prev" src="@/static/arrow-left.svg" />-->
+        <!--        </button>-->
+        <!--        <button class="video__arrow">-->
+        <!--          <img class="video__arrow-image swiper-button-next" src="@/static/arrow-right.svg" />-->
+        <!--        </button>-->
       </div>
     </div>
 
     <div class="video__container">
-      <div class="video__cap">
-        <img class="video__cap-image" src="@/static/ellipse.svg" />
+      <!--      <div class="video__cap">-->
+      <!--        <img class="video__cap-image" src="@/static/ellipse.svg" />-->
+      <!--      </div>-->
+      <!--      <app-video-iframe class="video__clip" />-->
+      <!--      <p class="video__paragraph">-->
+      <!--        Все видео вы можете найте на нашем-->
+      <!--        <a-->
+      <!--          href="https://www.youtube.com/results?search_query=%23%D1%8D%D1%82%D0%BE%D0%BD%D0%B5%D0%BB%D0%B5%D1%87%D0%B8%D1%82%D1%81%D1%8F"-->
+      <!--          class="video__paragraph-link"-->
+      <!--          target="_blank"-->
+      <!--          >YouTube канале</a-->
+      <!--        >.-->
+      <!--      </p>-->
+      <div class="slider" v-swiper:mySwiper="swiperOption">
+        <div class="swiper-wrapper">
+          <div
+            class="swiper-slide"
+            v-for="(cell, index) in cellArray"
+            :key="index"
+          >
+            <div>{{ cell.name }}</div>
+          </div>
+        </div>
+        <!--        <div class="swiper-button-prev"></div>-->
+        <!--        <div class="swiper-button-next"></div>-->
       </div>
-      <app-video-iframe class="video__clip" />
-      <p class="video__paragraph">
-        Все видео вы можете найте на нашем
-        <a
-          href="https://www.youtube.com/results?search_query=%23%D1%8D%D1%82%D0%BE%D0%BD%D0%B5%D0%BB%D0%B5%D1%87%D0%B8%D1%82%D1%81%D1%8F"
-          class="video__paragraph-link"
-          target="_blank"
-          >YouTube канале</a
-        >.
-      </p>
     </div>
   </div>
 </template>
@@ -45,6 +60,29 @@ export default {
   components: {
     'app-video-iframe': VideoIframe,
     'section-title': SectionTitle,
+  },
+  props: ['cellArray'],
+  data() {
+    return {
+      swiperOption: {
+        loop: true,
+        slidesPerView: 'auto',
+        centeredSlides: true,
+        spaceBetween: 30,
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        },
+        keyboard: {
+          enabled: true,
+          onlyInViewport: false,
+        },
+        pagination: {
+          el: '.swiper-pagination',
+          type: 'bullets',
+        },
+      },
+    };
   },
 };
 </script>
