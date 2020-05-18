@@ -1,95 +1,144 @@
 <template>
   <div class="container">
-    <div class="story">
-      <div class="story__banner">
-        <div class="story__image-wrapper">
-          <div class="story__image"></div>
-        </div>
-        <div class="story__text-wrapper">
-          <h1 class="story__title">
-            <span class="story__title story__title_bold">Имя: </span> здесь
-            будет текст истории
-          </h1>
-          <div class="story-text__bottom-wrapper">
-            <a href="#" class="story__share">Поделитесь &#8599;</a>
-            <date class="story__date">20 апреля 2018</date>
+    <app-container>
+      <div class="story">
+        <div class="story__banner story__banner_row">
+          <div class="story__image-wrapper">
+            <div
+              :style="{
+                backgroundImage: `url('${stories[$route.params.id - 1].url}')`,
+              }"
+              class="story__image"
+            ></div>
+          </div>
+          <div class="story__text-wrapper">
+            <h1 class="story__title">
+              <span class="story__title story__title_bold"
+                >{{ stories[$route.params.id - 1].name }}:
+              </span>
+              {{ stories[$route.params.id - 1].text }}
+            </h1>
+            <div class="story-text__bottom-wrapper">
+              <a href="#" class="story__share">Поделитесь &#8599;</a>
+              <date class="story__date">{{
+                stories[$route.params.id - 1].date
+              }}</date>
+            </div>
           </div>
         </div>
+
+        <div class="story__banner story__banner_column">
+          <h1 class="story__title">
+            <span class="story__title story__title_bold"
+              >{{ stories[$route.params.id - 1].name }}:
+            </span>
+            {{ stories[$route.params.id - 1].text }}
+          </h1>
+          <div class="story__image-wrapper">
+            <div
+              :style="{
+                backgroundImage: `url('${stories[$route.params.id - 1].url}')`,
+              }"
+              class="story__image"
+            ></div>
+          </div>
+          <div class="story-text__bottom-wrapper">
+            <a href="#" class="story__share">Поделитесь &#8599;</a>
+            <date class="story__date">{{
+              stories[$route.params.id - 1].date
+            }}</date>
+          </div>
+        </div>
+
+        <div class="story__itself">
+          <p class="story__paragraph">
+            {{ stories[$route.params.id - 1].paragraph1 }}
+          </p>
+          <p class="story__paragraph">
+            {{ stories[$route.params.id - 1].paragraph2 }}
+          </p>
+          <p class="story__paragraph story__paragraph_bold">
+            {{ stories[$route.params.id - 1].paragraph3 }}
+          </p>
+          <p class="story__paragraph">
+            {{ stories[$route.params.id - 1].paragraph4 }}
+          </p>
+          <p class="story__paragraph">
+            {{ stories[$route.params.id - 1].paragraph5 }}
+          </p>
+          <p class="story__paragraph">
+            {{ stories[$route.params.id - 1].paragraph6 }}
+          </p>
+        </div>
+        <a href="#" class="story__share story__share_social"
+          >Поделитесь этой статьей в своих социальных сетях &#8599;</a
+        >
+        <app-cardlist
+          class="four-cards"
+          :cards="
+            stories.slice($route.params.id, parseInt($route.params.id) + 4)
+          "
+        />
+        <app-cardlist
+          class="three-cards"
+          :cards="
+            stories.slice($route.params.id, parseInt($route.params.id) + 3)
+          "
+        />
+        <app-cardlist
+          class="two-cards"
+          :cards="
+            stories.slice($route.params.id, parseInt($route.params.id) + 2)
+          "
+        />
+        <a href="#" class="story__more-articles">Больше статей</a>
       </div>
-      <div class="story__itself">
-        <p class="story__paragraph">
-          Я из военной семьи. Отец хоть и не был военным сам, но нас всех держал
-          в ежовых рукавицах. Думаю, поэтому мы и выросли такими ответственными.
-        </p>
-        <p class="story__paragraph">
-          У меня дома до сих пор стоят часы в каждой комнате, хотя они и не
-          нужны особо — я сам чувствую, опаздываю куда-то или нет, отстаю от
-          нужного графика или опережаю. Вот такие встроенные внутренние часы!
-          Будильник мне тоже не нужен — я всегда встаю раньше. Одеваюсь тоже
-          быстро, как в армии, за 45 секунд.
-        </p>
-        <p class="story__paragraph story__paragraph_bold">
-          «В футболе если команда опоздала на 15 минут, ей засчитывается
-          поражение».
-        </p>
-        <p class="story__paragraph">
-          Опаздывать я тоже не люблю, на все встречи прихожу заранее. Если знаю,
-          что могу попасть по дороге в пробку, то не еду на машине. В аэропорт
-          приезжаю задолго до начала регистрации. Лучше подожду и кофе попью,
-          чем опоздаю!
-        </p>
-        <p class="story__paragraph">
-          Когда мне было 16 лет, мне в школе геометрию нужно было пересдавать. Я
-          билеты выучил, знал абсолютно все. Пришел в нужное время, а
-          учительница — нет. Ну, я какое-то время подождал ее и ушел. Потом она
-          спрашивала: «Почему не дождался?». Я ответил: «В футболе если команда
-          опоздала на 15 минут, ей засчитывается поражение». Экзамен мне
-          все-таки поставили! Сейчас если кто-то из футболистов моей команды
-          опаздывает — начинаю злиться, могу и прикрикнуть потом. А если кто-то
-          опоздал на тренировку перед игрой — все, подготовка насмарку. Я сразу
-          начинаю думать тогда: «Значит, точно проиграем». Такая болезненная
-          пунктуальность уже не лечится. В отличие от рака.
-        </p>
-        <p class="story__paragraph">
-          «Сейчас если кто-то из футболистов моей команды опаздывает — начинаю
-          злиться, могу и прикрикнуть потом. А если кто-то опоздал на тренировку
-          перед игрой — все, подготовка насмарку. Я сразу начинаю думать тогда:
-          «Значит, точно проиграем». Такая болезненная пунктуальность уже не
-          лечится».
-        </p>
-      </div>
-      <a href="#" class="story__share story__share_social"
-        >Поделитесь этой статьей в своих социальных сетях &#8599;</a
-      >
-    </div>
+    </app-container>
   </div>
 </template>
 
 <script>
+import Container from '@/components/Container';
+import Cardlist from '@/components/Cardlist/CardList';
 export default {
   name: '_id',
+  props: {
+    name: String,
+  },
+  components: {
+    'app-container': Container,
+    'app-cardlist': Cardlist,
+  },
+  computed: {
+    stories() {
+      return this.$store.getters['stories/stories'];
+    },
+  },
 };
 </script>
 
 <style scoped>
 .container {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Inter', 'Arial', sans-serif;
   display: flex;
   flex-direction: column;
-  margin: 100px auto 0;
-  max-width: 1440px;
+  padding: 100px auto 0;
 }
 .story__banner {
+  padding: 100px 0 130px;
+  justify-content: center;
+}
+.story__banner_row {
   display: flex;
-  width: calc(100% - 60px - 60px);
-  margin: 100px auto 130px;
+}
+.story__banner_column {
+  display: none;
 }
 .story__image-wrapper {
   width: 580px;
   height: 580px;
 }
 .story__image {
-  background-color: wheat;
   width: 100%;
   height: 100%;
   background-size: cover;
@@ -97,24 +146,25 @@ export default {
   background-repeat: no-repeat;
 }
 .story__text-wrapper {
+  max-width: 680px;
   margin-left: 60px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  border-top: 1px solid #efefef;
+  border-bottom: 1px solid #efefef;
 }
 .story-text__bottom-wrapper {
+  width: 100%;
   display: flex;
   justify-content: space-between;
   padding-bottom: 30px;
-  border-bottom: 1px solid #efefef;
 }
 .story__title {
-  max-width: 680px;
   font-weight: 500;
   font-size: 38px;
   line-height: 48px;
   padding-top: 30px;
-  border-top: 1px solid #efefef;
   text-align: left;
 }
 .story__title_bold {
@@ -129,6 +179,10 @@ export default {
   font-size: 18px;
   line-height: 24px;
   color: #121212;
+  transition: all 0.3s linear;
+}
+.story__share:hover {
+  opacity: 0.8;
 }
 .story__date {
   font-weight: normal;
@@ -162,5 +216,203 @@ export default {
   margin: 70px auto 160px;
   display: block;
   text-align: center;
+  transition: all 0.3s linear;
+}
+.story__share_social:hover {
+  opacity: all 0.3s linear;
+}
+.story__more-articles {
+  text-decoration: none;
+  font-weight: normal;
+  color: #000;
+  font-size: 16px;
+  line-height: 20px;
+  width: 100%;
+  padding: 31px;
+  margin: 70px auto 100px;
+  display: block;
+  text-align: center;
+  background-color: #fbfbfb;
+  transition: all 0.3s linear;
+}
+.story__more-articles:hover {
+  background-color: #f8f8f8;
+}
+.four-cards {
+  margin: 0 auto;
+}
+.three-cards {
+  display: none;
+}
+.two-cards {
+  display: none;
+}
+@media screen and (max-width: 1280px) {
+  .story__banner {
+    padding: 100px 0 120px;
+  }
+  .story__image-wrapper {
+    width: 518px;
+    height: 518px;
+  }
+  .story__text-wrapper {
+    max-width: 602px;
+  }
+  .story__title {
+    font-size: 34px;
+    line-height: 44px;
+  }
+  .story__paragraph {
+    font-size: 20px;
+    line-height: 28px;
+  }
+  .story__more-articles {
+    margin: 60px auto 90px;
+    padding: 29px;
+  }
+  .four-cards {
+    display: none;
+  }
+  .three-cards {
+    display: grid;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .story__banner {
+    padding: 100px 0 90px;
+  }
+  .story__image-wrapper {
+    width: 407px;
+    height: 407px;
+  }
+  .story__text-wrapper {
+    max-width: 477px;
+  }
+  .story__title {
+    font-size: 30px;
+    line-height: 38px;
+  }
+  .story__paragraph {
+    font-size: 18px;
+    line-height: 27px;
+  }
+  .story__share,
+  .story__date {
+    font-size: 16px;
+    line-height: 24px;
+  }
+  .story__share_social {
+    font-size: 16px;
+    line-height: 22px;
+    margin: 46px auto 120px;
+  }
+  .story__more-articles {
+    font-size: 13px;
+    line-height: 20px;
+    padding: 17px;
+  }
+  .story__more-articles {
+    margin: 46px 0 80px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .story__banner {
+    margin: 80px 0 100px;
+    padding: 0;
+  }
+  .story__banner_row {
+    display: none;
+  }
+  .story__banner_column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .story__banner {
+    border-top: 1px solid #efefef;
+    border-bottom: 1px solid #efefef;
+  }
+  .story__image-wrapper {
+    width: 420px;
+    height: 420px;
+    margin-bottom: 60px;
+  }
+  .story__text-wrapper {
+    max-width: 100%;
+  }
+  .story__bottom-wrapper {
+    max-width: 100%;
+    justify-content: space-between;
+    padding-bottom: 20px;
+  }
+  .story__title {
+    font-size: 30px;
+    line-height: 38px;
+    text-align: center;
+    margin-bottom: 60px;
+  }
+  .story__itself {
+    max-width: 100%;
+  }
+  .story__paragraph {
+    font-size: 18px;
+    line-height: 27px;
+  }
+  .story__share_social {
+    padding: 24px;
+    font-size: 16px;
+    line-height: 22px;
+    max-width: 100%;
+    margin: 80px auto 120px;
+  }
+  .story__more-articles {
+    font-size: 13px;
+    line-height: 16px;
+    width: 100%;
+    margin: 40px auto 80px;
+  }
+  .three-cards {
+    display: none;
+  }
+  .two-cards {
+    display: grid;
+  }
+}
+@media screen and (max-width: 500px) {
+  .two-cards {
+    display: flex;
+  }
+}
+@media screen and (max-width: 320px) {
+  .story__banner {
+    margin: 50px 0 40px;
+  }
+  .story__title {
+    font-size: 18px;
+    line-height: 21px;
+    margin: 20px 0 30px;
+    padding: 0;
+  }
+  .story__image-wrapper {
+    width: 290px;
+    height: 290px;
+    margin-bottom: 30px;
+  }
+  .story-text__bottom-wrapper {
+    padding-bottom: 20px;
+  }
+  .story__paragraph {
+    font-size: 13px;
+    line-height: 16px;
+  }
+  .story__share_social {
+    padding: 20px;
+    font-size: 13px;
+    line-height: 16px;
+    margin: 60px auto 100px;
+  }
+  .story__more-articles {
+    margin: 40px auto 50px;
+  }
 }
 </style>

@@ -1,10 +1,20 @@
-const state = () => ({});
+const state = () => ({
+  popupShown: false,
+});
 
-const mutations = {};
+const mutations = {
+  togglePopup(state) {
+    return (state.popupShown = !state.popupShown);
+  },
+};
 
 const actions = {};
 
-const getters = {};
+const getters = {
+  getPopupShown(state) {
+    return state.popupShown;
+  },
+};
 
 export default {
   state,
