@@ -1,13 +1,13 @@
 <template>
   <div class="cover-base">
-    <container>
-      <section-title class="cover-base__title" :style="{ color: titleColor }">{{
-        data.title
-      }}</section-title>
-      <div class="cover-base__text-wrapper" :style="{ color: textColor }">
-        <p class="cover-base__subtitle">
-          {{ data.subtitle }}
-        </p>
+    <section-title class="cover-base__title" :style="{ color: titleColor }">
+      {{ data.title }}
+    </section-title>
+    <div class="cover-base__text-wrapper" :style="{ color: textColor }">
+      <p class="cover-base__subtitle">
+        {{ data.subtitle }}
+      </p>
+      <div class="cover-base__direction-content">
         <ul class="cover-base__options">
           <li
             @click="selectTab(1)"
@@ -21,6 +21,11 @@
             ]"
           >
             {{ data.button.one }}
+            <div
+              v-if="1 === this.currentTab"
+              class="cover-base__bottom-line"
+              :style="{ border: `1px solid ${textColor}` }"
+            ></div>
           </li>
           <li
             @click="selectTab(2)"
@@ -36,6 +41,11 @@
             ]"
           >
             {{ data.button.two }}
+            <div
+              v-if="2 === this.currentTab"
+              class="cover-base__bottom-line"
+              :style="{ border: `1px solid ${textColor}` }"
+            ></div>
           </li>
         </ul>
         <div class="cover-base__text-n-button-wrapper">
@@ -48,7 +58,7 @@
           <slot></slot>
         </div>
       </div>
-    </container>
+    </div>
   </div>
 </template>
 
@@ -70,15 +80,16 @@ export default {
   },
   methods: {
     selectTab(selectedTab) {
+      if (selectedTab === this.currentTab) return;
       this.currentTab = selectedTab;
       this.isActive = !this.isActive;
     },
   },
   props: {
+    data: Object,
     disabledColor: String,
     textColor: String,
     titleColor: String,
-    data: Object,
   },
 };
 </script>
@@ -87,21 +98,21 @@ export default {
 .cover-base {
   width: 100%;
   font-family: 'Inter', 'Arial', sans-serif;
-  min-height: 522px;
-  padding: 100px 60px;
+  padding: 100px 0;
 }
 .cover-base__title {
-  margin: 0 auto;
+  max-width: 367px;
+  padding-bottom: 30px;
   text-align: left;
   font-family: 'Inter', 'Arial', sans-serif;
   font-style: normal;
   font-weight: 600;
-  font-size: 32px;
   line-height: 36px;
 }
 .cover-base__text-wrapper {
   display: flex;
   justify-content: space-between;
+  margin: 0;
 }
 .cover-base__subtitle {
   font-weight: normal;
@@ -110,6 +121,12 @@ export default {
   max-width: 340px;
   text-align: left;
 }
+.cover-base__direction-content {
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
 .cover-base__options {
   display: flex;
   flex-direction: column;
@@ -117,9 +134,12 @@ export default {
 .cover-base__option {
   font-size: 18px;
   line-height: 22px;
-  display: flex;
-  text-align: left;
   cursor: pointer;
+  list-style-type: none;
+  text-align: right;
+}
+.cover-base__bottom-line {
+  display: none;
 }
 .cover-base__option:first-of-type {
   margin-bottom: 10px;
@@ -140,7 +160,7 @@ export default {
   max-width: 640px;
   margin-left: 40px;
   text-align: left;
-  min-height: 88px;
+  min-height: 90px;
 }
 .cover-base__button {
   margin-left: 40px;
@@ -189,6 +209,9 @@ export default {
 }
 @media screen and (max-width: 1000px) {
   .cover-base {
+    padding-top: 80px;
+  }
+  .cover-base {
     min-height: 598px;
   }
   .cover-base__title {
@@ -201,6 +224,10 @@ export default {
   .cover-base__subtitle {
     max-width: 380px;
     margin: 0 auto 80px;
+  }
+  .cover-base__direction-content {
+    display: flex;
+    flex-direction: column;
   }
   .cover-base__options {
     width: 380px;
@@ -217,8 +244,8 @@ export default {
     margin-right: 30px;
     border-bottom: 2px solid transparent;
   }
-  .cover-base__option:hover {
-    border-bottom: 2px solid #613a93;
+  .cover-base__bottom-line {
+    display: flex;
   }
   .cover-base__text-wrapper {
     flex-direction: column;
@@ -237,6 +264,23 @@ export default {
   }
   .cover-base__button {
     margin: 50px 0 0;
+  }
+  @media screen and (max-width: 480px) {
+    .cover-base {
+      padding-top: 50px;
+    }
+    .cover-base__title {
+      margin: 0;
+      text-align: left;
+    }
+    .cover-base__subtitle {
+      margin: 0 auto 40px;
+      text-align: left;
+    }
+    .cover-base__option-description {
+      font-size: 13px;
+      line-height: 16px;
+    }
   }
 }
 </style>

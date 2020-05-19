@@ -1,62 +1,22 @@
 <template>
   <div class="tell-story">
     <container>
-      <section-title class="tell-story__title"
-        >Расскажите свою историю</section-title
+      <app-cover-base
+        :data="tellStory"
+        :titleColor="`#000`"
+        :textColor="`#666`"
+        :disabledColor="`#A2A2A2`"
       >
-      <div class="tell-story__text-wrapper">
-        <p class="tell-story__subtitle">
-          Мы публикуем новые истории на сайте раз в неделю. Есть 2 варианта
-          поделиться своей историей неизлечимых привычек, навязчивых идей и
-          болезненных привязанностей.
-        </p>
-        <ul class="tell-story__options">
-          <li
-            @click="selectTab(1)"
-            :class="[
-              'tell-story__option',
-              {
-                'tell-story__option_active': isActive,
-                'tell-story__option_disabled': !isActive,
-              },
-            ]"
-          >
-            1-й вариант
-          </li>
-          <li
-            @click="selectTab(2)"
-            :class="[
-              'tell-story__option',
-              {
-                'tell-story__option_disabled': isActive,
-                'tell-story__option_active': !isActive,
-              },
-            ]"
-          >
-            2-й вариант
-          </li>
-        </ul>
-        <div class="tell-story__text-n-button-wrapper">
-          <p v-if="currentTab == 1" class="tell-story__option-description">
-            Заполнить подробную форму прямо на сайте и мы опубликуем вашу
-            историю после проверки. Пожалуйста, заполняйте все пункты корректно,
-            если вы испытаете какие-то сложности, воспользуйтесь 2-м вариантом.
-          </p>
-          <p v-if="currentTab == 2" class="tell-story__option-description">
-            Оставить контакт (почту или номер телефона) и мы свяжемся с вами,
-            зададим вопросы, уточним детали вашей истории.
-          </p>
-          <main-button
-            v-if="currentTab == 1"
-            class="tell-story__button"
-            @buttonClick="showPopup"
-            >Заполнить форму</main-button
-          >
-          <main-button v-if="currentTab == 2" class="tell-story__button"
-            >Оставить контакт</main-button
-          >
-        </div>
-      </div>
+        <main-button
+          v-if="currentTab == 1"
+          class="tell-story__button"
+          @buttonClick="showPopup"
+          >Заполнить форму</main-button
+        >
+        <main-button v-if="currentTab == 2" class="tell-story__button"
+          >Оставить контакт</main-button
+        >
+      </app-cover-base>
     </container>
   </div>
 </template>
@@ -65,22 +25,25 @@
 import SectionTitle from '@/components/ui/SectionTitle';
 import MainButton from '@/components/ui/MainButton';
 import Container from '@/components/Container';
+import CoverBase from '@/components/ui/CoverBase';
 export default {
   components: {
     'section-title': SectionTitle,
     'main-button': MainButton,
+    'app-cover-base': CoverBase,
     container: Container,
+  },
+  props: {
+    tellStory: Object,
   },
   data() {
     return {
       currentTab: 1,
-      isActive: true,
     };
   },
   methods: {
     selectTab(selectedTab) {
       this.currentTab = selectedTab;
-      this.isActive = !this.isActive;
     },
     showPopup() {
       this.$store.commit('popup/togglePopup');
@@ -94,63 +57,8 @@ export default {
   width: 100%;
   font-family: 'Inter', 'Arial', sans-serif;
   background-color: #f7f7f7;
-  min-height: 522px;
-  padding: 100px 60px;
 }
-.tell-story__title {
-  font-weight: 600;
-  font-size: 32px;
-  line-height: 36px;
-  text-align: left;
-  max-width: 413px;
-  margin-bottom: 32px;
-}
-.tell-story__text-wrapper {
-  display: flex;
-  justify-content: space-between;
-}
-.tell-story__subtitle {
-  font-weight: normal;
-  font-size: 18px;
-  line-height: 22px;
-  max-width: 340px;
-  color: #666;
-  text-align: left;
-}
-.tell-story__options {
-  display: flex;
-  flex-direction: column;
-}
-.tell-story__option {
-  font-size: 18px;
-  line-height: 22px;
-  display: flex;
-  text-align: left;
-  cursor: pointer;
-}
-.tell-story__option:first-of-type {
-  margin-bottom: 10px;
-}
-.tell-story__option_active {
-  font-weight: 500;
-}
-.tell-story__option_disabled {
-  color: #a2a2a2;
-  font-weight: 400;
-}
-.tell-story__option_disabled:hover {
-  color: #000;
-}
-.tell-story__option-description {
-  font-weight: normal;
-  font-size: 18px;
-  line-height: 22px;
-  max-width: 640px;
-  color: #666;
-  margin-left: 40px;
-  text-align: left;
-  min-height: 88px;
-}
+
 .tell-story__button {
   margin-left: 40px;
   margin-top: 78px;
