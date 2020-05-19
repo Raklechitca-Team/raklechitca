@@ -36,7 +36,7 @@ export default {
 
 .cover-title__svg-link {
   position: absolute;
-  bottom: 35px;
+  bottom: 40px;
 }
 
 .cover-title__svg-link:hover {
