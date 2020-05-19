@@ -11,6 +11,7 @@
         <ul class="cover-base__options">
           <li
             @click="selectTab(1)"
+            :style="isActive ? { color: titleColor } : { color: disabledColor }"
             :class="[
               'cover-base__option',
               {
@@ -23,6 +24,9 @@
           </li>
           <li
             @click="selectTab(2)"
+            :style="
+              !isActive ? { color: titleColor } : { color: disabledColor }
+            "
             :class="[
               'cover-base__option',
               {

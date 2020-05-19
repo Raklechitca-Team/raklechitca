@@ -8,7 +8,7 @@
         :data="aboutProject"
         :titleColor="`#fff`"
         :textColor="`#DEDEDE`"
-        disabledColor="`#C9C9C9`"
+        :disabledColor="`#C9C9C9`"
       />
     </container>
   </div>
