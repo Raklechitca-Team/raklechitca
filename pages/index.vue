@@ -7,8 +7,8 @@
     <app-cover-in-site :text="`РАССКАЗЫВАЙТЕ ВАШИ ИСТОРИИ В ИНСТАГРАМ`" />
     <app-insta :images="instagram" />
     <app-tell-story />
-    <app-statistics />
-    <app-cover :aboutProject="aboutProject" />
+    <app-statistics :statisticsData="statistics" />
+    <app-cover />
   </div>
 </template>
 
@@ -17,7 +17,7 @@ import Title from '@/components/Title';
 import Video from '@/components/Video/Video';
 import InstaBlock from '@/components/instaBlock/InstaBlock';
 import TellStory from '@/components/TellStory';
-import Statistics from '@/components/Statistics';
+import Statistics from '@/components/Statistics/Statistics';
 import Cover from '@/components/Cover';
 import CoverInSite from '@/components/CoverInSite';
 import CardList from '@/components/Cardlist/CardList';
@@ -49,8 +49,8 @@ export default {
     instagram() {
       return this.$store.getters['instagram/instagram'];
     },
-    aboutProject() {
-      return this.$store.getters['aboutProject/aboutProject'];
+    statistics() {
+      return this.$store.getters['statistics/statistics'];
     },
   },
   methods: {
