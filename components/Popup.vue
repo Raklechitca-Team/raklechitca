@@ -46,13 +46,24 @@ export default {
   position: absolute;
   top: 43px;
   right: 43px;
-  width: 20px;
-  height: 20px;
+  width: 18px;
+  height: 18px;
   background-size: contain;
   background-repeat: no-repeat;
   background: center;
   cursor: pointer;
   color: black;
   z-index: 3;
+}
+
+@media screen and (max-width: 640px) {
+  .modal-window__popup {
+    padding: 15px;
+  }
+
+  .modal-window__close {
+    top: 20px;
+    right: 18px;
+  }
 }
 </style>
