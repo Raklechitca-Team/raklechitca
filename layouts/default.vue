@@ -7,7 +7,7 @@
       @closeClick="showPopup"
       @overlayClick="showPopup"
     >
-      <app-quiz />
+      <app-quiz @closeClick="showPopup" />
     </app-popup>
     <nuxt />
 
