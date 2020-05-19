@@ -8,7 +8,7 @@
     <app-insta :images="instagram" />
     <app-tell-story />
     <app-statistics />
-    <app-cover />
+    <app-cover :aboutProject="aboutProject" />
   </div>
 </template>
 
@@ -48,6 +48,9 @@ export default {
     },
     instagram() {
       return this.$store.getters['instagram/instagram'];
+    },
+    aboutProject() {
+      return this.$store.getters['aboutProject/aboutProject'];
     },
   },
   methods: {
