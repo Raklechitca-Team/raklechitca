@@ -58,7 +58,7 @@ export default {
   }
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 650px) {
   .modal-window__popup {
     padding: 15px;
   }
