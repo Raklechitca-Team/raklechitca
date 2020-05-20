@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <app-header @buttonClick="popupHandler" />
+    <app-header />
 
     <app-popup
       v-if="popupShown"
@@ -11,15 +11,13 @@
     </app-popup>
     <nuxt />
 
-    <app-popup
-      v-if="popupShareShown"
-      @closeClick="popupShareHandler"
-      @overlayClick="popupShareHandler"
-    >
-      <app-footer-share />
-    </app-popup>
+    <!--    <app-popup-->
+    <!--      v-if="popupShareShown"-->
+    <!--    >-->
+    <!--      <app-footer-share />-->
+    <!--    </app-popup>-->
 
-    <app-footer @buttonClick="popupShareHandler" />
+    <app-footer />
   </div>
 </template>
 

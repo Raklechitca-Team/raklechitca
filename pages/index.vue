@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <app-title />
-    <app-video />
+    <app-video :slideArray="video" />
     <app-cover-in-site :text="'И В ОТЛИЧИЕ ОТ РАКА,'" />
     <app-cardlist :cards="stories" />
     <app-cover-in-site :text="`РАССКАЗЫВАЙТЕ ВАШИ ИСТОРИИ В ИНСТАГРАМ`" />
@@ -51,6 +51,9 @@ export default {
     },
     statistics() {
       return this.$store.getters['statistics/statistics'];
+    },
+    video() {
+      return this.$store.getters['video/video'];
     },
   },
   methods: {
