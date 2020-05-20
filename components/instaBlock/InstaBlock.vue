@@ -12,7 +12,7 @@
       </p>
     </div>
     <div class="insta-story__images">
-      <app-insta-image v-for="image in images" :url="image.url">
+      <app-insta-image v-for="image in images" :url="image.url" :key="image">
       </app-insta-image>
     </div>
   </div>
