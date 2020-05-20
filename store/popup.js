@@ -13,7 +13,7 @@ const mutations = {
   },
   togglePopupContact(state) {
     return (state.popupContact = !state.popupContact);
-  }
+  },
 };
 
 const actions = {};
@@ -27,7 +27,7 @@ const getters = {
   },
   getPopupContact(state) {
     return state.popupContact;
-  }
+  },
 };
 
 export default {

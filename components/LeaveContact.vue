@@ -158,7 +158,7 @@ export default {
   }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 820px) {
   .contact {
     max-width: 500px;
   }
