@@ -4,7 +4,7 @@
       >Истории неизлечимых привычек</app-section-title
     >
     <app-search />
-    <app-stories :cards="page" />
+    <app-cardlist :cards="page" />
     <app-pagination
       :storiesInTotal="stories.length"
       :storiesPerPage="storiesPerPage"
@@ -15,14 +15,14 @@
 
 <script>
 import SectionTitle from '@/components/ui/SectionTitle';
-import Stories from '@/components/Stories';
+import CardList from '@/components/Cardlist/CardList';
 import Pagination from '@/components/Pagination';
 import Search from '@/components/Search';
 export default {
   name: 'stories',
   components: {
     'app-section-title': SectionTitle,
-    'app-stories': CardList,
+    'app-cardlist': CardList,
     'app-pagination': Pagination,
     'app-search': Search,
   },
