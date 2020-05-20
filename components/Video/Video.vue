@@ -1,67 +1,62 @@
 <template>
-  <div class="video">
-    <div class="video__text-container">
-      <section-title class="video__title">
-        Истории людей, победивших рак, но не свои привычки
-      </section-title>
-      <p class="video__subtitle">
-        Есть вещи, которые не лечатся. Вещи ставшие частью нашего «я», фобии,
-        страхи. Но это точно не рак. Рак лечится. Лучшее доказательство — люди с
-        их историями.
-      </p>
-      <div class="video__arrows">
-        <div class="swiper-button-prev"></div>
-        <div class="swiper-button-next"></div>
-        <!--        <button class="video__arrow">-->
-        <!--          <img class="video__arrow-image swiper-button-prev" src="@/static/arrow-left.svg" />-->
-        <!--        </button>-->
-        <!--        <button class="video__arrow">-->
-        <!--          <img class="video__arrow-image swiper-button-next" src="@/static/arrow-right.svg" />-->
-        <!--        </button>-->
+  <app-container>
+    <div class="video">
+      <div class="video__text-container">
+        <app-section-title class="video__title">
+          Истории людей, победивших рак, но не свои привычки
+        </app-section-title>
+        <p class="video__subtitle">
+          Есть вещи, которые не лечатся. Вещи ставшие частью нашего «я», фобии,
+          страхи. Но это точно не рак. Рак лечится. Лучшее доказательство — люди
+          с их историями.
+        </p>
+        <div class="video__arrows">
+          <div class="swiper-button-prev" />
+          <div class="swiper-button-next" />
+        </div>
       </div>
-    </div>
 
-    <div class="video__container">
-      <!--      <div class="video__cap">-->
-      <!--        <img class="video__cap-image" src="@/static/ellipse.svg" />-->
-      <!--      </div>-->
-      <!--      <app-video-iframe class="video__clip" />-->
-      <!--      <p class="video__paragraph">-->
-      <!--        Все видео вы можете найте на нашем-->
-      <!--        <a-->
-      <!--          href="https://www.youtube.com/results?search_query=%23%D1%8D%D1%82%D0%BE%D0%BD%D0%B5%D0%BB%D0%B5%D1%87%D0%B8%D1%82%D1%81%D1%8F"-->
-      <!--          class="video__paragraph-link"-->
-      <!--          target="_blank"-->
-      <!--          >YouTube канале</a-->
-      <!--        >.-->
-      <!--      </p>-->
-      <div class="slider" v-swiper:mySwiper="swiperOption">
-        <div class="swiper-wrapper">
-          <div
-            class="swiper-slide"
-            v-for="(cell, index) in cellArray"
-            :key="index"
-          >
-            <div>{{ cell.name }}</div>
+      <div class="video__container">
+        <div class="slider" v-swiper:mySwiper="swiperOption">
+          <div class="swiper-wrapper">
+            <!--       TODO:     закоментировал пока, ждём обложки-->
+            <!--            <div class="video__cap">-->
+            <!--              <img class="video__cap-image" src="@/static/ellipse.svg" />-->
+            <!--            </div>-->
+            <app-video-iframe
+              v-for="slide in slideArray"
+              :key="slide.src"
+              :src="slide.src"
+              class="swiper-slide video__clip"
+            />
           </div>
         </div>
-        <!--        <div class="swiper-button-prev"></div>-->
-        <!--        <div class="swiper-button-next"></div>-->
+        <p class="video__paragraph">
+          Все видео вы можете найте на нашем
+          <a
+            href="https://www.youtube.com/results?search_query=%23%D1%8D%D1%82%D0%BE%D0%BD%D0%B5%D0%BB%D0%B5%D1%87%D0%B8%D1%82%D1%81%D1%8F"
+            class="video__paragraph-link"
+            target="_blank"
+            >YouTube канале</a
+          >.
+        </p>
       </div>
     </div>
-  </div>
+  </app-container>
 </template>
 
 <script>
 import SectionTitle from '@/components/ui/SectionTitle';
 import VideoIframe from '@/components/Video/VideoIframe';
+import Container from '@/components/Container';
 export default {
   name: 'Video',
   components: {
     'app-video-iframe': VideoIframe,
-    'section-title': SectionTitle,
+    'app-section-title': SectionTitle,
+    'app-container': Container,
   },
-  props: ['cellArray'],
+  props: ['slideArray'],
   data() {
     return {
       swiperOption: {
@@ -90,7 +85,8 @@ export default {
 <style scoped>
 .video {
   display: flex;
-  padding: 100px 60px 74px;
+  padding-top: 100px;
+  padding-bottom: 74px;
   justify-content: space-between;
   max-width: 1440px;
   margin: 0 auto;
@@ -110,7 +106,6 @@ export default {
   line-height: 36px;
   color: #000000;
   max-width: 413px;
-  width: 100%;
   text-align: left;
 }
 
@@ -122,7 +117,6 @@ export default {
   line-height: 22px;
   color: #666666;
   max-width: 340px;
-  width: 100%;
   text-align: left;
   margin: 32px 0 0;
 }
@@ -132,19 +126,29 @@ export default {
   align-self: flex-start;
   margin: 155px 0 0;
   width: 80px;
+  position: relative;
+  background: #ff4500;
 }
-
-.video__arrow {
-  width: 40px;
-  height: 40px;
+.swiper-button-prev {
   background: #fbfbfb;
-  border: none;
-  margin: 0;
-  cursor: pointer;
+}
+.swiper-button-next {
+  background: #fbfbfb;
+}
+.swiper-button-prev:hover.swiper-button-prev:after {
+  color: #000000;
+}
+.swiper-button-next:hover.swiper-button-next:after {
+  color: #000000;
 }
 
-.video__arrow:focus {
-  outline: none;
+.swiper-button-prev:after {
+  color: #bfbfbf;
+  font-size: 15px;
+}
+.swiper-button-next:after {
+  color: #bfbfbf;
+  font-size: 15px;
 }
 
 .video__cap {
@@ -173,6 +177,12 @@ export default {
   transform: scale(1.2);
 }
 
+.video__container {
+  width: 867px;
+  height: 450px;
+  position: relative;
+}
+
 .video__clip {
   width: 867px;
   height: 450px;
@@ -195,5 +205,97 @@ export default {
 }
 
 @media screen and (max-width: 1280px) {
+  .video {
+    padding-top: 90px;
+    padding-bottom: 64px;
+  }
+  .video__title {
+    font-size: 28px;
+    line-height: 32px;
+  }
+  .video__subtitle {
+    font-size: 16px;
+    line-height: 20px;
+  }
+  .video__container {
+    width: 773px;
+    height: 400px;
+  }
+
+  .video__clip {
+    width: 773px;
+    height: 400px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .video {
+    padding-top: 80px;
+    padding-bottom: 54px;
+  }
+  .video__title {
+    font-size: 24px;
+    line-height: 28px;
+  }
+  .video__subtitle {
+    font-size: 13px;
+    line-height: 16px;
+  }
+  .video__container {
+    width: 606px;
+    height: 314px;
+  }
+
+  .video__clip {
+    width: 606px;
+    height: 314px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .video {
+    flex-direction: column;
+    align-items: center;
+  }
+  .video__title {
+    text-align: center;
+    max-width: 380px;
+  }
+  .video__subtitle {
+    text-align: center;
+    max-width: 380px;
+    margin-bottom: 60px;
+  }
+  .video__arrows {
+    display: none;
+  }
+  .video__container {
+    width: 100%;
+  }
+
+  .video__clip {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 450px) {
+  .video__container {
+    width: 290px;
+    height: 150px;
+  }
+
+  .video__clip {
+    width: 290px;
+    height: 150px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .video {
+    padding-top: 50px;
+    padding-bottom: 30px;
+  }
+  .video__title {
+    font-size: 18px;
+    line-height: 28px;
+  }
 }
 </style>
