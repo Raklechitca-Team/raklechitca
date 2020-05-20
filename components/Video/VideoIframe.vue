@@ -2,7 +2,7 @@
   <div class="video-iframe__container">
     <iframe
       class="video-iframe"
-      src="https://www.youtube.com/embed/coOppM34GtI"
+      :src="src"
       allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
       allowfullscreen
     >
@@ -13,6 +13,9 @@
 <script>
 export default {
   name: 'VideoIframe',
+  props: {
+    src: String,
+  },
 };
 </script>
 
@@ -21,7 +24,7 @@ export default {
   border: 0;
 }
 .video-iframe {
-  width: 867px;
-  height: 450px;
+  width: 100%;
+  height: 100%;
 }
 </style>
