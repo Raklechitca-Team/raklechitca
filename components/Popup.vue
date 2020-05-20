@@ -9,7 +9,7 @@
         class="modal-window__close"
         src="../static/x.svg"
         alt="close"
-        @click="showPopup"
+        @click="$emit('closeClick')"
       />
       <slot></slot>
     </div>
@@ -22,11 +22,6 @@ export default {
   name: 'Popup',
   components: {
     overlay: Overlay,
-  },
-  methods: {
-    showPopup() {
-      this.$store.commit('popup/togglePopup');
-    },
   },
 };
 </script>
@@ -46,7 +41,7 @@ export default {
   position: absolute;
   top: 43px;
   right: 43px;
-  width: 20px;
+  width: 14px;
   background-size: contain;
   background-repeat: no-repeat;
   background: center;
@@ -55,15 +50,23 @@ export default {
   z-index: 3;
 }
 
+@media screen and (max-width: 1280px) {
+  .modal-window__close {
+    top: 38px;
+    right: 38px;
+    width: 12px;
+  }
+}
+
 @media screen and (max-width: 320px) {
   .modal-window__popup {
     padding: 15px;
   }
 
   .modal-window__close {
-    width: 17px;
-    top: 19px;
-    right: 19px;
+    width: 12px;
+    top: 20px;
+    right: 20px;
   }
 }
 </style>

@@ -7,15 +7,17 @@
       @closeClick="showPopup"
       @overlayClick="showPopup"
     >
-      <app-quiz />
+      <app-quiz @closeClick="showPopup" />
     </app-popup>
     <nuxt />
 
-    <!--    <app-popup-->
-    <!--      v-if="popupShareShown"-->
-    <!--    >-->
-    <!--      <app-footer-share />-->
-    <!--    </app-popup>-->
+    <app-popup
+      v-if="popupShareShown"
+      @closeClick="showSharePopup"
+      @overlayClick="showSharePopup"
+    >
+      <app-footer-share />
+    </app-popup>
 
     <app-footer />
   </div>
@@ -41,10 +43,16 @@ export default {
     popupShown() {
       return this.$store.getters['popup/getPopupShown'];
     },
+    popupShareShown() {
+      return this.$store.getters['popup/getPopupShareShown'];
+    },
   },
   methods: {
     showPopup() {
       this.$store.commit('popup/togglePopup');
+    },
+    showSharePopup() {
+      this.$store.commit('popup/toggleSharePopup');
     },
   },
 };
@@ -52,7 +60,7 @@ export default {
 
 <style>
 html {
-  font-family: 'Inter', Arial, sans-serif;
+  font-family: 'Inter', 'Arial', sans-serif;
   font-size: 16px;
   word-spacing: 1px;
   -ms-text-size-adjust: 100%;
