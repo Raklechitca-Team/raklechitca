@@ -19,7 +19,11 @@
       <app-footer-share />
     </app-popup>
 
-    <app-popup v-if="popupContactShown">
+    <app-popup
+      v-if="popupContactShown"
+      @closeClick="contactPopup"
+      @overlayClick="contactPopup"
+    >
       <app-leave-contact />
     </app-popup>
 
@@ -52,6 +56,9 @@ export default {
     popupShareShown() {
       return this.$store.getters['popup/getPopupShareShown'];
     },
+    popupContactShown() {
+      return this.$store.getters['popup/getPopupContact'];
+    }
   },
   methods: {
     showPopup() {
@@ -60,6 +67,9 @@ export default {
     showSharePopup() {
       this.$store.commit('popup/toggleSharePopup');
     },
+    contactPopup() {
+      this.$store.commit('popup/togglePopupContact');
+    }
   },
 };
 </script>
