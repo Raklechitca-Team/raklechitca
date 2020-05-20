@@ -23,7 +23,7 @@ export default {
       type: String,
       default: 'text',
       validator: value =>
-        'text|numder|email|password|search|url|tel'.split('|').indexOf(value) >
+        'text|number|email|password|search|url|tel'.split('|').indexOf(value) >
         -1,
     },
   },

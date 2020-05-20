@@ -17,13 +17,13 @@
         >{{ currentQuestion.questionAdditional }}</span
       >
     </p>
-    <quiz-input
+    <app-quiz-input
       v-if="this.$store.state.quiz.currentQuestion !== 13"
       className="quiz__input"
       placeholder="Напишите тут"
       :bottomBordered="true"
       v-model="answer"
-    ></quiz-input>
+    />
     <div class="quiz__buttons">
       <quiz-button
         v-if="this.$store.state.quiz.currentQuestion <= 12"
@@ -32,17 +32,17 @@
         @click="prevQuestion"
         >Назад</quiz-button
       >
-      <quiz-button
+      <app-quiz-button
         v-if="this.$store.state.quiz.currentQuestion <= 11"
         class="quiz__button-next"
         @click="nextQuestion"
-        >Далее</quiz-button
+        >Далее</app-quiz-button
       >
-      <quiz-button
+      <app-quiz-button
         v-if="this.$store.state.quiz.currentQuestion === 12"
         class="quiz__button-send"
         @click="nextQuestion"
-        >Отправить</quiz-button
+        >Отправить</app-quiz-button
       >
       <p
         v-if="this.$store.state.quiz.currentQuestion === 12"
@@ -54,11 +54,11 @@
         >
       </p>
     </div>
-    <quiz-button
+    <app-quiz-button
       v-if="this.$store.state.quiz.currentQuestion === 13"
       class="quiz__button-close"
       @click="$emit('closeClick')"
-      >Закрыть</quiz-button
+      >Закрыть</app-quiz-button
     >
   </form>
 </template>
@@ -69,8 +69,8 @@ import QuizButton from '@/components/ui/QuizButton';
 export default {
   name: 'Quiz',
   components: {
-    'quiz-input': QuizInput,
-    'quiz-button': QuizButton,
+    'app-quiz-input': QuizInput,
+    'app-quiz-button': QuizButton,
   },
   data() {
     return {
@@ -79,14 +79,8 @@ export default {
   },
   computed: {
     currentQuestion() {
-      const { quiz } = this.$store.state;
-      const { currentQuestion, questions } = quiz;
+      const { currentQuestion, questions } = this.$store.state.quiz;
       return questions[currentQuestion];
-    },
-    prevButtonDisabled() {
-      const { quiz } = this.$store.state;
-      const { currentQuestion } = quiz;
-      return currentQuestion === 1;
     },
     initialAnswer() {
       const { quiz } = this.$store.state;

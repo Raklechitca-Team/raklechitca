@@ -113,12 +113,13 @@ const QUESTIONS = {
   },
 };
 
-const getters = {};
+const getters = {
+  questions: s => s.questions,
+};
 
 export default {
   state,
   mutations,
   actions,
-  QUESTIONS,
   getters,
 };

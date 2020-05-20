@@ -1,6 +1,6 @@
 <template>
   <footer class="footer">
-    <div class="footer__container">
+    <app-container class="footer__container">
       <section-title class="footer__text"
         >Спасибо всем, кто помог состояться этому проекту</section-title
       >
@@ -39,7 +39,7 @@
       </nav>
 
       <div class="footer__content">
-        <p class="footer__content_info">Рак Лечится 2020</p>
+        <p class="footer__content_info">Рак Лечится {{ year() }}</p>
         <a
           href="https://praktikum.yandex.ru/"
           target="_blank"
@@ -47,7 +47,7 @@
           >Сделано студентами Яндекс Практикум</a
         >
       </div>
-    </div>
+    </app-container>
   </footer>
 </template>
 
@@ -57,7 +57,7 @@ import SectionTitle from '@/components/ui/SectionTitle';
 export default {
   name: 'Footer',
   components: {
-    container: Container,
+    'app-container': Container,
     'section-title': SectionTitle,
   },
   methods: {
