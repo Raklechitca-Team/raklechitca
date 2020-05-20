@@ -1,7 +1,4 @@
 <template>
-  <!-- Варя: поправила здесь верстку и убрала отсюда заголовок
-нужно допроверить, нет ли конфликтов в стилях main-button и стилей в history__search-button
-я исправила кое-что, но нужно еще взглянуть тому, кто делал -->
   <section class="history">
     <div class="history__search">
       <input type="text" class="history__search-input" />
@@ -22,44 +19,83 @@ export default {
 
 <style scoped>
 .history {
-  max-width: 1320px;
-  margin: 0 auto;
+  margin: 60px 0 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .history__search {
   max-width: 1320px;
-  margin: 60px auto 0;
-  display: flex;
+  display: grid;
+  grid-template-columns: minmax(auto, 1074px) 226px;
+  gap: 20px;
+  margin: 0 60px;
 }
 
 .history__search-input {
-  width: 1074px;
   line-height: 50px;
   font-size: 24px;
   padding: 0;
-  margin: 0 20px 0 0;
   border: 1px solid #e8e8e8;
 }
 
 .history__search-button {
-  font-family: 'Inter', 'Arial', sans-serif;
   width: 226px;
-  border: none;
-  cursor: pointer;
-  background-color: #613a93;
-  padding: 0;
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 19px;
-  text-align: center;
-  color: #ffffff;
   transition: 0.2s linear;
 }
 
-.history__search-button:hover,
-.history__search-button:focus {
-  opacity: 0.9;
-  transition: 0.2s linear;
-  outline: none;
+@media screen and (max-width: 1280px) {
+  .history {
+    margin: 50px 0 0;
+  }
+
+  .history__search {
+    margin: 0 50px;
+  }
+
+  .history__search-input {
+    line-height: 46px;
+    font-size: 22px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .history__search {
+    grid-template-columns: minmax(auto, 1074px) 208px;
+  }
+
+  .history__search-input {
+    line-height: 44px;
+    font-size: 20px;
+  }
+
+  .history__search-button {
+    width: 208px;
+    font-size: 15px;
+    line-height: 18px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .history__search {
+    margin: 0 40px;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .history__search {
+    margin: 0 15px;
+    grid-template-columns: minmax(238px, 1074px) 48px;
+    gap: 6px;
+  }
+
+  .history__search-button {
+    width: 48px;
+    font-size: 0;
+    background-image: url(./svg/history__button_img.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+  }
 }
 </style>
