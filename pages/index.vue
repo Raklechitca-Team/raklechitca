@@ -1,14 +1,14 @@
 <template>
   <div class="container">
     <app-title />
-    <app-video />
+    <app-video :slideArray="video" />
     <app-cover-in-site :text="'И В ОТЛИЧИЕ ОТ РАКА,'" />
     <app-stories :cards="stories" />
     <app-cover-in-site :text="`РАССКАЗЫВАЙТЕ ВАШИ ИСТОРИИ В ИНСТАГРАМ`" />
     <app-insta :images="instagram" />
-    <app-tell-story />
+    <app-tell-story :tellStory="tellStory" />
     <app-statistics :statisticsData="statistics" />
-    <app-cover />
+    <app-cover :aboutProject="aboutProject" />
   </div>
 </template>
 
@@ -50,6 +50,15 @@ export default {
     },
     statistics() {
       return this.$store.getters['statistics/statistics'];
+    },
+    aboutProject() {
+      return this.$store.getters['aboutProject/aboutProject'];
+    },
+    tellStory() {
+      return this.$store.getters['tellStory/tellStory'];
+    },
+    video() {
+      return this.$store.getters['video/video'];
     },
   },
   methods: {

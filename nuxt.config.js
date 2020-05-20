@@ -16,7 +16,7 @@ export default {
     ],
     link: [
       { rel: 'icon', type: 'image/png', href: '/icon.png' },
-      { rel: 'stylesheet', href: 'assets/fonts/inter/inter.css' },
+      { rel: 'stylesheet', href: '~/assets/fonts/inter/inter.css' },
     ],
   },
   /*
@@ -30,7 +30,7 @@ export default {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: [],
+  plugins: [{ src: 'plugins/swiper.js' }],
   /*
    ** Nuxt.js dev-modules
    */

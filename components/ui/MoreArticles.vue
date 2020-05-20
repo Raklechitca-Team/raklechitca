@@ -23,30 +23,30 @@
   background-color: #f8f8f8;
 }
 @media screen and (max-width: 1280px) {
-    .more-articles {
+  .more-articles {
     margin: 60px auto 90px;
     padding: 29px;
-    }
+  }
 }
 @media screen and (max-width: 1024px) {
-    .more-articles {
+  .more-articles {
     font-size: 13px;
     line-height: 20px;
     padding: 17px;
     margin: 46px 0 80px;
-    }
+  }
 }
 @media screen and (max-width: 768px) {
-    .more-articles {
+  .more-articles {
     font-size: 13px;
     line-height: 16px;
     width: 100%;
     margin: 40px auto 80px;
-    }
+  }
 }
 @media screen and (max-width: 320px) {
-    .more-articles {
+  .more-articles {
     margin: 40px auto 50px;
-    }
+  }
 }
 </style>

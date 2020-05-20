@@ -1,6 +1,6 @@
 <template>
   <button
-    :class="['button', className, { button__disabled: disabled }]"
+    :class="['button', className, { button_disabled: disabled }]"
     @click="handlerClick"
     :disabled="disabled"
   >
@@ -30,34 +30,9 @@ export default {
 <style scoped>
 .button {
   font-family: 'Inter', 'Arial', sans-serif;
-  font-size: 16px;
   cursor: pointer;
   border: 0;
   margin: 0;
-}
-.quiz__buttons {
-  display: flex;
-  align-self: flex-start;
-  justify-self: flex-end;
-  position: absolute;
-  bottom: 40px;
-  margin: 0;
-  width: 334px;
-}
-
-.quiz /deep/ .quiz__button_back {
-  margin: 16px 30px;
-  color: #c0c0c0;
-  padding: 0;
-}
-
-.quiz /deep/ .quiz__button_back:focus {
-  outline: none !important;
-}
-
-.quiz /deep/ .quiz__button_next {
-  width: 226px;
-  height: 52px;
   background-color: #613a93;
   color: #fff;
   display: flex;
@@ -65,7 +40,17 @@ export default {
   align-items: center;
 }
 
-.quiz /deep/ .quiz__button_next:focus {
-  outline: none !important;
+.button:hover {
+  opacity: 0.9;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.button:focus {
+  outline: none;
+}
+
+.button_disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
 }
 </style>

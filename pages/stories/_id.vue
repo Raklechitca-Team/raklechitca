@@ -91,7 +91,7 @@
             stories.slice($route.params.id, parseInt($route.params.id) + 2)
           "
         />
-        <app-more-articles href='#' />
+        <app-more-articles href="#" />
       </div>
     </app-container>
   </div>

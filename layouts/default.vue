@@ -1,25 +1,25 @@
 <template>
   <div class="container">
-    <app-header @buttonClick="popupHandler" />
+    <app-header />
 
     <app-popup
       v-if="popupShown"
       @closeClick="showPopup"
       @overlayClick="showPopup"
     >
-      <app-quiz />
+      <app-quiz @closeClick="showPopup" />
     </app-popup>
     <nuxt />
 
     <app-popup
       v-if="popupShareShown"
-      @closeClick="popupShareHandler"
-      @overlayClick="popupShareHandler"
+      @closeClick="showSharePopup"
+      @overlayClick="showSharePopup"
     >
       <app-footer-share />
     </app-popup>
 
-    <app-footer @buttonClick="popupShareHandler" />
+    <app-footer />
   </div>
 </template>
 
@@ -43,10 +43,16 @@ export default {
     popupShown() {
       return this.$store.getters['popup/getPopupShown'];
     },
+    popupShareShown() {
+      return this.$store.getters['popup/getPopupShareShown'];
+    },
   },
   methods: {
     showPopup() {
       this.$store.commit('popup/togglePopup');
+    },
+    showSharePopup() {
+      this.$store.commit('popup/toggleSharePopup');
     },
   },
 };
@@ -54,7 +60,7 @@ export default {
 
 <style>
 html {
-  font-family: 'Inter', Arial, sans-serif;
+  font-family: 'Inter', 'Arial', sans-serif;
   font-size: 16px;
   word-spacing: 1px;
   -ms-text-size-adjust: 100%;

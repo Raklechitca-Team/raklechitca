@@ -49,6 +49,7 @@ export default {
 <style scoped>
 .header {
   background-color: #fff;
+  border-bottom: 1px solid #efefef;
 }
 
 .header__container {
@@ -106,8 +107,8 @@ export default {
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
-  width: 25px;
-  height: 25px;
+  width: 24px;
+  height: 24px;
   margin: auto;
 }
 
@@ -115,10 +116,6 @@ export default {
   .header__sidebar {
     height: 60px;
     padding: 18px 40px;
-  }
-
-  .header {
-    border-bottom: 0;
   }
 
   .header__logo {
