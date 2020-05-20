@@ -49,10 +49,10 @@
           </li>
         </ul>
         <div class="cover-base__text-n-button-wrapper">
-          <p v-if="currentTab == 1" class="cover-base__option-description">
+          <p v-if="this.currentTab == 1" class="cover-base__option-description">
             {{ data.description.one }}
           </p>
-          <p v-if="currentTab == 2" class="cover-base__option-description">
+          <p v-if="this.currentTab == 2" class="cover-base__option-description">
             {{ data.description.two }}
           </p>
           <slot></slot>
@@ -83,6 +83,9 @@ export default {
       if (selectedTab === this.currentTab) return;
       this.currentTab = selectedTab;
       this.isActive = !this.isActive;
+      this.$emit('currentTabForParent', {
+        currentTab: selectedTab,
+      });
     },
   },
   props: {

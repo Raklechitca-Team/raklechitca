@@ -2,18 +2,19 @@
   <div class="tell-story">
     <container>
       <app-cover-base
+        @currentTabForParent="currentTab"
         :data="tellStory"
         :titleColor="`#000`"
         :textColor="`#666`"
         :disabledColor="`#A2A2A2`"
       >
         <main-button
-          v-if="currentTab == 1"
+          v-if="this.current === 1"
           class="tell-story__button"
           @buttonClick="showPopup"
           >Заполнить форму</main-button
         >
-        <main-button v-if="currentTab == 2" class="tell-story__button"
+        <main-button v-if="this.current === 2" class="tell-story__button"
           >Оставить контакт</main-button
         >
       </app-cover-base>
@@ -33,20 +34,20 @@ export default {
     'app-cover-base': CoverBase,
     container: Container,
   },
+  data() {
+    return {
+      current: 1,
+    };
+  },
   props: {
     tellStory: Object,
   },
-  data() {
-    return {
-      currentTab: 1,
-    };
-  },
   methods: {
-    selectTab(selectedTab) {
-      this.currentTab = selectedTab;
-    },
     showPopup() {
       this.$store.commit('popup/togglePopup');
+    },
+    currentTab(currentTabValue) {
+      this.current = currentTabValue.currentTab;
     },
   },
 };
