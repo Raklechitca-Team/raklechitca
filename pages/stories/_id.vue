@@ -91,7 +91,7 @@
             stories.slice($route.params.id, parseInt($route.params.id) + 2)
           "
         />
-        <a href="#" class="story__more-articles">Больше статей</a>
+        <app-more-articles href='#' />
       </div>
     </app-container>
   </div>
@@ -100,6 +100,7 @@
 <script>
 import Container from '@/components/Container';
 import Cardlist from '@/components/Cardlist/CardList';
+import MoreArticles from '@/components/ui/MoreArticles';
 export default {
   name: '_id',
   props: {
@@ -108,6 +109,7 @@ export default {
   components: {
     'app-container': Container,
     'app-cardlist': Cardlist,
+    'app-more-articles': MoreArticles,
   },
   computed: {
     stories() {
@@ -221,23 +223,6 @@ export default {
 .story__share_social:hover {
   opacity: all 0.3s linear;
 }
-.story__more-articles {
-  text-decoration: none;
-  font-weight: normal;
-  color: #000;
-  font-size: 16px;
-  line-height: 20px;
-  width: 100%;
-  padding: 31px;
-  margin: 70px auto 100px;
-  display: block;
-  text-align: center;
-  background-color: #fbfbfb;
-  transition: all 0.3s linear;
-}
-.story__more-articles:hover {
-  background-color: #f8f8f8;
-}
 .four-cards {
   margin: 0 auto;
 }
@@ -305,14 +290,6 @@ export default {
     font-size: 16px;
     line-height: 22px;
     margin: 46px auto 120px;
-  }
-  .story__more-articles {
-    font-size: 13px;
-    line-height: 20px;
-    padding: 17px;
-  }
-  .story__more-articles {
-    margin: 46px 0 80px;
   }
 }
 @media screen and (max-width: 768px) {
@@ -410,9 +387,6 @@ export default {
     font-size: 13px;
     line-height: 16px;
     margin: 60px auto 100px;
-  }
-  .story__more-articles {
-    margin: 40px auto 50px;
   }
 }
 </style>
