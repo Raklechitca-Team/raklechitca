@@ -1,5 +1,5 @@
 <template>
-  <a href="#" class="more-articles">Больше статей</a>
+<a href="/stories" class="more-articles">Больше статей</a>
 </template>
 
 <script></script>
