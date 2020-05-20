@@ -25,12 +25,12 @@
       v-model="answer"
     />
     <div class="quiz__buttons">
-      <quiz-button
+      <app-quiz-button
         v-if="this.$store.state.quiz.currentQuestion <= 12"
         :disabled="this.$store.state.quiz.currentQuestion === 1"
         class="quiz__button-back"
         @click="prevQuestion"
-        >Назад</quiz-button
+        >Назад</app-quiz-button
       >
       <app-quiz-button
         v-if="this.$store.state.quiz.currentQuestion <= 11"
@@ -83,8 +83,7 @@ export default {
       return questions[currentQuestion];
     },
     initialAnswer() {
-      const { quiz } = this.$store.state;
-      const { currentQuestion, answers } = quiz;
+      const { currentQuestion, answers } = this.$store.state.quiz;
       return answers[currentQuestion];
     },
   },
