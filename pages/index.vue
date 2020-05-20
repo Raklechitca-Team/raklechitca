@@ -51,16 +51,14 @@ export default {
     statistics() {
       return this.$store.getters['statistics/statistics'];
     },
-<<<<<<< HEAD
     aboutProject() {
       return this.$store.getters['aboutProject/aboutProject'];
     },
     tellStory() {
       return this.$store.getters['tellStory/tellStory'];
-=======
+    },
     video() {
       return this.$store.getters['video/video'];
->>>>>>> 28b6c6a0f982a47f4a1de50b66c98492c99c9a01
     },
   },
   methods: {
