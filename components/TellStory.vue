@@ -16,7 +16,7 @@
         >
         <main-button
           @buttonClick="showPopupContact"
-          v-if="this.current === 2" 
+          v-if="this.current === 2"
           class="tell-story__button"
           >Оставить контакт</main-button
         >
@@ -54,9 +54,9 @@ export default {
     currentTab(currentTabValue) {
       this.current = currentTabValue.currentTab;
     },
-    showPopupContact(){
+    showPopupContact() {
       this.$store.commit('popup/togglePopupContact');
-    }
+    },
   },
 };
 </script>

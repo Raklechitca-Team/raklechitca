@@ -58,7 +58,7 @@ export default {
     },
     popupContactShown() {
       return this.$store.getters['popup/getPopupContact'];
-    }
+    },
   },
   methods: {
     showPopup() {
@@ -69,7 +69,7 @@ export default {
     },
     contactPopup() {
       this.$store.commit('popup/togglePopupContact');
-    }
+    },
   },
 };
 </script>
