@@ -18,7 +18,7 @@ export default {
     'app-more-articles': MoreArticles,
   },
   props: {
-    cards: Object,
+    cards: Array,
   },
   computed: {
     stories() {

@@ -14,7 +14,10 @@
           @buttonClick="showPopup"
           >Заполнить форму</main-button
         >
-        <main-button v-if="this.current === 2" class="tell-story__button"
+        <main-button
+          @buttonClick="showPopupContact"
+          v-if="this.current === 2"
+          class="tell-story__button"
           >Оставить контакт</main-button
         >
       </app-cover-base>
@@ -27,8 +30,10 @@ import SectionTitle from '@/components/ui/SectionTitle';
 import MainButton from '@/components/ui/MainButton';
 import Container from '@/components/Container';
 import CoverBase from '@/components/ui/CoverBase';
+import LeaveContact from '@/components/LeaveContact';
 export default {
   components: {
+    'app-leave-contact': LeaveContact,
     'section-title': SectionTitle,
     'main-button': MainButton,
     'app-cover-base': CoverBase,
@@ -48,6 +53,9 @@ export default {
     },
     currentTab(currentTabValue) {
       this.current = currentTabValue.currentTab;
+    },
+    showPopupContact() {
+      this.$store.commit('popup/togglePopupContact');
     },
   },
 };

@@ -60,6 +60,9 @@ export default {
     video() {
       return this.$store.getters['video/video'];
     },
+    stories() {
+      return this.$store.getters['stories/stories'];
+    },
   },
   methods: {
     popupHandler() {
