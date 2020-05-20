@@ -36,7 +36,7 @@ export default {
   background-color: #613a93;
 }
 .cover__position {
-  min-height: 470px;
+  min-height: 520px;
 }
 .cover__title {
   text-transform: uppercase;
