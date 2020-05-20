@@ -19,6 +19,10 @@
       <app-footer-share />
     </app-popup>
 
+    <app-popup v-if="popupContactShown">
+      <app-leave-contact />
+    </app-popup>
+
     <app-footer @buttonClick="popupShareHandler" />
   </div>
 </template>
@@ -30,6 +34,7 @@ import Popup from '@/components/Popup';
 import Quiz from '@/components/Quiz';
 import FooterShare from '@/components/Footer/FooterShare';
 import MainButton from '@/components/ui/MainButton';
+import LeaveContact from '@/components/LeaveContact';
 export default {
   components: {
     'app-header': Header,
@@ -38,6 +43,7 @@ export default {
     'app-quiz': Quiz,
     'app-footer-share': FooterShare,
     'app-main-button': MainButton,
+    'app-leave-contact': LeaveContact,
   },
   computed: {
     popupShown() {
