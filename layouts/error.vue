@@ -7,7 +7,11 @@
       Обратитесь к кому-нибудь из этих ребят:
     </h2>
     <div class="developers">
-      <div class="developers__person" v-for="(obj, i) in developers" :key="i">
+      <div
+        class="developers__person"
+        v-for="(obj, i) in developers"
+        :key="obj.link"
+      >
         <img class="developers__photo" :src="obj.link" />
         <p class="developers__description">{{ obj.name }}</p>
         <p class="developers__description">{{ obj.contacts }}</p>
