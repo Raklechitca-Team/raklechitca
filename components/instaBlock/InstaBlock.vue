@@ -28,7 +28,7 @@ export default {
     'app-insta-image': InstaImage,
   },
   props: {
-    images: Object,
+    images: Array,
   },
 };
 </script>
