@@ -1,8 +1,13 @@
 <template>
   <div class="insta-story">
     <div class="insta-story__info">
-      <app-section-title class="insta-story__title"
-        >Инстаграм</app-section-title
+      <a
+        href="https://www.instagram.com/raklechitsa/"
+        target="_blank"
+        class="insta-story__link"
+        ><app-section-title class="insta-story__title"
+          >Инстаграм</app-section-title
+        ></a
       >
       <p class="insta-story__prolog">
         Два раза в неделю мы просматриваем все посты по хештегу #этонелечится.
@@ -51,6 +56,13 @@ export default {
 .insta-story__info {
   max-width: 25%;
   flex-direction: column;
+}
+
+.insta-story__link {
+  text-decoration: none;
+}
+.insta-story__link:hover {
+  cursor: pointer;
 }
 
 .insta-story__title {
