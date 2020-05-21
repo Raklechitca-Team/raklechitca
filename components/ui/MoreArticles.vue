@@ -13,7 +13,7 @@
   line-height: 20px;
   width: 100%;
   padding: 31px;
-  margin: 70px auto 100px;
+  margin: 0 auto;
   display: block;
   text-align: center;
   background-color: #fbfbfb;

@@ -135,6 +135,12 @@ export default {
 .swiper-button-next {
   background: #fbfbfb;
 }
+.swiper-button-prev:focus {
+  outline: none;
+}
+.swiper-button-next:focus {
+  outline: none;
+}
 .swiper-button-prev:hover.swiper-button-prev:after {
   color: #000000;
 }

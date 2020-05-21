@@ -1,6 +1,8 @@
 <template>
   <div class="stories">
-    <app-section-title>Истории неизлечимых привычек</app-section-title>
+    <app-section-title class="stories__title"
+      >Истории неизлечимых привычек</app-section-title
+    >
     <app-cardlist class="eight-cards" :cards="stories.slice(0, 8)" />
     <app-cardlist class="nine-cards" :cards="stories.slice(0, 9)" />
     <app-more-articles />
@@ -33,6 +35,9 @@ export default {
   padding: 100px 60px 74px;
   max-width: 1440px;
   margin: 0 auto;
+}
+.stories__title {
+  max-width: 413px;
 }
 .nine-cards {
   display: none;
