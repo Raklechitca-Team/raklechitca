@@ -49,8 +49,8 @@
         class="quiz__paragraph"
       >
         Нажимая на кнопку «отправить», вы даете согласие на
-        <a href="" target="_blank" class="quiz__link"
-          >обработку персональных данных</a
+        <nuxt-link to="/policy" target="_blank" class="quiz__link"
+          >обработку персональных данных</nuxt-link
         >
       </p>
     </div>

@@ -1,13 +1,13 @@
 <template>
   <div class="insta-story">
     <div class="insta-story__info">
-      <a
-        href="https://www.instagram.com/raklechitsa/"
-        target="_blank"
-        class="insta-story__link"
-        ><app-section-title class="insta-story__title"
-          >Инстаграм</app-section-title
-        ></a
+      <app-section-title class="insta-story__title"
+        ><a
+          class="insta-story__link"
+          href="https://www.instagram.com/raklechitsa/"
+          target="_blank"
+          >Инстаграм</a
+        ></app-section-title
       >
       <p class="insta-story__prolog">
         Два раза в неделю мы просматриваем все посты по хештегу #этонелечится.
@@ -69,13 +69,18 @@ export default {
   max-width: 175px;
   margin-top: 0;
   margin-bottom: 0;
-  border-bottom: 2px solid #000;
   font-size: 32px;
   line-height: 36px;
   text-align: left;
   font-family: 'Inter', 'Arial', sans-serif;
   font-style: normal;
   font-weight: 600;
+}
+
+.insta-story__link {
+  color: #000;
+  text-decoration: none;
+  border-bottom: 2px solid #000;
 }
 
 .insta-story__prolog {

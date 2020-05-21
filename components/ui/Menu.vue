@@ -59,7 +59,7 @@ export default {
   font-family: 'Inter', 'Arial', sans-serif;
   font-size: 18px;
   line-height: 24px;
-  width: 170px;
+  width: 182px;
   height: 24px;
   font-weight: normal;
   cursor: pointer;
@@ -99,10 +99,6 @@ export default {
   .menu__link {
     margin: 0 30px 0 0;
   }
-
-  .menu /deep/ .main-button {
-    max-width: 150px;
-  }
 }
 
 @media screen and (max-width: 768px) {
@@ -131,7 +127,7 @@ export default {
   }
 
   .menu /deep/ .main-button {
-    max-width: 142px;
+    max-width: 152px;
     font-size: 15px;
   }
 }
@@ -152,7 +148,7 @@ export default {
   .menu /deep/ .main-button {
     font-size: 13px;
     line-height: 16px;
-    max-width: 122px;
+    max-width: 132px;
   }
 }
 </style>

@@ -113,7 +113,7 @@ export default {
 @media screen and (max-width: 500px) {
   .stories__title {
     max-width: 265px;
-    margin: 98px auto 50px;
+    margin: 0 auto 50px;
     font-size: 18px;
     line-height: 21px;
     text-align: center;
