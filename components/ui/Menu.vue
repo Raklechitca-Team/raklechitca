@@ -99,10 +99,6 @@ export default {
   .menu__link {
     margin: 0 30px 0 0;
   }
-
-  .menu /deep/ .main-button {
-    max-width: 150px;
-  }
 }
 
 @media screen and (max-width: 768px) {
