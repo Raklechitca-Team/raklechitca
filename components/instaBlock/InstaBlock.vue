@@ -58,6 +58,13 @@ export default {
   flex-direction: column;
 }
 
+.insta-story__link {
+  text-decoration: none;
+}
+.insta-story__link:hover {
+  cursor: pointer;
+}
+
 .insta-story__title {
   max-width: 175px;
   margin-top: 0;
