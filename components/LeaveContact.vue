@@ -47,7 +47,9 @@
       >
       <p class="contact__to-policy">
         Нажимая на кнопку «отправить», вы даете согласие на
-        <a class="contact__link" href="#">обработку персональных данных</a>
+        <nuxt-link to="/policy" target="_blank" class="contact__link"
+          >обработку персональных данных</nuxt-link
+        >
       </p>
     </div>
   </form>
