@@ -67,7 +67,11 @@ export default {
   methods: {
     popupHandler() {
       this.popupShown = !this.popupShown;
+      this.asyncdata();
     },
+  },
+  beforeMount() {
+    return this.$store.dispatch('statistics/fetchStatistics');
   },
 };
 </script>
