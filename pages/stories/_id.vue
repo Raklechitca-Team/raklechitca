@@ -264,7 +264,7 @@ export default {
     padding: 29px;
   }
   .more-articles {
-  margin: 60px auto 90px;
+    margin: 60px auto 90px;
   }
 }
 @media screen and (max-width: 1023px) {
