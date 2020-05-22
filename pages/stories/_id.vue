@@ -91,7 +91,7 @@
             stories.slice($route.params.id, parseInt($route.params.id) + 2)
           "
         />
-        <app-more-articles href="#" />
+        <app-more-articles class="more-articles" href="#" />
       </div>
     </app-container>
   </div>
@@ -228,9 +228,14 @@ export default {
 }
 .three-cards {
   display: none;
+  margin: 0 auto;
 }
 .two-cards {
   display: none;
+  margin: 0 auto;
+}
+.more-articles {
+  margin: 70px auto 100px;
 }
 @media screen and (max-width: 1280px) {
   .story__banner {
@@ -251,18 +256,18 @@ export default {
     font-size: 20px;
     line-height: 28px;
   }
+  .story__share_social {
+    margin: 60px auto 150px;
+  }
   .story__more-articles {
     margin: 60px auto 90px;
     padding: 29px;
   }
-  .four-cards {
-    display: none;
-  }
-  .three-cards {
-    display: grid;
+  .more-articles {
+  margin: 60px auto 90px;
   }
 }
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 1023px) {
   .story__banner {
     padding: 100px 0 90px;
   }
@@ -291,8 +296,17 @@ export default {
     line-height: 22px;
     margin: 46px auto 120px;
   }
+  .more-articles {
+    margin: 46px auto 80px;
+  }
+  .four-cards {
+    display: none;
+  }
+  .three-cards {
+    display: grid;
+  }
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 767px) {
   .story__banner {
     margin: 80px 0 100px;
     padding: 0;
@@ -354,10 +368,16 @@ export default {
   .two-cards {
     display: grid;
   }
+  .more-articles {
+    margin: 40px auto 80px;
+  }
 }
 @media screen and (max-width: 500px) {
   .two-cards {
     display: flex;
+  }
+  .story__share_social {
+    margin: 40px auto 100px;
   }
 }
 @media screen and (max-width: 320px) {
@@ -387,6 +407,9 @@ export default {
     font-size: 13px;
     line-height: 16px;
     margin: 60px auto 100px;
+  }
+  .more-articles {
+    margin: 40px auto 50px;
   }
 }
 </style>
