@@ -70,9 +70,7 @@ export default {
       this.asyncdata();
     },
   },
-  beforeMount() {
-    return this.$store.dispatch('statistics/fetchStatistics');
-  },
+  beforeMount() {},
 };
 </script>
 
