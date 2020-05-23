@@ -4,7 +4,7 @@
 
 <script>
 export default {
-  name: 'bt_fill-form',
+  name: 'ButtonFillForm',
 };
 </script>
 

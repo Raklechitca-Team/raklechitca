@@ -1,31 +1,31 @@
 <template>
   <nav class="menu">
-    <nuxt-link to="/" class="menu__link">Главная</nuxt-link>
-    <nuxt-link to="/stories" class="menu__link">Истории</nuxt-link>
-    <main-button class="menu__button" @buttonClick="showPopup">
-      Рассказать историю
-    </main-button>
+    <ul class="menu__links">
+      <li class="menu__links-list">
+        <nuxt-link to="/" class="menu__link">Главная</nuxt-link>
+      </li>
+      <li class="menu__links-list">
+        <nuxt-link to="/stories" class="menu__link">Истории</nuxt-link>
+      </li>
+    </ul>
   </nav>
 </template>
 
 <script>
-import MainButton from '@/components/ui/MainButton';
 export default {
   name: 'Menu',
-  components: {
-    'main-button': MainButton,
-  },
-  methods: {
-    showPopup() {
-      this.$store.commit('popup/togglePopup');
-    },
-  },
 };
 </script>
 
 <style scoped>
 .menu {
   display: flex;
+}
+
+.menu__links {
+  list-style-type: none;
+  display: flex;
+  padding: 0;
 }
 
 .menu__link {
@@ -55,43 +55,9 @@ export default {
   transition-delay: 0s;
 }
 
-.menu /deep/ .main-button {
-  font-family: 'Inter', 'Arial', sans-serif;
-  font-size: 18px;
-  line-height: 24px;
-  width: 182px;
-  height: 24px;
-  font-weight: normal;
-  cursor: pointer;
-  border: 0;
-  margin: 0;
-  padding: 0;
-  color: #000;
-  border-bottom: 1px solid transparent;
-  background-color: transparent;
-}
-
-.menu__button:hover {
-  text-decoration: none;
-  opacity: 0.8;
-  border-bottom: 1px solid #000;
-  transition: color 0.3s ease-in-out, opacity 0.2s ease-in-out,
-    border-bottom 0.1s ease-in-out;
-  transition-delay: 0s;
-}
-
-.menu__button:focus {
-  outline: none;
-}
-
 @media screen and (max-width: 1280px) {
   .menu__link {
     font-size: 16px;
-  }
-
-  .menu /deep/ .main-button {
-    font-size: 16px;
-    max-width: 162px;
   }
 }
 
@@ -120,19 +86,20 @@ export default {
     align-content: space-between;
   }
 
-  .menu__link {
-    margin: 0 0 10px;
-    font-size: 15px;
-    line-height: 16px;
+  .menu__links {
+    flex-direction: column;
   }
 
-  .menu /deep/ .main-button {
-    max-width: 152px;
-    font-size: 15px;
+  .menu__links-list {
+    margin: 0 0 10px;
+  }
+
+  .menu__link {
+    font-size: 16px;
   }
 }
 
-@media screen and (max-width: 340px) {
+@media screen and (max-width: 400px) {
   .menu {
     flex-direction: column;
     align-items: flex-start;
@@ -143,12 +110,6 @@ export default {
     margin: 0 0 18px;
     font-size: 13px;
     line-height: 16px;
-  }
-
-  .menu /deep/ .main-button {
-    font-size: 13px;
-    line-height: 16px;
-    max-width: 132px;
   }
 }
 </style>

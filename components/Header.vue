@@ -7,13 +7,18 @@
     />
     <app-container>
       <div class="header__container">
-        <p class="header__logo">
+        <nuxt-link to="/" class="header__logo">
           Проект Благотворительного Фонда Константина Хабенского
-        </p>
-        <app-menu class="header__menu" />
-        <button class="burger-menu__button" @click="sidebarHandler">
-          <div class="burger-menu__icon" alt="menu" v-if="!sidebarShown"></div>
-          <div class="burger-menu__close" alt="close" v-if="sidebarShown"></div>
+        </nuxt-link>
+        <div class="header__links">
+          <app-menu class="header__menu" />
+          <main-button class="header__button" @buttonClick="showPopup"
+            >Рассказать историю</main-button
+          >
+        </div>
+        <button class="header__menu-button" @click="sidebarHandler">
+          <div class="header__icon-open" alt="menu" v-if="!sidebarShown"></div>
+          <div class="header__icon-close" alt="close" v-if="sidebarShown"></div>
         </button>
       </div>
     </app-container>
@@ -23,15 +28,15 @@
 <script scoped>
 import Container from '@/components/Container';
 import Sidebar from '@/components/ui/Sidebar';
-import Overlay from '@/components/ui/Overlay';
 import Menu from '@/components/ui/Menu';
+import MainButton from '@/components/ui/MainButton';
 export default {
   name: 'Header',
   components: {
     'app-container': Container,
     'app-sidebar': Sidebar,
-    overlay: Overlay,
     'app-menu': Menu,
+    'main-button': MainButton,
   },
   data() {
     return {
@@ -41,6 +46,9 @@ export default {
   methods: {
     sidebarHandler() {
       this.sidebarShown = !this.sidebarShown;
+    },
+    showPopup() {
+      this.$store.commit('popup/togglePopup');
     },
   },
 };
@@ -56,8 +64,8 @@ export default {
   padding: 0;
   display: flex;
   align-items: center;
-  justify-content: space-between;
   z-index: 1;
+  justify-content: space-between;
 }
 
 .header__logo {
@@ -71,9 +79,20 @@ export default {
   text-align: left;
   max-width: 340px;
   left: 0;
+  text-decoration: none;
 }
 
-.burger-menu__button {
+.header__logo:hover {
+  opacity: 0.8;
+  transition: opacity 0.2s ease-in-out;
+  transition-delay: 0s;
+}
+
+.header__links {
+  display: flex;
+}
+
+.header__menu-button {
   background: none;
   outline: none;
   border: none;
@@ -88,12 +107,12 @@ export default {
   padding: 0;
 }
 
-.burger-menu__button:focus {
+.header__menu-button:focus {
   outline: none;
 }
 
-.burger-menu__icon {
-  background-image: url('../static/burger-menu.svg');
+.header__icon-open {
+  background-image: url('/burger-menu.svg');
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
@@ -102,14 +121,41 @@ export default {
   margin: auto;
 }
 
-.burger-menu__close {
-  background-image: url('../static/x.svg');
+.header__icon-close {
+  background-image: url('/x.svg');
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
   width: 24px;
   height: 24px;
   margin: auto;
+}
+
+.header /deep/ .main-button {
+  font-family: 'Inter', 'Arial', sans-serif;
+  font-size: 18px;
+  line-height: 24px;
+  width: 182px;
+  height: 24px;
+  font-weight: normal;
+  cursor: pointer;
+  border: 0;
+  margin: 0;
+  padding: 0;
+  color: #000;
+  border-bottom: 1px solid transparent;
+  background-color: transparent;
+}
+
+.header__button:hover {
+  opacity: 0.8;
+  border-bottom: 1px solid #000;
+  transition: opacity 0.2s ease-in-out, border-bottom 0.1s ease-in-out;
+  transition-delay: 0s;
+}
+
+.header__button:focus {
+  outline: none;
 }
 
 @media screen and (max-width: 1280px) {
@@ -121,10 +167,15 @@ export default {
   .header__logo {
     line-height: 18px;
   }
+
+  .header /deep/ .main-button {
+    font-size: 16px;
+    max-width: 162px;
+  }
 }
 
 @media screen and (min-width: 769px) {
-  .burger-menu__button {
+  .header__menu-button {
     display: none;
   }
 }
@@ -142,6 +193,10 @@ export default {
   .header__menu {
     display: none;
   }
+
+  .header__button {
+    display: none;
+  }
 }
 
 @media screen and (max-width: 452px) {
@@ -155,19 +210,24 @@ export default {
     line-height: 16px;
   }
 
-  .burger-menu__button {
+  .header__menu-button {
     width: 26px;
     height: 20px;
   }
 
-  .burger-menu__icon {
+  .header__icon-open {
     width: 26px;
     height: 20px;
   }
 
-  .burger-menu__close {
+  .header__icon-close {
     width: 20px;
     height: 20px;
+  }
+
+  .header /deep/ .main-button {
+    max-width: 152px;
+    font-size: 15px;
   }
 }
 
@@ -186,6 +246,17 @@ export default {
 
   .header__sidebar {
     height: 120px;
+  }
+
+  .header /deep/ .main-button {
+    font-size: 13px;
+    line-height: 16px;
+    max-width: 132px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .header__sidebar {
     padding: 18px 15px;
   }
 }
