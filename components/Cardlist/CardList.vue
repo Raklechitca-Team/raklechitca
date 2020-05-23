@@ -24,7 +24,6 @@ export default {
 <style scoped>
 .card-list {
   padding: 0 60px;
-  margin: 70px auto 140px;
   display: grid;
   justify-content: center;
   grid-template-columns: 300px 300px 300px 300px;

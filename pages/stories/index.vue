@@ -4,7 +4,7 @@
       >Истории неизлечимых привычек</app-section-title
     >
     <app-search />
-    <app-cardlist :cards="page" />
+    <app-cardlist :cards="page" class="cardlist" />
     <app-pagination
       :storiesInTotal="stories.length"
       :storiesPerPage="storiesPerPage"
@@ -79,6 +79,9 @@ export default {
   color: #000;
   text-align: left;
   margin-left: 60px;
+}
+.cardlist {
+  margin: 70px auto 140px;
 }
 @media screen and (max-width: 1379px) {
   .stories__title {
