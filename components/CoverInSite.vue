@@ -1,9 +1,12 @@
 <template>
-  <app-container>
-    <div class="cover__background">
-      <h2 class="cover__title">
-        {{ text }}<span class="cover__title-bold"> #ЭТОНЕЛЕЧИТСЯ</span>
-      </h2>
+  <app-container class="cover-in-site">
+    <div class="cover-in-site__content">
+      <div class="cover-in-site__background">
+        <h2 class="cover-in-site__title">
+          {{ text }}
+          <span class="cover-in-site__title-bold"> #ЭТОНЕЛЕЧИТСЯ</span>
+        </h2>
+      </div>
     </div>
   </app-container>
 </template>
@@ -22,14 +25,14 @@ export default {
 </script>
 
 <style scoped>
-.cover__background {
+.cover-in-site__background {
   font-family: 'Inter', 'Arial', sans-serif;
   width: 100%;
   background-color: #613a93;
   color: #fff;
 }
 
-.cover__title {
+.cover-in-site__title {
   max-width: 750px;
   font-family: 'Inter', 'Arial', sans-serif;
   font-weight: normal;
@@ -41,12 +44,12 @@ export default {
   padding: 20px 0;
 }
 
-.cover__title-bold {
+.cover-in-site__title-bold {
   font-weight: bold;
 }
 
 @media screen and (max-width: 1280px) {
-  .cover__title {
+  .cover-in-site__title {
     font-size: calc((100vw - 320px) / (1280 - 320) * (28 - 16) + 16px);
   }
 }

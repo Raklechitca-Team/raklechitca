@@ -67,8 +67,10 @@ export default {
   methods: {
     popupHandler() {
       this.popupShown = !this.popupShown;
+      this.asyncdata();
     },
   },
+  beforeMount() {},
 };
 </script>
 

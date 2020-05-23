@@ -1,3 +1,4 @@
+require('dotenv').config();
 export default {
   mode: 'universal',
   /*
@@ -39,12 +40,15 @@ export default {
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
     '@nuxtjs/pwa',
+    '@nuxtjs/dotenv',
   ],
   /*
    ** Axios module configuration
    ** See https://axios.nuxtjs.org/options
    */
-  axios: {},
+  axios: {
+    baseURL: 'https://strapi.kruzhok.io',
+  },
   /*
    ** Build configuration
    */
