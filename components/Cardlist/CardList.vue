@@ -18,7 +18,7 @@ export default {
     'app-card': Card,
   },
   props: {
-    cards: Array,
+    cards: Object,
   },
 };
 </script>
