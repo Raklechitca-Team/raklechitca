@@ -56,10 +56,10 @@
 </template>
 
 <script>
-import ButtonFillFormVue from './ui/ButtonFillForm.vue';
+import ButtonFillForm from './ui/ButtonFillForm.vue';
 export default {
   components: {
-    'contact-button': ButtonFillFormVue,
+    'contact-button': ButtonFillForm,
   },
 };
 </script>

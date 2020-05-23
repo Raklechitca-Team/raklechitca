@@ -19,7 +19,9 @@
               {{ stories[$route.params.id - 1].text }}
             </h1>
             <div class="story-text__bottom-wrapper">
-              <a href="#" class="story__share">Поделитесь &#8599;</a>
+              <a class="story__share" @click="showSharePopup"
+                >Поделитесь &#8599;</a
+              >
               <date class="story__date">{{
                 stories[$route.params.id - 1].date
               }}</date>
@@ -43,7 +45,9 @@
             ></div>
           </div>
           <div class="story-text__bottom-wrapper">
-            <a href="#" class="story__share">Поделитесь &#8599;</a>
+            <a class="story__share" @click="showSharePopup"
+              >Поделитесь &#8599;</a
+            >
             <date class="story__date">{{
               stories[$route.params.id - 1].date
             }}</date>
@@ -70,7 +74,7 @@
             {{ stories[$route.params.id - 1].paragraph6 }}
           </p>
         </div>
-        <a href="#" class="story__share story__share_social"
+        <a class="story__share story__share_social" @click="showSharePopup"
           >Поделитесь этой статьей в своих социальных сетях &#8599;</a
         >
         <app-cardlist
@@ -101,6 +105,7 @@
 import Container from '@/components/Container';
 import Cardlist from '@/components/Cardlist/CardList';
 import MoreArticles from '@/components/ui/MoreArticles';
+
 export default {
   name: '_id',
   props: {
@@ -114,6 +119,11 @@ export default {
   computed: {
     stories() {
       return this.$store.getters['stories/stories'];
+    },
+  },
+  methods: {
+    showSharePopup() {
+      this.$store.commit('popup/toggleSharePopup');
     },
   },
 };
@@ -219,6 +229,7 @@ export default {
   display: block;
   text-align: center;
   transition: all 0.3s linear;
+  cursor: pointer;
 }
 .story__share_social:hover {
   opacity: all 0.3s linear;
