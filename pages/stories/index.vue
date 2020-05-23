@@ -1,5 +1,6 @@
 <template>
-  <div class="container">
+  <div class="stories">
+    <app-container>
     <app-section-title class="stories__title"
       >Истории неизлечимых привычек</app-section-title
     >
@@ -10,10 +11,12 @@
       :storiesPerPage="storiesPerPage"
       @pageClick="paginate"
     />
+    </app-container>
   </div>
 </template>
 
 <script>
+import Container from '@/components/Container';
 import SectionTitle from '@/components/ui/SectionTitle';
 import CardList from '@/components/Cardlist/CardList';
 import Pagination from '@/components/Pagination';
@@ -21,6 +24,7 @@ import Search from '@/components/Search';
 export default {
   name: 'stories',
   components: {
+    'app-container': Container,
     'app-section-title': SectionTitle,
     'app-cardlist': CardList,
     'app-pagination': Pagination,
@@ -66,60 +70,22 @@ export default {
 </script>
 
 <style scoped>
-.container {
-  max-width: 1440px;
-  margin: 0 auto;
+.stories {
   padding-top: 100px;
 }
 .stories__title {
   max-width: 413px;
-  font-weight: 600;
-  font-size: 32px;
-  line-height: 36px;
-  color: #000;
-  text-align: left;
-  margin-left: 60px;
-}
-.cardlist {
-  margin: 70px auto 140px;
-}
-@media screen and (max-width: 1379px) {
-  .stories__title {
-    max-width: 367px;
-    font-size: 28px;
-    line-height: 32px;
-  }
-}
-@media screen and (max-width: 1239px) {
-  .stories__title {
-    max-width: 288px;
-    font-size: 24px;
-    line-height: 28px;
-  }
-}
-@media screen and (max-width: 979px) {
-  .stories__title {
-    max-width: 380px;
-    font-size: 24px;
-    line-height: 28px;
-    text-align: center;
-  }
 }
 @media screen and (max-width: 767px) {
   .stories__title {
     max-width: 380px;
-    font-size: 24px;
-    line-height: 28px;
+    margin: 0 auto;
     text-align: center;
   }
 }
 @media screen and (max-width: 500px) {
   .stories__title {
-    max-width: 265px;
-    margin: 0 auto 50px;
-    font-size: 18px;
-    line-height: 21px;
-    text-align: center;
+    text-align: left;
   }
 }
 </style>

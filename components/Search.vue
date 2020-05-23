@@ -30,7 +30,6 @@ export default {
   display: grid;
   grid-template-columns: minmax(auto, 1074px) 226px;
   gap: 20px;
-  margin: 0 60px;
 }
 
 .history__search-input {
@@ -48,10 +47,6 @@ export default {
 @media screen and (max-width: 1280px) {
   .history {
     margin: 50px 0 0;
-  }
-
-  .history__search {
-    margin: 0 50px;
   }
 
   .history__search-input {
@@ -77,15 +72,8 @@ export default {
   }
 }
 
-@media screen and (max-width: 768px) {
-  .history__search {
-    margin: 0 40px;
-  }
-}
-
 @media screen and (max-width: 650px) {
   .history__search {
-    margin: 0 15px;
     grid-template-columns: minmax(238px, 1074px) 48px;
     gap: 6px;
   }
