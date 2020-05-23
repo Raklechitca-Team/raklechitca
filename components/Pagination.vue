@@ -1,10 +1,10 @@
 <template>
   <div>
-    <div class="page__numbers">
+    <div class="pagination">
       <div
         v-for="page in setPages"
         @click="$emit('pageClick', page)"
-        class="page__number"
+        class="pagination__number"
       >
         {{ page }}
       </div>
@@ -27,12 +27,12 @@ export default {
 </script>
 
 <style scoped>
-.page__numbers {
+.pagination {
   display: flex;
   justify-content: center;
   margin-bottom: 100px;
 }
-.page__number {
+.pagination__number {
   width: 50px;
   height: 50px;
   background: #fbfbfb;
@@ -45,10 +45,10 @@ export default {
   align-items: center;
   cursor: pointer;
 }
-.page__numbers:last-child {
+.pagination__number:last-child {
   margin-right: 0;
 }
-.page__number:hover {
+.pagination__number:hover {
   background-color: #f4f4f4;
 }
 </style>

@@ -1,5 +1,5 @@
 <template>
-  <div :cards="cards" class="card-list">
+  <div :cards="cards" class="cardlist">
     <app-card
       v-for="card in cards"
       :key="card.id"
@@ -17,49 +17,49 @@ export default {
   components: {
     'app-card': Card,
   },
-  props: ['cards'],
+  props: 
+  {
+    cards: Object
+  },
 };
 </script>
 
 <style scoped>
-.card-list {
-  padding: 0 60px;
-  margin: 70px auto 140px;
+.cardlist {
   display: grid;
   justify-content: center;
-  grid-template-columns: 300px 300px 300px 300px;
+  grid-template-columns: repeat(4, 300px);
   grid-gap: 70px 40px;
+  margin: 70px auto 140px;
 }
 @media screen and (max-width: 1379px) {
-  .card-list {
+  .cardlist {
     margin: 60px auto 130px;
     grid-gap: 60px 40px;
-    grid-template-columns: 265px 265px 265px 265px;
+    grid-template-columns: repeat(4, 265px);
   }
 }
 @media screen and (max-width: 1239px) {
-  .card-list {
+  .cardlist {
     margin: 46px auto 110px;
     grid-gap: 46px 30px;
-    grid-template-columns: 208px 208px 208px 208px;
+    grid-template-columns: repeat(4, 208px);
   }
 }
 @media screen and (max-width: 1023px) {
-  .card-list {
+  .cardlist {
     margin: 60px auto 130px;
     grid-gap: 40px 20px;
-    grid-template-columns: 216px 216px 216px;
+    grid-template-columns: repeat(3, 216px);
   }
 }
 @media screen and (max-width: 767px) {
-  .card-list {
-    margin: 60px auto 130px;
-    grid-gap: 40px 20px;
-    grid-template-columns: 216px 216px;
+  .cardlist {
+    grid-template-columns: repeat(2, 216px);
   }
 }
 @media screen and (max-width: 500px) {
-  .card-list {
+  .cardlist {
     padding: 0;
     margin: 30px auto 50px;
     display: flex;
