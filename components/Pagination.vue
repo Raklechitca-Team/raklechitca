@@ -3,7 +3,7 @@
     <div class="pagination">
       <a
         @click="$emit('pageClick', currentPage)"
-        class="pagination__quick-navigation pagination__quick-navigation_disabled"
+        class="pagination__quick-navigation"
         >Первая<span class="arrow">&#9001;</span></a
       >
       <div
@@ -39,7 +39,7 @@ export default {
       return Math.ceil(this.storiesInTotal / this.storiesPerPage);
     },
   },
-};
+}
 </script>
 
 <style scoped>
@@ -80,7 +80,7 @@ export default {
 .pagination__quick-navigation_disabled {
   color: #a2a2a2;
 }
-.pagination__quick-navigation_disabled:hover {
+.pagination__quick-navigation_disabled:hover, .pagination__quick-navigation_active {
   color: #000;
 }
 .arrow {
