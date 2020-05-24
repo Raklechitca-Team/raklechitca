@@ -1,20 +1,22 @@
 const state = () => ({
-  video: [
-    {
-      src: 'https://www.youtube.com/embed/coOppM34GtI',
-    },
-    {
-      src: 'https://www.youtube.com/embed/ZKWilQnPovg',
-    },
-    {
-      src: 'https://www.youtube.com/embed/FFrioIZ65q0',
-    },
-  ],
+  video: [],
 });
 
-const mutations = {};
+const mutations = {
+  setState(state, { name, value }) {
+    return (state[name] = value);
+  },
+};
 
-const actions = {};
+const actions = {
+  async fetchVideo({ commit }) {
+    const video = await this.$axios.$get(process.env.baseUrl + 'videos');
+    commit('setState', {
+      name: 'video',
+      value: video,
+    });
+  },
+};
 
 const getters = {
   video: s => s.video,

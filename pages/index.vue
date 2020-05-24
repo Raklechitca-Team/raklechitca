@@ -44,6 +44,10 @@ export default {
       popupShown: false,
     };
   },
+  fetchOnServer: false,
+  async fetch({ store }) {
+    await store.dispatch('video/fetchVideo');
+  },
   computed: {
     instagram() {
       return this.$store.getters['instagram/instagram'];
@@ -67,8 +71,10 @@ export default {
   methods: {
     popupHandler() {
       this.popupShown = !this.popupShown;
+      this.asyncdata();
     },
   },
+  beforeMount() {},
 };
 </script>
 
