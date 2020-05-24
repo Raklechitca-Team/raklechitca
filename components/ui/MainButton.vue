@@ -26,6 +26,7 @@ export default {
   cursor: pointer;
   margin: 0;
   padding: 0;
+  margin: 78px 0 0 40px;
 }
 
 .main-button:hover {
@@ -41,6 +42,22 @@ export default {
   .main-button {
     width: 230px;
     height: 48px;
+    margin: 0;
+  }
+}
+@media screen and (max-width: 768px) {
+  .main-button {
+    font-size: 15px;
+    line-height: 18px;
+    margin: 0;
+  }
+}
+@media screen and (max-width: 320px) {
+  .main-button {
+    width: 100%;
+    height: 48px;
+    font-size: 13px;
+    line-height: 16px;
   }
 }
 </style>
