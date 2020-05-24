@@ -1,3 +1,4 @@
+import axios from 'axios';
 const state = () => ({
   statistics: [
     {
@@ -34,35 +35,29 @@ const state = () => ({
       newValue: 10,
     },
   ],
-  currentStory: {},
 });
 
 const mutations = {
-  setState(state, { name, value }) {
-    return (state[name] = value);
+  setState(state, { id, value }) {
+    return (state[id] = value);
   },
 };
 
 const actions = {
-  // примеры запросов
-  // fetchLessons(state) {
-  //   return axios.get('https://api-test.pa7lux.ru/streams').then(response => {
-  //     return state.commit('setState', {
-  //       name: 'stories',
-  //       value: response.data,
-  //     });
-  //   });
-  // },
-  // fetchLessonWithId(state, payload) {
-  //   return axios
-  //     .get(`https://api-test.pa7lux.ru/streams/${payload.id}`)
-  //     .then(response => {
-  //       return state.commit('setState', {
-  //         name: 'currentStory',
-  //         value: response.data,
-  //       });
-  //     });
-  // },
+  fetchStatistics(state) {
+    return axios.get('/statistics').then(response => {
+      console.log(response);
+      return state.commit('setState', {
+        id: response.id,
+        summary: response.summary,
+        source: response.source,
+        description: response.description,
+        oldValue: response.oldValue,
+        currentValue: response.currentValue,
+        maxValue: response.maxValue,
+      });
+    });
+  },
 };
 
 const getters = {

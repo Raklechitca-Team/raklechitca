@@ -6,14 +6,7 @@
       >
 
       <nav class="footer__menu">
-        <ul class="footer__links">
-          <li class="footer__links-list">
-            <nuxt-link to="/" class="footer__link">Главная</nuxt-link>
-          </li>
-          <li class="footer__links-list">
-            <nuxt-link to="/stories" class="footer__link">Истории</nuxt-link>
-          </li>
-        </ul>
+        <app-menu class="footer__menu-links" />
         <ul class="footer__social">
           <li class="footer__social-list">
             <p class="footer__social-list_text">
@@ -54,11 +47,13 @@
 <script>
 import Container from '@/components/Container';
 import SectionTitle from '@/components/ui/SectionTitle';
+import Menu from '@/components/ui/Menu';
 export default {
   name: 'Footer',
   components: {
     'app-container': Container,
     'section-title': SectionTitle,
+    'app-menu': Menu,
   },
   methods: {
     year() {
@@ -103,6 +98,11 @@ export default {
   justify-content: space-between;
 }
 
+.footer__menu-links {
+  display: flex;
+  justify-content: space-between;
+}
+
 .footer__links {
   display: flex;
   padding: 0;
@@ -111,7 +111,7 @@ export default {
 
 .footer__social {
   display: flex;
-  padding: 0 0 0 379px;
+  padding: 0 0 0 339px;
   margin: 0;
   flex-wrap: wrap;
   list-style-type: none;
@@ -152,14 +152,6 @@ export default {
   text-decoration: none;
   color: #000;
   text-align: left;
-}
-
-.footer__link.nuxt-link-exact-active {
-  border-bottom: 1px solid #000;
-}
-
-.footer__links-list:last-child {
-  padding: 0;
 }
 
 .footer__link:hover {
@@ -277,7 +269,7 @@ export default {
   }
 
   .footer__social {
-    padding: 0 0 0 223px;
+    padding: 0 0 0 193px;
   }
 
   .footer__social-list_text {
@@ -296,6 +288,24 @@ export default {
   .footer__text {
     max-width: 268px;
     margin: 0 0 90px;
+  }
+
+  .footer /deep/ .menu__links {
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+  }
+
+  .footer /deep/ .menu {
+    align-items: flex-start;
+  }
+
+  .footer /deep/ .menu__link {
+    margin: 0;
+  }
+
+  .footer /deep/ .menu__links-list {
+    margin: 0 0 14px;
   }
 
   .footer__links {
@@ -322,20 +332,17 @@ export default {
   }
 }
 
-@media screen and (max-width: 745px) {
-  .footer__menu {
-    padding: 0 0 50px;
-  }
-}
-
 @media screen and (max-width: 480px) {
+  .footer__text {
+    margin: 0 0 50px;
+  }
+
   .footer__menu {
     flex-direction: column;
-    flex-wrap: wrap;
   }
 
   .footer__social {
-    padding: 14px 0 50px;
+    padding: 0;
   }
 
   .footer__content {
@@ -363,8 +370,9 @@ export default {
     line-height: 21px;
   }
 
-  .footer__menu {
+  .footer__menu-links {
     flex-direction: column;
+    padding: 0;
   }
 
   .footer__links {

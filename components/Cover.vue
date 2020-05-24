@@ -1,15 +1,15 @@
 <template>
   <div class="cover">
-    <container>
+    <container class="cover__container">
       <h2 class="cover__title">
         #РАКЛЕЧИТСЯ
       </h2>
       <app-cover-base
         class="cover__position"
         :data="aboutProject"
-        :titleColor="`#fff`"
-        :textColor="`#DEDEDE`"
-        :disabledColor="`#C9C9C9`"
+        titleColor="#fff"
+        textColor="#DEDEDE"
+        disabledColor="#C9C9C9"
       />
     </container>
   </div>
