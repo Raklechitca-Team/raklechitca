@@ -19,12 +19,10 @@
               {{ stories[$route.params.id - 1].text }}
             </h1>
             <div class="story-text__bottom-wrapper">
-              <a class="story__share" @click="showSharePopup"
-                >Поделитесь &#8599;</a
-              >
-              <date class="story__date">{{
+              <a href="#" class="story__share">Поделитесь &#8599;</a>
+              <p class="story__date">{{
                 stories[$route.params.id - 1].date
-              }}</date>
+              }}</p>
             </div>
           </div>
         </div>
@@ -45,7 +43,7 @@
             ></div>
           </div>
           <div class="story-text__bottom-wrapper">
-            <a class="story__share" @click="showSharePopup">Поделитесь &#8599;</a
+            <a href="#" class="story__share">Поделитесь &#8599;</a>
             <p class="story__date">{{
               stories[$route.params.id - 1].date
             }}</p>
@@ -53,44 +51,27 @@
         </div>
 
         <div class="story__itself">
-          <p class="story__paragraph">
-            {{ stories[$route.params.id - 1].paragraph1 }}
-          </p>
-          <p class="story__paragraph">
-            {{ stories[$route.params.id - 1].paragraph2 }}
-          </p>
-          <p class="story__paragraph story__paragraph_bold">
-            {{ stories[$route.params.id - 1].paragraph3 }}
-          </p>
-          <p class="story__paragraph">
-            {{ stories[$route.params.id - 1].paragraph4 }}
-          </p>
-          <p class="story__paragraph">
-            {{ stories[$route.params.id - 1].paragraph5 }}
-          </p>
-          <p class="story__paragraph">
-            {{ stories[$route.params.id - 1].paragraph6 }}
-          </p>
+          {{ stories[$route.params.id - 1].paragraph1 }}
         </div>
-        <a class="story__share story__share_social" @click="showSharePopup"
+        <a href="#" class="story__share story__share_social"
           >Поделитесь этой статьей в своих социальных сетях &#8599;</a
         >
         <app-cardlist
           class="four-cards"
           :cards="
-            stories.slice(0, 4)
+            stories.slice($route.params.id, parseInt($route.params.id) + 4)
           "
         />
         <app-cardlist
           class="three-cards"
           :cards="
-            stories.slice(0, 3)
+            stories.slice($route.params.id, parseInt($route.params.id) + 3)
           "
         />
         <app-cardlist
           class="two-cards"
           :cards="
-            stories.slice(0, 2)
+            stories.slice($route.params.id, parseInt($route.params.id) + 2)
           "
         />
         <app-more-articles class="more-articles" href="#" />
@@ -103,7 +84,6 @@
 import Container from '@/components/Container';
 import Cardlist from '@/components/Cardlist/CardList';
 import MoreArticles from '@/components/ui/MoreArticles';
-
 export default {
   name: '_id',
   props: {
@@ -117,11 +97,6 @@ export default {
   computed: {
     stories() {
       return this.$store.getters['stories/stories'];
-    },
-  },
-  methods: {
-    showSharePopup() {
-      this.$store.commit('popup/toggleSharePopup');
     },
   },
 };
@@ -203,20 +178,11 @@ export default {
 .story__itself {
   margin: 0 auto 70px;
   max-width: 780px;
-}
-.story__paragraph {
   font-weight: normal;
   font-size: 22px;
   line-height: 30px;
   color: #000;
   text-align: left;
-  margin-bottom: 30px;
-}
-.story__paragraph:last-of-type {
-  margin-bottom: 0;
-}
-.story__paragraph_bold {
-  font-weight: bold;
 }
 .story__share_social {
   border-top: 1px solid #efefef;
@@ -227,7 +193,6 @@ export default {
   display: block;
   text-align: center;
   transition: all 0.3s linear;
-  cursor: pointer;
 }
 .story__share_social:hover {
   opacity: all 0.3s linear;
