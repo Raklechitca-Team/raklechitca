@@ -17,8 +17,7 @@ export default {
   components: {
     'app-card': Card,
   },
-  props: 
-  {
+  props: {
     cards: Object
   },
 };
