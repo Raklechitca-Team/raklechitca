@@ -58,4 +58,7 @@ export default {
      */
     extend(config, ctx) {},
   },
+  env: {
+    baseUrl: process.env.BASE_URL || 'https://strapi.kruzhok.io/',
+  },
 };

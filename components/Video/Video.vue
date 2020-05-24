@@ -25,8 +25,8 @@
             <!--            </div>-->
             <app-video-iframe
               v-for="slide in slideArray"
-              :key="slide.src"
-              :src="slide.src"
+              :key="slide.id"
+              :src="slide.url"
               class="swiper-slide video__clip"
             />
           </div>
