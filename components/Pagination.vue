@@ -3,7 +3,7 @@
     <div class="pagination">
       <a
         @click="$emit('pageClick', currentPage)"
-        class="pagination__quick-navigation pagination__quick-navigation_disabled"
+        class="pagination__quick-navigation"
         >Первая<span class="arrow">&#9001;</span></a
       >
       <div

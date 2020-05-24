@@ -18,8 +18,8 @@ export default {
     'app-card': Card,
   },
   props: {
-    cards: Object
-  },
+    cards: Array
+  }
 };
 </script>
 
