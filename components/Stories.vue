@@ -6,7 +6,7 @@
       >
       <app-cardlist class="cardlist eight-cards" :cards="stories.slice(0, 8)" />
       <app-cardlist class="cardlist nine-cards" :cards="stories.slice(0, 9)" />
-      <app-more-articles />
+      <app-more-articles class="stories__more-articles" />
     </app-container>
   </div>
 </template>
@@ -35,14 +35,15 @@ export default {
 </script>
 
 <style scoped>
-.stories {
-  padding: 100px 60px 74px;
-}
 .cardlist {
   margin: 70px auto 70px;
 }
 .stories__title {
+  margin-top: 100px;
   max-width: 413px;
+}
+.stories__more-articles {
+  margin-bottom: 100px;
 }
 .nine-cards {
   display: none;
@@ -51,8 +52,20 @@ export default {
   .cardlist {
     margin: 60px auto 60px;
   }
+  .stories__title {
+    margin-top: 90px;
+  }
+  .stories__more-articles {
+    margin-bottom: 90px;
+  }
 }
 @media screen and (max-width: 1023px) {
+  .stories__title {
+    margin-top: 80px;
+  }
+  .stories__more-articles {
+    margin-bottom: 80px;
+  }
   .cardlist {
     margin: 46px auto 46px;
   }
@@ -75,6 +88,12 @@ export default {
   }
 }
 @media screen and (max-width: 500px) {
+  .stories__title {
+    margin-top: 50px;
+  }
+  .stories__more-articles {
+    margin-bottom: 50px;
+  }
   .cardlist {
     margin: 40px auto 40px;
   }
