@@ -14,7 +14,7 @@
           <div class="story__text-wrapper">
             <h1 class="story__title">
               <span class="story__title story__title_bold"
-                >{{ stories[$route.params.id - 1].name }}:
+                >{{ stories[$route.params.id - 1].author }}:
               </span>
               {{ stories[$route.params.id - 1].text }}
             </h1>
