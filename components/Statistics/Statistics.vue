@@ -12,17 +12,17 @@
               :total="el.summary"
               :who="el.source"
             >
-              <!-- <app-status-bar
+              <app-status-bar
                 v-if="el.oldValue === 0"
                 :maxValue="el.maxValue"
                 :value="el.currentValue"
               />
               <app-double-bar
-                v-else-if="el.oldValue > 0"
-                :newValue="el.newValue"
-                :maxValue="el.maxValue"
-                :oldValue="el.oldValue"
-              /> -->
+                v-else-if="el.oldValue === null"
+                :newValue="72"
+                :maxValue="100"
+                :oldValue="19"
+              />
             </app-CardStatistics>
           </div>
         </div>
