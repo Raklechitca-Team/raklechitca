@@ -8,14 +8,10 @@
         :textColor="`#666`"
         :disabledColor="`#A2A2A2`"
       >
-        <main-button
-          v-if="this.current === 1"
-          @buttonClick="showPopup"
+        <main-button v-if="this.current === 1" @buttonClick="showPopup"
           >Заполнить форму</main-button
         >
-        <main-button
-          @buttonClick="showPopupContact"
-          v-if="this.current === 2"
+        <main-button @buttonClick="showPopupContact" v-if="this.current === 2"
           >Оставить контакт</main-button
         >
       </app-cover-base>

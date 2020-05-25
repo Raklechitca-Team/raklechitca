@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <app-title />
+    <app-title-cover :dataTitleBlock="blocks" />
     <app-video :slideArray="video" />
     <app-cover-in-site :text="'И В ОТЛИЧИЕ ОТ РАКА,'" />
     <app-stories :cards="stories" />
@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import Title from '@/components/Title';
+import TitleCoverBlock from '@/components/TitleCoverBlock';
 import Video from '@/components/Video/Video';
 import InstaBlock from '@/components/instaBlock/InstaBlock';
 import TellStory from '@/components/TellStory';
@@ -27,7 +27,7 @@ import Quiz from '@/components/Quiz';
 export default {
   name: 'index',
   components: {
-    'app-title': Title,
+    'app-title-cover': TitleCoverBlock,
     'app-video': Video,
     'app-cover-in-site': CoverInSite,
     'app-section-title': SectionTitle,
@@ -47,6 +47,8 @@ export default {
   fetchOnServer: false,
   async fetch({ store }) {
     await store.dispatch('video/fetchVideo');
+    await store.dispatch('statistics/fetchStatistics');
+    await store.dispatch('blocks/fetchBlocks');
   },
   computed: {
     instagram() {
@@ -67,6 +69,9 @@ export default {
     stories() {
       return this.$store.getters['stories/stories'];
     },
+    blocks() {
+      return this.$store.getters['blocks/blocks'];
+    },
   },
   methods: {
     popupHandler() {
@@ -74,7 +79,6 @@ export default {
       this.asyncdata();
     },
   },
-  beforeMount() {},
 };
 </script>
 

@@ -39,7 +39,7 @@ export default {
       return Math.ceil(this.storiesInTotal / this.storiesPerPage);
     },
   },
-}
+};
 </script>
 
 <style scoped>
@@ -80,7 +80,8 @@ export default {
 .pagination__quick-navigation_disabled {
   color: #a2a2a2;
 }
-.pagination__quick-navigation_disabled:hover, .pagination__quick-navigation_active {
+.pagination__quick-navigation_disabled:hover,
+.pagination__quick-navigation_active {
   color: #000;
 }
 .arrow {

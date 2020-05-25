@@ -6,23 +6,23 @@
       >
       <div class="statistics__adapt">
         <div class="statistics__blocks">
-          <div v-for="el in statisticsData" :key="el.value">
+          <div v-for="el in statisticsData" :key="el.id">
             <app-CardStatistics
               :quoteTitle="el.description"
-              :total="el.title"
+              :total="el.summary"
               :who="el.source"
             >
-              <app-status-bar
-                v-if="el.value"
+              <!-- <app-status-bar
+                v-if="el.oldValue === 0"
                 :maxValue="el.maxValue"
-                :value="el.value"
+                :value="el.currentValue"
               />
               <app-double-bar
-                v-else-if="el.newValue"
+                v-else-if="el.oldValue > 0"
                 :newValue="el.newValue"
                 :maxValue="el.maxValue"
                 :oldValue="el.oldValue"
-              />
+              /> -->
             </app-CardStatistics>
           </div>
         </div>
