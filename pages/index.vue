@@ -47,6 +47,7 @@ export default {
   fetchOnServer: false,
   async fetch({ store }) {
     await store.dispatch('video/fetchVideo');
+    await store.dispatch('stories/fetchStories');
   },
   computed: {
     instagram() {

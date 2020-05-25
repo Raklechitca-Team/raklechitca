@@ -37,6 +37,10 @@ export default {
       page: 1,
     };
   },
+  fetchOnServer: false,
+  async fetch({ store }) {
+    await store.dispatch('stories/fetchStories');
+  },
   created() {
     if (process.browser) {
       let widthForNine = window.matchMedia('(max-width: 1023px)');
