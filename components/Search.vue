@@ -40,7 +40,7 @@ export default {
 .history__search-input {
   line-height: 50px;
   font-size: 24px;
-  padding: 0;
+  padding: 0 0 0 10px;
   border: 1px solid #e8e8e8;
 }
 
