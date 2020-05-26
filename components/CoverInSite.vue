@@ -3,8 +3,8 @@
     <div class="cover-in-site__content">
       <div class="cover-in-site__background">
         <h2 class="cover-in-site__title">
-          {{ text }}
-          <span class="cover-in-site__title-bold"> #ЭТОНЕЛЕЧИТСЯ</span>
+          {{ noteText.title }}
+          <span class="cover-in-site__title-bold"> {{ noteText.hashtag }}</span>
         </h2>
       </div>
     </div>
@@ -16,7 +16,7 @@ import Container from '@/components/Container';
 export default {
   name: 'Cover_in_site',
   props: {
-    text: String,
+    noteText: Object,
   },
   components: {
     'app-container': Container,

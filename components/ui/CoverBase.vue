@@ -4,9 +4,7 @@
       {{ data.title }}
     </section-title>
     <div class="cover-base__text-wrapper" :style="{ color: textColor }">
-      <p class="cover-base__subtitle">
-        {{ data.subtitle }}
-      </p>
+      <div class="cover-base__subtitle" v-html="data.text"></div>
       <div class="cover-base__direction-content">
         <ul class="cover-base__options">
           <li
@@ -20,7 +18,7 @@
               },
             ]"
           >
-            {{ data.button.one }}
+            {{ data.extraTexts[0].title }}
             <div
               v-if="1 === this.currentTab"
               class="cover-base__bottom-line"
@@ -40,7 +38,7 @@
               },
             ]"
           >
-            {{ data.button.two }}
+            {{ data.extraTexts[1].title }}
             <div
               v-if="2 === this.currentTab"
               class="cover-base__bottom-line"
@@ -50,10 +48,14 @@
         </ul>
         <div class="cover-base__text-n-button-wrapper">
           <p v-if="this.currentTab == 1" class="cover-base__option-description">
-            {{ data.description.one }}
+            {{
+              data.extraTexts[0].text.replace(/([ltbrgtgtnsp\&\;\<\>\/])+/g, '')
+            }}
           </p>
           <p v-if="this.currentTab == 2" class="cover-base__option-description">
-            {{ data.description.two }}
+            {{
+              data.extraTexts[1].text.replace(/([ltbrgtgtnsp\&\;\<\>\/])+/g, '')
+            }}
           </p>
           <slot></slot>
         </div>
