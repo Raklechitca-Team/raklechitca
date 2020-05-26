@@ -83,7 +83,9 @@ import Container from '@/components/Container';
 import Cardlist from '@/components/Cardlist/CardList';
 import MoreArticles from '@/components/ui/MoreArticles';
 export default {
-  name: '_id',
+  name: 'id',
+  path: '/id',
+  component: 'pages/stories/_id',
   props: {
     name: String,
   },
