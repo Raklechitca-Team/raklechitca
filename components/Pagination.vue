@@ -20,7 +20,7 @@
       >
     </div>
     <div class="pagination pagination_hidden">
-      <div class="pagination__wrapper_top">
+      <div class="pagination__wrapper-top">
         <a
           @click="$emit('pageClick', currentPage)"
           class="pagination__quick-navigation arrow">&#9001;</a
@@ -37,7 +37,7 @@
           class="pagination__quick-navigation arrow">&#9002;</a
         >
       </div>
-      <div class="pagination__wrapper_bottom">
+      <div class="pagination__wrapper-bottom">
         <a
         @click="$emit('pageClick', currentPage)"
         class="pagination__quick-navigation pagination__quick-navigation_first"
@@ -130,11 +130,11 @@ export default {
     flex-direction: column;
     align-items: center;
 }
-  .pagination__wrapper_top {
+  .pagination__wrapper-top {
     display: flex;
     margin-bottom: 34px;
   }
-  .pagination__wrapper_bottom {
+  .pagination__wrapper-bottom {
     display: flex;
   }
   .pagination__quick-navigation_first {
