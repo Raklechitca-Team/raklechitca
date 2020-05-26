@@ -23,7 +23,8 @@
       <div class="pagination__wrapper-top">
         <a
           @click="$emit('pageClick', currentPage)"
-          class="pagination__quick-navigation arrow">&#9001;</a
+          class="pagination__quick-navigation arrow"
+          >&#9001;</a
         >
         <div
           v-for="page in setPages"
@@ -34,19 +35,20 @@
         </div>
         <a
           @click="$emit('pageClick', setPages)"
-          class="pagination__quick-navigation arrow">&#9002;</a
+          class="pagination__quick-navigation arrow"
+          >&#9002;</a
         >
       </div>
       <div class="pagination__wrapper-bottom">
         <a
-        @click="$emit('pageClick', currentPage)"
-        class="pagination__quick-navigation pagination__quick-navigation_first"
-        >Первая</a
+          @click="$emit('pageClick', currentPage)"
+          class="pagination__quick-navigation pagination__quick-navigation_first"
+          >Первая</a
         >
         <a
-        @click="$emit('pageClick', setPages)"
-        class="pagination__quick-navigation"
-        >Последняя</a
+          @click="$emit('pageClick', setPages)"
+          class="pagination__quick-navigation"
+          >Последняя</a
         >
       </div>
     </div>
@@ -130,7 +132,7 @@ export default {
     display: flex;
     flex-direction: column;
     align-items: center;
-}
+  }
   .pagination__wrapper-top {
     display: flex;
     margin-bottom: 34px;
