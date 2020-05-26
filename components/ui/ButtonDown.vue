@@ -19,5 +19,6 @@ export default {
 .button__body {
   background-color: #613a93;
   border: none;
+  cursor: pointer;
 }
 </style>
