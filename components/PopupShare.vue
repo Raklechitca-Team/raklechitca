@@ -45,7 +45,7 @@ import Odnoklassniki from '@/components/svg/Odnoklassniki';
 import Instagram from '@/components/svg/Instagram';
 import Youtube from '@/components/svg/Youtube';
 export default {
-  name: 'FooterShare',
+  name: 'PopupShare',
   components: {
     'section-title': SectionTitle,
     facebook: Facebook,
