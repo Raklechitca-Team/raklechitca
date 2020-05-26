@@ -3,13 +3,9 @@
     <div class="video">
       <div class="video__text-container">
         <app-section-title class="video__title">
-          Истории людей, победивших рак, но не свои привычки
+          {{ videoTextData.title }}
         </app-section-title>
-        <p class="video__subtitle">
-          Есть вещи, которые не лечатся. Вещи ставшие частью нашего «я», фобии,
-          страхи. Но это точно не рак. Рак лечится. Лучшее доказательство — люди
-          с их историями.
-        </p>
+        <div class="video__subtitle" v-html="videoTextData.text" />
         <div class="video__arrows">
           <div class="swiper-button-prev" />
           <div class="swiper-button-next" />
@@ -32,13 +28,13 @@
           </div>
         </div>
         <p class="video__paragraph">
-          Все видео вы можете найте на нашем
+          {{ videoTextData.note.slice(0, -15) }}
           <a
             href="https://www.youtube.com/results?search_query=%23%D1%8D%D1%82%D0%BE%D0%BD%D0%B5%D0%BB%D0%B5%D1%87%D0%B8%D1%82%D1%81%D1%8F"
             class="video__paragraph-link"
             target="_blank"
-            >YouTube канале</a
-          >.
+            >{{ videoTextData.note.slice(-15) }}</a
+          >
         </p>
       </div>
     </div>
@@ -56,7 +52,10 @@ export default {
     'app-section-title': SectionTitle,
     'app-container': Container,
   },
-  props: ['slideArray'],
+  props: {
+    slideArray: Array,
+    videoTextData: Object,
+  },
   data() {
     return {
       swiperOption: {
