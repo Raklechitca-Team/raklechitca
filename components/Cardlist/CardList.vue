@@ -3,7 +3,6 @@
     <app-card
       v-for="card in cards"
       :key="card.id"
-
       :name="card.author"
       :text="card.title"
       :card="card.id"

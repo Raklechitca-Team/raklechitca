@@ -48,8 +48,10 @@
           </div>
         </div>
 
-        <div class="story__itself" v-html="stories[$route.params.id].text">
-        </div>
+        <div
+          class="story__itself"
+          v-html="stories[$route.params.id].text"
+        ></div>
         <a href="#" class="story__share story__share_social"
           >Поделитесь этой статьей в своих социальных сетях &#8599;</a
         >
