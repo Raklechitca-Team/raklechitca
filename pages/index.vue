@@ -1,7 +1,13 @@
 <template>
   <div class="container">
-    <app-title-cover :dataTitleBlock="blocks" />
-    <app-video :slideArray="video" />
+    <app-title-cover :dataTitleBlock="blocks">
+      <span v-on:click="scroll">
+        <app-button-down />
+      </span>
+    </app-title-cover>
+    <app-scroll-to-component ref="element">
+      <app-video ref="element" :slideArray="video" />
+    </app-scroll-to-component>
     <app-cover-in-site :text="'И В ОТЛИЧИЕ ОТ РАКА,'" />
     <app-stories :cards="stories" />
     <app-cover-in-site :text="`РАССКАЗЫВАЙТЕ ВАШИ ИСТОРИИ В ИНСТАГРАМ`" />
@@ -24,6 +30,8 @@ import SectionTitle from '@/components/ui/SectionTitle';
 import Stories from '@/components/Stories';
 import Popup from '@/components/Popup';
 import Quiz from '@/components/Quiz';
+import ButtonDown from '@/components/ui/ButtonDown';
+import ScrollToComponent from '@/components/ui/ScrollToComponent';
 export default {
   name: 'index',
   components: {
@@ -38,6 +46,8 @@ export default {
     'app-cover': Cover,
     'app-popup': Popup,
     'app-quiz': Quiz,
+    'app-button-down': ButtonDown,
+    'app-scroll-to-component': ScrollToComponent,
   },
   data() {
     return {
@@ -78,6 +88,9 @@ export default {
       this.popupShown = !this.popupShown;
       this.asyncdata();
     },
+    scroll() {
+      this.$refs.element.scrollTo();
+    },
   },
 };
 </script>
@@ -85,5 +98,6 @@ export default {
 <style scoped>
 .container {
   font-family: 'Inter', 'Arial', sans-serif;
+  scroll-behavior: smooth;
 }
 </style>
