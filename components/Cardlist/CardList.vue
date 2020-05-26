@@ -3,11 +3,12 @@
     <app-card
       v-for="card in cards"
       :key="card.id"
-
+      :url="`https://strapi.kruzhok.io${cards[0].ImageUrl[0].formats.medium.url}`"
       :name="card.author"
       :text="card.title"
       :card="card.id"
     />
+    <p></p>
   </div>
 </template>
 
