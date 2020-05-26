@@ -2,7 +2,6 @@
   <div class="tell-story">
     <container>
       <app-cover-base
-      
         @currentTabForParent="currentTab"
         :data="tellStory"
         :titleColor="`#000`"
@@ -59,31 +58,12 @@ export default {
 <style scoped>
 .tell-story {
   width: 100%;
-  min-height: 522px;
+  font-family: 'Inter', 'Arial', sans-serif;
   background-color: #f7f7f7;
 }
-<<<<<<< HEAD
-.tell-story__button {
-  margin-left: 40px;
-  margin-top: 78px;
-}
-@media screen and (max-width: 1240px) {
-  .tell-story__button {
-    width: 230px;
-  }
-}
-=======
->>>>>>> develop
 @media screen and (max-width: 1000px) {
   .tell-story {
     min-height: 598px;
   }
-<<<<<<< HEAD
-  .tell-story__button {
-    margin: 50px 0 0;
-    width: 380px;
-  }
-=======
->>>>>>> develop
 }
 </style>

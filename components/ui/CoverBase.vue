@@ -214,12 +214,9 @@ export default {
   .cover-base {
     padding-top: 80px;
   }
-<<<<<<< HEAD
-=======
   .cover-base {
     max-height: 598px;
   }
->>>>>>> develop
   .cover-base__title {
     font-size: 24px;
     line-height: 28px;
