@@ -3,6 +3,7 @@
     <app-card
       v-for="card in cards"
       :key="card.id"
+      :url="process.env.baseUrl.slice(0, -1) + ImageUrl.formats.large.url"
       :name="card.author"
       :text="card.title"
       :card="card.id"
