@@ -39,7 +39,7 @@ $ git clone https://github.com/Raklechitca-Team/raklechitca.git
 # установка зависимостей
 $ npm install
 
-# локальный сервер для препросмотра
+# локальный сервер для предпросмотра
 $ npm run dev
 
 # сборка для производства и запуска сервера
