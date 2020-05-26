@@ -20,9 +20,15 @@
             </h1>
             <div class="story-text__bottom-wrapper">
               <a href="#" class="story__share">Поделитесь &#8599;</a>
+<<<<<<< HEAD
               <p class="story__date">{{
                 stories[$route.params.id].date
               }}</p>
+=======
+              <p class="story__date">
+                {{ stories[$route.params.id - 1].date }}
+              </p>
+>>>>>>> develop
             </div>
           </div>
         </div>
@@ -44,9 +50,13 @@
           </div>
           <div class="story-text__bottom-wrapper">
             <a href="#" class="story__share">Поделитесь &#8599;</a>
+<<<<<<< HEAD
             <p class="story__date">{{
               stories[$route.params.id].date
             }}</p>
+=======
+            <p class="story__date">{{ stories[$route.params.id - 1].date }}</p>
+>>>>>>> develop
           </div>
         </div>
 

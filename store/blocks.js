@@ -1,5 +1,5 @@
 const state = () => ({
-  statistics: [],
+  blocks: [],
 });
 
 const mutations = {
@@ -9,19 +9,17 @@ const mutations = {
 };
 
 const actions = {
-  async fetchStatistics({ commit }) {
-    const statistics = await this.$axios.$get(
-      process.env.baseUrl + 'statistics'
-    );
+  async fetchBlocks({ commit }) {
+    const blocks = await this.$axios.$get(process.env.baseUrl + 'blocks');
     commit('setState', {
-      name: 'statistics',
-      value: statistics,
+      name: 'blocks',
+      value: blocks,
     });
   },
 };
 
 const getters = {
-  statistics: s => s.statistics,
+  blocks: s => s.blocks,
 };
 
 export default {

@@ -9,16 +9,10 @@
         :textColor="`#666`"
         :disabledColor="`#A2A2A2`"
       >
-        <main-button
-          v-if="this.current === 1"
-          class="tell-story__button"
-          @buttonClick="showPopup"
+        <main-button v-if="this.current === 1" @buttonClick="showPopup"
           >Заполнить форму</main-button
         >
-        <main-button
-          @buttonClick="showPopupContact"
-          v-if="this.current === 2"
-          class="tell-story__button"
+        <main-button @buttonClick="showPopupContact" v-if="this.current === 2"
           >Оставить контакт</main-button
         >
       </app-cover-base>
@@ -68,6 +62,7 @@ export default {
   min-height: 522px;
   background-color: #f7f7f7;
 }
+<<<<<<< HEAD
 .tell-story__button {
   margin-left: 40px;
   margin-top: 78px;
@@ -77,13 +72,18 @@ export default {
     width: 230px;
   }
 }
+=======
+>>>>>>> develop
 @media screen and (max-width: 1000px) {
   .tell-story {
     min-height: 598px;
   }
+<<<<<<< HEAD
   .tell-story__button {
     margin: 50px 0 0;
     width: 380px;
   }
+=======
+>>>>>>> develop
 }
 </style>

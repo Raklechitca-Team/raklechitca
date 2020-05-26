@@ -214,6 +214,12 @@ export default {
   .cover-base {
     padding-top: 80px;
   }
+<<<<<<< HEAD
+=======
+  .cover-base {
+    max-height: 598px;
+  }
+>>>>>>> develop
   .cover-base__title {
     font-size: 24px;
     line-height: 28px;
@@ -230,7 +236,7 @@ export default {
     flex-direction: column;
   }
   .cover-base__options {
-    width: 380px;
+    max-width: 380px;
     margin: 0 auto 30px;
     display: flex;
     justify-content: flex-start;
@@ -252,8 +258,8 @@ export default {
   }
   .cover-base__option-description {
     max-width: 380px;
-    margin: 0 auto;
-    min-height: 95px;
+    margin: 0 auto 30px;
+    min-height: 96px;
   }
   .cover-base__text-n-button-wrapper {
     max-width: 380px;
@@ -267,11 +273,14 @@ export default {
   }
   @media screen and (max-width: 480px) {
     .cover-base {
-      padding-top: 50px;
+      padding: 50px auto;
     }
     .cover-base__title {
-      margin: 0;
+      max-width: 290px;
+      font-size: 18px;
+      line-height: 21px;
       text-align: left;
+      margin: 0 0 26px;
     }
     .cover-base__subtitle {
       margin: 0 auto 40px;
