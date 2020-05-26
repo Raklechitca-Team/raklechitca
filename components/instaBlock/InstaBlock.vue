@@ -6,15 +6,10 @@
           class="insta-story__link"
           href="https://www.instagram.com/raklechitsa/"
           target="_blank"
-          >Инстаграм</a
+          >{{ dataInstaText.title }}</a
         ></app-section-title
       >
-      <p class="insta-story__prolog">
-        Два раза в неделю мы просматриваем все посты по хештегу #этонелечится.
-        Все истории, где нет нецензурных выражений и запрещенного контента
-        попадают сюда. Следите за правильным написанием хештега, чтобы мы не
-        пропустили вашу историю.
-      </p>
+      <p class="insta-story__prolog" v-html="dataInstaText.text" />
     </div>
     <div class="insta-story__images">
       <app-insta-image
@@ -38,6 +33,7 @@ export default {
   },
   props: {
     images: Array,
+    dataInstaText: Array,
   },
 };
 </script>
