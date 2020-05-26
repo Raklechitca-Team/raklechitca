@@ -1,15 +1,35 @@
 <template>
   <div class="cover-title">
-    <h1 class="cover-title__title">#РАКЛЕЧИТСЯ</h1>
-    <a class="cover-title__svg-link"
-      ><img class="cover-title__svg-down" src="/arrow-down.svg"
-    /></a>
+    <h1 class="cover-title__title">{{ this.title() }}</h1>
+    <a class="cover-title__svg-link">
+      <app-button-down />
+    </a>
   </div>
 </template>
 
 <script>
+import buttonDown from '@/components/svg/buttonDown';
 export default {
   name: 'Title',
+  components: {
+    'app-button-down': buttonDown,
+  },
+  props: {
+    dataTitleBlock: Array,
+  },
+  data() {
+    return {
+      titleText: '',
+    };
+  },
+  methods: {
+    title() {
+      const dataCover = this.dataTitleBlock.find(el =>
+        el.block === 'cover' ? el : 0
+      );
+      return (this.titleText = dataCover.hashtag);
+    },
+  },
 };
 </script>
 

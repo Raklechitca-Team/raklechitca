@@ -1,16 +1,16 @@
 <template>
   <div class="stories">
     <app-container>
-    <app-section-title class="stories__title"
-      >Истории неизлечимых привычек</app-section-title
-    >
-    <app-search />
-    <app-cardlist :cards="page" class="cardlist" />
-    <app-pagination
-      :storiesInTotal="stories.length"
-      :storiesPerPage="storiesPerPage"
-      @pageClick="paginate"
-    />
+      <app-section-title class="stories__title"
+        >Истории неизлечимых привычек</app-section-title
+      >
+      <app-search />
+      <app-cardlist :cards="page" class="cardlist" />
+      <app-pagination
+        :storiesInTotal="stories.length"
+        :storiesPerPage="storiesPerPage"
+        @pageClick="paginate"
+      />
     </app-container>
   </div>
 </template>
