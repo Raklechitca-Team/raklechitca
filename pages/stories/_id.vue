@@ -48,28 +48,30 @@
           </div>
         </div>
 
-        <div class="story__itself">
-          {{ stories[$route.params.id - 1].paragraph1 }}
-        </div>
+        <div
+          class="story__itself"
+          v-html="stories[$route.params.id].text"
+        ></div>
+
         <a href="#" class="story__share story__share_social"
           >Поделитесь этой статьей в своих социальных сетях &#8599;</a
         >
         <app-cardlist
           class="four-cards"
           :cards="
-            stories.slice($route.params.id, parseInt($route.params.id) + 4)
+            stories.slice(0, 4)
           "
         />
         <app-cardlist
           class="three-cards"
           :cards="
-            stories.slice($route.params.id, parseInt($route.params.id) + 3)
+            stories.slice(0, 3)
           "
         />
         <app-cardlist
           class="two-cards"
           :cards="
-            stories.slice($route.params.id, parseInt($route.params.id) + 2)
+            stories.slice(0, 2)
           "
         />
         <app-more-articles class="more-articles" href="#" />
