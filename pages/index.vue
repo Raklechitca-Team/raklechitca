@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <app-cover :dataTitleBlock="this.titleData()">
+    <app-cover :dataTitleBlock="titleData()">
       <span v-on:click="scroll">
         <app-button-down />
       </span>
@@ -8,13 +8,16 @@
     <app-scroll-to-component ref="element">
       <app-video ref="element" :slideArray="video" />
     </app-scroll-to-component>
-    <app-cover-in-site :text="'И В ОТЛИЧИЕ ОТ РАКА,'" />
+    <app-cover-in-site :noteText="noteData(1)" />
     <app-stories :cards="stories" />
-    <app-cover-in-site :text="`РАССКАЗЫВАЙТЕ ВАШИ ИСТОРИИ В ИНСТАГРАМ`" />
-    <app-insta :dataInstaText="this.instaData()" :images="instagram" />
-    <app-tell-story :tellStory="tellStory" />
-    <app-statistics :statisticsData="statistics" />
-    <app-about :aboutProject="aboutProject" />
+    <app-cover-in-site :noteText="noteData(2)" />
+    <app-insta :instaText="instaData()" :images="instagram" />
+    <app-tell-story :tellStory="tellStoryData()" />
+    <app-statistics
+      :statisticsText="statisticsData()"
+      :statisticsData="statistics"
+    />
+    <app-about :aboutText="aboutText()" />
   </div>
 </template>
 
@@ -67,9 +70,6 @@ export default {
     statistics() {
       return this.$store.getters['statistics/statistics'];
     },
-    aboutProject() {
-      return this.$store.getters['aboutProject/aboutProject'];
-    },
     tellStory() {
       return this.$store.getters['tellStory/tellStory'];
     },
@@ -98,6 +98,22 @@ export default {
     instaData() {
       const dataInsta = this.blocks.find(el => el.block === 'instagram');
       return dataInsta;
+    },
+    statisticsData() {
+      const dataStatistics = this.blocks.find(el => el.block === 'statistics');
+      return dataStatistics;
+    },
+    aboutText() {
+      const dataAbout = this.blocks.find(el => el.block === 'about');
+      return dataAbout;
+    },
+    tellStoryData() {
+      const dataStory = this.blocks.find(el => el.block === 'story');
+      return dataStory;
+    },
+    noteData(option) {
+      const dataNote = this.blocks.find(el => el.block === `note-${option}`);
+      return dataNote;
     },
   },
 };

@@ -11,7 +11,7 @@
 export default {
   name: 'Cover',
   props: {
-    dataTitleBlock: Array,
+    dataTitleBlock: Object,
   },
 };
 </script>
@@ -39,7 +39,8 @@ export default {
 
 .cover__svg-link {
   position: absolute;
-  bottom: 40px;
+  margin: 0 auto;
+  bottom: 30px;
 }
 
 .cover__svg-link:hover {

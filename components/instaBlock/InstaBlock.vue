@@ -6,10 +6,10 @@
           class="insta-story__link"
           href="https://www.instagram.com/raklechitsa/"
           target="_blank"
-          >{{ dataInstaText.title }}</a
+          >{{ instaText.title }}</a
         ></app-section-title
       >
-      <p class="insta-story__prolog" v-html="dataInstaText.text" />
+      <div class="insta-story__prolog" v-html="instaText.text" />
     </div>
     <div class="insta-story__images">
       <app-insta-image
@@ -33,7 +33,7 @@ export default {
   },
   props: {
     images: Array,
-    dataInstaText: Array,
+    instaText: Object,
   },
 };
 </script>

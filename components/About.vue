@@ -2,11 +2,11 @@
   <div class="about">
     <container class="about__container">
       <h2 class="about__title">
-        #РАКЛЕЧИТСЯ
+        {{ aboutText.hashtag }}
       </h2>
       <app-cover-base
         class="cover__position"
-        :data="aboutProject"
+        :data="aboutText"
         titleColor="#fff"
         textColor="#DEDEDE"
         disabledColor="#C9C9C9"
@@ -22,6 +22,7 @@ export default {
   name: 'About',
   props: {
     aboutProject: Object,
+    aboutText: Object,
   },
   components: {
     container: Container,
