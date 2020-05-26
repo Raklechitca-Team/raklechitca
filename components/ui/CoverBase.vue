@@ -47,16 +47,16 @@
           </li>
         </ul>
         <div class="cover-base__text-n-button-wrapper">
-          <p v-if="this.currentTab == 1" class="cover-base__option-description">
-            {{
-              data.extraTexts[0].text.replace(/([ltbrgtgtnsp\&\;\<\>\/])+/g, '')
-            }}
-          </p>
-          <p v-if="this.currentTab == 2" class="cover-base__option-description">
-            {{
-              data.extraTexts[1].text.replace(/([ltbrgtgtnsp\&\;\<\>\/])+/g, '')
-            }}
-          </p>
+          <div
+            v-if="this.currentTab == 1"
+            class="cover-base__option-description"
+            v-html="data.extraTexts[0].text"
+          />
+          <div
+            v-if="this.currentTab == 2"
+            class="cover-base__option-description"
+            v-html="data.extraTexts[1].text"
+          />
           <slot></slot>
         </div>
       </div>
@@ -103,7 +103,7 @@ export default {
 .cover-base {
   width: 100%;
   font-family: 'Inter', 'Arial', sans-serif;
-  padding: 100px 0;
+  padding: 60px 0 90px;
 }
 .cover-base__title {
   max-width: 367px;
@@ -214,7 +214,8 @@ export default {
 }
 @media screen and (max-width: 1000px) {
   .cover-base {
-    padding-top: 80px;
+    padding: 80px 0px 0px;
+    min-height: 665px;
   }
   .cover-base__title {
     font-size: 24px;
@@ -269,7 +270,7 @@ export default {
   }
   @media screen and (max-width: 480px) {
     .cover-base {
-      padding: 50px auto;
+      padding: 50px 0 0;
     }
     .cover-base__title {
       max-width: 290px;

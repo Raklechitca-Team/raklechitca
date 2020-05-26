@@ -5,7 +5,6 @@
         {{ aboutText.hashtag }}
       </h2>
       <app-cover-base
-        class="cover__position"
         :data="aboutText"
         titleColor="#fff"
         textColor="#DEDEDE"
@@ -35,9 +34,7 @@ export default {
 .about {
   width: 100%;
   background-color: #613a93;
-}
-.about__position {
-  min-height: 520px;
+  min-height: 655px;
 }
 .about__title {
   text-transform: uppercase;
@@ -45,19 +42,24 @@ export default {
   font-weight: 800;
   font-size: 64px;
   line-height: 77px;
-  padding-top: 90px;
+  padding-top: 80px;
   margin: auto 0;
   text-align: center;
   width: 100%;
   color: #fff;
   font-family: 'Inter', 'Arial', sans-serif;
 }
+@media screen and (max-width: 1300px) {
+  .about {
+    min-height: 665px;
+  }
+}
 @media screen and (max-width: 1000px) {
   .about__title {
     display: none;
   }
-  .about__position {
-    min-height: 700px;
+  .about {
+    min-height: 628px;
   }
 }
 </style>
