@@ -2,17 +2,21 @@
   <section class="history">
     <div class="history__search">
       <input type="text" class="history__search-input" />
-      <main-button class="history__search-button">Поиск</main-button>
+      <main-button class="history__search-button"
+        >Поиск<history-loupe class="history__loupe"
+      /></main-button>
     </div>
   </section>
 </template>
 
 <script>
 import MainButton from '@/components/ui/MainButton';
+import HistoryLoupeVue from './svg/HistoryLoupe.vue';
 export default {
   name: 'app-search',
   components: {
     'main-button': MainButton,
+    'history-loupe': HistoryLoupeVue,
   },
 };
 </script>
@@ -35,13 +39,18 @@ export default {
 .history__search-input {
   line-height: 50px;
   font-size: 24px;
-  padding: 0;
+  padding: 0 0 0 10px;
   border: 1px solid #e8e8e8;
 }
 
 .history__search-button {
   width: 226px;
   transition: 0.2s linear;
+  margin: 0;
+}
+
+.history__loupe {
+  display: none;
 }
 
 @media screen and (max-width: 1280px) {
@@ -79,11 +88,14 @@ export default {
   }
 
   .history__search-button {
+    display: flex;
+    justify-content: center;
     width: 48px;
     font-size: 0;
-    background-image: url(./svg/history__button_img.svg);
-    background-repeat: no-repeat;
-    background-position: center;
+  }
+
+  .history__loupe {
+    display: flex;
   }
 }
 </style>
