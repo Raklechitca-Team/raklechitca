@@ -15,7 +15,7 @@ import HistoryLoupeVue from './svg/HistoryLoupe.vue';
 export default {
   name: 'app-search',
   components: {
-    'app-app-main-button': MainButton,
+    'app-main-button': MainButton,
     'app-history-loupe': HistoryLoupeVue,
   },
 };
