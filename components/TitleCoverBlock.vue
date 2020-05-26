@@ -2,18 +2,14 @@
   <div class="cover-title">
     <h1 class="cover-title__title">{{ this.title() }}</h1>
     <a class="cover-title__svg-link">
-      <app-button-down />
+      <slot></slot>
     </a>
   </div>
 </template>
 
 <script>
-import buttonDown from '@/components/svg/buttonDown';
 export default {
   name: 'Title',
-  components: {
-    'app-button-down': buttonDown,
-  },
   props: {
     dataTitleBlock: Array,
   },
@@ -24,9 +20,7 @@ export default {
   },
   methods: {
     title() {
-      const dataCover = this.dataTitleBlock.find(el =>
-        el.block === 'cover' ? el : 0
-      );
+      const dataCover = this.dataTitleBlock.find(el => el.block === 'cover');
       return (this.titleText = dataCover.hashtag);
     },
   },
@@ -36,7 +30,7 @@ export default {
 <style scoped>
 .cover-title {
   width: 100%;
-  min-height: calc(100vh - 76px);
+  min-height: calc(100vh - 77px);
   background: #613a93;
   display: flex;
   align-items: center;
