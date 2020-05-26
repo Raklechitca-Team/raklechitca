@@ -6,7 +6,7 @@
           <div class="story__image-wrapper">
             <div
               :style="{
-                backgroundImage: `url('${stories[$route.params.id - 1].url}')`,
+                backgroundImage: `url('${stories[$route.params.id].url}')`,
               }"
               class="story__image"
             ></div>
@@ -14,14 +14,14 @@
           <div class="story__text-wrapper">
             <h1 class="story__title">
               <span class="story__title story__title_bold"
-                >{{ stories[$route.params.id - 1].name }}:
+                >{{ stories[$route.params.id].author }}:
               </span>
-              {{ stories[$route.params.id - 1].text }}
+              {{ stories[$route.params.id].title }}
             </h1>
             <div class="story-text__bottom-wrapper">
               <a href="#" class="story__share">Поделитесь &#8599;</a>
               <p class="story__date">
-                {{ stories[$route.params.id - 1].date }}
+                {{ stories[$route.params.id].date }}
               </p>
             </div>
           </div>
@@ -30,26 +30,25 @@
         <div class="story__banner story__banner_column">
           <h1 class="story__title">
             <span class="story__title story__title_bold"
-              >{{ stories[$route.params.id - 1].name }}:
+              >{{ stories[$route.params.id].name }}:
             </span>
-            {{ stories[$route.params.id - 1].text }}
+            {{ stories[$route.params.id].text }}
           </h1>
           <div class="story__image-wrapper">
             <div
               :style="{
-                backgroundImage: `url('${stories[$route.params.id - 1].url}')`,
+                backgroundImage: `url('${stories[$route.params.id].url}')`,
               }"
               class="story__image"
             ></div>
           </div>
           <div class="story-text__bottom-wrapper">
             <a href="#" class="story__share">Поделитесь &#8599;</a>
-            <p class="story__date">{{ stories[$route.params.id - 1].date }}</p>
+            <p class="story__date">{{ stories[$route.params.id].date }}</p>
           </div>
         </div>
 
-        <div class="story__itself">
-          {{ stories[$route.params.id - 1].paragraph1 }}
+        <div class="story__itself" v-html="stories[$route.params.id].text">
         </div>
         <a href="#" class="story__share story__share_social"
           >Поделитесь этой статьей в своих социальных сетях &#8599;</a

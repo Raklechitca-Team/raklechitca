@@ -34,9 +34,7 @@ export default {
 .cover {
   width: 100%;
   background-color: #613a93;
-}
-.cover__position {
-  min-height: 520px;
+  min-height: 650px;
 }
 .cover__title {
   text-transform: uppercase;
@@ -52,6 +50,9 @@ export default {
   font-family: 'Inter', 'Arial', sans-serif;
 }
 @media screen and (max-width: 1000px) {
+  .cover {
+    min-height: 626px;
+  }
   .cover__title {
     display: none;
   }

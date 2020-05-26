@@ -19,6 +19,37 @@
         ><span class="arrow">&#9002;</span>Последняя</a
       >
     </div>
+    <div class="pagination pagination_hidden">
+      <div class="pagination__wrapper-top">
+        <a
+          @click="$emit('pageClick', currentPage)"
+          class="pagination__quick-navigation arrow">&#9001;</a
+        >
+        <div
+          v-for="page in setPages"
+          @click="$emit('pageClick', page)"
+          class="pagination__number"
+        >
+          {{ page }}
+        </div>
+        <a
+          @click="$emit('pageClick', setPages)"
+          class="pagination__quick-navigation arrow">&#9002;</a
+        >
+      </div>
+      <div class="pagination__wrapper-bottom">
+        <a
+        @click="$emit('pageClick', currentPage)"
+        class="pagination__quick-navigation pagination__quick-navigation_first"
+        >Первая</a
+        >
+        <a
+        @click="$emit('pageClick', setPages)"
+        class="pagination__quick-navigation"
+        >Последняя</a
+        >
+      </div>
+    </div>
   </div>
 </template>
 
@@ -87,5 +118,28 @@ export default {
 .arrow {
   margin: 0 30px;
   color: #000;
+}
+.pagination_hidden {
+  display: none;
+}
+@media screen and (max-width: 500px) {
+  .pagination {
+    display: none;
+  }
+  .pagination_hidden {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+  .pagination__wrapper-top {
+    display: flex;
+    margin-bottom: 34px;
+  }
+  .pagination__wrapper-bottom {
+    display: flex;
+  }
+  .pagination__quick-navigation_first {
+    margin-right: 109px;
+  }
 }
 </style>

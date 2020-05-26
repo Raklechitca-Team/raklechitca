@@ -58,12 +58,25 @@ export default {
 <style scoped>
 .tell-story {
   width: 100%;
-  font-family: 'Inter', 'Arial', sans-serif;
+  min-height: 522px;
   background-color: #f7f7f7;
+}
+.tell-story__button {
+  margin-left: 40px;
+  margin-top: 78px;
+}
+@media screen and (max-width: 1240px) {
+  .tell-story__button {
+    width: 230px;
+  }
 }
 @media screen and (max-width: 1000px) {
   .tell-story {
     min-height: 598px;
+  }
+  .tell-story__button {
+    margin: 50px 0 0;
+    width: 380px;
   }
 }
 </style>
