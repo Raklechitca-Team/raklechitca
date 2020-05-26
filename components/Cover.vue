@@ -36,23 +36,19 @@ export default {
   line-height: 111px;
   position: relative;
 }
-
 .cover__svg-link {
   position: absolute;
   margin: 0 auto;
   bottom: 30px;
 }
-
 .cover__svg-link:hover {
   cursor: pointer;
 }
-
 @media screen and (max-width: 1280px) {
   .cover__title {
     font-size: calc((100vw - 320px) / (1184 - 320) * (78 - 36) + 36px);
   }
 }
-
 @media screen and (max-width: 980px) {
   .cover {
     min-height: calc(100vh - 49px);
