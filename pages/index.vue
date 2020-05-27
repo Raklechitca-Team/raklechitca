@@ -12,9 +12,9 @@
         :slideArray="video"
       />
     </app-scroll-to-component>
-    <app-cover-in-site :noteText="noteData(1)" />
+    <app-mini-cover :noteText="noteData(1)" />
     <app-stories :storiesText="storiesData()" :cards="stories" />
-    <app-cover-in-site :noteText="noteData(2)" />
+    <app-mini-cover :noteText="noteData(2)" />
     <app-insta :instaText="instaData()" :images="instagram" />
     <app-tell-story :tellStory="tellStoryData()" />
     <app-statistics
@@ -32,7 +32,7 @@ import InstaBlock from '@/components/instaBlock/InstaBlock';
 import TellStory from '@/components/TellStory';
 import Statistics from '@/components/Statistics/Statistics';
 import About from '@/components/About';
-import CoverInSite from '@/components/CoverInSite';
+import MiniCover from '@/components/MiniCover';
 import SectionTitle from '@/components/ui/SectionTitle';
 import Stories from '@/components/Stories';
 import BasePopup from '@/components/BasePopup';
@@ -44,7 +44,7 @@ export default {
   components: {
     'app-cover': Cover,
     'app-video': Video,
-    'app-cover-in-site': CoverInSite,
+    'app-mini-cover': MiniCover,
     'app-section-title': SectionTitle,
     'app-stories': Stories,
     'app-insta': InstaBlock,
