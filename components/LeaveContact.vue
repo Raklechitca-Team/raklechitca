@@ -13,7 +13,7 @@
       <label for="name" class="contact__question"
         >Как вас зовут?
         <input
-          v-model="text"
+          v-model="name"
           class="contact__answer"
           id="name"
           placeholder="Напишите тут"
@@ -115,6 +115,14 @@ export default {
   components: {
     'contact-button': ButtonFillForm,
     ValidationProvider,
+  },
+  data() {
+    return {
+      name: '',
+      email: '',
+      tel: '',
+      text: '',
+    };
   },
 };
 </script>
