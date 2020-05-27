@@ -33,7 +33,7 @@
 
 <script>
 import Header from '@/components/Header';
-import Footer from '@/components/Footer/Footer';
+import Footer from '@/components/Footer';
 import BasePopup from '@/components/BasePopup';
 import Quiz from '@/components/Quiz/Quiz';
 import PopupShare from '@/components/PopupShare';
@@ -69,6 +69,9 @@ export default {
     },
     contactPopup() {
       this.$store.commit('popup/togglePopupContact');
+    },
+    blocks() {
+      return this.$store.getters['blocks/blocks'];
     },
   },
 };
