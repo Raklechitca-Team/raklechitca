@@ -14,7 +14,7 @@
         {{ page }}
       </div>
       <a
-        @click="$emit('pageClick', setPages)"
+        @click="$emit('pageClick', lastPage())"
         class="pagination__quick-navigation"
         ><span class="arrow">&#9002;</span>Последняя</a
       >
@@ -46,7 +46,7 @@
           >Первая</a
         >
         <a
-          @click="$emit('pageClick', setPages)"
+          @click="$emit('pageClick', lastPage())"
           class="pagination__quick-navigation"
           >Последняя</a
         >
@@ -69,7 +69,26 @@ export default {
   },
   computed: {
     setPages() {
-      return Math.ceil(this.storiesInTotal / this.storiesPerPage);
+      const pagesMax = Math.ceil(this.storiesInTotal / this.storiesPerPage);
+      if (pagesMax > 5) {
+        let arrayFromPagesMax = [];
+        for (let i = 1; i !== 3; i++) {
+          arrayFromPagesMax[i - 1] = i;
+        }
+        return arrayFromPagesMax;
+      } else {
+        return pagesMax;
+      }
+    },
+  },
+  methods: {
+    lastPage() {
+      let a = typeof this.setPages;
+      if (a == Object) {
+        return this.setPages.length;
+      } else {
+        return this.setPages;
+      }
     },
   },
 };
