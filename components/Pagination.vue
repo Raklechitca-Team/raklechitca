@@ -91,7 +91,7 @@ export default {
         return pagesMax;
       }
     },
-    firstPage() {
+firstPage() {
       const first = 1;
       return first;
     },

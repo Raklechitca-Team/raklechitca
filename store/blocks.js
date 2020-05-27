@@ -10,7 +10,7 @@ const mutations = {
 
 const actions = {
   async fetchBlocks({ commit }) {
-    const blocks = await this.$axios.$get(process.env.baseUrl + 'blocks');
+    const blocks = await this.$axios.$get(process.env.baseUrl + '/blocks');
     commit('setState', {
       name: 'blocks',
       value: blocks,
