@@ -8,7 +8,7 @@
       <close-button
         class="modal-window__close"
         alt="close"
-        @click="$emit('closeClick')"
+        @closeClick="$emit('closeClick')"
       />
       <slot></slot>
     </div>

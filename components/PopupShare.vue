@@ -1,35 +1,35 @@
 <template>
-  <div class="footer-share">
-    <section-title class="footer-share__title">Поделитесь</section-title>
-    <div class="footer-share__icons">
-      <div class="footer-share__item">
-        <a href="" target="_blank" class="footer-share__fb">
-          <facebook class="footer-share__icon" />
+  <div class="popup-share">
+    <section-title class="popup-share__title">Поделитесь</section-title>
+    <div class="popup-share__icons">
+      <div class="popup-share__item">
+        <a href="" target="_blank" class="popup-share__fb">
+          <facebook class="popup-share__icon" />
         </a>
       </div>
-      <div class="footer-share__item">
-        <a href="" target="_blank" class="footer-share__tw">
-          <twitter class="footer-share__icon" />
+      <div class="popup-share__item">
+        <a href="" target="_blank" class="popup-share__tw">
+          <twitter class="popup-share__icon" />
         </a>
       </div>
-      <div class="footer-share__item">
-        <a href="" target="_blank" class="footer-share__vk">
+      <div class="popup-share__item">
+        <a href="" target="_blank" class="popup-share__vk">
           <vkontakte />
         </a>
       </div>
-      <div class="footer-share__item">
-        <a href="" target="_blank" class="footer-share__ok">
+      <div class="popup-share__item">
+        <a href="" target="_blank" class="popup-share__ok">
           <odnoklassniki />
         </a>
       </div>
-      <div class="footer-share__item">
-        <a href="" target="_blank" class="footer-share__ig">
-          <instagram class="footer-share__icon" />
+      <div class="popup-share__item">
+        <a href="" target="_blank" class="popup-share__ig">
+          <instagram class="popup-share__icon" />
         </a>
       </div>
-      <div class="footer-share__item">
-        <a href="" target="_blank" class="footer-share__yt">
-          <youtube class="footer-share__icon" />
+      <div class="popup-share__item">
+        <a href="" target="_blank" class="popup-share__yt">
+          <youtube class="popup-share__icon" />
         </a>
       </div>
     </div>
@@ -59,24 +59,24 @@ export default {
 </script>
 
 <style scoped>
-.footer-share {
+.popup-share {
   width: 840px;
   display: flex;
   flex-direction: column;
 }
 
-.footer-share__title {
+.popup-share__title {
   margin: 0 auto;
 }
 
-.footer-share__icons {
+.popup-share__icons {
   width: 388px;
   margin: 108px auto 108px;
   display: flex;
   justify-content: space-between;
 }
 
-.footer-share__item {
+.popup-share__item {
   width: 48px;
   height: 48px;
   display: flex;
@@ -84,42 +84,42 @@ export default {
   justify-content: center;
 }
 
-.footer-share__fb {
+.popup-share__fb {
   width: 18px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.footer-share__tw {
+.popup-share__tw {
   width: 29px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.footer-share__vk {
+.popup-share__vk {
   width: 32px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.footer-share__ok {
+.popup-share__ok {
   width: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.footer-share__ig {
+.popup-share__ig {
   width: 30px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.footer-share__yt {
+.popup-share__yt {
   width: 30px;
   display: flex;
   align-items: center;
@@ -127,60 +127,60 @@ export default {
 }
 
 @media screen and (max-width: 1280px) {
-  .footer-share {
+  .popup-share {
     max-width: 720px;
   }
 }
 
 @media screen and (max-width: 768px) {
-  .footer-share {
+  .popup-share {
     max-width: 500px;
   }
 }
 
 @media screen and (max-width: 600px) {
-  .footer-share {
+  .popup-share {
     width: 270px;
     height: 191px;
   }
 
-  .footer-share__title {
+  .popup-share__title {
     font-size: 18px;
     line-height: 21px;
   }
 
-  .footer-share__icons {
+  .popup-share__icons {
     padding: 65px 0 0;
     margin: 0 auto;
     max-width: 270px;
   }
 
-  .footer-share__item {
+  .popup-share__item {
     width: 35px;
     height: 35px;
   }
 
-  .footer-share__fb {
+  .popup-share__fb {
     width: 12px;
   }
 
-  .footer-share__tw {
+  .popup-share__tw {
     width: 21px;
   }
 
-  .footer-share__vk {
+  .popup-share__vk {
     width: 23px;
   }
 
-  .footer-share__ok {
+  .popup-share__ok {
     width: 13.5px;
   }
 
-  .footer-share__ig {
+  .popup-share__ig {
     width: 22px;
   }
 
-  .footer-share__yt {
+  .popup-share__yt {
     width: 22px;
   }
 }
