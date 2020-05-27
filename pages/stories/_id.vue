@@ -74,7 +74,7 @@
             stories.slice(0, 2)
           "
         />
-        <app-more-articles class="more-articles" href="#" />
+        <app-more-articles class="more-articles" href="/stories" />
       </div>
     </app-container>
   </div>
