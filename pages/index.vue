@@ -35,8 +35,8 @@ import About from '@/components/About';
 import CoverInSite from '@/components/CoverInSite';
 import SectionTitle from '@/components/ui/SectionTitle';
 import Stories from '@/components/Stories';
-import Popup from '@/components/Popup';
-import Quiz from '@/components/Quiz';
+import BasePopup from '@/components/BasePopup';
+import Quiz from '@/components/Quiz/Quiz';
 import ButtonDown from '@/components/ui/ButtonDown';
 import ScrollToComponent from '@/components/ui/ScrollToComponent';
 export default {
@@ -50,8 +50,9 @@ export default {
     'app-insta': InstaBlock,
     'app-tell-story': TellStory,
     'app-statistics': Statistics,
+    'app-cover': Cover,
+    'app-base-popup': BasePopup,
     'app-about': About,
-    'app-popup': Popup,
     'app-quiz': Quiz,
     'app-button-down': ButtonDown,
     'app-scroll-to-component': ScrollToComponent,

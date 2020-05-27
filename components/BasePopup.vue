@@ -1,15 +1,14 @@
 <template>
   <div class="modal-window">
-    <overlay
+    <app-overlay
       class="modal-window__overlay"
       @overlayClick="$emit('overlayClick')"
-    ></overlay>
+    />
     <div class="modal-window__popup">
-      <img
+      <close-button
         class="modal-window__close"
-        src="../static/x.svg"
         alt="close"
-        @click="$emit('closeClick')"
+        @closeClick="$emit('closeClick')"
       />
       <slot></slot>
     </div>
@@ -18,10 +17,12 @@
 
 <script>
 import Overlay from '@/components/ui/Overlay';
+import CloseButton from '@/components/svg/CloseButton';
 export default {
-  name: 'Popup',
+  name: 'BasePopup',
   components: {
-    overlay: Overlay,
+    'app-overlay': Overlay,
+    'close-button': CloseButton,
   },
 };
 </script>
