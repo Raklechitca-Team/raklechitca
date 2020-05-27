@@ -46,9 +46,9 @@
           >Первая</a
         >
         <a
-        @click="$emit('pageClick', lastPage())"
-        class="pagination__quick-navigation"
-        >Последняя</a
+          @click="$emit('pageClick', lastPage())"
+          class="pagination__quick-navigation"
+          >Последняя</a
         >
       </div>
     </div>
@@ -89,8 +89,8 @@ export default {
       } else {
         return this.setPages;
       }
-    }
-  }
+    },
+  },
 };
 </script>
 

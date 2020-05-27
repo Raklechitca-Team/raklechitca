@@ -19,9 +19,11 @@
               {{ filterStories.title }}
             </h1>
             <div class="story-text__bottom-wrapper">
-              <a href="#" class="story__share">Поделитесь &#8599;</a>
+              <a class="story__share" @click="showSharePopup"
+                >Поделитесь &#8599;</a
+              >
               <p class="story__date">
-                {{ filterStories.date }}
+                {{ filterDate }}
               </p>
             </div>
           </div>
@@ -37,19 +39,21 @@
           <div class="story__image-wrapper">
             <div
               :style="{
-                backgroundImage: `url('${filterStories.url}')`,
+                backgroundImage: `url('https://strapi.kruzhok.io${filterStories.ImageUrl[0].url}')`
               }"
               class="story__image"
             ></div>
           </div>
           <div class="story-text__bottom-wrapper">
-            <a href="#" class="story__share">Поделитесь &#8599;</a>
-            <p class="story__date">{{ filterStories.date }}</p>
+            <a class="story__share" @click="showSharePopup"
+              >Поделитесь &#8599;</a
+            >
+            <p class="story__date">{{ filterDate }}</p>
           </div>
         </div>
 
         <div class="story__itself" v-html="filterStories.text"></div>
-        <a href="#" class="story__share story__share_social"
+        <a class="story__share story__share_social" @click="showSharePopup"
           >Поделитесь этой статьей в своих социальных сетях &#8599;</a
         >
         <app-cardlist
@@ -102,7 +106,62 @@ export default {
     },
     filterStories() {
       return this.stories.find(story => story.id === Number(this.$route.params.id));
+    },
+    filterDate() {
+      let rawDate = new Date(this.filterStories.date.slice(0, 10));
+      let year = rawDate.getFullYear();
+      let month = rawDate.getMonth() + 1;
+      let day = rawDate.getDate();
+      switch(month) {
+      case 1:
+        month = 'января';
+        break;
+      case 2:  
+        month = 'февраля';
+        break;
+      case 3:
+        month = 'марта';
+        break;
+      case 4:
+        month = 'апреля';
+        break;
+      case 5:  
+        month = 'мая';
+        break;
+      case 6:
+        month = 'июня';
+        break;
+      case 7:  
+        month = 'июля';
+        break;
+      case 8:  
+        month = 'августа';
+        break;
+      case 9:
+        month = 'сентября';
+        break;
+      case 10:  
+        month = 'октября';
+        break;
+      case 11:  
+        month = 'ноября';
+        break;
+      case 12:
+        month = 'декабря';
+        break;
+
+      default:
+        month = 'месяца';
+        break;
+    }     
+      let date = day.toString() + " " + month.toString() + " " + year.toString() + " " + 'года';
+      return date;
     }
+  },
+  methods: {
+    showSharePopup() {
+      this.$store.commit('popup/toggleSharePopup');
+    },
   },
 };
 </script>
@@ -170,6 +229,7 @@ export default {
   line-height: 24px;
   color: #121212;
   transition: all 0.3s linear;
+  cursor: pointer;
 }
 .story__share:hover {
   opacity: 0.8;
