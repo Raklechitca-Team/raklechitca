@@ -32,9 +32,9 @@
         <div class="story__banner story__banner_column">
           <h1 class="story__title">
             <span class="story__title story__title_bold"
-              >{{ filterStories.name }}:
+              >{{ filterStories.author }}:
             </span>
-            {{ filterStories.text }}
+            {{ filterStories.title }}
           </h1>
           <div class="story__image-wrapper">
             <div
