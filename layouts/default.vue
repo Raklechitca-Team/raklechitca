@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <app-header />
+    <app-header :headerTextData="headerData()" />
 
     <app-base-popup
       v-if="popupShown"
@@ -27,7 +27,7 @@
       <app-leave-contact />
     </app-base-popup>
 
-    <app-footer />
+    <app-footer :footerTextData="footerData()" />
   </div>
 </template>
 
@@ -59,6 +59,9 @@ export default {
     popupContactShown() {
       return this.$store.getters['popup/getPopupContact'];
     },
+    blocks() {
+      return this.$store.getters['blocks/blocks'];
+    },
   },
   methods: {
     showPopup() {
@@ -70,8 +73,13 @@ export default {
     contactPopup() {
       this.$store.commit('popup/togglePopupContact');
     },
-    blocks() {
-      return this.$store.getters['blocks/blocks'];
+    headerData() {
+      const dataHeader = this.blocks.find(el => el.block === `header`);
+      return dataHeader;
+    },
+    footerData() {
+      const dataFooter = this.blocks.find(el => el.block === `footer`);
+      return dataFooter;
     },
   },
 };

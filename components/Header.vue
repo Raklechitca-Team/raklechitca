@@ -8,7 +8,7 @@
     <app-container>
       <div class="header__container">
         <nuxt-link to="/" class="header__logo">
-          {{ header.title }}
+          {{ headerTextData.title }}
         </nuxt-link>
         <div class="header__links">
           <app-menu class="header__menu" />
@@ -50,6 +50,9 @@ export default {
     'app-menu-open': MenuOpenButton,
     'app-menu-close': CloseButton,
   },
+  props: {
+    headerTextData: Object,
+  },
   data() {
     return {
       sidebarShown: false,
@@ -61,11 +64,6 @@ export default {
     },
     showPopup() {
       this.$store.commit('popup/togglePopup');
-    },
-  },
-  computed: {
-    header() {
-      return this.$store.state.blocks.blocks.find(el => el.block === 'header');
     },
   },
 };

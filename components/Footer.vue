@@ -2,7 +2,7 @@
   <footer class="footer">
     <app-container class="footer__container">
       <app-section-title class="footer__text">{{
-        footer.title
+        footerTextData.title
       }}</app-section-title>
 
       <nav class="footer__menu">
@@ -33,7 +33,7 @@
 
       <div class="footer__content">
         <div class="footer__content__name">
-          <div class="footer__content_info" v-html="footer.text" />
+          <div class="footer__content_info" v-html="footerTextData.text" />
           <p class="footer__content_info footer__content_year">{{ year() }}</p>
         </div>
         <a
@@ -57,6 +57,9 @@ export default {
     'app-container': Container,
     'app-section-title': SectionTitle,
     'app-menu': Menu,
+  },
+  props: {
+    footerTextData: Object,
   },
   methods: {
     year() {
