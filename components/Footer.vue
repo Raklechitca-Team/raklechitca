@@ -1,9 +1,9 @@
 <template>
   <footer class="footer">
     <app-container class="footer__container">
-      <section-title class="footer__text"
-        >Спасибо всем, кто помог состояться этому проекту</section-title
-      >
+      <app-section-title class="footer__text">{{
+        footerTextData.title
+      }}</app-section-title>
 
       <nav class="footer__menu">
         <app-menu class="footer__menu-links" />
@@ -32,7 +32,10 @@
       </nav>
 
       <div class="footer__content">
-        <p class="footer__content_info">Рак Лечится {{ year() }}</p>
+        <div class="footer__content__name">
+          <div class="footer__content_info" v-html="footerTextData.text" />
+          <p class="footer__content_info footer__content_year">{{ year() }}</p>
+        </div>
         <a
           href="https://praktikum.yandex.ru/"
           target="_blank"
@@ -52,8 +55,11 @@ export default {
   name: 'Footer',
   components: {
     'app-container': Container,
-    'section-title': SectionTitle,
+    'app-section-title': SectionTitle,
     'app-menu': Menu,
+  },
+  props: {
+    footerTextData: Object,
   },
   methods: {
     year() {
@@ -61,6 +67,11 @@ export default {
     },
     showSharePopup() {
       this.$store.commit('popup/toggleSharePopup');
+    },
+  },
+  computed: {
+    footer() {
+      return this.$store.state.blocks.blocks.find(el => el.block === 'footer');
     },
   },
 };
@@ -211,6 +222,14 @@ export default {
   align-items: flex-end;
 }
 
+.footer__content__name {
+  display: flex;
+}
+
+.footer__content_year {
+  margin-left: 10px;
+}
+
 .footer__content_info {
   font-family: 'Inter', 'Arial', sans-serif;
   font-style: normal;
@@ -347,6 +366,7 @@ export default {
 
   .footer__content {
     flex-direction: column;
+    align-items: flex-start;
   }
 
   .footer__content_info {
