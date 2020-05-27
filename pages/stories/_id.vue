@@ -6,14 +6,16 @@
           <div class="story__image-wrapper">
             <div
               :style="{
-                backgroundImage: `url('https://strapi.kruzhok.io${filterStories.ImageUrl[0].url}')`
+                backgroundImage: `url('https://strapi.kruzhok.io${filterStories.ImageUrl[0].url}')`,
               }"
               class="story__image"
             ></div>
           </div>
           <div class="story__text-wrapper">
             <h1 class="story__title">
-              <span @click="filterStories" class="story__title story__title_bold"
+              <span
+                @click="filterStories"
+                class="story__title story__title_bold"
                 >{{ filterStories.author }}:
               </span>
               {{ filterStories.title }}
@@ -39,7 +41,7 @@
           <div class="story__image-wrapper">
             <div
               :style="{
-                backgroundImage: `url('https://strapi.kruzhok.io${filterStories.ImageUrl[0].url}')`
+                backgroundImage: `url('https://strapi.kruzhok.io${filterStories.ImageUrl[0].url}')`,
               }"
               class="story__image"
             ></div>
@@ -56,24 +58,9 @@
         <a class="story__share story__share_social" @click="showSharePopup"
           >Поделитесь этой статьей в своих социальных сетях &#8599;</a
         >
-        <app-cardlist
-          class="four-cards"
-          :cards="
-            stories.slice(0, 4)
-          "
-        />
-        <app-cardlist
-          class="three-cards"
-          :cards="
-            stories.slice(0, 3)
-          "
-        />
-        <app-cardlist
-          class="two-cards"
-          :cards="
-            stories.slice(0, 2)
-          "
-        />
+        <app-cardlist class="four-cards" :cards="stories.slice(0, 4)" />
+        <app-cardlist class="three-cards" :cards="stories.slice(0, 3)" />
+        <app-cardlist class="two-cards" :cards="stories.slice(0, 2)" />
         <app-more-articles class="more-articles" href="/stories" />
       </div>
     </app-container>
@@ -105,58 +92,67 @@ export default {
       return this.$store.getters['stories/stories'];
     },
     filterStories() {
-      return this.stories.find(story => story.id === Number(this.$route.params.id));
+      return this.stories.find(
+        story => story.id === Number(this.$route.params.id)
+      );
     },
     filterDate() {
       let rawDate = new Date(this.filterStories.date.slice(0, 10));
       let year = rawDate.getFullYear();
       let month = rawDate.getMonth() + 1;
       let day = rawDate.getDate();
-      switch(month) {
-      case 1:
-        month = 'января';
-        break;
-      case 2:  
-        month = 'февраля';
-        break;
-      case 3:
-        month = 'марта';
-        break;
-      case 4:
-        month = 'апреля';
-        break;
-      case 5:  
-        month = 'мая';
-        break;
-      case 6:
-        month = 'июня';
-        break;
-      case 7:  
-        month = 'июля';
-        break;
-      case 8:  
-        month = 'августа';
-        break;
-      case 9:
-        month = 'сентября';
-        break;
-      case 10:  
-        month = 'октября';
-        break;
-      case 11:  
-        month = 'ноября';
-        break;
-      case 12:
-        month = 'декабря';
-        break;
+      switch (month) {
+        case 1:
+          month = 'января';
+          break;
+        case 2:
+          month = 'февраля';
+          break;
+        case 3:
+          month = 'марта';
+          break;
+        case 4:
+          month = 'апреля';
+          break;
+        case 5:
+          month = 'мая';
+          break;
+        case 6:
+          month = 'июня';
+          break;
+        case 7:
+          month = 'июля';
+          break;
+        case 8:
+          month = 'августа';
+          break;
+        case 9:
+          month = 'сентября';
+          break;
+        case 10:
+          month = 'октября';
+          break;
+        case 11:
+          month = 'ноября';
+          break;
+        case 12:
+          month = 'декабря';
+          break;
 
-      default:
-        month = 'месяца';
-        break;
-    }     
-      let date = day.toString() + " " + month.toString() + " " + year.toString() + " " + 'года';
+        default:
+          month = 'месяца';
+          break;
+      }
+      let date =
+        day.toString() +
+        ' ' +
+        month.toString() +
+        ' ' +
+        year.toString() +
+        ' ' +
+        'года';
       return date;
-    }
+    },
   },
   methods: {
     showSharePopup() {
