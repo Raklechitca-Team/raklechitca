@@ -32,7 +32,7 @@ import InstaBlock from '@/components/instaBlock/InstaBlock';
 import TellStory from '@/components/TellStory';
 import Statistics from '@/components/Statistics/Statistics';
 import About from '@/components/About';
-import CoverInSite from '@/components/CoverInSite';
+import MiniCover from '@/components/MiniCover';
 import SectionTitle from '@/components/ui/SectionTitle';
 import Stories from '@/components/Stories';
 import BasePopup from '@/components/BasePopup';
@@ -44,7 +44,7 @@ export default {
   components: {
     'app-cover': Cover,
     'app-video': Video,
-    'app-cover-in-site': CoverInSite,
+    'app-cover-in-site': MiniCover,
     'app-section-title': SectionTitle,
     'app-stories': Stories,
     'app-insta': InstaBlock,
