@@ -75,7 +75,6 @@ export default {
   data() {
     return {
       answer: '',
-      dataInput: [],
     };
   },
   computed: {
@@ -90,24 +89,14 @@ export default {
   },
   methods: {
     async nextQuestion() {
-      this.makeDataInput();
       await this.$store.dispatch('quiz/NEXT_QUESTION', {
         answer: this.answer,
       });
       this.answer = this.initialAnswer || '';
-      if (this.$store.state.quiz.currentQuestion === 13) {
-        this.consoleLogData();
-      }
     },
     async prevQuestion() {
       await this.$store.dispatch('quiz/PREV_QUESTION');
       this.answer = this.initialAnswer || '';
-    },
-    makeDataInput() {
-      this.dataInput[this.$store.state.quiz.currentQuestion] = this.answer;
-    },
-    consoleLogData() {
-      console.log(this.dataInput);
     },
   },
 };
