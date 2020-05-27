@@ -163,6 +163,11 @@ export default {
       this.$store.commit('popup/toggleSharePopup');
     },
   },
+  methods: {
+    showSharePopup() {
+      this.$store.commit('popup/toggleSharePopup');
+    },
+  },
 };
 </script>
 
