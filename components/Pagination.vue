@@ -2,13 +2,14 @@
   <div>
     <div class="pagination">
       <a
-        @click="currentPageChange(firstPage)"         
+        @click="currentPageChange(firstPage)"
         :class="[
           'pagination__quick-navigation',
           {
-            'pagination__quick-navigation_active' :this.activePage,
-            'pagination__quick-navigation_disabled' :!this.activePage,
-          }]"
+            'pagination__quick-navigation_active': this.activePage,
+            'pagination__quick-navigation_disabled': !this.activePage,
+          },
+        ]"
         >Первая</a
       >
       <a @click="currentPageChange(previousPage)" class="arrow">&#9001;</a>
@@ -25,9 +26,10 @@
         :class="[
           'pagination__quick-navigation',
           {
-            'pagination__quick-navigation_active' :!this.activePage,
-            'pagination__quick-navigation_disabled' :this.activePage,
-          }]"
+            'pagination__quick-navigation_active': !this.activePage,
+            'pagination__quick-navigation_disabled': this.activePage,
+          },
+        ]"
         >Последняя</a
       >
     </div>
@@ -91,7 +93,7 @@ export default {
         return pagesMax;
       }
     },
-firstPage() {
+    firstPage() {
       const first = 1;
       return first;
     },
@@ -112,7 +114,7 @@ firstPage() {
       }
     },
     lastPage() {
-      return this.currentPage = this.setPages;
+      return (this.currentPage = this.setPages);
     },
     activePage() {
       if (this.currentPage === 1) {
@@ -120,7 +122,7 @@ firstPage() {
       } else {
         return true;
       }
-    }
+    },
   },
   methods: {
     currentPageChange(somePage) {
