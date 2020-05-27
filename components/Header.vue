@@ -8,25 +8,25 @@
     <app-container>
       <div class="header__container">
         <nuxt-link to="/" class="header__logo">
-          Проект Благотворительного Фонда Константина Хабенского
+          {{ headerTextData.title }}
         </nuxt-link>
         <div class="header__links">
           <app-menu class="header__menu" />
-          <main-button class="header__button" @buttonClick="showPopup"
-            >Рассказать историю</main-button
+          <app-main-button class="header__button" @buttonClick="showPopup"
+            >Рассказать историю</app-main-button
           >
         </div>
         <button class="header__menu-button" @click="sidebarHandler">
-          <menu-open
+          <app-menu-open
             class="header__icon-open"
             alt="menu"
             v-if="!sidebarShown"
-          ></menu-open>
-          <menu-close
+          ></app-menu-open>
+          <app-menu-close
             class="header__icon-close"
             alt="close"
             v-if="sidebarShown"
-          ></menu-close>
+          ></app-menu-close>
         </button>
       </div>
     </app-container>
@@ -46,9 +46,12 @@ export default {
     'app-container': Container,
     'app-sidebar': Sidebar,
     'app-menu': Menu,
-    'main-button': MainButton,
-    'menu-open': MenuOpenButton,
-    'menu-close': CloseButton,
+    'app-main-button': MainButton,
+    'app-menu-open': MenuOpenButton,
+    'app-menu-close': CloseButton,
+  },
+  props: {
+    headerTextData: Object,
   },
   data() {
     return {

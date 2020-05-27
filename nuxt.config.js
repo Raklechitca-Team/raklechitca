@@ -55,6 +55,19 @@ export default {
     extend(config, ctx) {},
   },
   env: {
-    baseUrl: process.env.BASE_URL || 'https://strapi.kruzhok.io/',
+    baseUrl: process.env.BASE_URL || 'https://strapi.kruzhok.io',
+  },
+  build: {
+    // Add exception
+    transpile: ['vee-validate/dist/rules'],
+    /*
+     ** You can extend webpack config here
+     */
+    extend(config, ctx) {
+      // ...
+    },
+  },
+  router: {
+    middleware: 'basicData',
   },
 };
