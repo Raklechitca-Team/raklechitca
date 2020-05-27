@@ -75,7 +75,11 @@ export default {
   data() {
     return {
       answer: '',
+      quizDate: {},
     };
+  },
+  props: {
+    quizDateKey: Array,
   },
   computed: {
     currentQuestion() {
@@ -89,6 +93,7 @@ export default {
   },
   methods: {
     async nextQuestion() {
+      this.takeDataInput();
       await this.$store.dispatch('quiz/NEXT_QUESTION', {
         answer: this.answer,
       });
@@ -97,6 +102,17 @@ export default {
     async prevQuestion() {
       await this.$store.dispatch('quiz/PREV_QUESTION');
       this.answer = this.initialAnswer || '';
+    },
+    takeDataInput() {
+      if (this.$store.state.quiz.currentQuestion === 12) {
+        this.showDateInput();
+        return;
+      }
+      let x = this.quizDateKey[this.$store.state.quiz.currentQuestion - 1];
+      this.quizDate[x] = this.answer;
+    },
+    showDateInput() {
+      console.log(this.quizDate);
     },
   },
 };
