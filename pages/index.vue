@@ -65,6 +65,7 @@ export default {
   fetchOnServer: false,
   async fetch({ store }) {
     await store.dispatch('video/fetchVideo');
+    await store.dispatch('stories/fetchStories');
     await store.dispatch('statistics/fetchStatistics');
     await store.dispatch('blocks/fetchBlocks');
   },
