@@ -19,7 +19,9 @@
               {{ stories[$route.params.id].title }}
             </h1>
             <div class="story-text__bottom-wrapper">
-              <a href="#" class="story__share">Поделитесь &#8599;</a>
+              <a class="story__share" @click="showSharePopup"
+                >Поделитесь &#8599;</a
+              >
               <p class="story__date">
                 {{ stories[$route.params.id].date }}
               </p>
@@ -43,7 +45,9 @@
             ></div>
           </div>
           <div class="story-text__bottom-wrapper">
-            <a href="#" class="story__share">Поделитесь &#8599;</a>
+            <a class="story__share" @click="showSharePopup"
+              >Поделитесь &#8599;</a
+            >
             <p class="story__date">{{ stories[$route.params.id].date }}</p>
           </div>
         </div>
@@ -52,7 +56,7 @@
           class="story__itself"
           v-html="stories[$route.params.id].text"
         ></div>
-        <a href="#" class="story__share story__share_social"
+        <a class="story__share story__share_social" @click="showSharePopup"
           >Поделитесь этой статьей в своих социальных сетях &#8599;</a
         >
         <app-cardlist
@@ -98,6 +102,11 @@ export default {
   computed: {
     stories() {
       return this.$store.getters['stories/stories'];
+    },
+  },
+  methods: {
+    showSharePopup() {
+      this.$store.commit('popup/toggleSharePopup');
     },
   },
 };
@@ -166,6 +175,7 @@ export default {
   line-height: 24px;
   color: #121212;
   transition: all 0.3s linear;
+  cursor: pointer;
 }
 .story__share:hover {
   opacity: 0.8;

@@ -17,8 +17,16 @@
           >
         </div>
         <button class="header__menu-button" @click="sidebarHandler">
-          <div class="header__icon-open" alt="menu" v-if="!sidebarShown"></div>
-          <div class="header__icon-close" alt="close" v-if="sidebarShown"></div>
+          <menu-open
+            class="header__icon-open"
+            alt="menu"
+            v-if="!sidebarShown"
+          ></menu-open>
+          <menu-close
+            class="header__icon-close"
+            alt="close"
+            v-if="sidebarShown"
+          ></menu-close>
         </button>
       </div>
     </app-container>
@@ -30,6 +38,8 @@ import Container from '@/components/Container';
 import Sidebar from '@/components/ui/Sidebar';
 import Menu from '@/components/ui/Menu';
 import MainButton from '@/components/ui/MainButton';
+import MenuOpenButton from '@/components/svg/MenuOpenButton';
+import CloseButton from '@/components/svg/CloseButton';
 export default {
   name: 'Header',
   components: {
@@ -37,6 +47,8 @@ export default {
     'app-sidebar': Sidebar,
     'app-menu': Menu,
     'main-button': MainButton,
+    'menu-open': MenuOpenButton,
+    'menu-close': CloseButton,
   },
   data() {
     return {
@@ -112,7 +124,6 @@ export default {
 }
 
 .header__icon-open {
-  background-image: url('/burger-menu.svg');
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
@@ -122,7 +133,6 @@ export default {
 }
 
 .header__icon-close {
-  background-image: url('/x.svg');
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;

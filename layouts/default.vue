@@ -2,30 +2,30 @@
   <div class="container">
     <app-header />
 
-    <app-popup
+    <app-base-popup
       v-if="popupShown"
       @closeClick="showPopup"
       @overlayClick="showPopup"
     >
       <app-quiz @closeClick="showPopup" :quizDateKey="quizDateKey" />
-    </app-popup>
+    </app-base-popup>
     <nuxt />
 
-    <app-popup
+    <app-base-popup
       v-if="popupShareShown"
       @closeClick="showSharePopup"
       @overlayClick="showSharePopup"
     >
-      <app-footer-share />
-    </app-popup>
+      <app-popup-share />
+    </app-base-popup>
 
-    <app-popup
+    <app-base-popup
       v-if="popupContactShown"
       @closeClick="contactPopup"
       @overlayClick="contactPopup"
     >
       <app-leave-contact />
-    </app-popup>
+    </app-base-popup>
 
     <app-footer />
   </div>
@@ -34,18 +34,18 @@
 <script>
 import Header from '@/components/Header';
 import Footer from '@/components/Footer/Footer';
-import Popup from '@/components/Popup';
-import Quiz from '@/components/Quiz';
-import FooterShare from '@/components/Footer/FooterShare';
+import BasePopup from '@/components/BasePopup';
+import Quiz from '@/components/Quiz/Quiz';
+import PopupShare from '@/components/PopupShare';
 import MainButton from '@/components/ui/MainButton';
 import LeaveContact from '@/components/LeaveContact';
 export default {
   components: {
     'app-header': Header,
     'app-footer': Footer,
-    'app-popup': Popup,
+    'app-base-popup': BasePopup,
     'app-quiz': Quiz,
-    'app-footer-share': FooterShare,
+    'app-popup-share': PopupShare,
     'app-main-button': MainButton,
     'app-leave-contact': LeaveContact,
   },
