@@ -6,22 +6,22 @@
           <div class="story__image-wrapper">
             <div
               :style="{
-                backgroundImage: `url('${stories[$route.params.id - 1].url}')`,
+                backgroundImage: `url('https://strapi.kruzhok.io${filterStories.ImageUrl[0].url}')`
               }"
               class="story__image"
             ></div>
           </div>
           <div class="story__text-wrapper">
             <h1 class="story__title">
-              <span class="story__title story__title_bold"
-                >{{ stories[$route.params.id - 1].name }}:
+              <span @click="filterStories" class="story__title story__title_bold"
+                >{{ filterStories.author }}:
               </span>
-              {{ stories[$route.params.id - 1].text }}
+              {{ filterStories.title }}
             </h1>
             <div class="story-text__bottom-wrapper">
               <a href="#" class="story__share">Поделитесь &#8599;</a>
               <p class="story__date">
-                {{ stories[$route.params.id - 1].date }}
+                {{ filterStories.date }}
               </p>
             </div>
           </div>
@@ -30,46 +30,44 @@
         <div class="story__banner story__banner_column">
           <h1 class="story__title">
             <span class="story__title story__title_bold"
-              >{{ stories[$route.params.id - 1].name }}:
+              >{{ filterStories.name }}:
             </span>
-            {{ stories[$route.params.id - 1].text }}
+            {{ filterStories.text }}
           </h1>
           <div class="story__image-wrapper">
             <div
               :style="{
-                backgroundImage: `url('${stories[$route.params.id - 1].url}')`,
+                backgroundImage: `url('${filterStories.url}')`,
               }"
               class="story__image"
             ></div>
           </div>
           <div class="story-text__bottom-wrapper">
             <a href="#" class="story__share">Поделитесь &#8599;</a>
-            <p class="story__date">{{ stories[$route.params.id - 1].date }}</p>
+            <p class="story__date">{{ filterStories.date }}</p>
           </div>
         </div>
 
-        <div class="story__itself">
-          {{ stories[$route.params.id - 1].paragraph1 }}
-        </div>
+        <div class="story__itself" v-html="filterStories.text"></div>
         <a href="#" class="story__share story__share_social"
           >Поделитесь этой статьей в своих социальных сетях &#8599;</a
         >
         <app-cardlist
           class="four-cards"
           :cards="
-            stories.slice($route.params.id, parseInt($route.params.id) + 4)
+            stories.slice(0, 4)
           "
         />
         <app-cardlist
           class="three-cards"
           :cards="
-            stories.slice($route.params.id, parseInt($route.params.id) + 3)
+            stories.slice(0, 3)
           "
         />
         <app-cardlist
           class="two-cards"
           :cards="
-            stories.slice($route.params.id, parseInt($route.params.id) + 2)
+            stories.slice(0, 2)
           "
         />
         <app-more-articles class="more-articles" href="#" />
@@ -83,6 +81,10 @@ import Container from '@/components/Container';
 import Cardlist from '@/components/Cardlist/CardList';
 import MoreArticles from '@/components/ui/MoreArticles';
 export default {
+  fetchOnServer: false,
+  async fetch({ store }) {
+    await store.dispatch('stories/fetchStories');
+  },
   name: 'id',
   path: '/id',
   component: 'pages/stories/_id',
@@ -98,6 +100,9 @@ export default {
     stories() {
       return this.$store.getters['stories/stories'];
     },
+    filterStories() {
+      return this.stories.find(story => story.id === Number(this.$route.params.id));
+    }
   },
 };
 </script>
