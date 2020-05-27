@@ -64,8 +64,8 @@
 </template>
 
 <script>
-import QuizInput from '@/components/ui/QuizInput';
-import QuizButton from '@/components/ui/QuizButton';
+import QuizInput from '@/components/Quiz/QuizInput';
+import QuizButton from '@/components/Quiz/QuizButton';
 export default {
   name: 'Quiz',
   components: {
