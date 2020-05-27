@@ -6,10 +6,14 @@
       </span>
     </app-cover>
     <app-scroll-to-component ref="element">
-      <app-video ref="element" :slideArray="video" />
+      <app-video
+        ref="element"
+        :videoTextData="videoData()"
+        :slideArray="video"
+      />
     </app-scroll-to-component>
     <app-cover-in-site :noteText="noteData(1)" />
-    <app-stories :cards="stories" />
+    <app-stories :storiesText="storiesData()" :cards="stories" />
     <app-cover-in-site :noteText="noteData(2)" />
     <app-insta :instaText="instaData()" :images="instagram" />
     <app-tell-story :tellStory="tellStoryData()" />
@@ -115,6 +119,14 @@ export default {
     noteData(option) {
       const dataNote = this.blocks.find(el => el.block === `note-${option}`);
       return dataNote;
+    },
+    videoData() {
+      const dataVideo = this.blocks.find(el => el.block === `videos`);
+      return dataVideo;
+    },
+    storiesData() {
+      const dataStories = this.blocks.find(el => el.block === `stories`);
+      return dataStories;
     },
   },
 };

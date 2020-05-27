@@ -1,9 +1,9 @@
 <template>
   <div class="stories">
     <app-container>
-      <app-section-title class="stories__title"
-        >Истории неизлечимых привычек</app-section-title
-      >
+      <app-section-title class="stories__title">{{
+        storiesText.title
+      }}</app-section-title>
       <app-cardlist class="cardlist eight-cards" :cards="stories.slice(0, 8)" />
       <app-cardlist class="cardlist nine-cards" :cards="stories.slice(0, 9)" />
       <app-more-articles class="stories__more-articles" />
@@ -25,6 +25,7 @@ export default {
   },
   props: {
     cards: Array,
+    storiesText: Object,
   },
   computed: {
     stories() {
