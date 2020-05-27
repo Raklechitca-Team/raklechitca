@@ -7,7 +7,7 @@
       @closeClick="showPopup"
       @overlayClick="showPopup"
     >
-      <app-quiz @closeClick="showPopup" :quizDateKey="quizDateKey" />
+      <app-quiz @closeClick="showPopup" />
     </app-base-popup>
     <nuxt />
 
@@ -58,12 +58,6 @@ export default {
     },
     popupContactShown() {
       return this.$store.getters['popup/getPopupContact'];
-    },
-    quizDate() {
-      return this.$store.getters['quizDate/quizDate'];
-    },
-    quizDateKey() {
-      return this.$store.getters['quizKey/quizKey'];
     },
   },
   methods: {

@@ -1,6 +1,21 @@
 const state = () => ({
   currentQuestion: 1,
   answers: {},
+  keysAnswer: [
+    'name',
+    'cancerStory',
+    'pleasureActivities',
+    'commonActivities',
+    'hobbies',
+    'habits',
+    'regularActivities',
+    'aloneActivities',
+    'calmDownActivities',
+    'events',
+    'weekends',
+    'phone',
+    'email',
+  ],
   questions: QUESTIONS,
 });
 
