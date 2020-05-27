@@ -6,24 +6,26 @@
           <div class="story__image-wrapper">
             <div
               :style="{
-                backgroundImage: `url('${stories[$route.params.id].url}')`,
+                backgroundImage: `url('https://strapi.kruzhok.io${filterStories.ImageUrl[0].url}')`,
               }"
               class="story__image"
             ></div>
           </div>
           <div class="story__text-wrapper">
             <h1 class="story__title">
-              <span class="story__title story__title_bold"
-                >{{ stories[$route.params.id].author }}:
+              <span
+                @click="filterStories"
+                class="story__title story__title_bold"
+                >{{ filterStories.author }}:
               </span>
-              {{ stories[$route.params.id].title }}
+              {{ filterStories.title }}
             </h1>
             <div class="story-text__bottom-wrapper">
               <a class="story__share" @click="showSharePopup"
                 >Поделитесь &#8599;</a
               >
               <p class="story__date">
-                {{ stories[$route.params.id].date }}
+                {{ filterDate }}
               </p>
             </div>
           </div>
@@ -32,14 +34,14 @@
         <div class="story__banner story__banner_column">
           <h1 class="story__title">
             <span class="story__title story__title_bold"
-              >{{ stories[$route.params.id].name }}:
+              >{{ filterStories.author }}:
             </span>
-            {{ stories[$route.params.id].text }}
+            {{ filterStories.title }}
           </h1>
           <div class="story__image-wrapper">
             <div
               :style="{
-                backgroundImage: `url('${stories[$route.params.id].url}')`,
+                backgroundImage: `url('https://strapi.kruzhok.io${filterStories.ImageUrl[0].url}')`,
               }"
               class="story__image"
             ></div>
@@ -48,36 +50,18 @@
             <a class="story__share" @click="showSharePopup"
               >Поделитесь &#8599;</a
             >
-            <p class="story__date">{{ stories[$route.params.id].date }}</p>
+            <p class="story__date">{{ filterDate }}</p>
           </div>
         </div>
 
-        <div
-          class="story__itself"
-          v-html="stories[$route.params.id].text"
-        ></div>
+        <div class="story__itself" v-html="filterStories.text"></div>
         <a class="story__share story__share_social" @click="showSharePopup"
           >Поделитесь этой статьей в своих социальных сетях &#8599;</a
         >
-        <app-cardlist
-          class="four-cards"
-          :cards="
-            stories.slice($route.params.id, parseInt($route.params.id) + 4)
-          "
-        />
-        <app-cardlist
-          class="three-cards"
-          :cards="
-            stories.slice($route.params.id, parseInt($route.params.id) + 3)
-          "
-        />
-        <app-cardlist
-          class="two-cards"
-          :cards="
-            stories.slice($route.params.id, parseInt($route.params.id) + 2)
-          "
-        />
-        <app-more-articles class="more-articles" href="#" />
+        <app-cardlist class="four-cards" :cards="stories.slice(0, 4)" />
+        <app-cardlist class="three-cards" :cards="stories.slice(0, 3)" />
+        <app-cardlist class="two-cards" :cards="stories.slice(0, 2)" />
+        <app-more-articles class="more-articles" href="/stories" />
       </div>
     </app-container>
   </div>
@@ -88,6 +72,10 @@ import Container from '@/components/Container';
 import Cardlist from '@/components/Cardlist/CardList';
 import MoreArticles from '@/components/ui/MoreArticles';
 export default {
+  fetchOnServer: false,
+  async fetch({ store }) {
+    await store.dispatch('stories/fetchStories');
+  },
   name: 'id',
   path: '/id',
   component: 'pages/stories/_id',
@@ -102,6 +90,73 @@ export default {
   computed: {
     stories() {
       return this.$store.getters['stories/stories'];
+    },
+    filterStories() {
+      return this.stories.find(
+        story => story.id === Number(this.$route.params.id)
+      );
+    },
+    filterDate() {
+      let rawDate = new Date(this.filterStories.date.slice(0, 10));
+      let year = rawDate.getFullYear();
+      let month = rawDate.getMonth() + 1;
+      let day = rawDate.getDate();
+      switch (month) {
+        case 1:
+          month = 'января';
+          break;
+        case 2:
+          month = 'февраля';
+          break;
+        case 3:
+          month = 'марта';
+          break;
+        case 4:
+          month = 'апреля';
+          break;
+        case 5:
+          month = 'мая';
+          break;
+        case 6:
+          month = 'июня';
+          break;
+        case 7:
+          month = 'июля';
+          break;
+        case 8:
+          month = 'августа';
+          break;
+        case 9:
+          month = 'сентября';
+          break;
+        case 10:
+          month = 'октября';
+          break;
+        case 11:
+          month = 'ноября';
+          break;
+        case 12:
+          month = 'декабря';
+          break;
+
+        default:
+          month = 'месяца';
+          break;
+      }
+      let date =
+        day.toString() +
+        ' ' +
+        month.toString() +
+        ' ' +
+        year.toString() +
+        ' ' +
+        'года';
+      return date;
+    },
+  },
+  methods: {
+    showSharePopup() {
+      this.$store.commit('popup/toggleSharePopup');
     },
   },
   methods: {
