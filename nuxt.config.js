@@ -67,4 +67,7 @@ export default {
       // ...
     },
   },
+  router: {
+    middleware: 'basicData',
+  },
 };

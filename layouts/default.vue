@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <app-header />
+    <app-header :headerTextData="headerData()" />
 
     <app-base-popup
       v-if="popupShown"
@@ -27,13 +27,13 @@
       <app-leave-contact />
     </app-base-popup>
 
-    <app-footer />
+    <app-footer :footerTextData="footerData()" />
   </div>
 </template>
 
 <script>
 import Header from '@/components/Header';
-import Footer from '@/components/Footer/Footer';
+import Footer from '@/components/Footer';
 import BasePopup from '@/components/BasePopup';
 import Quiz from '@/components/Quiz/Quiz';
 import PopupShare from '@/components/PopupShare';
@@ -59,6 +59,9 @@ export default {
     popupContactShown() {
       return this.$store.getters['popup/getPopupContact'];
     },
+    blocks() {
+      return this.$store.getters['blocks/blocks'];
+    },
     quizDate() {
       return this.$store.getters['quizDate/quizDate'];
     },
@@ -75,6 +78,14 @@ export default {
     },
     contactPopup() {
       this.$store.commit('popup/togglePopupContact');
+    },
+    headerData() {
+      const dataHeader = this.blocks.find(el => el.block === `header`);
+      return dataHeader;
+    },
+    footerData() {
+      const dataFooter = this.blocks.find(el => el.block === `footer`);
+      return dataFooter;
     },
   },
 };
