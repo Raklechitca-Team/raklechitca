@@ -1,9 +1,9 @@
 <template>
   <div class="statistics">
     <app-container>
-      <app-section-title class="statistics__title"
-        >Статистика по онкозаболеваниям</app-section-title
-      >
+      <app-section-title class="statistics__title">{{
+        statisticsText.title
+      }}</app-section-title>
       <div class="statistics__adapt">
         <div class="statistics__blocks">
           <div v-for="el in statisticsData" :key="el.id">
@@ -48,6 +48,7 @@ export default {
   },
   props: {
     statisticsData: Array,
+    statisticsText: Object,
   },
 };
 </script>

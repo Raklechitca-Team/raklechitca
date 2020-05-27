@@ -4,9 +4,7 @@
       {{ data.title }}
     </section-title>
     <div class="cover-base__text-wrapper" :style="{ color: textColor }">
-      <p class="cover-base__subtitle">
-        {{ data.subtitle }}
-      </p>
+      <div class="cover-base__subtitle" v-html="data.text"></div>
       <div class="cover-base__direction-content">
         <ul class="cover-base__options">
           <li
@@ -20,7 +18,7 @@
               },
             ]"
           >
-            {{ data.button.one }}
+            {{ data.extraTexts[0].title }}
             <div
               v-if="1 === this.currentTab"
               class="cover-base__bottom-line"
@@ -40,7 +38,7 @@
               },
             ]"
           >
-            {{ data.button.two }}
+            {{ data.extraTexts[1].title }}
             <div
               v-if="2 === this.currentTab"
               class="cover-base__bottom-line"
@@ -49,12 +47,16 @@
           </li>
         </ul>
         <div class="cover-base__text-n-button-wrapper">
-          <p v-if="this.currentTab == 1" class="cover-base__option-description">
-            {{ data.description.one }}
-          </p>
-          <p v-if="this.currentTab == 2" class="cover-base__option-description">
-            {{ data.description.two }}
-          </p>
+          <div
+            v-if="this.currentTab == 1"
+            class="cover-base__option-description"
+            v-html="data.extraTexts[0].text"
+          />
+          <div
+            v-if="this.currentTab == 2"
+            class="cover-base__option-description"
+            v-html="data.extraTexts[1].text"
+          />
           <slot></slot>
         </div>
       </div>
@@ -101,7 +103,7 @@ export default {
 .cover-base {
   width: 100%;
   font-family: 'Inter', 'Arial', sans-serif;
-  padding: 100px 0;
+  padding: 60px 0 90px;
 }
 .cover-base__title {
   max-width: 367px;
@@ -212,7 +214,8 @@ export default {
 }
 @media screen and (max-width: 1000px) {
   .cover-base {
-    padding-top: 80px;
+    padding: 80px 0px 0px;
+    min-height: 665px;
   }
   .cover-base__title {
     font-size: 24px;
@@ -267,7 +270,7 @@ export default {
   }
   @media screen and (max-width: 480px) {
     .cover-base {
-      padding: 50px auto;
+      padding: 50px 0 0;
     }
     .cover-base__title {
       max-width: 290px;
