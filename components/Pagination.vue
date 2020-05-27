@@ -2,10 +2,16 @@
   <div>
     <div class="pagination">
       <a
-        @click="$emit('pageClick', currentPage)"
-        class="pagination__quick-navigation"
-        >Первая<span class="arrow">&#9001;</span></a
+        @click="currentPageChange(firstPage)"         
+        :class="[
+          'pagination__quick-navigation',
+          {
+            'pagination__quick-navigation_active' :this.activePage,
+            'pagination__quick-navigation_disabled' :!this.activePage,
+          }]"
+        >Первая</a
       >
+      <a @click="currentPageChange(previousPage)" class="arrow">&#9001;</a>
       <div
         v-for="page in setPages"
         @click="$emit('pageClick', page)"
@@ -13,16 +19,22 @@
       >
         {{ page }}
       </div>
+      <a @click="currentPageChange(nextPage)" class="arrow">&#9002;</a>
       <a
-        @click="$emit('pageClick', setPages)"
-        class="pagination__quick-navigation"
-        ><span class="arrow">&#9002;</span>Последняя</a
+        @click="currentPageChange(lastPage)"
+        :class="[
+          'pagination__quick-navigation',
+          {
+            'pagination__quick-navigation_active' :!this.activePage,
+            'pagination__quick-navigation_disabled' :this.activePage,
+          }]"
+        >Последняя</a
       >
     </div>
     <div class="pagination pagination_hidden">
       <div class="pagination__wrapper-top">
         <a
-          @click="$emit('pageClick', currentPage)"
+          @click="currentPageChange(previousPage)"
           class="pagination__quick-navigation arrow"
           >&#9001;</a
         >
@@ -34,19 +46,19 @@
           {{ page }}
         </div>
         <a
-          @click="$emit('pageClick', setPages)"
+          @click="currentPageChange(nextPage)"
           class="pagination__quick-navigation arrow"
           >&#9002;</a
         >
       </div>
       <div class="pagination__wrapper-bottom">
         <a
-          @click="$emit('pageClick', currentPage)"
+          @click="currentPageChange(firstPage)"
           class="pagination__quick-navigation pagination__quick-navigation_first"
           >Первая</a
         >
         <a
-          @click="$emit('pageClick', setPages)"
+          @click="currentPageChange(lastPage)"
           class="pagination__quick-navigation"
           >Последняя</a
         >
@@ -60,7 +72,6 @@ export default {
   data() {
     return {
       currentPage: 1,
-      isActive: true,
     };
   },
   props: {
@@ -69,7 +80,52 @@ export default {
   },
   computed: {
     setPages() {
-      return Math.ceil(this.storiesInTotal / this.storiesPerPage);
+      const pagesMax = Math.ceil(this.storiesInTotal / this.storiesPerPage);
+      if (pagesMax > 5) {
+        let arrayFromPagesMax = [];
+        for (let i = 1; i !== 4; i++) {
+          arrayFromPagesMax[i - 1] = i;
+        }
+        return arrayFromPagesMax;
+      } else {
+        return pagesMax;
+      }
+    },
+    firstPage() {
+      const first = 1;
+      return first;
+    },
+    previousPage() {
+      if (this.currentPage > 1) {
+        const previous = this.currentPage - 1;
+        return previous;
+      } else {
+        return this.firstPage;
+      }
+    },
+    nextPage() {
+      if (this.currentPage !== this.setPages) {
+        const next = this.currentPage + 1;
+        return next;
+      } else {
+        return this.lastPage;
+      }
+    },
+    lastPage() {
+      return this.currentPage = this.setPages;
+    },
+    activePage() {
+      if (this.currentPage === 1) {
+        return false;
+      } else {
+        return true;
+      }
+    }
+  },
+  methods: {
+    currentPageChange(somePage) {
+      this.currentPage = somePage;
+      this.$emit('pageClick', somePage);
     },
   },
 };
@@ -113,13 +169,18 @@ export default {
 .pagination__quick-navigation_disabled {
   color: #a2a2a2;
 }
-.pagination__quick-navigation_disabled:hover,
 .pagination__quick-navigation_active {
   color: #000;
 }
 .arrow {
-  margin: 0 30px;
+  height: 50px;
+  font-size: 18px;
+  line-height: 22px;
+  display: flex;
+  align-items: center;
   color: #000;
+  cursor: pointer;
+  margin: 0 30px;
 }
 .pagination_hidden {
   display: none;
