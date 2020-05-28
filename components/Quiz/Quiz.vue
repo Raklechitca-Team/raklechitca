@@ -76,10 +76,8 @@ export default {
     return {
       answer: '',
       quizDate: {},
+      quizKeyData: this.$store.state.quiz.keysAnswer,
     };
-  },
-  props: {
-    quizDateKey: Array,
   },
   computed: {
     currentQuestion() {
@@ -108,7 +106,7 @@ export default {
         this.showDateInput();
         return;
       }
-      let x = this.quizDateKey[this.$store.state.quiz.currentQuestion - 1];
+      let x = this.quizKeyData[this.$store.state.quiz.currentQuestion - 1];
       this.quizDate[x] = this.answer;
     },
     showDateInput() {
