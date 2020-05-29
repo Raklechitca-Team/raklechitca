@@ -1,14 +1,14 @@
 <template>
-  <div class="wrapper" v-if="loading">
-    <span class="loader">
-      <span class="loader-inner"></span>
-    </span>
+  <div class="container" v-if="loading">
+    <div class="squares">
+      <div class="square" v-for="i in 4" :key="i"></div>
+    </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'SquareFill',
+  name: 'Squares',
   data: () => ({
     loading: false,
   }),
@@ -23,8 +23,13 @@ export default {
 };
 </script>
 
-<style scoped>
-.wrapper {
+<style lang="scss" scoped>
+$squares-size: 80px;
+$square-size: $squares-size / 2;
+$animation: 1s linear infinite;
+
+.container {
+  text-align: center;
   position: fixed;
   top: 0;
   left: 0;
@@ -36,63 +41,84 @@ export default {
   justify-content: center;
   align-items: center;
 }
-.loader {
+
+.squares {
+  position: relative;
   display: inline-block;
-  width: 100px;
-  height: 100px;
-  border: 4px solid #807292;
-  animation: loader 2s infinite ease-in;
+  width: $squares-size;
+  height: $squares-size;
+  overflow: hidden;
+  transform-origin: bottom left;
+  animation: squares $animation;
 }
 
-.loader-inner {
-  vertical-align: top;
-  display: inline-block;
-  width: 100%;
-  background-color: #807292;
-  animation: loader-inner 2s infinite ease-in;
-}
+.square {
+  position: absolute;
+  width: $square-size;
+  height: 40px;
+  background-color: white;
+  left: 0px;
+  top: 0px;
 
-@keyframes loader {
-  0% {
-    transform: rotate(0deg);
+  &:first-child {
+    top: $square-size;
   }
+  &:nth-child(2) {
+    left: $square-size;
+    top: $square-size;
+    animation: square2 $animation;
+  }
+  &:nth-child(3) {
+    animation: square3 $animation;
+  }
+  &:last-child {
+    left: $square-size;
+    animation: square4 $animation;
+  }
+}
 
+@keyframes squares {
+  from {
+    transform: scale(1);
+  }
+  90% {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(0.5);
+  }
+}
+@keyframes square2 {
+  from {
+    transform: translateY(-50px);
+  }
   25% {
-    transform: rotate(180deg);
+    transform: translate(0);
   }
-
-  50% {
-    transform: rotate(180deg);
-  }
-
-  75% {
-    transform: rotate(360deg);
-  }
-
-  100% {
-    transform: rotate(360deg);
+  to {
+    transform: translate(0);
   }
 }
-
-@keyframes loader-inner {
-  0% {
-    height: 0%;
+@keyframes square3 {
+  from {
+    transform: translateY(-50px);
   }
-
-  25% {
-    height: 0%;
-  }
-
   50% {
-    height: 100%;
+    transform: translate(0);
   }
-
+  to {
+    transform: translate(0);
+  }
+}
+@keyframes square4 {
+  from {
+    transform: translateY(-50px);
+  }
   75% {
-    height: 100%;
+    transform: translate(0);
   }
-
-  100% {
-    height: 0%;
+  to {
+    transform: translate(0);
   }
 }
 </style>
