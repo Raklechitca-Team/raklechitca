@@ -5,42 +5,73 @@
       Мы свяжемся с вами в течение недели, чтобы задать вопросы о вашей истории
       и разместить ее на сайте.
     </p>
-    <label for="name" class="contact__question"
-      >Как вас зовут?<input
-        type="text"
-        class="contact__answer"
-        id="name"
-        placeholder="Напишите тут"
-        required
-    /></label>
+    <validation-provider
+      class="contact__validation"
+      rules="required|alpha_spaces"
+      v-slot="{ errors }"
+    >
+      <label for="name" class="contact__question"
+        >Как вас зовут?
+        <input
+          v-model="name"
+          class="contact__answer"
+          id="name"
+          placeholder="Напишите тут"
+          required
+        /><span class="contact__validation-text">{{ errors[0] }}</span>
+      </label>
+    </validation-provider>
     <div class="contact__table">
-      <label
-        for="email"
-        class="contact__question contact__question_margin-in-table"
-        >Электронная почта<input
-          type="email"
-          class="contact__answer"
-          id="email"
-          placeholder="pochta@example.com"
-          required
-      /></label>
-      <label for="number" class="contact__question"
-        >Телефон<input
-          type="tel"
-          class="contact__answer"
-          id="number"
-          placeholder="+7 000 000 00 00"
-          required
-      /></label>
+      <validation-provider
+        class="contact__validation contact__question_margin-in-table"
+        rules="required|email"
+        v-slot="{ errors }"
+      >
+        <label for="email" class="contact__question"
+          >Электронная почта
+          <input
+            v-model="email"
+            class="contact__answer"
+            id="email"
+            placeholder="pochta@example.com"
+            required
+          /><span class="contact__validation-text">{{ errors[0] }}</span>
+        </label>
+      </validation-provider>
+      <validation-provider
+        class="contact__validation"
+        :rules="{ regex: /^[0-9 +()-]+$/ }"
+        v-slot="{ errors }"
+      >
+        <label for="number" class="contact__question"
+          >Телефон
+          <input
+            v-model="tel"
+            class="contact__answer"
+            id="number"
+            placeholder="+7 000 000 00 00"
+            required
+          /><span class="contact__validation-text">{{ errors[0] }}</span>
+        </label>
+      </validation-provider>
     </div>
-    <label for="name" class="contact__question"
-      >Напишите, если есть предпочтительный способ связи и удобное время<input
-        type="text"
-        class="contact__answer"
-        id="name"
-        placeholder="Телефон / почта и удобное время"
-        required
-    /></label>
+    <validation-provider
+      class="contact__validation"
+      rules="required"
+      v-slot="{ errors }"
+    >
+      <label for="name" class="contact__question"
+        >Напишите, если есть предпочтительный способ связи и удобное время
+        <input
+          v-model="text"
+          class="contact__answer"
+          id="name"
+          placeholder="Телефон / почта и удобное время"
+          required
+        />
+        <span class="contact__validation-text">{{ errors[0] }}</span>
+      </label>
+    </validation-provider>
     <div class="contact__table">
       <contact-button class="contact__button"
         ><slot>Отправить</slot></contact-button
@@ -57,9 +88,41 @@
 
 <script>
 import ButtonFillForm from './ui/ButtonFillForm.vue';
+import { ValidationProvider, extend } from 'vee-validate';
+import { required, email, alpha_spaces, regex } from 'vee-validate/dist/rules';
+
+extend('required', {
+  ...required,
+  message: 'Пожалуйста, заполните эту форму!',
+});
+
+extend('email', {
+  ...email,
+  message: 'Почта имеет неверный формат!',
+});
+
+extend('regex', {
+  ...regex,
+  message: 'Номер телефона имеет неверный формат!',
+});
+
+extend('alpha_spaces', {
+  ...alpha_spaces,
+  message: 'Пожалуйста, укажите имя!',
+});
+
 export default {
   components: {
     'contact-button': ButtonFillForm,
+    ValidationProvider,
+  },
+  data() {
+    return {
+      name: '',
+      email: '',
+      tel: '',
+      text: '',
+    };
   },
 };
 </script>
@@ -90,6 +153,18 @@ export default {
   display: flex;
 }
 
+.contact__validation {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.contact__validation-text {
+  font-size: 14px;
+  text-align: left;
+  color: #613a93;
+}
+
 .contact__question {
   margin: 40px 0 0;
   font-weight: 500;
@@ -101,7 +176,7 @@ export default {
 }
 
 .contact__question_margin-in-table {
-  margin: 40px 40px 0 0;
+  margin: 0 40px 0 0;
 }
 
 .contact__answer {
@@ -217,14 +292,14 @@ export default {
     flex-direction: column;
   }
 
+  .contact__validation-text {
+    font-size: 11px;
+  }
+
   .contact__question {
     margin: 30px 0 0;
     font-size: 13px;
     line-height: 16px;
-  }
-
-  .contact__question_margin-in-table {
-    margin: 30px 0 0;
   }
 
   .contact__answer {

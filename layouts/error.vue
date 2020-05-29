@@ -1,11 +1,17 @@
 <template>
   <section class="error">
-    <h1 class="error__text">
-      Такой страницы не существует
+    <h1 class="error__text error__text_title">
+      404
     </h1>
     <h2 class="error__text error__text_subtitle">
-      Обратитесь к кому-нибудь из этих ребят:
+      Страница не найдена.
     </h2>
+    <h3 class="error__text error__text_subtitle">
+      <nuxt-link to="/">Перейти на главную</nuxt-link>
+    </h3>
+    <h4 class="error__text error__text_subtitle">
+      Либо можно обратиться к этим ребятам:
+    </h4>
     <div class="developers">
       <div
         class="developers__person"
@@ -16,9 +22,6 @@
         <p class="developers__description">{{ obj.name }}</p>
         <p class="developers__description">{{ obj.contacts }}</p>
       </div>
-    </div>
-    <div class="error__link">
-      <nuxt-link to="/">Вернуться</nuxt-link>
     </div>
   </section>
 </template>
@@ -67,38 +70,34 @@ export default {
 
 <style scoped>
 .error {
-  max-width: 1024px;
+  max-width: 1440px;
   margin: 0 auto;
+  padding: 100px 30px;
 }
 .error__text {
   font-family: 'Inter', 'Arial', sans-serif;
   font-style: normal;
-  font-weight: 600;
-  font-size: 36px;
-  line-height: 30px;
+  font-weight: normal;
   text-align: center;
-  margin-top: 30px;
+  /*margin-top: 30px;*/
 }
-.error__text_subtitle {
+.error__text_title {
+  font-size: 144px;
+  line-height: 174px;
+}
+.error__text.error__text_subtitle {
+  margin: 0;
   font-size: 16px;
-  margin-top: 10px;
-}
-.error__link {
-  text-decoration: none;
-  font-family: 'Inter', 'Arial', sans-serif;
-  font-style: normal;
-  font-weight: 600;
-  font-size: 36px;
-  margin: 0 auto;
-  text-align: center;
+  line-height: 20px;
+  color: #000;
 }
 .developers {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
 }
 .developers__person {
-  margin: 30px;
+  max-width: 200px;
+  margin: 30px auto;
 }
 .developers__photo {
   width: 200px;

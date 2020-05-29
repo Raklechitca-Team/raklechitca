@@ -2,7 +2,7 @@
   <div>
     <div class="pagination">
       <a
-        @click="currentPageChange(firstPage)"         
+        @click="currentPageChange(firstPage)"
         :class="[
           'pagination__quick-navigation',
           {
@@ -138,7 +138,7 @@ export default {
       }
     },
     lastPage() {
-      return this.currentPage = this.setPages;
+      return (this.currentPage = this.setPages);
     },
     activeFirstPage() {
       if (this.currentPage === 1) {

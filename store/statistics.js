@@ -11,7 +11,7 @@ const mutations = {
 const actions = {
   async fetchStatistics({ commit }) {
     const statistics = await this.$axios.$get(
-      process.env.baseUrl + 'statistics'
+      process.env.baseUrl + '/statistics'
     );
     commit('setState', {
       name: 'statistics',
