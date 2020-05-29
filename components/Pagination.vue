@@ -6,16 +6,19 @@
         :class="[
           'pagination__quick-navigation',
           {
-            'pagination__quick-navigation_active' :this.activePage,
-            'pagination__quick-navigation_disabled' :!this.activePage,
+            'pagination__quick-navigation_active' :this.activeFirstPage,
+            'pagination__quick-navigation_disabled' :!this.activeFirstPage,
           }]"
         >Первая</a
       >
       <a @click="currentPageChange(previousPage)" class="arrow">&#9001;</a>
       <div
-        v-for="page in setPages"
-        @click="$emit('pageClick', page)"
-        class="pagination__number"
+        v-for="page in this.displayPages.slice(0, 5)"
+        @click="currentPageChange(page)"
+        :class="[
+        'pagination__number',
+        { pagination__number_current : currentPage == page }
+        ]"
       >
         {{ page }}
       </div>
@@ -25,8 +28,8 @@
         :class="[
           'pagination__quick-navigation',
           {
-            'pagination__quick-navigation_active' :!this.activePage,
-            'pagination__quick-navigation_disabled' :this.activePage,
+            'pagination__quick-navigation_active' :!this.activeLastPage,
+            'pagination__quick-navigation_disabled' :this.activeLastPage,
           }]"
         >Последняя</a
       >
@@ -39,9 +42,12 @@
           >&#9001;</a
         >
         <div
-          v-for="page in setPages"
-          @click="$emit('pageClick', page)"
-          class="pagination__number"
+          v-for="page in this.displayPages.slice(0, 3)"
+          @click="currentPageChange(page)"
+          :class="[
+          'pagination__number',
+          { pagination__number_current : currentPage == page }
+          ]"
         >
           {{ page }}
         </div>
@@ -54,24 +60,34 @@
       <div class="pagination__wrapper-bottom">
         <a
           @click="currentPageChange(firstPage)"
-          class="pagination__quick-navigation pagination__quick-navigation_first"
+          :class="[
+          'pagination__quick-navigation pagination__quick-navigation_first',
+          {
+            'pagination__quick-navigation_active' :this.activeFirstPage,
+            'pagination__quick-navigation_disabled' :!this.activeFirstPage,
+          }]"
           >Первая</a
         >
         <a
           @click="currentPageChange(lastPage)"
-          class="pagination__quick-navigation"
+          :class="[
+          'pagination__quick-navigation',
+          {
+            'pagination__quick-navigation_active' :!this.activeLastPage,
+            'pagination__quick-navigation_disabled' :this.activeLastPage,
+          }]"
           >Последняя</a
         >
       </div>
     </div>
   </div>
 </template>
-
 <script>
 export default {
   data() {
     return {
       currentPage: 1,
+      pageRange: 5,
     };
   },
   props: {
@@ -81,15 +97,25 @@ export default {
   computed: {
     setPages() {
       const pagesMax = Math.ceil(this.storiesInTotal / this.storiesPerPage);
-      if (pagesMax > 5) {
-        let arrayFromPagesMax = [];
-        for (let i = 1; i !== 4; i++) {
-          arrayFromPagesMax[i - 1] = i;
-        }
-        return arrayFromPagesMax;
-      } else {
         return pagesMax;
+    },
+    rangeStart() {
+      const start = this.currentPage - 1;
+      if (start > 0) {
+        return start;
+      } else {
+        return 1;
       }
+    },
+    rangeEnd() {
+      const end = this.currentPage + this.pageRange;
+      return (end < this.setPages) ? end: this.setPages;
+    }, 
+    displayPages() {
+      const pages = [];
+      for (let i = this.rangeStart; i <= this.rangeEnd; i++) {
+        pages.push(i);
+      } return pages;
     },
     firstPage() {
       const first = 1;
@@ -114,11 +140,18 @@ export default {
     lastPage() {
       return this.currentPage = this.setPages;
     },
-    activePage() {
+    activeFirstPage() {
       if (this.currentPage === 1) {
         return false;
       } else {
         return true;
+      }
+    },
+    activeLastPage() {
+      if (this.currentPage === this.setPages) {
+        return true;
+      } else {
+        return false;
       }
     }
   },
@@ -130,7 +163,6 @@ export default {
   },
 };
 </script>
-
 <style scoped>
 .pagination {
   display: flex;
@@ -150,10 +182,10 @@ export default {
   align-items: center;
   cursor: pointer;
 }
-.pagination__number:last-child {
+.pagination__number:last-of-type {
   margin-right: 0;
 }
-.pagination__number:hover {
+.pagination__number:hover, .pagination__number_current {
   background-color: #f4f4f4;
 }
 .pagination__quick-navigation {
@@ -168,9 +200,7 @@ export default {
 }
 .pagination__quick-navigation_disabled {
   color: #a2a2a2;
-}
-.pagination__quick-navigation_active {
-  color: #000;
+  cursor: default;
 }
 .arrow {
   height: 50px;
@@ -185,7 +215,7 @@ export default {
 .pagination_hidden {
   display: none;
 }
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 600px) {
   .pagination {
     display: none;
   }
