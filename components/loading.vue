@@ -42,11 +42,9 @@ export default {
       border-left-color: rgb(45, 27, 70);
     }
   }
-
   @keyframes preload-cycle-#{$i} {
     $startIndex: $i * 5;
     $reverseIndex: (80 - $i * 5);
-
     #{$startIndex * 1%} {
       transform: rotateZ(60 * $i + deg) rotateY(90deg) rotateX(0deg);
       border-left-color: rgb(45, 27, 70);
@@ -56,7 +54,6 @@ export default {
       transform: rotateZ(60 * $i + deg) rotateY(0) rotateX(0deg);
       border-left-color: #613a93;
     }
-
     #{$reverseIndex + 5%},
     100% {
       transform: rotateZ(60 * $i + deg) rotateY(90deg) rotateX(0deg);
@@ -64,7 +61,6 @@ export default {
     }
   }
 }
-
 @keyframes preload-flip {
   0% {
     transform: rotateY(0deg) rotateZ(-60deg);
@@ -73,13 +69,11 @@ export default {
     transform: rotateY(360deg) rotateZ(-60deg);
   }
 }
-
 body {
   background: #613a93;
 }
-
 .background {
-  background: rgba(0, 0, 0, 0.4);
+  background: rgba(0, 0, 0, 0.7);
   position: fixed;
   top: 0;
   left: 0;
@@ -89,7 +83,6 @@ body {
   display: flex;
   z-index: 3;
 }
-
 .preloader {
   position: absolute;
   top: 50%;
@@ -103,7 +96,6 @@ body {
   margin-top: -2.125em;
   transform-origin: center center;
   transform: rotateY(180deg) rotateZ(-60deg);
-
   .slice {
     border-top: 1.125em solid transparent;
     border-right: none;
@@ -115,14 +107,12 @@ body {
     transform-origin: left bottom;
     border-radius: 3px 3px 0 0;
   }
-
   @for $i from 1 through 6 {
     .slice:nth-child(#{$i}) {
       transform: rotateZ(60 * $i + deg) rotateY(0deg) rotateX(0);
       animation: 0.15s linear 0.9 - $i * 0.08s preload-hide-#{$i} both 1;
     }
   }
-
   &.loading {
     animation: 2s preload-flip steps(2) infinite both;
     @for $i from 1 through 6 {
