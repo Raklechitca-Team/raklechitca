@@ -1,14 +1,19 @@
 <template>
-  <div class="container" v-if="loading">
-    <div class="squares">
-      <div class="square" v-for="i in 4" :key="i"></div>
+  <div class="background" v-if="loading">
+    <div class="preloader loading">
+      <span class="slice"></span>
+      <span class="slice"></span>
+      <span class="slice"></span>
+      <span class="slice"></span>
+      <span class="slice"></span>
+      <span class="slice"></span>
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'Squares',
+  name: 'Hexagon',
   data: () => ({
     loading: false,
   }),
@@ -24,101 +29,108 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-$squares-size: 80px;
-$square-size: $squares-size / 2;
-$animation: 1s linear infinite;
+@for $i from 1 through 6 {
+  @keyframes preload-show-#{$i} {
+    from {
+      transform: rotateZ(60 * $i + deg) rotateY(-90deg) rotateX(0deg);
+      border-left-color: rgb(45, 27, 70);
+    }
+  }
+  @keyframes preload-hide-#{$i} {
+    to {
+      transform: rotateZ(60 * $i + deg) rotateY(-90deg) rotateX(0deg);
+      border-left-color: rgb(45, 27, 70);
+    }
+  }
 
-.container {
-  text-align: center;
+  @keyframes preload-cycle-#{$i} {
+    $startIndex: $i * 5;
+    $reverseIndex: (80 - $i * 5);
+
+    #{$startIndex * 1%} {
+      transform: rotateZ(60 * $i + deg) rotateY(90deg) rotateX(0deg);
+      border-left-color: rgb(45, 27, 70);
+    }
+    #{$startIndex + 5%},
+    #{$reverseIndex * 1%} {
+      transform: rotateZ(60 * $i + deg) rotateY(0) rotateX(0deg);
+      border-left-color: #613a93;
+    }
+
+    #{$reverseIndex + 5%},
+    100% {
+      transform: rotateZ(60 * $i + deg) rotateY(90deg) rotateX(0deg);
+      border-left-color: #613a93;
+    }
+  }
+}
+
+@keyframes preload-flip {
+  0% {
+    transform: rotateY(0deg) rotateZ(-60deg);
+  }
+  100% {
+    transform: rotateY(360deg) rotateZ(-60deg);
+  }
+}
+
+body {
+  background: #613a93;
+}
+
+.background {
+  background: rgba(0, 0, 0, 0.4);
   position: fixed;
   top: 0;
   left: 0;
   z-index: 3;
   width: 100vw;
   height: 100vh;
-  background-color: rgba(0, 0, 0, 0.2);
   display: flex;
-  justify-content: center;
-  align-items: center;
+  z-index: 3;
 }
 
-.squares {
-  position: relative;
-  display: inline-block;
-  width: $squares-size;
-  height: $squares-size;
-  overflow: hidden;
-  transform-origin: bottom left;
-  animation: squares $animation;
-}
-
-.square {
+.preloader {
   position: absolute;
-  width: $square-size;
-  height: 40px;
-  background-color: white;
-  left: 0px;
-  top: 0px;
+  top: 50%;
+  left: 50%;
+  font-size: 20px;
+  display: block;
+  z-index: 4;
+  width: 3.75em;
+  height: 4.25em;
+  margin-left: -1.875em;
+  margin-top: -2.125em;
+  transform-origin: center center;
+  transform: rotateY(180deg) rotateZ(-60deg);
 
-  &:first-child {
-    top: $square-size;
+  .slice {
+    border-top: 1.125em solid transparent;
+    border-right: none;
+    border-bottom: 1em solid transparent;
+    border-left: 1.875em solid rgb(123, 106, 145);
+    position: absolute;
+    top: 0px;
+    left: 50%;
+    transform-origin: left bottom;
+    border-radius: 3px 3px 0 0;
   }
-  &:nth-child(2) {
-    left: $square-size;
-    top: $square-size;
-    animation: square2 $animation;
-  }
-  &:nth-child(3) {
-    animation: square3 $animation;
-  }
-  &:last-child {
-    left: $square-size;
-    animation: square4 $animation;
-  }
-}
 
-@keyframes squares {
-  from {
-    transform: scale(1);
+  @for $i from 1 through 6 {
+    .slice:nth-child(#{$i}) {
+      transform: rotateZ(60 * $i + deg) rotateY(0deg) rotateX(0);
+      animation: 0.15s linear 0.9 - $i * 0.08s preload-hide-#{$i} both 1;
+    }
   }
-  90% {
-    transform: scale(1);
-  }
-  to {
-    transform: scale(0.5);
-  }
-}
-@keyframes square2 {
-  from {
-    transform: translateY(-50px);
-  }
-  25% {
-    transform: translate(0);
-  }
-  to {
-    transform: translate(0);
-  }
-}
-@keyframes square3 {
-  from {
-    transform: translateY(-50px);
-  }
-  50% {
-    transform: translate(0);
-  }
-  to {
-    transform: translate(0);
-  }
-}
-@keyframes square4 {
-  from {
-    transform: translateY(-50px);
-  }
-  75% {
-    transform: translate(0);
-  }
-  to {
-    transform: translate(0);
+
+  &.loading {
+    animation: 2s preload-flip steps(2) infinite both;
+    @for $i from 1 through 6 {
+      .slice:nth-child(#{$i}) {
+        transform: rotateZ(60 * $i + deg) rotateY(90deg) rotateX(0);
+        animation: 2s preload-cycle-#{$i} linear infinite both;
+      }
+    }
   }
 }
 </style>
