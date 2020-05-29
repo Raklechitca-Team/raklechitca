@@ -75,14 +75,9 @@ export default {
   data() {
     return {
       answer: '',
-<<<<<<< HEAD
-=======
       quizDate: {},
->>>>>>> d67fcf3bbd7c64cdb2070cc4546f18138ecc8f44
+      quizKeyData: this.$store.state.quiz.keysAnswer,
     };
-  },
-  props: {
-    quizDateKey: Array,
   },
   computed: {
     currentQuestion() {
@@ -96,10 +91,7 @@ export default {
   },
   methods: {
     async nextQuestion() {
-<<<<<<< HEAD
-=======
       this.takeDataInput();
->>>>>>> d67fcf3bbd7c64cdb2070cc4546f18138ecc8f44
       await this.$store.dispatch('quiz/NEXT_QUESTION', {
         answer: this.answer,
       });
@@ -109,20 +101,17 @@ export default {
       await this.$store.dispatch('quiz/PREV_QUESTION');
       this.answer = this.initialAnswer || '';
     },
-<<<<<<< HEAD
-=======
     takeDataInput() {
       if (this.$store.state.quiz.currentQuestion === 12) {
         this.showDateInput();
         return;
       }
-      let x = this.quizDateKey[this.$store.state.quiz.currentQuestion - 1];
+      let x = this.quizKeyData[this.$store.state.quiz.currentQuestion - 1];
       this.quizDate[x] = this.answer;
     },
     showDateInput() {
       console.log(this.quizDate);
     },
->>>>>>> d67fcf3bbd7c64cdb2070cc4546f18138ecc8f44
   },
 };
 </script>
