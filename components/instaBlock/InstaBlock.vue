@@ -12,12 +12,11 @@
       <div class="insta-story__prolog" v-html="instaText.text" />
     </div>
     <div class="insta-story__images">
-      <app-insta-image
-        v-for="image in images"
-        :url="image.url"
-        :key="image.url"
-      >
-      </app-insta-image>
+      <div v-for="image in images.slice(0, 8)" key="image.url">
+        <a :href="image.url" target="_blank">
+          <app-insta-image :url="image.display_url" />
+        </a>
+      </div>
     </div>
   </div>
 </template>
