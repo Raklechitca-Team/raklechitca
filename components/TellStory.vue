@@ -4,14 +4,20 @@
       <app-cover-base
         @currentTabForParent="currentTab"
         :data="tellStory"
-        :titleColor="`#000`"
-        :textColor="`#666`"
-        :disabledColor="`#A2A2A2`"
+        titleColor="#000"
+        textColor="#666"
+        disabledColor="#A2A2A2"
       >
-        <main-button v-if="this.current === 1" @buttonClick="showPopup"
+        <main-button
+          class="tell-story__button"
+          v-if="this.current === 1"
+          @buttonClick="showPopup"
           >Заполнить форму</main-button
         >
-        <main-button @buttonClick="showPopupContact" v-if="this.current === 2"
+        <main-button
+          class="tell-story__button"
+          @buttonClick="showPopupContact"
+          v-if="this.current === 2"
           >Оставить контакт</main-button
         >
       </app-cover-base>
@@ -60,15 +66,12 @@ export default {
   width: 100%;
   min-height: 522px;
   background-color: #f7f7f7;
+  display: flex;
+  align-items: center;
 }
 .tell-story__button {
   margin-left: 40px;
   margin-top: 78px;
-}
-@media screen and (max-width: 1240px) {
-  .tell-story__button {
-    width: 230px;
-  }
 }
 @media screen and (max-width: 1000px) {
   .tell-story {
@@ -76,7 +79,6 @@ export default {
   }
   .tell-story__button {
     margin: 50px 0 0;
-    width: 380px;
   }
 }
 </style>
