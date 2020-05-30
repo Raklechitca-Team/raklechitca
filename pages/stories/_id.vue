@@ -6,7 +6,7 @@
           <div class="story__image-wrapper">
             <div
               :style="{
-                backgroundImage: `url('https://strapi.kruzhok.io${filterStories.ImageUrl[0].url}')`,
+                backgroundImage: `url('${baseUrl}${filterStories.ImageUrl[0].url}')`,
               }"
               class="story__image"
             ></div>
@@ -88,6 +88,9 @@ export default {
     'app-more-articles': MoreArticles,
   },
   computed: {
+    baseUrl() {
+      return process.env.baseUrl;
+    },
     stories() {
       return this.$store.getters['stories/stories'];
     },
@@ -292,7 +295,7 @@ export default {
     font-size: 34px;
     line-height: 44px;
   }
-  .story__paragraph {
+  .story__itself {
     font-size: 20px;
     line-height: 28px;
   }
@@ -322,7 +325,7 @@ export default {
     font-size: 30px;
     line-height: 38px;
   }
-  .story__paragraph {
+  .story__itself {
     font-size: 18px;
     line-height: 27px;
   }
@@ -385,7 +388,7 @@ export default {
   .story__itself {
     max-width: 100%;
   }
-  .story__paragraph {
+  .story__itself {
     font-size: 18px;
     line-height: 27px;
   }
@@ -438,7 +441,7 @@ export default {
   .story-text__bottom-wrapper {
     padding-bottom: 20px;
   }
-  .story__paragraph {
+  .story__itself {
     font-size: 13px;
     line-height: 16px;
   }
