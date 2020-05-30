@@ -11,7 +11,14 @@
           }]"
         >Первая</a
       >
-      <a @click="currentPageChange(previousPage)" class="arrow">&#9001;</a>
+      <a @click="currentPageChange(previousPage)"
+      :class="[
+        'arrow',
+        {
+          'arrow_disabled' :this.activeFirstPage,
+          'arrow_disabled' :!this.activeFirstPage,
+      }]"
+      >&#9001;</a>
       <div
         v-for="page in this.displayPages.slice(0, 5)"
         @click="currentPageChange(page)"
@@ -22,7 +29,14 @@
       >
         {{ page }}
       </div>
-      <a @click="currentPageChange(nextPage)" class="arrow">&#9002;</a>
+      <a @click="currentPageChange(nextPage)"
+      :class="[
+        'arrow',
+        {
+          'arrow_disabled' :!this.activeLastPage,
+          'arrow_disabled' :this.activeLastPage,
+      }]"
+      >&#9002;</a>
       <a
         @click="currentPageChange(lastPage)"
         :class="[
@@ -38,7 +52,12 @@
       <div class="pagination__wrapper-top">
         <a
           @click="currentPageChange(previousPage)"
-          class="pagination__quick-navigation arrow"
+          :class="[
+          'pagination__quick-navigation arrow',
+          {
+            'arrow_disabled' :this.activeFirstPage,
+            'arrow_disabled' :!this.activeFirstPage,
+          }]"
           >&#9001;</a
         >
         <div
@@ -53,6 +72,12 @@
         </div>
         <a
           @click="currentPageChange(nextPage)"
+          :class="[
+          'pagination__quick-navigation arrow',
+          {
+            'arrow_disabled' :!this.activeLastPage,
+            'arrow_disabled' :this.activeLastPage,
+          }]"
           class="pagination__quick-navigation arrow"
           >&#9002;</a
         >
@@ -100,11 +125,19 @@ export default {
         return pagesMax;
     },
     rangeStart() {
-      const start = this.currentPage - 1;
-      if (start > 0) {
-        return start;
-      } else {
+      let start = this.currentPage;
+      if (start > 1 && this.setPages === 9) {
+        return start - 1;
+      } if (this.currentPage === 9 && this.setPages === 9) {
+        return start - 2;
+      } if (this.currentPage < 4) {
         return 1;
+      } if (this.currentPage === this.setPages) {
+        return start - 4;
+      } if (this.currentPage === this.setPages-1) {
+        return start - 3;
+      } if (this.currentPage >= 4 && this.currentPage !== this.setPages) {
+        return start - 2;
       }
     },
     rangeEnd() {
@@ -211,6 +244,9 @@ export default {
   color: #000;
   cursor: pointer;
   margin: 0 30px;
+}
+.arrow_disabled {
+  cursor: default;
 }
 .pagination_hidden {
   display: none;
