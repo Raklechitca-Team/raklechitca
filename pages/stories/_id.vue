@@ -21,9 +21,9 @@
               {{ filterStories.title }}
             </h1>
             <div class="story-text__bottom-wrapper">
-              <a class="story__share" @click="showSharePopup"
-                >Поделитесь &#8599;</a
-              >
+              <p class="story__share" @click="showSharePopup">
+                Поделитесь &#8599;
+              </p>
               <p class="story__date">
                 {{ filterDate }}
               </p>
@@ -47,17 +47,17 @@
             ></div>
           </div>
           <div class="story-text__bottom-wrapper">
-            <a class="story__share" @click="showSharePopup"
-              >Поделитесь &#8599;</a
-            >
+            <p class="story__share" @click="showSharePopup">
+              Поделитесь &#8599;
+            </p>
             <p class="story__date">{{ filterDate }}</p>
           </div>
         </div>
 
         <div class="story__itself" v-html="filterStories.text"></div>
-        <a class="story__share story__share_social" @click="showSharePopup"
-          >Поделитесь этой статьей в своих социальных&#160;сетях &#8599;</a
-        >
+        <p class="story__share story__share_social" @click="showSharePopup">
+          Поделитесь этой статьей в своих социальных&#160;сетях &#8599;
+        </p>
         <app-cardlist class="four-cards" :cards="stories.slice(0, 4)" />
         <app-cardlist class="three-cards" :cards="stories.slice(0, 3)" />
         <app-cardlist class="two-cards" :cards="stories.slice(0, 2)" />
