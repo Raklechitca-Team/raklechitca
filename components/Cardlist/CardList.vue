@@ -3,7 +3,7 @@
     <app-card
       v-for="card in cards"
       :key="card.id"
-      :url="`${baseUrl}${card.ImageUrl[0].url}`"
+      :url="`https://strapi.kruzhok.io${card.ImageUrl[0].url}`"
       :name="card.author"
       :text="card.title"
       :card="card.id"
@@ -19,11 +19,6 @@ export default {
   },
   props: {
     cards: Array,
-  },
-  computed: {
-    baseUrl() {
-      return process.env.baseUrl;
-    },
   },
 };
 </script>
