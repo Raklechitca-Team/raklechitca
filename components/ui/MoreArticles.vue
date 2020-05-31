@@ -1,5 +1,5 @@
 <template>
-  <a href="/stories" class="more-articles">Больше статей</a>
+  <nuxt-link to="/stories" class="more-articles">Больше статей</nuxt-link>
 </template>
 
 <script></script>
