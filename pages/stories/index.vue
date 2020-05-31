@@ -63,7 +63,6 @@ export default {
     },
     setKeySearch(value) {
       this.keySearch = value;
-      console.log(this.keySearch);
     },
   },
   computed: {
@@ -83,7 +82,6 @@ export default {
       );
     },
     storiesToRender() {
-      console.log(this.startIndex);
       return this.stories.filter(
         (item, index) =>
           index >= this.startIndex &&
