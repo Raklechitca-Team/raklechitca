@@ -44,7 +44,7 @@
           <div class="story__image-wrapper">
             <div
               :style="{
-                backgroundImage: `url('https://strapi.kruzhok.io${filterStories.ImageUrl[0].url}')`,
+                backgroundImage: `url('${baseUrl}${filterStories.ImageUrl[0].url}')`,
               }"
               class="story__image"
             ></div>
@@ -59,7 +59,7 @@
 
         <div class="story__itself" v-html="filterStories.text"></div>
         <a class="story__share story__share_social" @click="showSharePopup"
-          >Поделитесь этой статьей в своих социальных сетях &#8599;</a
+          >Поделитесь этой статьей в своих социальных&#160;сетях &#8599;</a
         >
         <app-cardlist class="four-cards" :cards="stories.slice(0, 4)" />
         <app-cardlist class="three-cards" :cards="stories.slice(0, 3)" />
