@@ -50,7 +50,7 @@ export default {
 }
 .history__search-button {
   width: 226px;
-  transition: 0.2s linear;
+  transition: 0.3s ease-in-out;
   margin: 0;
 }
 .history__loupe {
@@ -87,6 +87,7 @@ export default {
     justify-content: center;
     width: 46px;
     font-size: 0;
+    align-items: center;
   }
   .history__loupe {
     display: flex;

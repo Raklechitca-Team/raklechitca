@@ -3,32 +3,56 @@
     <section-title class="popup-share__title">Поделитесь</section-title>
     <div class="popup-share__icons">
       <div class="popup-share__item">
-        <a href="" target="_blank" class="popup-share__fb">
+        <a
+          href="https://www.facebook.com/sharer.php?src=sp&u=https%3A%2F%2Fwww.raklechitsa.ru%2F&title=РАКЛЕЧИТСЯ.РФ%20—%20истории%20людей%2C%20победивших%20рак%2C%20но%20не%20свои%20привычки&utm_source=share2"
+          target="_blank"
+          class="popup-share__fb"
+        >
           <facebook class="popup-share__icon" />
         </a>
       </div>
       <div class="popup-share__item">
-        <a href="" target="_blank" class="popup-share__tw">
+        <a
+          href="https://twitter.com/intent/tweet?text=РАКЛЕЧИТСЯ.РФ%20—%20истории%20людей%2C%20победивших%20рак%2C%20но%20не%20свои%20привычки&url=https%3A%2F%2Fwww.raklechitsa.ru%2F&utm_source=share2"
+          target="_blank"
+          class="popup-share__tw"
+        >
           <twitter class="popup-share__icon" />
         </a>
       </div>
       <div class="popup-share__item">
-        <a href="" target="_blank" class="popup-share__vk">
+        <a
+          href="https://vk.com/share.php?url=https%3A%2F%2Fwww.raklechitsa.ru%2F&title=РАКЛЕЧИТСЯ.РФ%20—%20истории%20людей%2C%20победивших%20рак%2C%20но%20не%20свои%20привычки&utm_source=share2"
+          target="_blank"
+          class="popup-share__vk"
+        >
           <vkontakte />
         </a>
       </div>
       <div class="popup-share__item">
-        <a href="" target="_blank" class="popup-share__ok">
+        <a
+          href="https://connect.ok.ru/offer?url=https%3A%2F%2Fwww.raklechitsa.ru%2F&title=РАКЛЕЧИТСЯ.РФ%20—%20истории%20людей%2C%20победивших%20рак%2C%20но%20не%20свои%20привычки&utm_source=share2"
+          target="_blank"
+          class="popup-share__ok"
+        >
           <odnoklassniki />
         </a>
       </div>
       <div class="popup-share__item">
-        <a href="" target="_blank" class="popup-share__ig">
+        <a
+          href="https://www.instagram.com/raklechitsa/"
+          target="_blank"
+          class="popup-share__ig"
+        >
           <instagram class="popup-share__icon" />
         </a>
       </div>
       <div class="popup-share__item">
-        <a href="" target="_blank" class="popup-share__yt">
+        <a
+          href="https://www.youtube.com/results?search_query=%23этонелечится"
+          target="_blank"
+          class="popup-share__yt"
+        >
           <youtube class="popup-share__icon" />
         </a>
       </div>
@@ -82,6 +106,11 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.popup-share__item:hover {
+  opacity: 0.8;
+  transition: opacity 0.3s ease-in-out;
 }
 
 .popup-share__fb {

@@ -58,6 +58,8 @@ export default {
 }
 .insta-story__link:hover {
   cursor: pointer;
+  opacity: 0.8;
+  transition: opacity 0.3s ease-in-out;
 }
 
 .insta-story__title {

@@ -186,7 +186,7 @@ export default {
   font-size: 18px;
   line-height: 22px;
   cursor: pointer;
-  transition: all 0.3s linear;
+  transition: all 0.3s ease-in-out;
 }
 
 .pagination__quick-navigation_disabled {

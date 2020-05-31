@@ -21,4 +21,13 @@ export default {
   border: none;
   cursor: pointer;
 }
+
+.button__body:hover {
+  opacity: 0.8;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.button__body:focus {
+  outline: none;
+}
 </style>

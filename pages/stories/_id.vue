@@ -1,5 +1,8 @@
 <template>
-  <div class="container">
+  <div v-if="!filterStories">
+    <app-error />
+  </div>
+  <div v-else-if="filterStories" class="container">
     <app-container>
       <div class="story">
         <div class="story__banner story__banner_row">
@@ -21,9 +24,9 @@
               {{ filterStories.title }}
             </h1>
             <div class="story-text__bottom-wrapper">
-              <a class="story__share" @click="showSharePopup"
-                >Поделитесь &#8599;</a
-              >
+              <p class="story__share" @click="showSharePopup">
+                Поделитесь &#8599;
+              </p>
               <p class="story__date">
                 {{ filterDate }}
               </p>
@@ -47,17 +50,17 @@
             ></div>
           </div>
           <div class="story-text__bottom-wrapper">
-            <a class="story__share" @click="showSharePopup"
-              >Поделитесь &#8599;</a
-            >
+            <p class="story__share" @click="showSharePopup">
+              Поделитесь &#8599;
+            </p>
             <p class="story__date">{{ filterDate }}</p>
           </div>
         </div>
 
         <div class="story__itself" v-html="filterStories.text"></div>
-        <a class="story__share story__share_social" @click="showSharePopup"
-          >Поделитесь этой статьей в своих социальных&#160;сетях &#8599;</a
-        >
+        <p class="story__share story__share_social" @click="showSharePopup">
+          Поделитесь этой статьей в своих социальных&#160;сетях &#8599;
+        </p>
         <app-cardlist class="four-cards" :cards="stories.slice(0, 4)" />
         <app-cardlist class="three-cards" :cards="stories.slice(0, 3)" />
         <app-cardlist class="two-cards" :cards="stories.slice(0, 2)" />
@@ -71,6 +74,7 @@
 import Container from '@/components/Container';
 import Cardlist from '@/components/Cardlist/CardList';
 import MoreArticles from '@/components/ui/MoreArticles';
+import Error from '@/layouts/error.vue';
 export default {
   fetchOnServer: false,
   async fetch({ store }) {
@@ -86,6 +90,7 @@ export default {
     'app-container': Container,
     'app-cardlist': Cardlist,
     'app-more-articles': MoreArticles,
+    'app-error': Error,
   },
   computed: {
     baseUrl() {
@@ -171,11 +176,49 @@ export default {
 </script>
 
 <style scoped>
+/*плавная загрузка страниц*/
+@-webkit-keyframes fade-in {
+  0% {
+    opacity: 0.1;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@-moz-keyframes fade-in {
+  0% {
+    opacity: 0.1;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@-o-keyframes fade-in {
+  0% {
+    opacity: 0.1;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes fade-in {
+  0% {
+    opacity: 0.1;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
 .container {
   font-family: 'Inter', 'Arial', sans-serif;
   display: flex;
   flex-direction: column;
   padding: 100px auto 0;
+  -webkit-animation: fade-in 0.5s linear;
+  -moz-animation: fade-in 0.5s linear;
+  -o-animation: fade-in 0.5s linear;
+  animation: fade-in 0.5s linear;
 }
 .story__banner {
   padding: 100px 0 130px;
@@ -266,6 +309,11 @@ export default {
 .story__share_social:hover {
   opacity: all 0.3s linear;
 }
+.four-cards,
+.three-cards,
+.two-cards {
+  margin: 0 auto;
+}
 .four-cards {
   margin: 0 auto;
 }
@@ -279,6 +327,10 @@ export default {
 }
 .more-articles {
   margin: 70px auto 100px;
+}
+.more-articles:hover {
+  background-color: #f8f8f8;
+  transition: color 0.3s ease-in-out;
 }
 @media screen and (max-width: 1280px) {
   .story__banner {
@@ -310,7 +362,7 @@ export default {
     margin: 60px auto 90px;
   }
 }
-@media screen and (max-width: 1023px) {
+@media screen and (max-width: 1024px) {
   .story__banner {
     padding: 100px 0 90px;
   }
@@ -349,7 +401,7 @@ export default {
     display: grid;
   }
 }
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 768px) {
   .story__banner {
     margin: 80px 0 100px;
     padding: 0;
@@ -450,6 +502,11 @@ export default {
     font-size: 13px;
     line-height: 16px;
     margin: 60px auto 100px;
+  }
+  .story__share,
+  .story__date {
+    font-size: 13px;
+    line-height: 16px;
   }
   .more-articles {
     margin: 40px auto 50px;
