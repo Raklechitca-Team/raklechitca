@@ -37,7 +37,7 @@ export default {
 
 <style scoped>
 .cardlist {
-  margin: 55px auto 55px;
+  margin: 70px auto 70px;
 }
 .stories__title {
   margin-top: 100px;
@@ -45,10 +45,6 @@ export default {
 }
 .stories__more-articles {
   margin-bottom: 100px;
-}
-.stories__more-articles:hover {
-  background-color: #f8f8f8;
-  transition: color 0.3s ease-in-out;
 }
 .nine-cards {
   display: none;

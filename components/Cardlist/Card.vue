@@ -40,11 +40,11 @@ export default {
   text-decoration: none;
   color: #000;
   font-family: 'Inter', 'Arial', sans-serif;
+  transition: all 0.3s ease-in-out;
 }
 .card:hover {
   box-shadow: 0 0 10px 5px rgba(221, 221, 221, 1);
   transform: scale(1.02, 1.02);
-  transition: all 0.3s ease-in-out;
 }
 .card__image-wrapper {
   width: 100%;
