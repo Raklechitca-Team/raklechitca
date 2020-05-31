@@ -13,7 +13,10 @@
       >
       <a
         @click="currentPageChange(previousPage)"
-        :class="['arrow arrow_left', currentPage === 1 ? 'arrow_disabled' : null]"
+        :class="[
+          'arrow arrow_left',
+          currentPage === 1 ? 'arrow_disabled' : null,
+        ]"
         >&#9001;</a
       >
       <div
@@ -28,7 +31,10 @@
       </div>
       <a
         @click="currentPageChange(nextPage)"
-        :class="['arrow arrow_right', currentPage === setPages ? 'arrow_disabled' : null]"
+        :class="[
+          'arrow arrow_right',
+          currentPage === setPages ? 'arrow_disabled' : null,
+        ]"
         >&#9002;</a
       >
       <a
@@ -70,7 +76,7 @@ export default {
       return Math.ceil(this.storiesInTotal / this.storiesPerPage);
     },
     rangeStart() {
-      let start = this.currentPage;   
+      let start = this.currentPage;
       if (this.pageRange == 5 && this.currentPage < 4) {
         return 1;
       }
@@ -83,15 +89,28 @@ export default {
       if (this.pageRange == 5 && this.currentPage === this.setPages - 1) {
         return start - 3;
       }
-      if (this.pageRange == 5 && this.currentPage >= 4 && this.currentPage !== this.setPages) {
+      if (
+        this.pageRange == 5 &&
+        this.currentPage >= 4 &&
+        this.currentPage !== this.setPages
+      ) {
         return start - 2;
       }
-      if (this.pageRange == 3 && this.currentPage >= 3 && this.currentPage !== this.setPages) {
+      if (
+        this.pageRange == 3 &&
+        this.currentPage >= 3 &&
+        this.currentPage !== this.setPages
+      ) {
         return start - 1;
       }
-      if (this.pageRange == 5 && this.currentPage >= 4 && this.currentPage == this.setPages) {
+      if (
+        this.pageRange == 5 &&
+        this.currentPage >= 4 &&
+        this.currentPage == this.setPages
+      ) {
         return start - 4;
-      } if (this.pageRange == 3 && this.currentPage == this.setPages) {
+      }
+      if (this.pageRange == 3 && this.currentPage == this.setPages) {
         return start - 2;
       }
     },
@@ -227,7 +246,7 @@ export default {
   }
 
   .arrow_left {
-  margin: 0 30px 0 0;
+    margin: 0 30px 0 0;
   }
 
   .arrow_right {

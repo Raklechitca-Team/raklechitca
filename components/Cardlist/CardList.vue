@@ -8,12 +8,12 @@
       :text="card.title"
       :card="card.id"
     />
-    <p></p>
   </div>
 </template>
 
 <script>
 import Card from '@/components/Cardlist/Card';
+
 export default {
   components: {
     'app-card': Card,
@@ -32,6 +32,7 @@ export default {
   grid-gap: 70px 40px;
   margin: 70px auto 140px;
 }
+
 @media screen and (max-width: 1379px) {
   .cardlist {
     margin: 60px auto 130px;
@@ -39,6 +40,7 @@ export default {
     grid-template-columns: repeat(4, 265px);
   }
 }
+
 @media screen and (max-width: 1239px) {
   .cardlist {
     margin: 46px auto 110px;
@@ -46,6 +48,7 @@ export default {
     grid-template-columns: repeat(4, 208px);
   }
 }
+
 @media screen and (max-width: 1023px) {
   .cardlist {
     margin: 60px auto 130px;
@@ -53,11 +56,13 @@ export default {
     grid-template-columns: repeat(3, 216px);
   }
 }
+
 @media screen and (max-width: 767px) {
   .cardlist {
     grid-template-columns: repeat(2, 216px);
   }
 }
+
 @media screen and (max-width: 500px) {
   .cardlist {
     padding: 0;
