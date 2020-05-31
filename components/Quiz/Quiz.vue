@@ -196,6 +196,11 @@ export default {
   background: transparent;
 }
 
+.quiz__button-back:hover {
+  color: #000;
+  transition: color 0.3s ease-in-out;
+}
+
 .quiz__button-next {
   font-size: 16px;
   line-height: 19px;

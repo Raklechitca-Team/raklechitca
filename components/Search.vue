@@ -80,6 +80,7 @@ export default {
     justify-content: center;
     width: 46px;
     font-size: 0;
+    align-items: center;
   }
   .history__loupe {
     display: flex;

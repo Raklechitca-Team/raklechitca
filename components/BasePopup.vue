@@ -1,18 +1,20 @@
 <template>
-  <div class="modal-window">
-    <app-overlay
-      class="modal-window__overlay"
-      @overlayClick="$emit('overlayClick')"
-    />
-    <div class="modal-window__popup">
-      <close-button
-        class="modal-window__close"
-        alt="close"
-        @closeClick="$emit('closeClick')"
+  <transition name="modal-window__fade">
+    <div class="modal-window">
+      <app-overlay
+        class="modal-window__overlay"
+        @overlayClick="$emit('overlayClick')"
       />
-      <slot></slot>
+      <div class="modal-window__popup">
+        <close-button
+          class="modal-window__close"
+          alt="close"
+          @closeClick="$emit('closeClick')"
+        />
+        <slot></slot>
+      </div>
     </div>
-  </div>
+  </transition>
 </template>
 
 <script>
@@ -28,6 +30,17 @@ export default {
 </script>
 
 <style scoped>
+.modal-window__fade-enter-active,
+.modal-window__fade-leave-active {
+  opacity: 1;
+  transition: all 0.3s linear;
+}
+
+.modal-window__fade-enter,
+.modal-window__fade-leave-to {
+  opacity: 0;
+}
+
 .modal-window__popup {
   display: flex;
   position: fixed;
@@ -49,6 +62,12 @@ export default {
   cursor: pointer;
   color: black;
   z-index: 3;
+}
+
+.modal-window__close:hover {
+  opacity: 0.8;
+  transform: rotate(180deg);
+  transition: all 0.3s ease-in-out;
 }
 
 @media screen and (max-width: 1280px) {

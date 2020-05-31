@@ -47,16 +47,20 @@
           </li>
         </ul>
         <div class="cover-base__text-n-button-wrapper">
-          <div
-            v-if="this.currentTab == 1"
-            class="cover-base__option-description"
-            v-html="data.extraTexts[0].text"
-          />
-          <div
-            v-if="this.currentTab == 2"
-            class="cover-base__option-description"
-            v-html="data.extraTexts[1].text"
-          />
+          <transition name="cover-base__fade" mode="out-in">
+            <div
+              v-if="this.currentTab == 1"
+              class="cover-base__option-description"
+              v-html="data.extraTexts[0].text"
+              key="1"
+            />
+            <div
+              v-if="this.currentTab == 2"
+              class="cover-base__option-description"
+              v-html="data.extraTexts[1].text"
+              key="2"
+            />
+          </transition>
           <slot></slot>
         </div>
       </div>
@@ -131,6 +135,14 @@ export default {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+}
+.cover-base__fade-enter-active,
+.cover-base__fade-leave-active {
+  transition: opacity 0.3s ease-in-out;
+}
+.cover-base__fade-enter,
+.cover-base__fade-leave-to {
+  opacity: 0;
 }
 .cover-base__options {
   display: flex;

@@ -84,6 +84,11 @@ export default {
   justify-content: center;
 }
 
+.popup-share__item:hover {
+  opacity: 0.8;
+  transition: opacity 0.3s ease-in-out;
+}
+
 .popup-share__fb {
   width: 18px;
   display: flex;

@@ -28,34 +28,48 @@ export default {
 .cardlist {
   display: grid;
   justify-content: center;
-  grid-template-columns: repeat(4, 300px);
-  grid-gap: 70px 40px;
+  grid-template-columns: repeat(4, 330px);
+  grid-gap: 40px 10px;
   margin: 70px auto 140px;
 }
 @media screen and (max-width: 1379px) {
   .cardlist {
-    margin: 60px auto 130px;
-    grid-gap: 60px 40px;
-    grid-template-columns: repeat(4, 265px);
+    margin: 30px auto 130px;
+    grid-gap: 30px 10px;
+    grid-template-columns: repeat(4, 295px);
   }
 }
 @media screen and (max-width: 1239px) {
   .cardlist {
+    margin: 30px auto 110px;
+    grid-gap: 30px 30px;
+    grid-template-columns: repeat(4, 238px);
+  }
+}
+@media screen and (max-width: 1100px) {
+  .cardlist {
     margin: 46px auto 110px;
-    grid-gap: 46px 30px;
-    grid-template-columns: repeat(4, 208px);
+    grid-gap: 46px 10px;
+    grid-template-columns: repeat(4, 238px);
   }
 }
 @media screen and (max-width: 1023px) {
   .cardlist {
     margin: 60px auto 130px;
     grid-gap: 40px 20px;
-    grid-template-columns: repeat(3, 216px);
+    grid-template-columns: repeat(3, 238px);
+  }
+}
+@media screen and (max-width: 805px) {
+  .cardlist {
+    margin: 60px auto 130px;
+    grid-gap: 40px 10px;
+    grid-template-columns: repeat(3, 232px);
   }
 }
 @media screen and (max-width: 767px) {
   .cardlist {
-    grid-template-columns: repeat(2, 216px);
+    grid-template-columns: repeat(2, 238px);
   }
 }
 @media screen and (max-width: 500px) {
