@@ -1,5 +1,5 @@
 <template>
-  <form class="contact">
+  <form class="contact" @input="valueInput">
     <h1 class="contact__title">Оставьте контакт для связи</h1>
     <p class="contact__subtitle">
       Мы свяжемся с вами в течение недели, чтобы задать вопросы о вашей истории
@@ -17,7 +17,6 @@
           class="contact__answer"
           id="name"
           placeholder="Напишите тут"
-          required
         /><span class="contact__validation-text">{{ errors[0] }}</span>
       </label>
     </validation-provider>
@@ -34,7 +33,6 @@
             class="contact__answer"
             id="email"
             placeholder="pochta@example.com"
-            required
           /><span class="contact__validation-text">{{ errors[0] }}</span>
         </label>
       </validation-provider>
@@ -50,7 +48,6 @@
             class="contact__answer"
             id="number"
             placeholder="+7 000 000 00 00"
-            required
           /><span class="contact__validation-text">{{ errors[0] }}</span>
         </label>
       </validation-provider>
@@ -67,13 +64,12 @@
           class="contact__answer"
           id="name"
           placeholder="Телефон / почта и удобное время"
-          required
         />
         <span class="contact__validation-text">{{ errors[0] }}</span>
       </label>
     </validation-provider>
     <div class="contact__table">
-      <contact-button class="contact__button"
+      <contact-button class="contact__button" :disabled="this.isActive"
         ><slot>Отправить</slot></contact-button
       >
       <p class="contact__to-policy">
@@ -122,7 +118,22 @@ export default {
       email: '',
       tel: '',
       text: '',
+      isActive: true,
     };
+  },
+  methods: {
+    valueInput() {
+      if (
+        this.name.length > 2 &&
+        this.email.length > 2 &&
+        this.tel.length > 9 &&
+        this.text.length > 0
+      ) {
+        this.isActive = false;
+        return;
+      }
+      this.isActive = true;
+    },
   },
 };
 </script>
@@ -193,6 +204,11 @@ export default {
   width: 86px;
   padding: 16px 70px;
   margin: 50px 30px 0 0;
+}
+
+.contact__button:disabled {
+  opacity: 0.5;
+  cursor: default;
 }
 
 .contact__to-policy {
