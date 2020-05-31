@@ -5,8 +5,13 @@
         >Истории неизлечимых привычек
       </app-section-title>
       <app-search @buttonClick="setKeySearch" />
-      <app-cardlist :cards="storiesToRender" class="cardlist" />
+      <app-cardlist v-if="stories.length > 1" :cards="storiesToRender" />
+      <div v-if="stories.length < 1" class="no-results">
+        <p class="no-results__title">Ничего не найдено</p>
+        <p class="no-results__subtitle">Попробуйте еще раз.</p>
+      </div>
       <app-pagination
+        v-if="stories.length > storiesPerPage"
         :storiesInTotal="stories.length"
         :storiesPerPage="storiesPerPage"
         :pageRange="pageRange"
@@ -101,6 +106,28 @@ export default {
   max-width: 413px;
 }
 
+.no-results {
+  margin: 110px auto 380px;
+}
+
+.no-results__title {
+  font-family: 'Inter', 'Arial', sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 48px;
+  line-height: 58px;
+  text-align: center;
+}
+
+.no-results__subtitle {
+  font-family: 'Inter', 'Arial', sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 20px;
+  text-align: center;
+}
+
 @media screen and (max-width: 767px) {
   .stories__title {
     max-width: 380px;
@@ -112,6 +139,20 @@ export default {
 @media screen and (max-width: 500px) {
   .stories__title {
     text-align: left;
+  }
+
+  .no-results {
+    margin: 60px auto 280px;
+  }
+
+  .no-results__title {
+    font-size: 24px;
+    line-height: 29px;
+  }
+
+  .no-results__subtitle {
+    font-size: 14px;
+    line-height: 20px;
   }
 }
 </style>

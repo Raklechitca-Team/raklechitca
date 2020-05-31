@@ -2,7 +2,7 @@
   <div v-if="!filterStories">
     <app-error />
   </div>
-  <div v-else-if='filterStories' class="container">
+  <div v-else-if="filterStories" class="container">
     <app-container>
       <div class="story">
         <div class="story__banner story__banner_row">
@@ -309,7 +309,9 @@ export default {
 .story__share_social:hover {
   opacity: all 0.3s linear;
 }
-.four-cards, .three-cards, .two-cards {
+.four-cards,
+.three-cards,
+.two-cards {
   margin: 0 auto;
 }
 .four-cards {
@@ -501,7 +503,8 @@ export default {
     line-height: 16px;
     margin: 60px auto 100px;
   }
-  .story__share, .story__date {
+  .story__share,
+  .story__date {
     font-size: 13px;
     line-height: 16px;
   }

@@ -8,7 +8,6 @@
       :text="card.title"
       :card="card.id"
     />
-    <p></p>
   </div>
 </template>
 
