@@ -13,6 +13,9 @@ export default async function({ store, route }) {
     store.getters['statistics/statistics'].length < 1
       ? await store.dispatch('statistics/fetchStatistics')
       : null;
+    store.getters['stories/stories'].length < 1
+      ? await store.dispatch('stories/fetchStories')
+      : null;
   }
   if (route.path === '/stories') {
     store.getters['stories/stories'].length < 1
