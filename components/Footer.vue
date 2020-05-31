@@ -39,7 +39,7 @@
         <a
           href="https://praktikum.yandex.ru/"
           target="_blank"
-          class="footer__content_info"
+          class="footer__content_info footer__content_info-link"
           >Сделано студентами Яндекс Практикум</a
         >
       </div>
@@ -239,6 +239,11 @@ export default {
   color: #898989;
   align-self: flex-end;
   text-decoration: none;
+}
+
+.footer__content_info-link:hover {
+  color: #000;
+  transition: color 0.3s ease-in-out;
 }
 
 @media screen and (max-width: 1280px) {

@@ -1,6 +1,6 @@
 <template>
   <div class="stories">
-    <app-container>
+    <app-container class="stories__container">
       <app-section-title class="stories__title"
         >Истории неизлечимых привычек
       </app-section-title>

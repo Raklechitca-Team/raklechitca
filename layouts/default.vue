@@ -108,4 +108,45 @@ html {
   box-sizing: border-box;
   margin: 0;
 }
+
+/*плавная загрузка страниц*/
+@-webkit-keyframes fade-in {
+  0% {
+    opacity: 0.1;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@-moz-keyframes fade-in {
+  0% {
+    opacity: 0.1;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@-o-keyframes fade-in {
+  0% {
+    opacity: 0.1;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes fade-in {
+  0% {
+    opacity: 0.1;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.container {
+  -webkit-animation: fade-in 0.5s linear;
+  -moz-animation: fade-in 0.5s linear;
+  -o-animation: fade-in 0.5s linear;
+  animation: fade-in 0.5s linear;
+}
 </style>

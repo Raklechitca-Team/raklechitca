@@ -4,22 +4,26 @@
       <app-cover-base
         @currentTabForParent="currentTab"
         :data="tellStory"
-        titleColor="#000"
-        textColor="#666"
-        disabledColor="#A2A2A2"
+        :titleColor="`#000`"
+        :textColor="`#666`"
+        :disabledColor="`#A2A2A2`"
       >
-        <main-button
-          class="tell-story__button"
-          v-if="this.current === 1"
-          @buttonClick="showPopup"
-          >Заполнить форму</main-button
-        >
-        <main-button
-          class="tell-story__button"
-          @buttonClick="showPopupContact"
-          v-if="this.current === 2"
-          >Оставить контакт</main-button
-        >
+        <transition name="tell-story__fade" mode="out-in">
+          <main-button
+            class="tell-story__button"
+            v-if="this.current === 1"
+            @buttonClick="showPopup"
+            key="1"
+            >Заполнить форму</main-button
+          >
+          <main-button
+            class="tell-story__button"
+            v-if="this.current === 2"
+            @buttonClick="showPopupContact"
+            key="2"
+            >Оставить контакт</main-button
+          >
+        </transition>
       </app-cover-base>
     </container>
   </div>
@@ -72,6 +76,19 @@ export default {
 .tell-story__button {
   margin-left: 40px;
   margin-top: 78px;
+}
+.tell-story__fade-enter-active,
+.tell-story__fade-leave-active {
+  transition: opacity 0.3s ease-in-out;
+}
+.tell-story__fade-enter,
+.tell-story__fade-leave-to {
+  opacity: 0;
+}
+@media screen and (max-width: 1240px) {
+  .tell-story__button {
+    width: 230px;
+  }
 }
 @media screen and (max-width: 1000px) {
   .tell-story {

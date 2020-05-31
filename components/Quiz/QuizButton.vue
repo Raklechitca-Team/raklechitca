@@ -38,11 +38,11 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
+  transition: opacity 0.3s ease-in-out;
 }
 
 .button:hover {
   opacity: 0.9;
-  transition: opacity 0.3s ease-in-out;
 }
 
 .button:focus {

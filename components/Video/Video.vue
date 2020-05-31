@@ -119,14 +119,12 @@ export default {
   text-align: left;
   margin: 32px 0 0;
 }
-
 .video__arrows {
   display: flex;
   align-self: flex-start;
   margin: 155px 0 0;
   width: 80px;
   position: relative;
-  background: #ff4500;
 }
 .swiper-button-prev {
   background: #fbfbfb;
@@ -142,9 +140,11 @@ export default {
 }
 .swiper-button-prev:hover.swiper-button-prev:after {
   color: #000000;
+  transition: color 0.3s ease-in-out;
 }
 .swiper-button-next:hover.swiper-button-next:after {
   color: #000000;
+  transition: color 0.3s ease-in-out;
 }
 
 .swiper-button-prev:after {
@@ -207,6 +207,11 @@ export default {
 
 .video__paragraph-link {
   color: #666666;
+}
+
+.video__paragraph-link:hover {
+  opacity: 0.8;
+  transition: opacity 0.3s ease-in-out;
 }
 
 @media screen and (max-width: 1280px) {

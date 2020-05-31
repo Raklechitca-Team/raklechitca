@@ -1,10 +1,10 @@
 <template>
   <nav class="menu">
     <ul class="menu__links">
-      <li class="menu__links-list">
+      <li class="menu__links-list-item">
         <nuxt-link to="/" class="menu__link">Главная</nuxt-link>
       </li>
-      <li class="menu__links-list">
+      <li class="menu__links-list-item">
         <nuxt-link to="/stories" class="menu__link">Истории</nuxt-link>
       </li>
     </ul>
@@ -90,7 +90,7 @@ export default {
     flex-direction: column;
   }
 
-  .menu__links-list {
+  .menu__links-list-item {
     margin: 0 0 10px;
   }
 
@@ -99,7 +99,7 @@ export default {
   }
 }
 
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 320px) {
   .menu {
     flex-direction: column;
     align-items: flex-start;
