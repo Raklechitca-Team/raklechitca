@@ -74,20 +74,20 @@ export default {
 <style scoped>
 .header {
   background-color: #fff;
-  border-bottom: 1px solid #efefef;
+  border-bottom: 1px solid hsl(0, 0%, 94%);
 }
 
 .header__fade-enter-active,
 .header__fade-leave-active {
   opacity: 1;
+  margin: 0px;
   transition: all 0.5s ease-in-out;
-  transform: translateY(0);
 }
 
 .header__fade-enter,
 .header__fade-leave-to {
+  margin: -30px;
   opacity: 0;
-  transform: translateY(-60px);
 }
 
 .header__container {
@@ -115,7 +115,6 @@ export default {
 .header__logo:hover {
   opacity: 0.8;
   transition: opacity 0.3s ease-in-out;
-  transition-delay: 0s;
 }
 
 .header__links {
@@ -140,7 +139,6 @@ export default {
 .header__menu-button:hover {
   opacity: 0.8;
   transition: opacity 0.3s ease-in-out;
-  transition-delay: 0s;
 }
 
 .header__menu-button:focus {
@@ -184,8 +182,7 @@ export default {
 .header__button:hover {
   opacity: 0.8;
   border-bottom: 1px solid #000;
-  transition: opacity 0.3s ease-in-out, border-bottom 0.1s ease-in-out;
-  transition-delay: 0s;
+  transition: opacity 0.3s ease-in-out, border-bottom 0.5s ease-in-out;
 }
 
 .header__button:focus {
@@ -257,6 +254,11 @@ export default {
   .header /deep/ .main-button {
     max-width: 162px;
     font-size: 16px;
+  }
+
+  .header__fade-enter,
+  .header__fade-leave-to {
+    margin: -60px;
   }
 }
 
