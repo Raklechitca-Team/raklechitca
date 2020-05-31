@@ -3,11 +3,12 @@
     <app-card
       v-for="card in cards"
       :key="card.id"
-      :url="`https://strapi.kruzhok.io${card.ImageUrl[0].url}`"
+      :url="`${baseUrl}${card.ImageUrl[0].url}`"
       :name="card.author"
       :text="card.title"
       :card="card.id"
     />
+    <p></p>
   </div>
 </template>
 
@@ -20,6 +21,11 @@ export default {
   props: {
     cards: Array,
   },
+  computed: {
+    baseUrl() {
+      return process.env.baseUrl;
+    },
+  }
 };
 </script>
 
@@ -27,48 +33,34 @@ export default {
 .cardlist {
   display: grid;
   justify-content: center;
-  grid-template-columns: repeat(4, 330px);
-  grid-gap: 40px 10px;
+  grid-template-columns: repeat(4, 300px);
+  grid-gap: 70px 40px;
   margin: 70px auto 140px;
 }
 @media screen and (max-width: 1379px) {
   .cardlist {
-    margin: 30px auto 130px;
-    grid-gap: 30px 10px;
-    grid-template-columns: repeat(4, 295px);
+    margin: 60px auto 130px;
+    grid-gap: 60px 40px;
+    grid-template-columns: repeat(4, 265px);
   }
 }
 @media screen and (max-width: 1239px) {
   .cardlist {
-    margin: 30px auto 110px;
-    grid-gap: 30px 30px;
-    grid-template-columns: repeat(4, 238px);
-  }
-}
-@media screen and (max-width: 1100px) {
-  .cardlist {
     margin: 46px auto 110px;
-    grid-gap: 46px 10px;
-    grid-template-columns: repeat(4, 238px);
+    grid-gap: 46px 30px;
+    grid-template-columns: repeat(4, 208px);
   }
 }
 @media screen and (max-width: 1024px) {
   .cardlist {
     margin: 60px auto 130px;
     grid-gap: 40px 20px;
-    grid-template-columns: repeat(3, 238px);
-  }
-}
-@media screen and (max-width: 805px) {
-  .cardlist {
-    margin: 60px auto 130px;
-    grid-gap: 40px 10px;
-    grid-template-columns: repeat(3, 232px);
+    grid-template-columns: repeat(3, 216px);
   }
 }
 @media screen and (max-width: 768px) {
   .cardlist {
-    grid-template-columns: repeat(2, 238px);
+    grid-template-columns: repeat(2, 216px);
   }
 }
 @media screen and (max-width: 500px) {
