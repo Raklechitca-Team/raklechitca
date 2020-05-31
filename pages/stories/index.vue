@@ -73,7 +73,14 @@ export default {
       if (this.keySearch === '') {
         return stories;
       }
-      return stories.filter(item => item.author.indexOf(this.keySearch) > -1);
+      return stories.filter(
+        item =>
+          (item.author.toLowerCase().indexOf(this.keySearch.toLowerCase()) >
+            -1) |
+          (item.title.toLowerCase().indexOf(this.keySearch.toLowerCase()) >
+            -1) |
+          (item.text.toLowerCase().indexOf(this.keySearch.toLowerCase()) > -1)
+      );
     },
     storiesToRender() {
       console.log(this.startIndex);
