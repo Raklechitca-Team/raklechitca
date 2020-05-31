@@ -1,5 +1,8 @@
 <template>
-  <div class="container">
+  <div v-if="!filterStories">
+    <app-error />
+  </div>
+  <div v-else-if='filterStories' class="container">
     <app-container>
       <div class="story">
         <div class="story__banner story__banner_row">
@@ -71,6 +74,7 @@
 import Container from '@/components/Container';
 import Cardlist from '@/components/Cardlist/CardList';
 import MoreArticles from '@/components/ui/MoreArticles';
+import Error from '@/layouts/error.vue';
 export default {
   fetchOnServer: false,
   async fetch({ store }) {
@@ -86,6 +90,7 @@ export default {
     'app-container': Container,
     'app-cardlist': Cardlist,
     'app-more-articles': MoreArticles,
+    'app-error': Error,
   },
   computed: {
     baseUrl() {
