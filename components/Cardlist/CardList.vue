@@ -46,14 +46,14 @@ export default {
     grid-template-columns: repeat(4, 208px);
   }
 }
-@media screen and (max-width: 1023px) {
+@media screen and (max-width: 1024px) {
   .cardlist {
     margin: 60px auto 130px;
     grid-gap: 40px 20px;
     grid-template-columns: repeat(3, 216px);
   }
 }
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 768px) {
   .cardlist {
     grid-template-columns: repeat(2, 216px);
   }
