@@ -72,6 +72,14 @@ export default {
 </script>
 
 <style scoped>
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
 .header {
   background-color: #fff;
   border-bottom: 1px solid hsl(0, 0%, 94%);
@@ -146,6 +154,7 @@ export default {
 }
 
 .header__icon-open {
+  animation: rotation 0.3s linear reverse 1 forwards;
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
@@ -155,6 +164,7 @@ export default {
 }
 
 .header__icon-close {
+  animation: rotation 0.3s linear normal 1 forwards;
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
