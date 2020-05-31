@@ -61,6 +61,7 @@ export default {
   flex-direction: column;
   overflow: hidden;
 }
+
 .statistics__title {
   text-align: left;
   max-width: 415px;
@@ -83,6 +84,17 @@ export default {
     padding-right: 0;
     margin-right: 0;
   }
+  .statistics {
+    padding: 80px 0;
+  }
+  .statistics__title {
+    max-width: 380px;
+    margin: 0 auto;
+    font-size: 24px;
+    line-height: 28px;
+    text-align: center;
+    padding-bottom: 60px;
+  }
   .statistics__adapt {
     height: 220px;
     position: relative;
@@ -91,6 +103,17 @@ export default {
   }
   .statistics__blocks {
     position: absolute;
+  }
+}
+@media screen and (max-width: 425px) {
+  .statistics {
+    padding: 50px 0;
+  }
+  .statistics__title {
+    font-size: 18px;
+    line-height: 21px;
+    text-align: left;
+    padding-bottom: 30px;
   }
 }
 </style>
