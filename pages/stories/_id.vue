@@ -1,5 +1,8 @@
 <template>
-  <div class="container">
+  <div v-if="!filterStories">
+    <app-error />
+  </div>
+  <div v-else-if='filterStories' class="container">
     <app-container>
       <div class="story">
         <div class="story__banner story__banner_row">
@@ -71,6 +74,7 @@
 import Container from '@/components/Container';
 import Cardlist from '@/components/Cardlist/CardList';
 import MoreArticles from '@/components/ui/MoreArticles';
+import Error from '@/layouts/error.vue';
 export default {
   fetchOnServer: false,
   async fetch({ store }) {
@@ -86,6 +90,7 @@ export default {
     'app-container': Container,
     'app-cardlist': Cardlist,
     'app-more-articles': MoreArticles,
+    'app-error': Error,
   },
   computed: {
     baseUrl() {
@@ -266,6 +271,9 @@ export default {
 .story__share_social:hover {
   opacity: all 0.3s linear;
 }
+.four-cards, .three-cards, .two-cards {
+  margin: 0 auto;
+}
 .four-cards {
   margin: 0 auto;
 }
@@ -310,7 +318,7 @@ export default {
     margin: 60px auto 90px;
   }
 }
-@media screen and (max-width: 1023px) {
+@media screen and (max-width: 1024px) {
   .story__banner {
     padding: 100px 0 90px;
   }
@@ -349,7 +357,7 @@ export default {
     display: grid;
   }
 }
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 768px) {
   .story__banner {
     margin: 80px 0 100px;
     padding: 0;
@@ -450,6 +458,10 @@ export default {
     font-size: 13px;
     line-height: 16px;
     margin: 60px auto 100px;
+  }
+  .story__share, .story__date {
+    font-size: 13px;
+    line-height: 16px;
   }
   .more-articles {
     margin: 40px auto 50px;
