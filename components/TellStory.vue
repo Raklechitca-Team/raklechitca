@@ -7,16 +7,17 @@
         :titleColor="`#000`"
         :textColor="`#666`"
         :disabledColor="`#A2A2A2`"
-        :hoverColor="`#000000`"
       >
         <transition name="tell-story__fade" mode="out-in">
           <main-button
+            class="tell-story__button"
             v-if="this.current === 1"
             @buttonClick="showPopup"
             key="1"
             >Заполнить форму</main-button
           >
           <main-button
+            class="tell-story__button"
             v-if="this.current === 2"
             @buttonClick="showPopupContact"
             key="2"
@@ -69,6 +70,8 @@ export default {
   width: 100%;
   min-height: 522px;
   background-color: #f7f7f7;
+  display: flex;
+  align-items: center;
 }
 .tell-story__button {
   margin-left: 40px;
@@ -93,7 +96,6 @@ export default {
   }
   .tell-story__button {
     margin: 50px 0 0;
-    width: 380px;
   }
 }
 </style>

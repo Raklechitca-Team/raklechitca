@@ -2,73 +2,54 @@
   <div>
     <div class="pagination">
       <a
-        @click="currentPageChange(firstPage)"
+        @click="currentPageChange(1)"
         :class="[
-          'pagination__quick-navigation',
-          {
-            'pagination__quick-navigation_active': this.activePage,
-            'pagination__quick-navigation_disabled': !this.activePage,
-          },
+          'pagination__quick-navigation pagination__quick-navigation_first',
+          currentPage === 1
+            ? 'pagination__quick-navigation_disabled'
+            : 'pagination__quick-navigation_active',
         ]"
         >Первая</a
       >
-      <a @click="currentPageChange(previousPage)" class="arrow">&#9001;</a>
+      <a
+        @click="currentPageChange(previousPage)"
+        :class="[
+          'arrow arrow_left',
+          currentPage === 1 ? 'arrow_disabled' : null,
+        ]"
+        >&#9001;</a
+      >
       <div
-        v-for="page in setPages"
-        @click="$emit('pageClick', page)"
-        class="pagination__number"
+        v-for="page in displayPages"
+        @click="currentPageChange(page)"
+        :class="[
+          'pagination__number',
+          currentPage === page ? 'pagination__number_current' : null,
+        ]"
       >
         {{ page }}
       </div>
-      <a @click="currentPageChange(nextPage)" class="arrow">&#9002;</a>
       <a
-        @click="currentPageChange(lastPage)"
+        @click="currentPageChange(nextPage)"
         :class="[
-          'pagination__quick-navigation',
-          {
-            'pagination__quick-navigation_active': !this.activePage,
-            'pagination__quick-navigation_disabled': this.activePage,
-          },
+          'arrow arrow_right',
+          currentPage === setPages ? 'arrow_disabled' : null,
+        ]"
+        >&#9002;</a
+      >
+      <a
+        @click="currentPageChange(setPages)"
+        :class="[
+          'pagination__quick-navigation pagination__quick-navigation_last',
+          currentPage === setPages
+            ? 'pagination__quick-navigation_disabled'
+            : 'pagination__quick-navigation_active',
         ]"
         >Последняя</a
       >
     </div>
-    <div class="pagination pagination_hidden">
-      <div class="pagination__wrapper-top">
-        <a
-          @click="currentPageChange(previousPage)"
-          class="pagination__quick-navigation arrow"
-          >&#9001;</a
-        >
-        <div
-          v-for="page in setPages"
-          @click="$emit('pageClick', page)"
-          class="pagination__number"
-        >
-          {{ page }}
-        </div>
-        <a
-          @click="currentPageChange(nextPage)"
-          class="pagination__quick-navigation arrow"
-          >&#9002;</a
-        >
-      </div>
-      <div class="pagination__wrapper-bottom">
-        <a
-          @click="currentPageChange(firstPage)"
-          class="pagination__quick-navigation pagination__quick-navigation_first"
-          >Первая</a
-        >
-        <a
-          @click="currentPageChange(lastPage)"
-          class="pagination__quick-navigation"
-          >Последняя</a
-        >
-      </div>
-    </div>
   </div>
 </template>
-
 <script>
 export default {
   data() {
@@ -77,68 +58,103 @@ export default {
     };
   },
   props: {
-    storiesInTotal: Number,
-    storiesPerPage: Number,
+    storiesInTotal: {
+      type: Number,
+      default: 0,
+    },
+    storiesPerPage: {
+      type: Number,
+      default: 0,
+    },
+    pageRange: {
+      type: Number,
+      default: 5,
+    },
   },
   computed: {
     setPages() {
-      const pagesMax = Math.ceil(this.storiesInTotal / this.storiesPerPage);
-      if (pagesMax > 5) {
-        let arrayFromPagesMax = [];
-        for (let i = 1; i !== 4; i++) {
-          arrayFromPagesMax[i - 1] = i;
-        }
-        return arrayFromPagesMax;
-      } else {
-        return pagesMax;
+      return Math.ceil(this.storiesInTotal / this.storiesPerPage);
+    },
+    rangeStart() {
+      let start = this.currentPage;
+      if (this.pageRange == 5 && this.currentPage < 4) {
+        return 1;
+      }
+      if (this.pageRange == 3 && this.currentPage <= 2) {
+        return 1;
+      }
+      if (this.pageRange == 5 && this.currentPage === this.setPages) {
+        return start - 4;
+      }
+      if (this.pageRange == 5 && this.currentPage === this.setPages - 1) {
+        return start - 3;
+      }
+      if (
+        this.pageRange == 5 &&
+        this.currentPage >= 4 &&
+        this.currentPage !== this.setPages
+      ) {
+        return start - 2;
+      }
+      if (
+        this.pageRange == 3 &&
+        this.currentPage >= 3 &&
+        this.currentPage !== this.setPages
+      ) {
+        return start - 1;
+      }
+      if (
+        this.pageRange == 5 &&
+        this.currentPage >= 4 &&
+        this.currentPage == this.setPages
+      ) {
+        return start - 4;
+      }
+      if (this.pageRange == 3 && this.currentPage == this.setPages) {
+        return start - 2;
       }
     },
-    firstPage() {
-      const first = 1;
-      return first;
+    rangeEnd() {
+      const end = this.currentPage + this.pageRange;
+      return end < this.setPages ? end : this.setPages;
+    },
+    displayPages() {
+      const pages = [];
+      for (let i = this.rangeStart; i <= this.rangeEnd; i++) {
+        pages.push(i);
+      }
+      return pages.slice(0, this.pageRange);
     },
     previousPage() {
       if (this.currentPage > 1) {
-        const previous = this.currentPage - 1;
-        return previous;
+        return this.currentPage - 1;
       } else {
-        return this.firstPage;
+        return 1;
       }
     },
     nextPage() {
       if (this.currentPage !== this.setPages) {
-        const next = this.currentPage + 1;
-        return next;
+        return this.currentPage + 1;
       } else {
-        return this.lastPage;
-      }
-    },
-    lastPage() {
-      return (this.currentPage = this.setPages);
-    },
-    activePage() {
-      if (this.currentPage === 1) {
-        return false;
-      } else {
-        return true;
+        return this.setPages;
       }
     },
   },
   methods: {
-    currentPageChange(somePage) {
-      this.currentPage = somePage;
-      this.$emit('pageClick', somePage);
+    currentPageChange(page) {
+      this.currentPage = page;
+      this.$emit('pageClick', page);
     },
   },
 };
 </script>
-
 <style scoped>
 .pagination {
   display: flex;
   justify-content: center;
   margin-bottom: 100px;
 }
+
 .pagination__number {
   width: 50px;
   height: 50px;
@@ -152,12 +168,16 @@ export default {
   align-items: center;
   cursor: pointer;
 }
-.pagination__number:last-child {
+
+.pagination__number:last-of-type {
   margin-right: 0;
 }
-.pagination__number:hover {
+
+.pagination__number:hover,
+.pagination__number_current {
   background-color: #f4f4f4;
 }
+
 .pagination__quick-navigation {
   height: 50px;
   display: flex;
@@ -168,12 +188,12 @@ export default {
   cursor: pointer;
   transition: all 0.3s linear;
 }
+
 .pagination__quick-navigation_disabled {
   color: #a2a2a2;
+  cursor: default;
 }
-.pagination__quick-navigation_active {
-  color: #000;
-}
+
 .arrow {
   height: 50px;
   font-size: 18px;
@@ -182,29 +202,55 @@ export default {
   align-items: center;
   color: #000;
   cursor: pointer;
-  margin: 0 30px;
 }
+
+.arrow_left {
+  margin: 0 30px 0 30px;
+}
+
+.arrow_right {
+  margin: 0 30px 0 30px;
+}
+
+.arrow_disabled {
+  cursor: default;
+  color: #a2a2a2;
+}
+
 .pagination_hidden {
   display: none;
 }
-@media screen and (max-width: 500px) {
+
+@media screen and (max-width: 600px) {
   .pagination {
-    display: none;
-  }
-  .pagination_hidden {
+    margin: 0 auto 55px;
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
+    flex-direction: row;
     align-items: center;
   }
-  .pagination__wrapper-top {
-    display: flex;
-    margin-bottom: 34px;
+
+  .pagination__quick-navigation {
+    font-size: 15px;
+    line-height: 18px;
   }
-  .pagination__wrapper-bottom {
-    display: flex;
-  }
+
   .pagination__quick-navigation_first {
-    margin-right: 109px;
+    margin: 34px 109px 0 0;
+    order: 4;
+  }
+
+  .pagination__quick-navigation_last {
+    margin-top: 34px;
+    order: 5;
+  }
+
+  .arrow_left {
+    margin: 0 30px 0 0;
+  }
+
+  .arrow_right {
+    margin: 0 0 0 30px;
   }
 }
 </style>

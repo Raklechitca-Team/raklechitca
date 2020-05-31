@@ -1,8 +1,10 @@
 <template>
   <section class="history">
     <div class="history__search">
-      <input type="text" class="history__search-input" />
-      <app-main-button class="history__search-button"
+      <input v-model="inputValue" type="text" class="history__search-input" />
+      <app-main-button
+        @buttonClick="$emit('buttonClick', inputValue)"
+        class="history__search-button"
         >Поиск<app-history-loupe class="history__loupe"
       /></app-main-button>
     </div>
@@ -17,6 +19,11 @@ export default {
   components: {
     'app-main-button': MainButton,
     'app-history-loupe': HistoryLoupeVue,
+  },
+  data() {
+    return {
+      inputValue: '',
+    };
   },
 };
 </script>
