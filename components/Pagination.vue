@@ -4,7 +4,7 @@
       <a
         @click="currentPageChange(1)"
         :class="[
-          'pagination__quick-navigation',
+          'pagination__quick-navigation pagination__quick-navigation_first',
           currentPage === 1
             ? 'pagination__quick-navigation_disabled'
             : 'pagination__quick-navigation_active',
@@ -13,7 +13,7 @@
       >
       <a
         @click="currentPageChange(previousPage)"
-        :class="['arrow', currentPage === 1 ? 'arrow_disabled' : null]"
+        :class="['arrow arrow_left', currentPage === 1 ? 'arrow_disabled' : null]"
         >&#9001;</a
       >
       <div
@@ -28,13 +28,13 @@
       </div>
       <a
         @click="currentPageChange(nextPage)"
-        :class="['arrow', currentPage === setPages ? 'arrow_disabled' : null]"
+        :class="['arrow arrow_right', currentPage === setPages ? 'arrow_disabled' : null]"
         >&#9002;</a
       >
       <a
         @click="currentPageChange(setPages)"
         :class="[
-          'pagination__quick-navigation',
+          'pagination__quick-navigation pagination__quick-navigation_last',
           currentPage === setPages
             ? 'pagination__quick-navigation_disabled'
             : 'pagination__quick-navigation_active',
@@ -42,62 +42,6 @@
         >Последняя</a
       >
     </div>
-    <!--    <div class="pagination pagination_hidden">-->
-    <!--      <div class="pagination__wrapper-top">-->
-    <!--        <a-->
-    <!--          @click="currentPageChange(previousPage)"-->
-    <!--          :class="[-->
-    <!--          'pagination__quick-navigation arrow',-->
-    <!--          {-->
-    <!--            'arrow_disabled' :this.activeFirstPage,-->
-    <!--            'arrow_disabled' :!this.activeFirstPage,-->
-    <!--          }]"-->
-    <!--          >&#9001;</a-->
-    <!--        >-->
-    <!--        <div-->
-    <!--          v-for="page in this.displayPages.slice(0, 3)"-->
-    <!--          @click="currentPageChange(page)"-->
-    <!--          :class="[-->
-    <!--          'pagination__number',-->
-    <!--          { pagination__number_current : currentPage == page }-->
-    <!--          ]"-->
-    <!--        >-->
-    <!--          {{ page }}-->
-    <!--        </div>-->
-    <!--        <a-->
-    <!--          @click="currentPageChange(nextPage)"-->
-    <!--          :class="[-->
-    <!--          'pagination__quick-navigation arrow',-->
-    <!--          {-->
-    <!--            'arrow_disabled' :!this.activeLastPage,-->
-    <!--            'arrow_disabled' :this.activeLastPage,-->
-    <!--          }]"-->
-    <!--          class="pagination__quick-navigation arrow"-->
-    <!--          >&#9002;</a>-->
-    <!--      </div>-->
-    <!--      <div class="pagination__wrapper-bottom">-->
-    <!--        <a-->
-    <!--          @click="currentPageChange(1)"-->
-    <!--          :class="[-->
-    <!--          'pagination__quick-navigation pagination__quick-navigation_first',-->
-    <!--          {-->
-    <!--            'pagination__quick-navigation_active' :this.activeFirstPage,-->
-    <!--            'pagination__quick-navigation_disabled' :!this.activeFirstPage,-->
-    <!--          }]"-->
-    <!--          >Первая</a-->
-    <!--        >-->
-    <!--        <a-->
-    <!--          @click="currentPageChange(lastPage)"-->
-    <!--          :class="[-->
-    <!--          'pagination__quick-navigation',-->
-    <!--          {-->
-    <!--            'pagination__quick-navigation_active' :!this.activeLastPage,-->
-    <!--            'pagination__quick-navigation_disabled' :this.activeLastPage,-->
-    <!--          }]"-->
-    <!--          >Последняя</a-->
-    <!--        >-->
-    <!--      </div>-->
-    <!--    </div>-->
   </div>
 </template>
 <script>
@@ -126,23 +70,28 @@ export default {
       return Math.ceil(this.storiesInTotal / this.storiesPerPage);
     },
     rangeStart() {
-      let start = this.currentPage;
-      if (start > 1 && this.setPages === 9) {
-        return start - 1;
-      }
-      if (this.currentPage === 9 && this.setPages === 9) {
-        return start - 2;
-      }
-      if (this.currentPage < 4) {
+      let start = this.currentPage;   
+      if (this.pageRange == 5 && this.currentPage < 4) {
         return 1;
       }
-      if (this.currentPage === this.setPages) {
+      if (this.pageRange == 3 && this.currentPage <= 2) {
+        return 1;
+      }
+      if (this.pageRange == 5 && this.currentPage === this.setPages) {
         return start - 4;
       }
-      if (this.currentPage === this.setPages - 1) {
+      if (this.pageRange == 5 && this.currentPage === this.setPages - 1) {
         return start - 3;
       }
-      if (this.currentPage >= 4 && this.currentPage !== this.setPages) {
+      if (this.pageRange == 5 && this.currentPage >= 4 && this.currentPage !== this.setPages) {
+        return start - 2;
+      }
+      if (this.pageRange == 3 && this.currentPage >= 3 && this.currentPage !== this.setPages) {
+        return start - 1;
+      }
+      if (this.pageRange == 5 && this.currentPage >= 4 && this.currentPage == this.setPages) {
+        return start - 4;
+      } if (this.pageRange == 3 && this.currentPage == this.setPages) {
         return start - 2;
       }
     },
@@ -174,7 +123,7 @@ export default {
   },
   methods: {
     currentPageChange(page) {
-      this.currentPage = page; // ??
+      this.currentPage = page;
       this.$emit('pageClick', page);
     },
   },
@@ -234,7 +183,14 @@ export default {
   align-items: center;
   color: #000;
   cursor: pointer;
-  margin: 0 30px;
+}
+
+.arrow_left {
+  margin: 0 30px 0 30px;
+}
+
+.arrow_right {
+  margin: 0 30px 0 30px;
 }
 
 .arrow_disabled {
@@ -247,27 +203,35 @@ export default {
 }
 
 @media screen and (max-width: 600px) {
-  /*.pagination {*/
-  /*  display: none;*/
-  /*}*/
-
-  .pagination_hidden {
+  .pagination {
+    margin: 0 auto 55px;
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
+    flex-direction: row;
     align-items: center;
   }
 
-  .pagination__wrapper-top {
-    display: flex;
-    margin-bottom: 34px;
-  }
-
-  .pagination__wrapper-bottom {
-    display: flex;
+  .pagination__quick-navigation {
+    font-size: 15px;
+    line-height: 18px;
   }
 
   .pagination__quick-navigation_first {
-    margin-right: 109px;
+    margin: 34px 109px 0 0;
+    order: 4;
+  }
+
+  .pagination__quick-navigation_last {
+    margin-top: 34px;
+    order: 5;
+  }
+
+  .arrow_left {
+  margin: 0 30px 0 0;
+  }
+
+  .arrow_right {
+    margin: 0 0 0 30px;
   }
 }
 </style>
