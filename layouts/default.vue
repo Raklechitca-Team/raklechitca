@@ -1,5 +1,5 @@
 <template>
-  <div v-if='!this.loading' class="container">
+  <div class="container">
     <app-header :headerTextData="headerData()" />
 
     <app-base-popup
@@ -87,17 +87,6 @@ export default {
       const dataFooter = this.blocks.find(el => el.block === `footer`);
       return dataFooter;
     },
-  },
-  data() {
-    return {
-      loading: true,
-    };
-  },
-  async created() {
-    await this.$store.dispatch('stories/fetchStories');
-    console.log('loading...');
-    this.loading = false;
-    console.log('finished loading');
   },
 };
 </script>
