@@ -86,7 +86,7 @@ export default {
 
 .header__fade-enter,
 .header__fade-leave-to {
-  margin: -60px;
+  margin: -30px;
   opacity: 0;
 }
 
@@ -254,6 +254,11 @@ export default {
   .header /deep/ .main-button {
     max-width: 162px;
     font-size: 16px;
+  }
+
+  .header__fade-enter,
+  .header__fade-leave-to {
+    margin: -60px;
   }
 }
 
