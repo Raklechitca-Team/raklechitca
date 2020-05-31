@@ -103,11 +103,11 @@ export default {
 .cover-base {
   width: 100%;
   font-family: 'Inter', 'Arial', sans-serif;
-  padding: 60px 0 90px;
+  overflow: hidden;
 }
 .cover-base__title {
   max-width: 367px;
-  padding-bottom: 30px;
+  margin-bottom: 30px;
   text-align: left;
   font-family: 'Inter', 'Arial', sans-serif;
   font-style: normal;
@@ -213,10 +213,6 @@ export default {
   }
 }
 @media screen and (max-width: 1000px) {
-  .cover-base {
-    padding: 80px 0px 0px;
-    min-height: 665px;
-  }
   .cover-base__title {
     font-size: 24px;
     line-height: 28px;
@@ -233,7 +229,7 @@ export default {
     flex-direction: column;
   }
   .cover-base__options {
-    max-width: 380px;
+    min-width: 380px;
     margin: 0 auto 30px;
     display: flex;
     justify-content: flex-start;
@@ -246,6 +242,8 @@ export default {
   .cover-base__option {
     margin-right: 30px;
     border-bottom: 2px solid transparent;
+    font-size: 15px;
+    line-height: 19px;
   }
   .cover-base__bottom-line {
     display: flex;
@@ -269,19 +267,20 @@ export default {
     margin: 50px 0 0;
   }
   @media screen and (max-width: 480px) {
-    .cover-base {
-      padding: 50px 0 0;
-    }
     .cover-base__title {
       max-width: 290px;
       font-size: 18px;
       line-height: 21px;
       text-align: left;
-      margin: 0 0 26px;
+      margin: 0 0 15px;
     }
     .cover-base__subtitle {
       margin: 0 auto 40px;
       text-align: left;
+    }
+    .cover-base__option {
+      font-size: 13px;
+      line-height: 19px;
     }
     .cover-base__option-description {
       font-size: 13px;
