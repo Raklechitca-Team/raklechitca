@@ -48,12 +48,6 @@ export default {
   /*
    ** Build configuration
    */
-  build: {
-    /*
-     ** You can extend webpack config here
-     */
-    extend(config, ctx) {},
-  },
   env: {
     baseUrl: process.env.BASE_URL || 'https://strapi.kruzhok.io',
   },
@@ -68,6 +62,6 @@ export default {
     },
   },
   router: {
-    middleware: 'basicData',
+    middleware: 'requests',
   },
 };
