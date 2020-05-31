@@ -1,19 +1,29 @@
 <template>
   <form class="quiz">
-    <h3 v-if="this.$store.state.quiz.currentQuestion <= 12" class="quiz__title">
-      {{ currentQuestion.title }}
-    </h3>
-    <h3
-      v-if="this.$store.state.quiz.currentQuestion === 13"
-      class="quiz__title quiz__title_last"
-    >
-      {{ currentQuestion.title }}
-    </h3>
-    <p class="quiz__question">
-      <span class="quiz__question-main">{{ currentQuestion.question }}</span>
+    <transition name="quiz__fade" mode="out-in">
+      <h3
+        v-if="this.$store.state.quiz.currentQuestion <= 12"
+        class="quiz__title"
+        key="1"
+      >
+        {{ currentQuestion.title }}
+      </h3>
+      <h3
+        v-if="this.$store.state.quiz.currentQuestion === 13"
+        class="quiz__title quiz__title_last"
+        key="1"
+      >
+        {{ currentQuestion.title }}
+      </h3>
+    </transition>
+    <p class="quiz__question" key="3">
+      <span class="quiz__question-main" key="4">{{
+        currentQuestion.question
+      }}</span>
       <span
         v-if="currentQuestion.questionAdditional"
         class="quiz__question-additional"
+        key="5"
         >{{ currentQuestion.questionAdditional }}</span
       >
     </p>
@@ -124,6 +134,16 @@ export default {
   flex-direction: column;
 }
 
+.quiz__fade-enter-active,
+.quiz__fade-leave-active {
+  transition: all 0.5s ease-in-out;
+}
+
+.quiz__fade-enter,
+.quiz__fade-leave-to {
+  opacity: 0;
+}
+
 .quiz__title {
   font-family: 'Inter', 'Arial', sans-serif;
   font-style: normal;
@@ -194,11 +214,11 @@ export default {
   color: #c0c0c0;
   padding: 16px 30px;
   background: transparent;
+  transition: color 0.3s ease-in-out;
 }
 
 .quiz__button-back:hover {
   color: #000;
-  transition: color 0.3s ease-in-out;
 }
 
 .quiz__button-next {
@@ -240,11 +260,11 @@ export default {
   text-decoration: none;
   border-bottom: 1px solid #666;
   color: #666;
+  transition: opacity 0.3s ease-in-out;
 }
 
 .quiz__link:hover {
   opacity: 0.8;
-  transition: opacity 0.3s ease-in-out;
 }
 
 @media screen and (max-width: 1280px) {

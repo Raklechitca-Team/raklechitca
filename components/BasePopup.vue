@@ -30,10 +30,13 @@ export default {
 </script>
 
 <style scoped>
-.modal-window__fade-enter-active,
-.modal-window__fade-leave-active {
+.modal-window__fade-enter-active {
   opacity: 1;
-  transition: all 0.3s linear;
+  transition: all 0.5s ease-in-out;
+}
+
+.modal-window__fade-leave-active {
+  transition: all 0.5s ease-in-out;
 }
 
 .modal-window__fade-enter,
@@ -50,6 +53,7 @@ export default {
   padding: 40px;
   background-color: #fff;
   z-index: 2;
+  transition: opacity 0.4s ease;
 }
 .modal-window__close {
   position: absolute;

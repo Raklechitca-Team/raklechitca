@@ -17,7 +17,7 @@
   display: block;
   text-align: center;
   background-color: #fbfbfb;
-  transition: all 0.3s linear;
+  transition: all 0.3s ease-in-out;
 }
 .more-articles:hover {
   background-color: #f8f8f8;

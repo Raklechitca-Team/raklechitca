@@ -31,7 +31,7 @@ export default {
 
 .main-button:hover {
   opacity: 0.9;
-  transition: 0.3s linear;
+  transition: 0.3s ease-in-out;
 }
 
 .main-button:focus {
