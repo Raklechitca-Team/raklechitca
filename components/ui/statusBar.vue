@@ -22,12 +22,23 @@ export default {
 <style scoped>
 .statistics__bar {
   background-color: #e4e1e1;
-  max-width: 100%;
+  width: 100%;
 }
 .statistics__bar-value {
   background: #613a93;
 }
 .full-staus-bar {
   height: 40px;
+}
+
+@media screen and (max-width: 1290px) {
+  .full-staus-bar {
+    height: 35px;
+  }
+}
+@media screen and (max-width: 1030px) {
+  .full-staus-bar {
+    height: 28px;
+  }
 }
 </style>

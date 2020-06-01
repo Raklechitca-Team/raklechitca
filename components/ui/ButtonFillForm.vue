@@ -1,10 +1,10 @@
 <template>
-  <button class="button__fill-form">Заполнить форму</button>
+  <button class="button__fill-form"><slot>Заполнить форму</slot></button>
 </template>
 
 <script>
 export default {
-  name: 'bt_fill-form',
+  name: 'ButtonFillForm',
 };
 </script>
 

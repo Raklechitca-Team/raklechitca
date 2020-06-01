@@ -14,23 +14,20 @@ export default {
         content: process.env.npm_package_description || '',
       },
     ],
-    link: [
-      { rel: 'icon', type: 'image/png', href: '/icon.png' },
-      { rel: 'stylesheet', href: 'assets/fonts/inter/inter.css' },
-    ],
+    link: [{ rel: 'icon', type: 'image/png', href: '/icon.png' }],
   },
   /*
    ** Customize the progress-bar color
    */
-  loading: { color: '#fff' },
+  loading: '@/components/loading.vue',
   /*
    ** Global CSS
    */
-  css: [],
+  css: ['~/assets/fonts/inter/inter.css'],
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: [],
+  plugins: [{ src: 'plugins/swiper.js' }],
   /*
    ** Nuxt.js dev-modules
    */
@@ -51,10 +48,20 @@ export default {
   /*
    ** Build configuration
    */
+  env: {
+    baseUrl: process.env.BASE_URL || 'https://strapi.kruzhok.io',
+  },
   build: {
+    // Add exception
+    transpile: ['vee-validate/dist/rules'],
     /*
      ** You can extend webpack config here
      */
-    extend(config, ctx) {},
+    extend(config, ctx) {
+      // ...
+    },
+  },
+  router: {
+    middleware: 'requests',
   },
 };

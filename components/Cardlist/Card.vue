@@ -17,7 +17,7 @@ export default {
     url: String,
     name: String,
     text: String,
-    card: Object,
+    card: Number,
   },
   methods: {
     openStory(card) {
@@ -29,7 +29,8 @@ export default {
 
 <style scoped>
 .card {
-  max-width: 300px;
+  max-width: 330px;
+  padding: 15px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -39,6 +40,11 @@ export default {
   text-decoration: none;
   color: #000;
   font-family: 'Inter', 'Arial', sans-serif;
+  transition: all 0.3s ease-in-out;
+}
+.card:hover {
+  box-shadow: 0 0 10px 5px rgba(221, 221, 221, 1);
+  transform: scale(1.02, 1.02);
 }
 .card__image-wrapper {
   width: 100%;
@@ -62,28 +68,66 @@ export default {
 .card__subtitle {
   font-weight: normal;
   font-size: 14px;
+  line-height: 18px;
+  /* height: 36px; */
+  overflow: hidden;
 }
 @media screen and (max-width: 1379px) {
   .card__image-wrapper {
     height: 265px;
+  }
+  .card__title {
+    font-size: 22px;
+    line-height: 22px;
+  }
+  .card {
+    width: 295px;
   }
 }
 @media screen and (max-width: 1239px) {
   .card__image-wrapper {
     height: 208px;
   }
+  .card__title {
+    font-size: 18px;
+    line-height: 22px;
+  }
+  .card__subtitle {
+    font-size: 13px;
+    line-height: 16px;
+    /* height: 32px; */
+  }
+  .card {
+    width: 238px;
+  }
+}
+@media screen and (max-width: 805px) {
+  .card {
+    width: 232px;
+  }
+  .card__image-wrapper {
+    height: 202px;
+  }
 }
 @media screen and (max-width: 767px) {
+  .card {
+    width: 238px;
+  }
   .card__image-wrapper {
-    height: 216px;
+    height: 208px;
   }
 }
 @media screen and (max-width: 500px) {
   .card {
     margin-bottom: 30px;
+    width: 290px;
+    padding: 0;
   }
   .card__image-wrapper {
-    height: 300px;
+    height: 290px;
+  }
+  .card:hover {
+    box-shadow: none;
   }
 }
 </style>

@@ -1,45 +1,17 @@
 <template>
   <div class="cover">
-    <container>
-      <h2 class="cover__title">
-        #РАКЛЕЧИТСЯ
-      </h2>
-      <section-title class="cover__subtitle">О проекте</section-title>
-      <div class="cover__info">
-        <p class="cover__quote">
-          Этот проект был создан благотворительным фондом Константина
-          Хабенского.
-        </p>
-        <div class="cover__text">
-          <div class="cover__author">
-            <p class="cover__projcet">Рак Лечится</p>
-            <p class="cover__name-project">Фонд Хабенского</p>
-          </div>
-          <p class="cover__excerpt">
-            Есть вещи, которые не лечатся. Особенности характера, страстные
-            увлечения, привычки, ставшие частью нашего «я», фобии, которые мы
-            приобрели в детстве. Список можно продолжать до бесконечности, но
-            одна болезнь в него точно не войдет. Эта болезнь — рак. Рак лечится,
-            и лучшее доказательство — люди с их неизлечимыми особенностями,
-            которые сумели победить рак. Рак лечится — проект Благотворительного
-            Фонда Константина Хабенского и Leo Burnett Moscow. С его помощью мы
-            надеемся изменить отношение людей к раку и заставить каждого
-            поверить: онкологическое заболевание — это не приговор.
-          </p>
-        </div>
-      </div>
-    </container>
+    <h1 class="cover__title">{{ dataTitleBlock.hashtag }}</h1>
+    <a class="cover__svg-link">
+      <slot></slot>
+    </a>
   </div>
 </template>
 
 <script>
-import Container from '@/components/Container';
-import SectionTitle from '@/components/ui/SectionTitle';
 export default {
   name: 'Cover',
-  components: {
-    container: Container,
-    'section-title': SectionTitle,
+  props: {
+    dataTitleBlock: Object,
   },
 };
 </script>
@@ -47,102 +19,39 @@ export default {
 <style scoped>
 .cover {
   width: 100%;
-  background-color: #613a93;
-}
-
-/* .cover__container {
+  min-height: calc(100vh - 77px);
+  background: #613a93;
   display: flex;
-  flex-wrap: wrap;
-  max-width: 1440px;
-  margin: 0 auto;
-} удалила этот контейнер и заменила его компонентом Container
-не стала добавлять ему этот класс, думаю, нужно доработать здесь верстку в любом случае*/
-
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
 .cover__title {
-  text-transform: uppercase;
+  display: flex;
+  color: #fff;
+  font-family: 'Inter', 'Arial', sans-serif;
   font-style: normal;
   font-weight: 800;
-  font-size: 64px;
-  line-height: 77px;
-  padding-top: 90px;
-  margin: auto 0;
-  text-align: center;
-  width: 100%;
-  color: #fff;
-  font-family: 'Inter', 'Arial', sans-serif;
+  font-size: 92px;
+  line-height: 111px;
+  position: relative;
 }
-
-.cover__subtitle {
-  /* width: 92%; тоже не переделываю */
-  padding-top: 50px;
+.cover__svg-link {
+  position: absolute;
   margin: 0 auto;
-  text-align: left;
-  font-family: 'Inter', 'Arial', sans-serif;
-  font-style: normal;
-  font-weight: 600;
-  font-size: 32px;
-  line-height: 36px;
-  color: #fff;
+  bottom: 30px;
 }
-
-.cover__info {
-  padding-top: 30px;
-  padding-bottom: 100px;
-  /* width: 92%; тоже не переделываю */
-  margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
+.cover__svg-link:hover {
+  cursor: pointer;
 }
-
-.cover__quote {
-  max-width: 340px;
-  text-align: left;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 18px;
-  line-height: 22px;
-  color: #dedede;
-  font-family: 'Inter', Arial, sans-serif;
+@media screen and (max-width: 1280px) {
+  .cover__title {
+    font-size: calc((100vw - 320px) / (1184 - 320) * (78 - 36) + 36px);
+  }
 }
-
-.cover__text {
-  display: flex;
-}
-
-.cover__author {
-  display: flex;
-  flex-direction: column;
-  text-align: right;
-  padding-right: 40px;
-}
-
-.cover__projcet {
-  color: #fff;
-  font-family: 'Inter', Arial, sans-serif;
-  font-style: normal;
-  font-weight: 500;
-  font-size: 18px;
-  line-height: 22px;
-}
-
-.cover__name-project {
-  font-family: 'Inter', Arial, sans-serif;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 18px;
-  line-height: 22px;
-  text-align: right;
-  color: #c9c9c9;
-}
-
-.cover__excerpt {
-  text-align: left;
-  max-width: 640px;
-  color: #dedede;
-  font-family: 'Inter', Arial, sans-serif;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 18px;
-  line-height: 22px;
+@media screen and (max-width: 980px) {
+  .cover {
+    min-height: calc(100vh - 49px);
+  }
 }
 </style>
