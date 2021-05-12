@@ -14,7 +14,7 @@
     "@nuxtjs/axios": "^5.10.3",
     "@nuxtjs/pwa": "^3.0.0-0",
     "nuxt": "^2.0.0",
-    "swiper": "^5.4.0",
+    "swiper": "^6.5.1",
     "vee-validate": "^3.3.0",
     "vue-awesome-swiper": "^4.1.1"
   },
