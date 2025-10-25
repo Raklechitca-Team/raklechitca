@@ -1,4 +1,4 @@
-#RAKLECHITCA
+#CANCERWILLHEAL
 
 [Project by the Konstantin Khabensky Charity Foundation and Leo Burnett Moscow.](https://raklechitsa.ru/)
 
