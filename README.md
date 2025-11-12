@@ -1,55 +1,61 @@
-# #РАКЛЕЧИТСЯ
+#CANCERWILLHEAL
 
-[Проект Благотворительного Фонда Константина Хабенского и Leo Burnett Moscow.](https://raklechitsa.ru/)
+[Project by the Konstantin Khabensky Charity Foundation and Leo Burnett Moscow.](https://raklechitsa.ru/)
 
-![#РАКЛЕЧИТСЯ](https://sun9-58.userapi.com/c855232/v855232835/22a676/sYPS_oNEbhM.jpg)
-____
+![#RAKLECHITCA](https://sun9-58.userapi.com/c855232/v855232835/22a676/sYPS_oNEbhM.jpg)
 
-## Цель Фонда
+---
 
-Благотворительный Фонд Константина Хабенского с 2008 года помогает детям с онкологическими и другими тяжелыми заболеваниями головного мозга.
-____
+## Foundation’s Mission
 
-## Авторы проекта
+Since 2008, the Konstantin Khabensky Charity Foundation has been helping children with oncological and other severe brain diseases.
 
-- Егор Шкиря
-- Полина Задорожная
-- Варя Лиханина
-- Мария Котлярова
-- Батыров Малик
-____
-## В чем заключается наша задача
+---
 
-Переписать сайт собранный в конструкторе, для реализации более сложной механики.
-____
-## Что используется для разработки
+## Project Authors
 
-- [NodeJS](https://nodejs.org/en/download/) - это серверная платформа для работы с JavaScript через движок V8, используется version 12.
-- [NuxtJS](https://nuxtjs.org/) - фреймворк для универсальных приложений на Vue.js.
-- axios — чтобы в будущем получать данные по API.
-- prettier  — чтобы автоматически форматировать наш код.
-- [husky](https://www.npmjs.com/package/husky) - позволяет задействовать хуки Git.
-____
-## Настройка сборки
+- Egor Shkiria
+- Polina Zadorozhnaya  
+- Varya Likhanina  
+- Maria Kotlyarova  
+- Batyr Malik
+
+---
+
+## Our Task
+
+To rebuild the website originally made with a site builder in order to implement more complex functionality.
+
+---
+
+## Technologies Used
+
+- [NodeJS](https://nodejs.org/en/download/) — a server-side JavaScript runtime built on the V8 engine (version 12 used).  
+- [NuxtJS](https://nuxtjs.org/) — a framework for creating universal Vue.js applications.  
+- axios — for future API data fetching.  
+- prettier — for automatic code formatting.  
+- [husky](https://www.npmjs.com/package/husky) — to enable Git hooks.
+
+---
+
+## Project Setup
 
 ```bash
-# Делаем клон репозитория
+# Clone the repository
 $ git clone https://github.com/Raklechitca-Team/raklechitca.git
 
-# установка зависимостей
+# Install dependencies
 $ npm install
 
-# локальный сервер для предпросмотра
+# Run a local development server
 $ npm run dev
 
-# сборка для производства и запуска сервера
+# Build for production and start the server
 $ npm run build 
 $ npm run start
 
-# генерация веб-приложения
+# Generate a static web application
 $ npm run generate
-```
-____
 
-
-
+# Generate a static web application
+$ npm run generate
